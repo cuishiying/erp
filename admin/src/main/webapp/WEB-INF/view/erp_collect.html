@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>材料管理</title>
+  <link rel="stylesheet" th:href="@{/static/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/static/css/layout.css}">
+  <link rel="stylesheet" th:href="@{/static/css/jquery.datetimepicker.css}">
+
+
+</head>
+
+<body>
+<div id="wrapper">
+  <nav th:replace="common/fragment_erp :: sidebar"></nav>
+  <div class="main">
+    <div class="main-content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="panel">
+              <div class="panel-heading">
+                <h3 class="panel-title">收发存汇总</h3>
+              </div>
+              <div class="controller">
+                <button class="btn btn-primary importGoods">导入</button>
+                <form id="uploadForm" enctype="multipart/form-data" method="post" style="display: none">
+                  <input id="upfile" type="file" name="upfile" >
+                </form>
+                <a class="btn btn-primary export" th:href="@{/erp/collect/export}">导出</a>
+                <form th:action="@{/erp/collect}" method="get" style="display: inline">
+                  <input type="text" name="keyword" th:value="${keyword}"/>
+                  <button class="btn btn-primary query" type="submit">查询</button>
+                </form>
+              </div>
+
+              <div class="panel-body">
+                <table class="table table-striped">
+                  <thead>
+                  <tr>
+                    <th>仓库名称</th>
+                    <th>存货编码</th>
+                    <th>存货代码</th>
+                    <th>存货名称</th>
+                    <th>规格型号</th>
+                    <th>主计量单位名称</th>
+                    <th>存货大类编码</th>
+                    <th>存货分类名称</th>
+                    <th>期初结存数量</th>
+                    <th>期初结存金额</th>
+                    <th>总计入库数量</th>
+                    <th>总计入库金额</th>
+                    <th>总计出库数量</th>
+                    <th>总计出库金额</th>
+                    <th>期末结存数量</th>
+                    <th>期末结存金额</th>
+                    <th>冲库</th>
+                    <th>操作</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+
+                  <tr class="" th:each="g:${page}">
+                    <td th:text="${g.storageName}" class="storage" th:value="${g.storageId}"></td>
+                    <td th:text="${g.goodsCode}" class="goods" th:value="${g.goodsId}"></td>
+                    <td th:text="${g.storageCode}"></td>
+                    <td th:text="${g.goodsname}"></td>
+                    <td th:text="${g.standard}"></td>
+                    <td th:text="${g.unit}"></td>
+                    <td th:text="${g.goodsSubCode}"></td>
+                    <td th:text="${g.inventoryClassificationName}"></td>
+                    <td th:text="${g.openingInventoryQuantity}"></td>
+                    <td></td>
+                    <td th:text="${g.stockInCount}"></td>
+                    <td></td>
+                    <td th:text="${g.stockOutCount}"></td>
+                    <td></td>
+                    <td th:text="${g.endingInventoryQuantity}"></td>
+                    <td></td>
+                    <td th:text="${g.chongkuCount}"></td>
+                    <td><button class="btn btn-primary chongku"  data-toggle="modal" data-target="#myModal">冲库</button></td>
+                  </tr>
+
+                  </tbody>
+
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+          &times;
+        </button>
+        <h4 class="modal-title" id="myModalLabel">
+          冲库
+        </h4>
+      </div>
+      <div class="modal-body">
+        <form  class="form-horizontal clearfix">
+          <div class="form-group">
+            <label for="redbasecount" class="control-label col-xs-2 col-sm-2">数量</label>
+            <div class="col-xs-5 col-sm-5">
+              <input type="text" class="form-control" id="redbasecount">
+              <input type="text" class="form-control" id="storageId" style="display: none">
+              <input type="text" class="form-control" id="goodsId" style="display: none">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+        </button>
+        <button type="button" class="btn btn-primary redbasesave">
+          提交
+        </button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal -->
+</div>
+
+<script type="text/javascript" th:src="@{/static/js/jquery.min.js}"></script>
+<script th:src="@{/static/js/bootstrap.min.js}"></script>
+<script th:src="@{/static/utils/httpUtils.js}"></script>
+<script th:src="@{/static/js/jquery.form.js}"></script>
+<script type="text/javascript" th:inline="javascript">
+
+    var ctx = /*[[@{/}]]*/;
+
+    //导入excel
+    $(".importGoods").bind("click",function (e) {
+        $(this).next().find("input[type='file']").trigger("click").unbind("change").bind("change",function () {
+            if (!this.value) return;
+            if(checkExcel()){
+                $(this).parent().ajaxSubmit({
+                    url: ctx + "erp/collect/initImport",
+                    type: "post",
+                    beforeSend: function() {
+                        console.log("准备上传");
+                    },
+                    success:function (result) {
+                        if (result.success){
+                            alert("上传成功");
+                            history.go(0);
+                        }else{
+                            alert(result.message);
+                        }
+                    }, error: function(error) {
+                        alert("出错啦");
+                    }
+                })
+            }
+
+        })
+    })
+    //JS校验form表单信息
+    function checkExcel(){
+        var fileDir = $("#upfile").val();
+        var suffix = fileDir.substr(fileDir.lastIndexOf("."));
+        console.log(suffix);
+        if("" == fileDir){
+            alert("选择需要导入的Excel文件！");
+            return false;
+        }
+        if(".XLS" != suffix && ".XLSX" != suffix && ".xls" != suffix && ".xlsx" != suffix){
+            alert("选择Excel格式的文件导入！");
+            return false;
+        }
+        return true;
+    }
+
+    //冲库
+
+    $(".chongku").click(function () {
+      var storageId = $(this).parent().siblings(".storage").attr("value");
+      var goodsId = $(this).parent().siblings(".goods").attr("value");
+      $("#storageId").attr("value",storageId);
+      $("#goodsId").attr("value",goodsId);
+      console.log(storageId,goodsId);
+
+    });
+    $(".redbasesave").click(function () {
+        var params = {};
+        params.storageId = $("#storageId").attr("value");
+        params.goodsId = $("#goodsId").attr("value");
+        params.count = $("#redbasecount").val();
+        ajaxUtils.postParams(ctx+"erp/collect/chongku",params,function (e) {
+          if(e.success){
+              window.location.reload();
+          }else{
+          }
+        })
+    });
+
+</script>
+</body>
+</html>

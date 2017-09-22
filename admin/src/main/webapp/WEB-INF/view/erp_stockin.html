@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>材料管理</title>
+  <link rel="stylesheet" th:href="@{/static/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/static/css/layout.css}">
+  <link rel="stylesheet" th:href="@{/static/css/jquery.datetimepicker.css}">
+
+</head>
+
+<body>
+<div id="wrapper">
+  <nav th:replace="common/fragment_erp :: sidebar"></nav>
+  <div class="main">
+    <div class="main-content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="panel">
+              <div class="panel-heading">
+                <h3 class="panel-title">考勤人员</h3>
+              </div>
+              <div class="controller">
+                <button class="btn btn-primary save">更新数据</button>
+              </div>
+
+              <div class="panel-body">
+                <table class="table table-striped">
+                  <thead>
+                  <tr>
+                    <th>姓名</th>
+                    <th>部门</th>
+                    <th>考勤机ID</th>
+                    <th>考勤标识符</th>
+                    <th>是否考勤机打卡</th>
+                    <th>是否电脑打卡</th>
+                    <th>是否手机打卡</th>
+                    <th>绑定排班</th>
+                    <th>操作</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <!--<tr class="item" th:each="user:${users}" th:id="${user.uid}">-->
+                    <!--<td th:text="${user.truename}" class="truename"></td>-->
+                    <!--<td th:text="${user.deptname}" class="deptname"></td>-->
+                    <!--<td th:text="${user.machineId}" class="machineId"></td>-->
+                    <!--<td th:text="${user.importKey}" class="importKey"></td>-->
+                    <!--<td th:text="${user.ykkq}" class="ykkq"></td>-->
+                    <!--<td th:text="${user.pc}" class="pc"></td>-->
+                    <!--<td th:text="${user.phone}" class="phone"></td>-->
+                    <!--<td>-->
+                      <!--<select class="form-control cid">-->
+                        <!--<option th:each="c:${classes}" th:text="${c?.name}" th:id="${c?.id}" th:selected="${c?.id}==${user?.cid}"></option>-->
+                      <!--</select>-->
+                    <!--</td>-->
+                    <!--<td><a th:href="@{/att/users/}+${user.uid}">查看</a></td>-->
+                  <!--</tr>-->
+                  </tbody>
+
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</div>
+</body>
+</html>
