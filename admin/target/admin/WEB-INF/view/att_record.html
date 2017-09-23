@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>考勤报表</title>
+  <link rel="stylesheet" th:href="@{/static/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/static/css/layout.css}">
+  <link rel="stylesheet" th:href="@{/static/css/SimpleCanleder.css}">
+
+</head>
+
+<body>
+<div id="wrapper">
+  <nav th:replace="common/fragment :: sidebar"></nav>
+  <div class="main">
+    <div class="main-content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="panel">
+              <div class="panel-heading">
+                <h3 class="panel-title">考勤报表</h3>
+              </div>
+              <div class="controller">
+                <form th:action="@{/att/monthform}" method="get">
+                  <div class="fr  text-center">
+                    <input class="time_input" type="text" placeholder="选择日期" name="queryDate" th:value="${#dates.format(queryDTO?.queryDate,'yyyy-MM')}"/>
+                    <!--<input class="form-control time_input  text-center" type="text" placeholder="选择日期" name="queryDate" th:value="${#temporals.format(queryDTO,'yyyy-MM')}"/>-->
+                    <input class="search_tit btn-success" type="submit" value="查询" />
+                  </div>
+                </form>
+              </div>
+
+              <div class="panel-body">
+                <table class="table table-striped">
+                  <thead>
+                  <tr>
+                    <th>姓名</th>
+                    <th>部门</th>
+                    <th>全勤天数</th>
+                    <th>出勤天数</th>
+                    <th>旷工天数</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <tr th:each="item:${list}">
+                      <td th:text="${item.truename}"></td>
+                      <td th:text="${item.dept}"></td>
+                      <td th:text="${item.fullWorkAttendance}"></td>
+                      <td th:text="${item.workAttendance}"></td>
+                      <td th:text="${item.absence}"></td>
+                    </tr>
+                  </tbody>
+
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script th:src="@{/static/js/jquery.min.js}"></script>
+<script th:src="@{/static/js/bootstrap.min.js}"></script>
+<script th:src="@{/static/js/SimpleCanleder.js}"></script>
+<script type="text/javascript" th:inline="javascript">
+    $(".time_input").simpleCanleder();
+
+</script>
+</body>
+</html>

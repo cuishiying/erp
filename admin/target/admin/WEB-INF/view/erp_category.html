@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>材料管理</title>
+  <link rel="stylesheet" th:href="@{/static/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/static/css/layout.css}">
+  <link rel="stylesheet" th:href="@{/static/css/jquery.datetimepicker.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}" />
+
+
+</head>
+
+<body>
+  <div id="wrapper">
+    <nav th:replace="common/fragment_erp :: sidebar"></nav>
+    <div class="main">
+      <div class="main-content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="col-md-4">
+                <div class="panel">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">分类管理</h3>
+                  </div>
+                  <div class="controller">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-primary dropdown-toggle"
+                              data-toggle="dropdown">添加分类<span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#" data-toggle="modal" class="top-category" data-target="#myModal">一级分类</a></li>
+                        <li><a href="#" data-toggle="modal" class="sub-category" data-target="#myModal">二级分类</a></li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="panel-body">
+                    <div class="tree well">
+
+
+                      <ul>
+
+                        <li>
+
+                          <span><i class="icon-folder-open"></i> 存货分类</span>
+
+                          <ul>
+
+                            <li th:each="c:${category}">
+
+                              <span  th:text="${c.topCategory.code}+${c.topCategory.name}"><i class="icon-minus-sign"></i> Child</span>
+
+                              <ul>
+
+                                <li th:each="s:${c.subCategory}">
+
+                                  <span th:text="${s.code}+${s.name}"><i class="icon-leaf"></i> Grand Child</span>
+
+                                </li>
+
+                              </ul>
+
+                            </li>
+
+                          </ul>
+
+                        </li>
+
+
+                      </ul>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="panel">
+                  <div class="panel-heading">
+                    <h3 class="panel-title"></h3>
+                  </div>
+                  <div class="controller">
+                  </div>
+
+                  <div class="panel-body">
+                    <table class="table table-striped">
+                      <thead>
+                      <tr>
+                        <th>分类编码</th>
+                        <th>分类名称</th>
+                        <th>是否顶级分类</th>
+                        <th>顶级分类名称</th>
+                        <th>操作</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr class="" th:each="c:${all}">
+                        <td th:text="${c.code}"></td>
+                        <td th:text="${c.name}"></td>
+                        <td th:text="${c.parentId==null?'是':'否'}"></td>
+                        <td th:text="${c.parentName}"></td>
+                        <td>
+                            <button type="button" class="btn btn-primary delete" th:value="${c.id}">删除</button>
+                        </td>
+
+                      </tr>
+                      </tbody>
+
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- 模态框（Modal） -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            &times;
+          </button>
+          <h4 class="modal-title" id="myModalLabel">
+            添加分类
+          </h4>
+        </div>
+        <div class="modal-body">
+          <select class="form-control top-category-name" style="display: none">
+            <option></option>
+            <option th:each="c:${category}" th:text="${c.topCategory.name}"></option>
+          </select>
+          <input type="text" class="form-control category-name" placeholder="分类名称">
+          <input type="text" class="form-control category-code" placeholder="分类编码">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+          </button>
+          <button type="button" class="btn btn-primary save">
+            保存
+          </button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+  </div>
+
+  <script type="text/javascript" th:src="@{/static/js/jquery.min.js}"></script>
+  <script type="text/javascript" th:src="@{/static/js/bootstrap.min.js}"></script>
+  <script th:src="@{/static/utils/httpUtils.js}"></script>
+  <script type="text/javascript">
+
+      $(function(){
+
+          $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+
+          $('.tree li.parent_li > span').on('click', function (e) {
+
+              var children = $(this).parent('li.parent_li').find(' > ul > li');
+
+              if (children.is(":visible")) {
+
+                  children.hide('fast');
+
+                  $(this).attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
+
+              } else {
+
+                  children.show('fast');
+
+                  $(this).attr('title', 'Collapse this branch').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
+
+              }
+
+              e.stopPropagation();
+
+          });
+
+      });
+
+  </script>
+  <script type="text/javascript" th:inline="javascript">
+
+      var ctx = /*[[@{/}]]*/;
+      var list = /*[[${category}]]*/
+
+
+          $(function () {
+              $(".modal-body input").css("margin-top","10px");
+          })
+      $(".top-category").click(function (e) {
+          $(".top-category-name").css("display","none");
+      })
+      $(".sub-category").click(function (e) {
+          if(list.length==0){
+              alert("请先创建一级分类");
+          }else{
+              $(".top-category-name").css("display","block");
+          }
+      })
+
+      $(".save").click(function (e) {
+          var category = new Object();
+          category.parentName = $(".top-category-name").val();
+          category.name = $(".category-name").val();
+          category.code = $(".category-code").val();
+          ajaxUtils.postJson(ctx+"erp/category/add",category,function(e){
+              if(e.success){
+                  $('#myModal').modal('hide')
+                  window.location.reload();
+              }else{
+                  alert(e.message);
+              }
+          })
+      })
+    
+      $(".delete").click(function () {
+          ajaxUtils.getData(ctx+"erp/category/delete/"+$(this).attr("value"),function (e) {
+              if (e.success){
+                window.location.reload();
+              }else{
+
+              }
+          })
+      });
+  </script>
+</body>
+</html>

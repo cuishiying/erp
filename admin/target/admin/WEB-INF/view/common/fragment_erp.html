@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+</head>
+<nav th:fragment="sidebar" >
+	<div class="sidebar">
+		<div class="sidebar-scroll" style="margin-top: 20px">
+			<nav>
+				<ul class="nav">
+					<li><a th:href="@{/erp/category/tree}">分类设置</a></li>
+					<!--<li><a th:href="@{/erp/goods/stockIn}">入库报表</a></li>-->
+					<!--<li><a th:href="@{/erp/goods/stockOut}">出库报表</a></li>-->
+					<li><a th:href="@{/erp/goods/list}">货品档案</a></li>
+					<li><a th:href="@{/erp/collect}">收发存汇总</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</nav>

@@ -1,0 +1,10 @@
+com/shanglan/erp/config/SpringWebMvcConfig$LocalDateSerializer.class
+com/shanglan/erp/config/SpringWebMvcConfig$LocalDateTimeSerializer.class
+com/shanglan/erp/config/SpringWebMvcConfig$LocalDateTimeDeserializer.class
+com/shanglan/erp/controller/GoodsController.class
+com/shanglan/erp/config/SpringWebMvcConfig$1.class
+com/shanglan/erp/config/SpringWebMvcConfig$LocalDateDeserializer.class
+com/shanglan/erp/controller/CategoryController.class
+com/shanglan/erp/config/SpringWebMvcConfig$LocalTimeDeserializer.class
+com/shanglan/erp/config/SpringWebMvcConfig.class
+com/shanglan/erp/config/SpringWebMvcConfig$LocalTimeSerializer.class

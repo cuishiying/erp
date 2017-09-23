@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>材料管理</title>
+  <link rel="stylesheet" th:href="@{/static/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/static/css/layout.css}">
+  <link rel="stylesheet" th:href="@{/static/css/jquery.datetimepicker.css}">
+
+
+</head>
+
+<body>
+<div id="wrapper">
+  <nav th:replace="common/fragment_erp :: sidebar"></nav>
+  <div class="main">
+    <div class="main-content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="panel">
+              <div class="panel-heading">
+                <h3 class="panel-title">货品档案</h3>
+              </div>
+              <div class="controller">
+                <button class="btn btn-primary add" data-toggle="modal" data-target="#myModal">添加</button>
+                <button class="btn btn-primary importGoods">导入</button>
+                <form id="uploadForm" enctype="multipart/form-data" method="post" style="display: none">
+                  <input id="upfile" type="file" name="upfile" >
+                </form>
+                <a class="btn btn-primary export" th:href="@{/erp/goods/export}">导出</a>
+                <form th:action="@{/erp/goods/list}" method="get" style="display: inline">
+                  <input type="text" name="keyword" th:value="${keyword}"/>
+                  <button class="btn btn-primary query" type="submit">查询</button>
+                </form>
+              </div>
+
+              <div class="panel-body">
+                <table class="table table-striped">
+                  <thead>
+                  <tr>
+                    <th>存货编码</th>
+                    <th>存货名称</th>
+                    <th>规格型号</th>
+                    <th>存货代码</th>
+                    <th>主计量单位名称</th>
+                    <th>存货大类编码</th>
+                    <th>计量单位组名称</th>
+                    <th>ABC分类</th>
+                    <th>启用日期</th>
+                    <th>计量单位组编码</th>
+                    <th>主计量单位编码</th>
+                    <th>操作</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="" th:each="g:${page.content}">
+                      <td th:text="${g.goods.goodsCode}"></td>
+                      <td th:text="${g.goods.goodsname}"></td>
+                      <td th:text="${g.goods.standard}"></td>
+                      <td th:text="${g.goods.goodsdm}"></td>
+                      <td th:text="${g.goods.unit}"></td>
+                      <td th:text="${g.goods.subcode}"></td>
+                      <td th:text="${g.goods.unitgroupname}"></td>
+                      <td th:text="${g.goods.abc}"></td>
+                      <td th:text="${g.goods.usedate}"></td>
+                      <td th:text="${g.goods.unitgroupcode}"></td>
+                      <td th:text="${g.goods.unitcode}"></td>
+                      <td>
+                        <button class="btn btn-primary delete" th:value="${g.goods.id}">删除</button>
+                      </td>
+                    </tr>
+                  </tbody>
+
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+          &times;
+        </button>
+        <h4 class="modal-title" id="myModalLabel">
+          添加货品
+        </h4>
+      </div>
+
+      <div class="modal-body">
+        <form  class="form-horizontal clearfix">
+          <div class="form-group col-sm-6">
+            <label for="goodsCode" class="control-label col-xs-5 col-sm-5">存货编码</label>
+            <div class="col-xs-7 col-sm-7">
+              <input type="text" class="form-control" id="goodsCode">
+            </div>
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="goodsName" class="control-label col-xs-5 col-sm-5">存货名称</label>
+            <div class="col-xs-7 col-sm-7">
+              <input type="text" class="form-control" id="goodsName">
+            </div>
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="standard" class="control-label col-xs-5 col-sm-5">规格型号</label>
+            <div class="col-xs-7 col-sm-7">
+              <input type="text" class="form-control" id="standard">
+            </div>
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="standard" class="control-label col-xs-5 col-sm-5">存货代码</label>
+            <div class="col-xs-7 col-sm-7">
+              <input type="text" class="form-control" id="savecode">
+            </div>
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="price" class="control-label col-xs-5 col-sm-5">单价</label>
+            <div class="col-xs-7 col-sm-7">
+              <input type="text" class="form-control" id="price">
+            </div>
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="unit" class="control-label col-xs-5 col-sm-5">单位</label>
+            <div class="col-xs-7 col-sm-7">
+              <input type="text" class="form-control"  id="unit">
+            </div>
+          </div>
+          <div class="form-group col-sm-6">
+            <label class="control-label col-xs-5 col-sm-5">存货分类</label>
+            <div class="col-xs-7 col-sm-7">
+              <select class="form-control top-category-name" id="topCategory" onchange="loadCategoryType(this)">
+                <option>请选择</option>
+                <option th:each="c:${category}" th:text="${c.topCategory.code}+${c.topCategory.name}" th:value="${c.topCategory.id}"></option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group col-sm-6">
+            <label class="control-label col-xs-5 col-sm-5">存货大类编码</label>
+            <div class="col-xs-7 col-sm-7">
+              <select class="form-control sub-category-name" id="subCategory">
+                <option>请选择</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="unit" class="control-label col-xs-5 col-sm-5">abc分类</label>
+            <div class="col-xs-7 col-sm-7">
+              <input type="text" class="form-control"  id="abccode">
+            </div>
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="unit" class="control-label col-xs-5 col-sm-5">启用日期</label>
+            <div class="col-xs-7 col-sm-7">
+              <input type="text" class="form-control date"  id="startdate">
+            </div>
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="unit" class="control-label col-xs-5 col-sm-5">计量单位编码</label>
+            <div class="col-xs-7 col-sm-7">
+              <input type="text" class="form-control"  id="unitcode">
+            </div>
+          </div>
+          <div class="form-group col-sm-6">
+            <label for="unit" class="control-label col-xs-5 col-sm-5">主计量单位编码</label>
+            <div class="col-xs-7 col-sm-7">
+              <input type="text" class="form-control"  id="mainunitcode">
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+        </button>
+        <button type="button" class="btn btn-primary save">
+          保存
+        </button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal -->
+</div>
+
+<script th:src="@{/static/js/jquery.min.js}"></script>
+<script th:src="@{/static/js/bootstrap.min.js}"></script>
+<script th:src="@{/static/utils/httpUtils.js}"></script>
+<script th:src="@{/static/js/jquery.form.js}"></script>
+<script th:src="@{/static/js/jquery.datetimepicker.full.js}"></script>
+
+<script type="text/javascript" th:inline="javascript">
+
+    var ctx = /*[[@{/}]]*/;
+
+    $('.date').datetimepicker({
+        lang:"ch",
+        format:'Y-m-d',
+        timepicker:false,
+        todayButton:true
+    });
+
+    //联动编号
+    function loadCategoryType(type) {
+        var categoryType = $(type);
+        var nextType = $("#subCategory");
+        if (categoryType.val() == '') {
+            nextType.empty().append("<option value=''>请选择</option>");
+            return;
+        }
+        var data = {"id":categoryType.val()};
+        ajaxUtils.postParams(ctx+"erp/goods/subCategory",data,function (e) {
+            if(e.success){
+                nextType.empty().append("<option value=''>请选择</option>");
+                var temp = '';
+                $.each(e.data, function(index, ct) {
+                    temp += '<option value="' + ct.id + '">' + ct.code + ct.name + '</option>';
+                });
+                nextType.append(temp);
+            }
+        })
+
+    }
+
+    //新建货品
+    $(".save").click(function (e) {
+        var goods = new Object();
+        goods.goodsCode = $("#goodsCode").val();
+        goods.goodsname = $("#goodsName").val();
+        goods.standard = $("#standard").val();
+        goods.field5 = $("#savecode").val();//存货代码
+        goods.unit = $("#unit").val();
+        goods.price = $("#price").val();
+        goods.subcode = $("#subCategory").val();//二级分类编码
+
+        goods.abc = $("#abccode").val();//abc编码
+        goods.usedate = $("#startdate").val();//启用日期
+        goods.unitgroupcode = $("#unitgroupcode").val();
+        goods.unitcode = $("#unitcode").val();
+
+        console.log(goods)
+        if(checkData(goods)){
+            ajaxUtils.postJson(ctx+"erp/goods/add",goods,function(e){
+                if(e.success){
+                    $('#myModal').modal('hide')
+                    window.location.reload();
+                }else{
+                    alert(e.message);
+                }
+            })
+        }
+
+    })
+
+
+    //JS校验form表单信息
+    function checkData(goods){
+        if(!goods.goodsname.trim()){
+            alert("");
+            return false;
+        }
+        if(!goods.price.trim()){
+            alert("");
+            return false;
+        }
+        if(!goods.unit.trim()){
+            alert("");
+            return false;
+        }
+        if(!goods.standard.trim()){
+            alert("");
+            return false;
+        }
+        return true;
+    }
+
+    //导入excel
+    $(".importGoods").bind("click",function (e) {
+        $(this).next().find("input[type='file']").trigger("click").unbind("change").bind("change",function () {
+            if (!this.value) return;
+            if(checkExcel()){
+                $(this).parent().ajaxSubmit({
+                    url: ctx + "erp/goods/importGoods",
+                    type: "post",
+                    beforeSend: function() {
+                        console.log("准备上传");
+                    },
+                    success:function (result) {
+                        if (result.success){
+                            alert("上传成功");
+                            history.go(0);
+                        }else{
+                            alert(result.message);
+                        }
+                    }, error: function(error) {
+                        alert("出错啦");
+                    }
+                })
+            }
+
+        })
+    })
+    //JS校验form表单信息
+    function checkExcel(){
+        var fileDir = $("#upfile").val();
+        var suffix = fileDir.substr(fileDir.lastIndexOf("."));
+        console.log(suffix);
+        if("" == fileDir){
+            alert("选择需要导入的Excel文件！");
+            return false;
+        }
+        if(".XLS" != suffix && ".XLSX" != suffix && ".xls" != suffix && ".xlsx" != suffix){
+            alert("选择Excel格式的文件导入！");
+            return false;
+        }
+        return true;
+    }
+
+    //删除货品
+    $(".delete").click(function () {
+        ajaxUtils.getData(ctx+"erp/goods/delete/"+$(this).attr("value"),function (e) {
+            if (e.success){
+                window.location.reload();
+            }else{
+
+            }
+        })
+    });
+</script>
+</body>
+</html>

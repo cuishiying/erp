@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+</head>
+<nav th:fragment="sidebar" >
+	<div class="sidebar">
+		<div class="sidebar-scroll" style="margin-top: 20px">
+			<nav>
+				<ul class="nav">
+					<li><a th:href="@{/att/classes}">排班设置</a></li>
+					<li><a th:href="@{/att/users}">考勤人员</a></li>
+					<li><a th:href="@{/att/monthform}">考勤报表</a></li>
+					<li><a th:href="@{/att/note}">考勤说明</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</nav>
