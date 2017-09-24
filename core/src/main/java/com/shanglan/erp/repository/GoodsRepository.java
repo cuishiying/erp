@@ -101,6 +101,13 @@ public class GoodsRepository {
      */
     public List<Goods> findAllGoods(String sql,String keyword,Pageable pageable) {
 
+        String dm = env.getProperty("goods.dm");
+        String usedate = env.getProperty("goods.usedate");
+        String subcode = env.getProperty("goods.subcode");
+        String abc = env.getProperty("goods.abc");
+        String unitgroupcode = env.getProperty("goods.unitgroupcode");
+        String unitcode = env.getProperty("goods.unitcode");
+
         List <Object> queryList=new ArrayList<Object>();
         if (keyword!=null&&!keyword.equals("")) {
             sql += " and c.goodsCode like ? or c.goodsname LIKE ?";
@@ -125,12 +132,12 @@ public class GoodsRepository {
                 goods.setOpeningInventoryQuantity(resultSet.getString("openingInventoryQuantity"));
                 goods.setStorageId(resultSet.getInt("storageId"));
 
-                goods.setGoodsdm(resultSet.getString("field6"));
-                goods.setUsedate(JavaUtils.convert2String(resultSet.getString("field13")));
-                goods.setSubcode(resultSet.getString("field1"));
-                goods.setAbc(resultSet.getString("field7"));
-                goods.setUnitgroupcode(resultSet.getString("field9"));
-                goods.setUnitcode(resultSet.getString("field10"));
+                goods.setGoodsdm(resultSet.getString(dm));
+                goods.setUsedate(JavaUtils.convert2String(resultSet.getString(usedate)));
+                goods.setSubcode(resultSet.getString(subcode));
+                goods.setAbc(resultSet.getString(abc));
+                goods.setUnitgroupcode(resultSet.getString(unitgroupcode));
+                goods.setUnitcode(resultSet.getString(unitcode));
                 return goods;
             }
         });
