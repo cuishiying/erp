@@ -7,6 +7,7 @@ DROP TRIGGER IF EXISTS cnoa_afterinsert_on_cnoa_jxc_stock_chuku;
 CREATE TRIGGER cnoa_afterinsert_on_cnoa_jxc_stock_chuku AFTER INSERT
   ON cnoa_z_wf_d_3_29 FOR EACH ROW
   BEGIN
+    SELECT SUM(quantity) INTO @ct FROM `cnoa_jxc_stock_goods_detail`;
     INSERT INTO cnoa_jxc_stock_goods_detail SET storageId = (SELECT storageId FROM cnoa_jxc_stock_chuku WHERE uFlowId = new.uFlowId),uFlowId = (new.uFlowId),tempId = (new.uFlowId),goodsId = (new.bindid),price = (new.D_22),quantity = (-new.D_17);
   END;
 
