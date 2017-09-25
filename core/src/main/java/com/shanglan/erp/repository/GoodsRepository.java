@@ -132,7 +132,7 @@ public class GoodsRepository {
                 goods.setOpeningInventoryQuantity(resultSet.getString("openingInventoryQuantity"));
                 goods.setStorageId(resultSet.getInt("storageId"));
 
-                goods.setGoodsdm(resultSet.getString(dm));
+                goods.setGoodsdm(resultSet.getString(dm)==null?"":resultSet.getString(dm));
                 goods.setUsedate(JavaUtils.convert2String(resultSet.getString(usedate)));
                 goods.setSubcode(resultSet.getString(subcode));
                 goods.setAbc(resultSet.getString(abc));

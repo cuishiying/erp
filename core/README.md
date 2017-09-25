@@ -22,3 +22,11 @@ SELECT d.goodsId,d.storageId,SUM(d.quantity) FROM cnoa_jxc_stock_goods_detail AS
 String sql = "SELECT d.storageId,g.goodsCode,g."+dm+",g.goodsname,g.standard,g.unit,g."+subcode+",d.openingInventoryQuantity,SUM(d.quantity) AS s,g.goodsname,st.storagename FROM (cnoa_jxc_stock_goods_detail AS d LEFT JOIN cnoa_jxc_storage AS st ON d.storageId = st.id) LEFT JOIN  cnoa_jxc_goods AS g ON d.goodsId = g.id WHERE 1 = 1 GROUP BY d.goodsId,d.storageId ORDER BY d.goodsId;";
 String sql = "SELECT c.storageName,c.goodsCode,c.storageCode,c.goodsname,c.standard,c.unit,c.goodsSubCode,c.inventoryClassificationName,c.openingInventoryQuantity,c.openingBalance,SUM(c.stockInCount) AS sic,SUM(c.stockInBalance) AS sib,SUM(c.stockOutCount) AS soc,SUM(c.stockOutBalance) AS sob,SUM(c.endingInventoryQuantity) AS eiq,SUM(c.endingBalance) AS eb FROM collect c GROUP BY c.storageName,c.goodsCode ORDER BY c.goodsname";
 
+
+
+改配置文件
+改脚本
+改映射
+运行生成table
+导入数据
+
