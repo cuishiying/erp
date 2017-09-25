@@ -91,3 +91,8 @@ CREATE TRIGGER cnoa_afterinsert_on_cnoa_jxc_goods_detail AFTER INSERT
   END;
 SHOW TRIGGERS;
 //
+
+# 删除历史数据
+delete from cnoa_jxc_goods;
+delete from cnoa_jxc_collect;
+delete from cnoa_jxc_stock_goods_detail;
