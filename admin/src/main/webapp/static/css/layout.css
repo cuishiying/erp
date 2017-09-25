@@ -34,7 +34,8 @@ th {
     -ms-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-    width: calc(100% - 260px);
+    width: 100%;
+    /*width: calc(100% - 260px);*/
     left: 0;
     position: relative;
     float: right;
