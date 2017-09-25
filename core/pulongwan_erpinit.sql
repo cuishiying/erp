@@ -96,3 +96,5 @@ SHOW TRIGGERS;
 delete from cnoa_jxc_goods;
 delete from cnoa_jxc_collect;
 delete from cnoa_jxc_stock_goods_detail;
+DELETE FROM cnoa_jxc_stock_chuku;
+DELETE FROM cnoa_jxc_stock_ruku;

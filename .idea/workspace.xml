@@ -6,7 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b769e75-03a0-4700-871b-f705f620cfb6" name="Default" comment="pulongwan">
+    <list default="true" id="3b769e75-03a0-4700-871b-f705f620cfb6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/pulongwan_erpinit.sql" afterPath="$PROJECT_DIR$/core/pulongwan_erpinit.sql" />
     </list>
@@ -35,7 +35,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ErpService.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ErpService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/ErpService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="512">
@@ -44,6 +44,16 @@
                 <marker date="1506069600000" expanded="true" signature="1767:1797" ph="/**...*/" />
                 <marker date="1506069600000" expanded="true" signature="4907:5332" ph="{...}" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pulongwan_erpinit.sql" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/pulongwan_erpinit.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="594">
+              <caret line="99" column="12" lean-forward="false" selection-start-line="99" selection-start-column="12" selection-end-line="99" selection-end-column="12" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1192,14 +1202,7 @@
       <workItem from="1506225893410" duration="1210000" />
       <workItem from="1506333009835" duration="737000" />
       <workItem from="1506338542523" duration="2650000" />
-      <workItem from="1506344926741" duration="321000" />
-    </task>
-    <task id="LOCAL-00019" summary="att">
-      <created>1504572637055</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1504572637056</updated>
+      <workItem from="1506344926741" duration="452000" />
     </task>
     <task id="LOCAL-00020" summary="att">
       <created>1504583611549</created>
@@ -1537,7 +1540,14 @@
       <option name="project" value="LOCAL" />
       <updated>1506343519964</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="pulongwan——ok">
+      <created>1506345437292</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1506345437293</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1573,7 +1583,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="306973000" />
+    <option name="totallyTimeSpent" value="307104000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1713,7 +1723,8 @@
     <MESSAGE value="ok" />
     <MESSAGE value="update" />
     <MESSAGE value="pulongwan" />
-    <option name="LAST_COMMIT_MESSAGE" value="pulongwan" />
+    <MESSAGE value="pulongwan——ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="pulongwan——ok" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2121,14 +2132,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/pulongwan_erpinit.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="95" column="12" lean-forward="false" selection-start-line="95" selection-start-column="12" selection-end-line="95" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/ErpService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="512">
@@ -2137,6 +2140,14 @@
             <marker date="1506069600000" expanded="true" signature="1767:1797" ph="/**...*/" />
             <marker date="1506069600000" expanded="true" signature="4907:5332" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/pulongwan_erpinit.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="99" column="12" lean-forward="false" selection-start-line="99" selection-start-column="12" selection-end-line="99" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
