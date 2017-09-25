@@ -8,7 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3b769e75-03a0-4700-871b-f705f620cfb6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/pulongwan_erpinit.sql" afterPath="$PROJECT_DIR$/core/pulongwan_erpinit.sql" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -51,8 +50,8 @@
       <file leaf-file-name="pulongwan_erpinit.sql" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/pulongwan_erpinit.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="99" column="12" lean-forward="false" selection-start-line="99" selection-start-column="12" selection-end-line="99" selection-end-column="12" />
+            <state relative-caret-position="174">
+              <caret line="71" column="83" lean-forward="true" selection-start-line="71" selection-start-column="83" selection-end-line="71" selection-end-column="83" />
               <folding />
             </state>
           </provider>
@@ -1202,14 +1201,7 @@
       <workItem from="1506225893410" duration="1210000" />
       <workItem from="1506333009835" duration="737000" />
       <workItem from="1506338542523" duration="2650000" />
-      <workItem from="1506344926741" duration="452000" />
-    </task>
-    <task id="LOCAL-00020" summary="att">
-      <created>1504583611549</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1504583611549</updated>
+      <workItem from="1506344926741" duration="654000" />
     </task>
     <task id="LOCAL-00021" summary="att">
       <created>1504605645979</created>
@@ -1547,7 +1539,14 @@
       <option name="project" value="LOCAL" />
       <updated>1506345437293</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="pulongwan——ok">
+      <created>1506345607375</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1506345607375</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1583,7 +1582,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="307104000" />
+    <option name="totallyTimeSpent" value="307306000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2145,8 +2144,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/pulongwan_erpinit.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="99" column="12" lean-forward="false" selection-start-line="99" selection-start-column="12" selection-end-line="99" selection-end-column="12" />
+        <state relative-caret-position="174">
+          <caret line="71" column="83" lean-forward="true" selection-start-line="71" selection-start-column="83" selection-end-line="71" selection-end-column="83" />
           <folding />
         </state>
       </provider>
