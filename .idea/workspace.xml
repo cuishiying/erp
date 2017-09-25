@@ -8,17 +8,17 @@
   <component name="ChangeListManager">
     <list default="true" id="3b769e75-03a0-4700-871b-f705f620cfb6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/att_classes.html" afterPath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/att_classes.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/att_note.html" afterPath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/att_note.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/att_record.html" afterPath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/att_record.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/att_user_detail.html" afterPath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/att_user_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/att_users.html" afterPath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/att_users.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/erp_category.html" afterPath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/erp_category.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/erp_collect.html" afterPath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/erp_collect.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/erp_goods.html" afterPath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/erp_goods.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/erp_stockin.html" afterPath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/erp_stockin.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/erp_stockout.html" afterPath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/erp_stockout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/static/css/layout.css" afterPath="$PROJECT_DIR$/admin/src/main/webapp/static/css/layout.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/att_classes.html" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/att_classes.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/att_note.html" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/att_note.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/att_record.html" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/att_record.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/att_user_detail.html" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/att_user_detail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/att_users.html" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/att_users.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/erp_category.html" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/erp_category.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/erp_collect.html" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/erp_collect.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/erp_goods.html" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/erp_goods.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/erp_stockin.html" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/erp_stockin.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/erp_stockout.html" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/erp_stockout.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/static/css/layout.css" afterPath="$PROJECT_DIR$/admin/target/admin/static/css/layout.css" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -44,108 +44,7 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="att_note.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/att_note.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="20" lean-forward="true" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="att_record.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/att_record.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="20" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="att_user_detail.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/att_user_detail.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="20" lean-forward="true" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="att_users.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/att_users.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="53" lean-forward="true" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layout.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/static/css/layout.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="32" column="42" lean-forward="true" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="erp_category.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/erp_category.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="22" lean-forward="true" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="erp_collect.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/erp_collect.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="20" lean-forward="true" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="erp_goods.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/erp_goods.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="20" lean-forward="true" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="erp_stockin.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/erp_stockin.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="20" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="erp_stockout.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/erp_stockout.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="20" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -427,6 +326,17 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="erp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="erp" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="erp" type="b2602c69:ProjectViewProjectNode" />
@@ -1295,14 +1205,7 @@
       <workItem from="1506225893410" duration="1210000" />
       <workItem from="1506333009835" duration="737000" />
       <workItem from="1506338542523" duration="2650000" />
-      <workItem from="1506344926741" duration="2200000" />
-    </task>
-    <task id="LOCAL-00023" summary="att">
-      <created>1504612490149</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1504612490149</updated>
+      <workItem from="1506344926741" duration="2648000" />
     </task>
     <task id="LOCAL-00024" summary="att">
       <created>1504614270460</created>
@@ -1640,7 +1543,14 @@
       <option name="project" value="LOCAL" />
       <updated>1506347658830</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="pulongwan——ok-隐藏导航栏">
+      <created>1506348392802</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1506348392802</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1676,7 +1586,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="308852000" />
+    <option name="totallyTimeSpent" value="309300000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1689,7 +1599,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1702,7 +1611,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30194473" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30194473" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959184" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1714,7 +1623,7 @@
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959184" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2869353" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2869353" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1817,7 +1726,8 @@
     <MESSAGE value="update" />
     <MESSAGE value="pulongwan" />
     <MESSAGE value="pulongwan——ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="pulongwan——ok" />
+    <MESSAGE value="pulongwan——ok-隐藏导航栏" />
+    <option name="LAST_COMMIT_MESSAGE" value="pulongwan——ok-隐藏导航栏" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1830,22 +1740,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/dto/GoodsDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/dto/QueryDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/1.12.6.RELEASE/spring-data-commons-1.12.6.RELEASE.jar!/org/springframework/data/repository/CrudRepository.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -2245,8 +2139,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/erp_stockout.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="20" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+        <state relative-caret-position="87">
+          <caret line="31" column="20" lean-forward="true" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/common/fragment_erp.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/common/fragment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
