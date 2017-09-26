@@ -4,8 +4,8 @@ public class AttForm {
     private String truename;
     private String dept;
     private Integer fullWorkAttendance;//全勤天数
-    private Integer workAttendance;//总出勤天数
-    private Integer absence;//缺勤天数
+    private Float workAttendance;//总出勤天数
+    private Float absence;//缺勤天数
 
     public String getTruename() {
         return truename;
@@ -31,19 +31,19 @@ public class AttForm {
         this.fullWorkAttendance = fullWorkAttendance;
     }
 
-    public Integer getWorkAttendance() {
+    public Float getWorkAttendance() {
         return workAttendance;
     }
 
-    public void setWorkAttendance(Integer workAttendance) {
+    public void setWorkAttendance(Float workAttendance) {
         this.workAttendance = workAttendance;
     }
 
-    public Integer getAbsence() {
+    public Float getAbsence() {
         return absence;
     }
 
-    public void setAbsence(Integer absence) {
+    public void setAbsence(Float absence) {
         this.absence = absence;
     }
 }

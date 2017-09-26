@@ -49,16 +49,17 @@ public class TestController {
     }
     @Test
     public void test3() throws Exception{
-        List<String> currentDayListOfMonth = JavaUtils.getDayListOfMonth(2017,9);
-        for(int i=0;i<currentDayListOfMonth.size();i++){
-            attService.saveTodayAttendances(currentDayListOfMonth.get(i));
-        }
+//        List<String> currentDayListOfMonth = JavaUtils.getDayListOfMonth(2017,9);
+//        for(int i=0;i<currentDayListOfMonth.size();i++){
+//            attService.saveTodayAttendances(currentDayListOfMonth.get(i));
+//        }
 //        Long start = JavaUtils.convert2Timelong("2017-09-01 13:50:00");
 //        Long end = JavaUtils.convert2Timelong("2017-09-01 14:20:00");
 //        Integer attendance = attMachineRepository.isAttendance(241, start, end);
 //        List<AttMachine> att = attService.findAtt(241, "2017-09-01");
 //        String test = JavaUtils.convertLong2Time("1504245354");
 //        System.out.println(test);
+        attService.saveTodayAttendances("2017-09-25");
     }
     @Test
     public void test4() throws Exception{

@@ -29,4 +29,6 @@ String sql = "SELECT c.storageName,c.goodsCode,c.storageCode,c.goodsname,c.stand
 改映射
 运行生成table
 导入数据
+出入库流程实际设置
+考勤排班设置
 

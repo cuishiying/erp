@@ -120,13 +120,13 @@ public class AttRepository {
                 AttForm attForm = new AttForm();
                 attForm.setTruename(resultSet.getString("truename"));
                 attForm.setDept(resultSet.getString("dept"));
-                attForm.setWorkAttendance(resultSet.getInt("rs"));
+                attForm.setWorkAttendance(resultSet.getFloat("rs"));
                 attForm.setFullWorkAttendance(count);
                 if(year==nowYear&&month==nowMonth){
-                    int r = JavaUtils.getIndexOfCurrentMonth() - resultSet.getInt("rs");
+                    Float r = JavaUtils.getIndexOfCurrentMonth() - resultSet.getFloat("rs");
                     attForm.setAbsence(r);
                 }else{
-                    attForm.setAbsence(count-resultSet.getInt("rs"));
+                    attForm.setAbsence(count-resultSet.getFloat("rs"));
                 }
                 return attForm;
             }
