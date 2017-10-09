@@ -61,7 +61,8 @@ CREATE TRIGGER cnoa_afterinsert_on_cnoa_jxc_goods_detail AFTER INSERT
           endingBalance = (new.sum),
           storageId = (NEW.storageId),
           goodsId = (new.goodsId),
-          chongkuCount = (new.chongkuCount);
+          chongkuCount = (new.chongkuCount),
+          uFlowId = (new.uFlowId);
       ELSEIF(NEW.quantity<0) THEN
         INSERT INTO cnoa_jxc_collect SET
           storagename = (SELECT storagename FROM cnoa_jxc_storage WHERE id = new.storageId),
@@ -70,8 +71,8 @@ CREATE TRIGGER cnoa_afterinsert_on_cnoa_jxc_goods_detail AFTER INSERT
           goodsname = (SELECT goodsname FROM cnoa_jxc_goods WHERE id = new.goodsId),
           standard = (SELECT standard FROM cnoa_jxc_goods WHERE id = new.goodsId),
           unit = (SELECT unit FROM cnoa_jxc_goods WHERE id = new.goodsId),
-          goodsSubCode = (SELECT code FROM cnoa_jxc_category WHERE id = new.storageId),
-          inventoryClassificationName = (SELECT name FROM cnoa_jxc_category WHERE id = new.storageId),
+          goodsSubCode = (SELECT c.code FROM cnoa_jxc_category AS c LEFT JOIN cnoa_jxc_goods AS g ON c.code = g.field1 WHERE g.id = new.goodsId),
+          inventoryClassificationName = (SELECT c.name FROM cnoa_jxc_category AS c LEFT JOIN cnoa_jxc_goods AS g ON c.code = g.field1 WHERE g.id = new.goodsId),
           openingInventoryQuantity = (new.openingInventoryQuantity),
           openingBalance = (new.openingBalance),
           stockInCount = 0,
@@ -82,9 +83,26 @@ CREATE TRIGGER cnoa_afterinsert_on_cnoa_jxc_goods_detail AFTER INSERT
           endingBalance = (new.sum),
           storageId = (NEW.storageId),
           goodsId = (new.goodsId),
-          chongkuCount = (new.chongkuCount);
+          chongkuCount = (new.chongkuCount),
+          uFlowId = (new.uFlowId);
       END IF;
     END IF ;
   END;
+
+DROP TRIGGER IF EXISTS cnoa_afterdelete_on_cnoa_jxc_goods_detai;
+CREATE TRIGGER cnoa_afterdelete_on_cnoa_jxc_goods_detai AFTER DELETE
+  ON cnoa_jxc_stock_goods_detail FOR EACH ROW
+  BEGIN
+    DELETE FROM cnoa_jxc_collect WHERE goodsId = OLD.goodsId AND storageId = OLD.storageId AND uFlowId = OLD.uFlowId;
+  END;
 SHOW TRIGGERS;
 //
+
+delete from cnoa_jxc_goods;
+delete from cnoa_jxc_stock_goods_detail;
+delete from cnoa_jxc_collect;
+delete from cnoa_z_wf_t_3;
+delete from cnoa_z_wf_d_3_29;
+delete from cnoa_jxc_stock_chuku;
+delete from cnoa_jxc_stock_ruku;
+

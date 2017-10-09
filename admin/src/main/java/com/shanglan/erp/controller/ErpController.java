@@ -7,6 +7,7 @@ import com.shanglan.erp.dto.ExcelBean;
 import com.shanglan.erp.dto.GoodsDTO;
 import com.shanglan.erp.entity.Category;
 import com.shanglan.erp.entity.Collect;
+import com.shanglan.erp.entity.Config;
 import com.shanglan.erp.entity.Goods;
 import com.shanglan.erp.service.ErpService;
 import org.apache.commons.lang.StringUtils;
@@ -175,9 +176,11 @@ public class ErpController {
         ModelAndView model = new ModelAndView("erp_collect");
         List<Collect> collect = erpService.findCollect(keyword,pageable);
         List<CategoryTreeDTO> category = erpService.findCategory();
+        Config config = erpService.findConfig();
         model.addObject("category",category);
         model.addObject("page",collect);
         model.addObject("keyword",keyword);
+        model.addObject("config",config);
         return model;
     }
     /**
@@ -212,6 +215,46 @@ public class ErpController {
     @RequestMapping(path = "/collect/chongku",method = RequestMethod.POST)
     public AjaxResponse redbase(@RequestParam Integer storageId,@RequestParam Integer goodsId,@RequestParam Integer count){
         AjaxResponse response = erpService.redbase(storageId, goodsId, count);
+        return response;
+    }
+
+    //******************************************退库*************************************************************************
+
+    /**
+     * 出库列表
+     * @return
+     */
+    @RequestMapping(path = "/chuku/list",method = RequestMethod.GET)
+    public ModelAndView chukuListView(String keyword,@PageableDefault(value = 10,sort = "id",direction = Sort.Direction.DESC) Pageable pageable){
+        ModelAndView modelAndView = new ModelAndView("erp_chukulist");
+        modelAndView.addObject("chukulist",erpService.findChukuList(keyword));
+        modelAndView.addObject("keyword",keyword);
+        return modelAndView;
+    }
+
+    /**
+     * 出库表单详情
+     * @param uFlowId
+     * @return
+     */
+    @RequestMapping(path = "/chuku/form/{uFlowId}")
+    public ModelAndView chukuFormView(@PathVariable Integer uFlowId){
+        ModelAndView modelAndView = new ModelAndView("erp_chukuform");
+        modelAndView.addObject("chukuHead",erpService.findWfChukuHead(uFlowId));
+        modelAndView.addObject("chukuItemList",erpService.findWfChukuItem(uFlowId));
+        return modelAndView;
+    }
+
+
+    /**
+     * 删除货品记录
+     * @param uFlowId
+     * @param bindid
+     * @return
+     */
+    @RequestMapping(path = "/chuku/delete",method = RequestMethod.POST)
+    public AjaxResponse deleteChukuItem(@RequestParam Integer uFlowId,@RequestParam Integer bindid){
+        AjaxResponse response = erpService.deleteChukuItem(uFlowId, bindid);
         return response;
     }
 }

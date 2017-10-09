@@ -113,7 +113,7 @@ public class JavaUtils {
         }
         long l = Long.parseLong(date);
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy/MM/dd");
-        SimpleDateFormat sdf2=new SimpleDateFormat("yyyy-MM-dd h:m:s");
+        SimpleDateFormat sdf2=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String format = sdf2.format(l*1000);
         return format;
     }

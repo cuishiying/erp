@@ -4,6 +4,7 @@ com/shanglan/erp/repository/AttRecordRepository.class
 com/shanglan/erp/base/sms/VerifyResult.class
 com/shanglan/erp/entity/AttMachine.class
 com/shanglan/erp/repository/AttRepository$2.class
+com/shanglan/erp/repository/GoodsRepository$6.class
 com/shanglan/erp/base/FileUploadProgress$1.class
 com/shanglan/erp/entity/AttRecord.class
 com/shanglan/erp/repository/GoodsRepository$2.class
@@ -20,11 +21,15 @@ com/shanglan/erp/repository/CategoryRepository.class
 com/shanglan/erp/config/AliyunOssConfig.class
 com/shanglan/erp/base/ExcelUtils.class
 com/shanglan/erp/repository/AttRepository.class
+com/shanglan/erp/repository/GoodsRepository$9.class
+com/shanglan/erp/entity/Config.class
+com/shanglan/erp/dto/WfChukuItem.class
 com/shanglan/erp/repository/AttMachineRepository.class
 com/shanglan/erp/entity/AttJoinAttRecord.class
 com/shanglan/erp/entity/AttMgrJoinatt.class
 com/shanglan/erp/repository/AttRepository$1.class
 com/shanglan/erp/base/AliyunNewOss.class
+com/shanglan/erp/repository/ConfigRepository.class
 com/shanglan/erp/entity/AttClasses.class
 com/shanglan/erp/base/sms/SmsParams.class
 com/shanglan/erp/base/StorageService.class
@@ -32,9 +37,11 @@ com/shanglan/erp/base/UploadStatus.class
 com/shanglan/erp/base/DateUtils.class
 com/shanglan/erp/config/SmsConfig.class
 com/shanglan/erp/base/sms/SmsService.class
+com/shanglan/erp/dto/ErpChuku.class
 com/shanglan/erp/repository/AttRepository$4.class
 com/shanglan/erp/service/DeptService.class
 com/shanglan/erp/repository/GoodsRepository$5.class
+com/shanglan/erp/repository/GoodsRepository$8.class
 com/shanglan/erp/entity/Collect.class
 com/shanglan/erp/repository/GoodsRepository$4.class
 com/shanglan/erp/repository/AttMgrJoinattRepository.class
@@ -42,7 +49,9 @@ com/shanglan/erp/config/Constance.class
 com/shanglan/erp/service/ErpService$1.class
 com/shanglan/erp/converter/SimplePhysicalNamingStrategy.class
 com/shanglan/erp/entity/Dept.class
+com/shanglan/erp/dto/User.class
 com/shanglan/erp/config/SpringRedisConfig.class
+com/shanglan/erp/repository/GoodsRepository$7.class
 com/shanglan/erp/repository/GoodsRepository$1.class
 com/shanglan/erp/base/sms/VerifyCodeService.class
 com/shanglan/erp/base/BaseEntity.class
@@ -62,6 +71,7 @@ com/shanglan/erp/converter/LocalDateTimeConverter.class
 com/shanglan/erp/base/sms/StorageService.class
 com/shanglan/erp/dto/CategoryTreeDTO.class
 com/shanglan/erp/dto/AttForm.class
+com/shanglan/erp/dto/WfChukuHead.class
 com/shanglan/erp/repository/DeptRepository.class
 com/shanglan/erp/entity/Category.class
 com/shanglan/erp/base/sms/VerifyCodeServiceImpl.class

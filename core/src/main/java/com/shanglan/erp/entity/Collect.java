@@ -2,6 +2,7 @@ package com.shanglan.erp.entity;
 
 import com.shanglan.erp.base.BaseEntity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -32,6 +33,8 @@ public class Collect extends BaseEntity{
     private Integer goodsId;
     private Integer storageId;
     private Integer chongkuCount;
+    @Column(name = "uFlowId")
+    private Integer uFlowId;
 
     public String getStorageName() {
         return storageName;
@@ -183,5 +186,13 @@ public class Collect extends BaseEntity{
 
     public void setChongkuCount(Integer chongkuCount) {
         this.chongkuCount = chongkuCount;
+    }
+
+    public Integer getuFlowId() {
+        return uFlowId;
+    }
+
+    public void setuFlowId(Integer uFlowId) {
+        this.uFlowId = uFlowId;
     }
 }

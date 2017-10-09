@@ -4,9 +4,7 @@ package com.shanglan.erp.service;
 import com.shanglan.erp.base.AjaxResponse;
 import com.shanglan.erp.base.ExcelUtils;
 import com.shanglan.erp.config.Constance;
-import com.shanglan.erp.dto.CategoryTreeDTO;
-import com.shanglan.erp.dto.ExcelBean;
-import com.shanglan.erp.dto.GoodsDTO;
+import com.shanglan.erp.dto.*;
 import com.shanglan.erp.entity.*;
 import com.shanglan.erp.repository.*;
 import com.shanglan.erp.utils.JavaUtils;
@@ -45,6 +43,8 @@ public class ErpService {
     private ErpStorageRepository erpStorageRepository;
     @Autowired
     private CollectRepository collectRepository;
+    @Autowired
+    private ConfigRepository configRepository;
 
 
     //*****************************************货品分类**************************************************************************
@@ -94,7 +94,7 @@ public class ErpService {
      * @return
      */
     public List<Category> findAllCategory(){
-        List<Category> all = categoryRepository.findAll();
+        List<Category> all = categoryRepository.findAllCategory();
         return all;
     }
 
@@ -261,6 +261,8 @@ public class ErpService {
      */
     public AjaxResponse importCollect(InputStream in, MultipartFile file) throws Exception {
 
+        goodsRepository.truncateTable();
+
         String nowLong = JavaUtils.getNowLong();
 
         List<Storage> sList = erpStorageRepository.findAll();
@@ -314,10 +316,64 @@ public class ErpService {
         ExcelUtils.export(fileName,sheetName,Collect.class,collect,map,response);
     }
 
+
+    //*****************************************退库*************************************************************************
+
+    /**
+     * 出库列表
+     */
+    public List<ErpChuku> findChukuList(String keyword){
+        if(null==keyword){
+            keyword = "";
+        }
+        List<ErpChuku> chukuList = goodsRepository.findChukuList(keyword);
+        return chukuList;
+    }
+
+    /**
+     * 出库表头
+     * @param uFlowId
+     * @return
+     */
+    public WfChukuHead findWfChukuHead(Integer uFlowId){
+        WfChukuHead wfHead = goodsRepository.findWfHead(uFlowId);
+        User user = goodsRepository.findUser(wfHead.getUid());
+        wfHead.setTruename(user.getTruename());
+        return wfHead;
+    }
+
+    /**
+     * 出库商品明细
+     * @param uFlowId
+     * @return
+     */
+    public List<WfChukuItem> findWfChukuItem(Integer uFlowId){
+        List<WfChukuItem> wfItem = goodsRepository.findWfItem(uFlowId);
+        return wfItem;
+    }
+
+    public AjaxResponse deleteChukuItem(Integer uFlowId,Integer bindid){
+        AjaxResponse response = goodsRepository.deleteChukuItem(uFlowId, bindid);
+        return response;
+    }
+
+
+
+    //*****************************************初始化数据库*************************************************************************
+
     /**
      * truncate是删除表中所有数据（还会重置自增长字段）
      */
     public void truncateTable(){
-        Integer count = goodsRepository.truncateTable();
+        goodsRepository.truncateTable();
+    }
+
+    public Config findConfig(){
+        Config one = configRepository.findOne(1);
+        if(null==one){
+            one = new Config();
+            one.setShowImpBtn(true);
+        }
+        return one;
     }
 }

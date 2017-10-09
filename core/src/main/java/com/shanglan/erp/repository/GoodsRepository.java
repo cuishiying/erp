@@ -2,6 +2,10 @@ package com.shanglan.erp.repository;
 
 import com.shanglan.erp.base.AjaxResponse;
 import com.shanglan.erp.config.Constance;
+import com.shanglan.erp.dto.ErpChuku;
+import com.shanglan.erp.dto.User;
+import com.shanglan.erp.dto.WfChukuHead;
+import com.shanglan.erp.dto.WfChukuItem;
 import com.shanglan.erp.entity.Collect;
 import com.shanglan.erp.entity.Goods;
 import com.shanglan.erp.entity.Storage;
@@ -13,6 +17,7 @@ import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import java.sql.PreparedStatement;
@@ -34,7 +39,7 @@ public class GoodsRepository {
     private ErpStorageRepository erpStorageRepository;
 
 
-    //*****************************************货品档案**************************************************************************
+    //*****************************************仓库**************************************************************************
 
     /**
      * 根据货品id查找仓库名字（相同货品去重）
@@ -277,6 +282,194 @@ public class GoodsRepository {
     }
 
     /**
+     * 收发存初始化表格
+     */
+    public void truncateTable(){
+
+        String cnoa_z_wf_d = env.getProperty("wf.d.cnoa_z_wf_d");
+        String cnoa_z_wf_t = env.getProperty("wf.t.cnoa_z_wf_t");
+
+
+        String sql1 = "TRUNCATE TABLE cnoa_jxc_goods;";
+        String sql2 = "TRUNCATE TABLE cnoa_jxc_stock_goods_detail;";
+        String sql3 = "TRUNCATE TABLE cnoa_jxc_collect;";
+        String sql4 = "TRUNCATE TABLE "+cnoa_z_wf_t+";";
+        String sql5 = "TRUNCATE TABLE "+cnoa_z_wf_d+";";
+        String sql6 = "TRUNCATE TABLE cnoa_jxc_stock_chuku;";
+        String sql7 = "TRUNCATE TABLE cnoa_jxc_stock_ruku;";
+        try{
+            jdbcTemplate.execute(sql1);
+            jdbcTemplate.execute(sql2);
+            jdbcTemplate.execute(sql3);
+            jdbcTemplate.execute(sql4);
+            jdbcTemplate.execute(sql5);
+            jdbcTemplate.execute(sql6);
+            jdbcTemplate.execute(sql7);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
+    //*****************************************退库**************************************************************************
+
+    /**
+     * 出库列表
+     * @return
+     */
+    public List<ErpChuku> findChukuList(String keyword){
+
+        String sql = "select c.id,c.indentnumber,c.posttime,c.type,c.uid,c.storageid,c.status,c.uFlowId,s.storagename from cnoa_jxc_stock_chuku AS c LEFT JOIN cnoa_jxc_storage AS s ON c.storageid = s.id WHERE 1=1";
+
+        List <Object> queryList=new ArrayList<Object>();
+        if (keyword!=null&&!keyword.equals("")) {
+            sql += " AND c.indentnumber like ?";
+            queryList.add("%" + keyword + "%");
+        }
+
+        sql += " ORDER BY c.posttime DESC ";
+        List<ErpChuku> query = jdbcTemplate.query(sql,queryList.toArray(), new RowMapper<ErpChuku>() {
+            @Override
+            public ErpChuku mapRow(ResultSet resultSet, int i) throws SQLException {
+                ErpChuku erpChuku = new ErpChuku();
+                erpChuku.setId(resultSet.getInt("id"));
+                erpChuku.setIndentnumber(resultSet.getString("indentnumber"));
+                erpChuku.setPosttime(JavaUtils.convert2DateTime(resultSet.getString("posttime")));
+                erpChuku.setType(resultSet.getInt("type"));
+                erpChuku.setUid(resultSet.getInt("uid"));
+                erpChuku.setStorageid(resultSet.getInt("storageid"));
+                erpChuku.setStatusId(resultSet.getInt("status"));
+                erpChuku.setStatus(resultSet.getInt("status")==1?"审批结束":"审批中");
+                erpChuku.setuFlowId(resultSet.getInt("uFlowId"));
+                erpChuku.setStorageName(resultSet.getString("storagename"));
+                return erpChuku;
+            }
+        });
+        return query;
+    }
+
+
+    /**
+     * 出库明细表
+     * @param uFlowId
+     * @return
+     */
+    public List<WfChukuItem> findWfItem(Integer uFlowId){
+
+        String remark = env.getProperty("wf.d.remark");
+        String totleprice = env.getProperty("wf.d.totleprice");
+        String price = env.getProperty("wf.d.price");
+        String name = env.getProperty("wf.d.name");
+        String classify = env.getProperty("wf.d.classify");
+        String standard = env.getProperty("wf.d.standard");
+        String unit = env.getProperty("wf.d.unit");
+        String count = env.getProperty("wf.d.count");
+        String cnoa_z_wf_d = env.getProperty("wf.d.cnoa_z_wf_d");
+
+        List<WfChukuItem> query = null;
+
+        String sql = "select * from "+cnoa_z_wf_d+" as c where c.uFlowId = ?";
+
+        try{
+            query = jdbcTemplate.query(sql, new Object[]{uFlowId}, new RowMapper<WfChukuItem>() {
+
+                @Override
+                public WfChukuItem mapRow(ResultSet resultSet, int i) throws SQLException {
+                    WfChukuItem wfChukuItem = new WfChukuItem();
+                    wfChukuItem.setFid(resultSet.getInt("fid"));
+                    wfChukuItem.setuFlowId(resultSet.getInt("uFlowId"));
+                    wfChukuItem.setRowid(resultSet.getInt("rowid"));
+                    wfChukuItem.setBindid(resultSet.getInt("bindid"));
+                    wfChukuItem.setRemark(resultSet.getString(remark));
+                    wfChukuItem.setTotleprice(resultSet.getFloat(totleprice));
+                    wfChukuItem.setPrice(resultSet.getFloat(price));
+                    wfChukuItem.setName(resultSet.getString(name));
+                    wfChukuItem.setClassify(resultSet.getString(classify));
+                    wfChukuItem.setStandard(resultSet.getString(standard));
+                    wfChukuItem.setUnit(resultSet.getString(unit));
+                    wfChukuItem.setCount(resultSet.getInt(count));
+                    return wfChukuItem;
+                }
+            });
+        }catch (Exception e){
+            query = new ArrayList<>();
+            return query;
+        }
+
+        return query;
+    }
+
+    public WfChukuHead findWfHead(Integer uFlowId){
+
+        String storagename = env.getProperty("wf.t.storagename");
+        String flowdate = env.getProperty("wf.t.flowdate");
+        String cnoa_z_wf_t = env.getProperty("wf.t.cnoa_z_wf_t");
+
+        WfChukuHead head = null;
+
+        String sql = "select * from "+cnoa_z_wf_t+" as c where c.uFlowId = ?";
+        try{
+            head = jdbcTemplate.queryForObject(sql,new Object[]{uFlowId}, new RowMapper<WfChukuHead>() {
+                @Override
+                public WfChukuHead mapRow(ResultSet resultSet, int i) throws SQLException {
+                    WfChukuHead wfChukuHead = new WfChukuHead();
+                    wfChukuHead.setFid(resultSet.getInt("fid"));
+                    wfChukuHead.setuFlowId(resultSet.getInt("uFlowId"));
+                    wfChukuHead.setFlowNumber(resultSet.getString("flowNumber"));
+                    wfChukuHead.setFlowName(resultSet.getString("flowName"));
+                    wfChukuHead.setUid(resultSet.getInt("uid"));
+                    wfChukuHead.setStatus(resultSet.getInt("status"));
+                    wfChukuHead.setLevel(resultSet.getInt("level"));
+                    wfChukuHead.setReason(resultSet.getString("reason"));
+                    wfChukuHead.setPosttime(JavaUtils.convert2DateTime(resultSet.getString("posttime")));
+                    wfChukuHead.setEndtime(JavaUtils.convert2DateTime(resultSet.getString("endtime")));
+                    wfChukuHead.setStorageName(resultSet.getString(storagename));
+                    wfChukuHead.setFlowDate(resultSet.getString(flowdate));
+                    return wfChukuHead;
+                }
+            });
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+        return head;
+    }
+
+    public User findUser(Integer uid){
+        String sql = "select * from cnoa_main_user as c where c.uid = ?";
+        User user = jdbcTemplate.queryForObject(sql, new Object[]{uid}, new RowMapper<User>() {
+            @Override
+            public User mapRow(ResultSet resultSet, int i) throws SQLException {
+                User user = new User();
+                user.setUid(resultSet.getInt("uid"));
+                user.setUsername(resultSet.getString("username"));
+                user.setTruename(resultSet.getString("truename"));
+                return user;
+            }
+        });
+
+        return user;
+    }
+
+    /**
+     * 退库商品回退
+     * 注意，出库时一个出库单只能对应一个仓库（目前无法区分仓库）
+     * @param uFlowId
+     * @param bindid
+     * @return
+     */
+    public AjaxResponse deleteChukuItem(Integer uFlowId,Integer bindid){
+
+        String cnoa_z_wf_d = env.getProperty("wf.d.cnoa_z_wf_d");
+
+        String sqlform ="DELETE FROM "+cnoa_z_wf_d+" WHERE uFlowId = ? AND bindid = ?";
+        String sqldetail ="DELETE FROM cnoa_jxc_stock_goods_detail WHERE uFlowId = ? AND goodsId = ?";
+        int form = jdbcTemplate.update(sqlform, new Object[]{uFlowId, bindid});
+        int detail = jdbcTemplate.update(sqldetail, new Object[]{uFlowId, bindid});
+        return AjaxResponse.success("退库成功");
+    }
+
+    /**
      * 冲库插入
      * @param posttime
      * @param storageId
@@ -288,9 +481,5 @@ public class GoodsRepository {
         jdbcTemplate.update(sql,new Object[]{posttime,storageId,goodsId,quantity,quantity});
     }
 
-    public Integer truncateTable(){
-        String sql = "delete from cnoa_jxc_goods";
-        Integer integer = jdbcTemplate.queryForObject(sql, Integer.class);
-        return integer;
-    }
+
 }

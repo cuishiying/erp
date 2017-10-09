@@ -17,7 +17,7 @@ public interface CategoryRepository extends JpaRepository<Category,Integer> {
      * 查找所有一级分类
      * @return
      */
-    @Query("select c from Category c where c.parentId is null")
+    @Query("select c from Category c where c.parentId is null ORDER BY c.code")
     List<Category> findTopCategory();
 
     /**
@@ -35,5 +35,8 @@ public interface CategoryRepository extends JpaRepository<Category,Integer> {
     @Transactional
     @Query("delete from Category c where  c.id = ?1 or c.parentId = ?1")
     void deleteCategories(Integer id);
+
+    @Query("select c from Category c ORDER BY c.code")
+    List<Category> findAllCategory();
 
 }
