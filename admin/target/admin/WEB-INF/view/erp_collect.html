@@ -66,7 +66,7 @@
                   </thead>
                   <tbody>
 
-                  <tr class="" th:each="g:${page}">
+                  <tr class="" th:each="g:${page.content}">
                     <td th:text="${g.storageName}" class="storage" th:value="${g.storageId}"></td>
                     <td th:text="${g.goodsCode}" class="goods" th:value="${g.goodsId}"></td>
                     <td th:text="${g.storageCode}"></td>
@@ -90,6 +90,9 @@
                   </tbody>
 
                 </table>
+
+                <!--分页-->
+                <nav th:replace="common/page::paging"></nav>
               </div>
             </div>
 

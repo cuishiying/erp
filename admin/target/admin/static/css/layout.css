@@ -139,3 +139,62 @@ th {
 .modal .modal-body > .bc_item {
     padding: 5px;
 }
+
+/* 分页开始 */
+ul, ol ,dl{ list-style:none; }
+.clearfix{zoom:1;}
+.fl{float: left!important;}
+.fr{float: right!important;}
+.page_box .fr {
+    color: #646464;
+    font-size: 12px;margin-right: 2%;
+}
+
+.page_box {
+    margin-top: 0.2rem;
+}
+.page {
+    margin: 0 0.2rem 0.4rem 2%;
+}
+.page li {
+    float: left;
+    border: 1px solid #dddddd;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+    color: #646464;
+    font-size: 12px;
+    margin-right: 0.1rem;
+    cursor: pointer;
+    border-radius: 1px;
+}
+.page li:hover{border:1px solid #2382c6;}
+.page li.current{color: #fff;background-color: #2382c6;}
+.skip {
+    float: left;
+    margin-right: 0.1rem;
+    cursor: pointer;
+    line-height: 24px;
+}
+.skip input {
+    border: 1px solid #ddd;
+    min-width: 24px;
+    height: 24px;
+    margin: 0 0.1rem;
+    border-radius: 1px;
+    text-align: center;
+    width: 24px;
+}
+.skipGo {
+    float: left;
+    color: #646464;
+    font-size: 12px;
+    cursor: pointer;
+    line-height: 24px;
+}
+.page_box .fr {
+    color: #646464;
+    font-size: 12px;margin-right: 2%;
+}
+/* 分页结束 */

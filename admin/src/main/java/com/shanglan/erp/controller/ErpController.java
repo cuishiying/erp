@@ -174,7 +174,7 @@ public class ErpController {
     @RequestMapping(path = "/collect",method = RequestMethod.GET)
     public ModelAndView collect(String keyword,@PageableDefault(value = 10,sort = "id",direction = Sort.Direction.DESC) Pageable pageable){
         ModelAndView model = new ModelAndView("erp_collect");
-        List<Collect> collect = erpService.findCollect(keyword,pageable);
+        Page<Collect> collect = erpService.findCollectByPage(keyword,pageable);
         List<CategoryTreeDTO> category = erpService.findCategory();
         Config config = erpService.findConfig();
         model.addObject("category",category);

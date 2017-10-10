@@ -242,6 +242,12 @@ public class ErpService {
         return AjaxResponse.success();
     }
 
+    public Page<Collect> findCollectByPage(String keyword, Pageable pageable){
+        List<Collect> list = findCollect(keyword, pageable);
+        Page<Collect> page = new PageImpl<Collect>(list, pageable, list.size());
+
+        return page;
+    }
     /**
      * 收发存列表
      * @return

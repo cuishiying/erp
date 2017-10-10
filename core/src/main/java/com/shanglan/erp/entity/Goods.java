@@ -15,7 +15,7 @@ public class Goods extends BaseEntity{
 
     private static final long serialVersionUID = 344356902788050285L;
 
-    private Integer order;
+    private Integer goodOrder;
     private Boolean checked;
     private String goodsname;//存货名称
     private Integer manager;//管理员id
@@ -38,12 +38,12 @@ public class Goods extends BaseEntity{
     private Integer storageId;//
     private String unitgroupname;//计量单位组名称
 
-    public Integer getOrder() {
-        return order;
+    public Integer getGoodOrder() {
+        return goodOrder;
     }
 
-    public void setOrder(Integer order) {
-        this.order = order;
+    public void setGoodOrder(Integer goodOrder) {
+        this.goodOrder = goodOrder;
     }
 
     public Boolean getChecked() {
