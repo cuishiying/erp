@@ -213,6 +213,8 @@ public class ErpService {
         String sheetName = "货品档案";
         List<Goods> list = this.findAllGoods(null);
         LinkedHashMap<String, String> map = new LinkedHashMap<>();
+        map.put("序号","order");
+        map.put("选择","checked");
         map.put("存货编码","goodsCode");
         map.put("存货名称","goodsname");
         map.put("规格型号","standard");

@@ -15,6 +15,8 @@ public class Goods extends BaseEntity{
 
     private static final long serialVersionUID = 344356902788050285L;
 
+    private Integer order;
+    private Boolean checked;
     private String goodsname;//存货名称
     private Integer manager;//管理员id
     private String unit;//单位
@@ -35,6 +37,22 @@ public class Goods extends BaseEntity{
     private String openingBalance;//期初结存金额
     private Integer storageId;//
     private String unitgroupname;//计量单位组名称
+
+    public Integer getOrder() {
+        return order;
+    }
+
+    public void setOrder(Integer order) {
+        this.order = order;
+    }
+
+    public Boolean getChecked() {
+        return checked;
+    }
+
+    public void setChecked(Boolean checked) {
+        this.checked = checked;
+    }
 
     public String getGoodsname() {
         return goodsname;
