@@ -5,6 +5,7 @@ com/shanglan/erp/base/sms/VerifyResult.class
 com/shanglan/erp/entity/AttMachine.class
 com/shanglan/erp/repository/AttRepository$2.class
 com/shanglan/erp/repository/GoodsRepository$6.class
+com/shanglan/erp/repository/GoodsRepository$11.class
 com/shanglan/erp/base/FileUploadProgress$1.class
 com/shanglan/erp/entity/AttRecord.class
 com/shanglan/erp/repository/GoodsRepository$2.class
@@ -39,6 +40,7 @@ com/shanglan/erp/config/SmsConfig.class
 com/shanglan/erp/base/sms/SmsService.class
 com/shanglan/erp/dto/ErpChuku.class
 com/shanglan/erp/repository/AttRepository$4.class
+com/shanglan/erp/repository/GoodsRepository$10.class
 com/shanglan/erp/service/DeptService.class
 com/shanglan/erp/repository/GoodsRepository$5.class
 com/shanglan/erp/repository/GoodsRepository$8.class
