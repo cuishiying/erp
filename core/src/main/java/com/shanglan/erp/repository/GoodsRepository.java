@@ -101,10 +101,37 @@ public class GoodsRepository {
     /**
      * 查找所有货品并去重
      * @param keyword
-     * @param pageable
      * @return
      */
-    public List<Goods> findAllGoods(String sql,String keyword,Pageable pageable) {
+    public Integer findGoodsTotle(String sql,String keyword){
+        String dm = env.getProperty("goods.dm");
+        String usedate = env.getProperty("goods.usedate");
+        String subcode = env.getProperty("goods.subcode");
+        String abc = env.getProperty("goods.abc");
+        String unitgroupcode = env.getProperty("goods.unitgroupcode");
+        String unitcode = env.getProperty("goods.unitcode");
+
+        List <Object> queryList=new ArrayList<Object>();
+        if (keyword!=null&&!keyword.equals("")) {
+            sql += " and c.goodsCode like ? or c.goodsname LIKE ?";
+            queryList.add("%" + keyword + "%");
+            queryList.add("%" + keyword + "%");
+        }
+        sql+=" GROUP BY c.goodsCode";
+        List<Goods> list = jdbcTemplate.query(sql, queryList.toArray(),new RowMapper<Goods>() {
+
+            @Override
+            public Goods mapRow(ResultSet resultSet, int i) throws SQLException {
+                return null;
+            }
+        });
+        return list.size();
+    }
+    public List<Goods> findGoods(String sql,String keyword,Pageable pageable) {
+
+        if(null==keyword){
+            keyword = "";
+        }
 
         String dm = env.getProperty("goods.dm");
         String usedate = env.getProperty("goods.usedate");
@@ -120,6 +147,10 @@ public class GoodsRepository {
             queryList.add("%" + keyword + "%");
         }
         sql+=" GROUP BY c.goodsCode";
+
+        if(null!=pageable){
+            sql += " limit "+pageable.getPageSize()+" offset "+pageable.getPageSize()*pageable.getPageNumber();
+        }
 
         List<Goods> list = jdbcTemplate.query(sql, queryList.toArray(),new RowMapper<Goods>() {
 
@@ -201,7 +232,29 @@ public class GoodsRepository {
 
     //*****************************************收发存**************************************************************************
 
+    public Integer findCollectTotle(String keyword){
+        String sql = "SELECT count(0) FROM cnoa_jxc_collect c WHERE 1=1";
+        List <Object> queryList=new ArrayList<Object>();
+        if (keyword!=null&&!keyword.equals("")) {
+            sql += " AND c.goodsCode like ? or c.goodsname LIKE ?";
+            queryList.add("%" + keyword + "%");
+            queryList.add("%" + keyword + "%");
+        }
+        sql += " GROUP BY c.storageName,c.goodsCode";
+        List<Collect> query = jdbcTemplate.query(sql, queryList.toArray(), new RowMapper<Collect>() {
+
+            @Override
+            public Collect mapRow(ResultSet resultSet, int i) throws SQLException {
+                return null;
+            }
+        });
+        return query.size();
+    }
+
     public List<Collect> findCollect(String keyword, Pageable pageable){
+        if(null==keyword){
+            keyword = "";
+        }
 
         String sql = "SELECT c.storageId,c.goodsId,c.storageName,c.goodsCode,c.storageCode,c.goodsname,c.standard,c.unit,c.goodsSubCode,c.inventoryClassificationName,c.openingInventoryQuantity,c.openingBalance,SUM(c.stockInCount) AS sic,SUM(c.stockInBalance) AS sib,SUM(c.stockOutCount) AS soc,SUM(c.stockOutBalance) AS sob,SUM(c.endingInventoryQuantity) AS eiq,SUM(c.endingBalance) AS eb,SUM(c.chongkuCount) AS ck FROM cnoa_jxc_collect c WHERE 1=1";
         List <Object> queryList=new ArrayList<Object>();
@@ -211,6 +264,9 @@ public class GoodsRepository {
             queryList.add("%" + keyword + "%");
         }
         sql += " GROUP BY c.storageName,c.goodsCode ORDER BY c.goodsCode";
+        if(null!=pageable){
+            sql += " limit "+pageable.getPageSize()+" offset "+pageable.getPageSize()*pageable.getPageNumber();
+        }
         List<Collect> query = jdbcTemplate.query(sql,queryList.toArray(), new RowMapper<Collect>() {
 
             @Override
@@ -256,7 +312,7 @@ public class GoodsRepository {
      */
     public void saveInitCount(){
         String qsql="select * from cnoa_jxc_goods as c where c.openingInventoryQuantity is not null";
-        List<Goods> all = findAllGoods(qsql, null, null);
+        List<Goods> all = findGoods(qsql, null, null);
 
         String sql="insert ignore into cnoa_jxc_stock_goods_detail(posttime,storageId,goodsId,quantity,price,sum,openingInventoryQuantity,initCount) values(?,?,?,?,?,?,?,?)";
         jdbcTemplate.batchUpdate(sql,new BatchPreparedStatementSetter() {

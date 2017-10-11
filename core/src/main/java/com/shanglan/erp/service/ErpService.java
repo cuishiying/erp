@@ -124,13 +124,12 @@ public class ErpService {
      * @param pageable
      * @return
      */
-    public Page<GoodsDTO> findAllGoodsByPage(String keyword, Pageable pageable){
-        if(null==keyword){
-            keyword = "";
-        }
+    public Page<GoodsDTO> findGoodsByPage(String keyword, Pageable pageable){
+
         String sql="select * from cnoa_jxc_goods as c WHERE 1=1";
-        List<Goods> list = goodsRepository.findAllGoods(sql,keyword,pageable);
-        Page<Goods> page = new PageImpl<Goods>(list, pageable, list.size());
+        List<Goods> list = goodsRepository.findGoods(sql,keyword,pageable);
+        Integer totle = goodsRepository.findGoodsTotle(sql, keyword);
+        Page<Goods> page = new PageImpl<Goods>(list, pageable, totle);
         Page<GoodsDTO> page1 = page.map(new Converter<Goods, GoodsDTO>() {
             @Override
             public GoodsDTO convert(Goods goods) {
@@ -142,12 +141,10 @@ public class ErpService {
         return page1;
     }
 
-    public List<Goods> findAllGoods(String keyword){
-        if(null==keyword){
-            keyword = "";
-        }
+    public List<Goods> findGoods(String keyword){
+
         String sql="select * from cnoa_jxc_goods as c WHERE 1=1";
-        List<Goods> list = goodsRepository.findAllGoods(sql,keyword,null);
+        List<Goods> list = goodsRepository.findGoods(sql,keyword,null);
         return list;
     }
 
@@ -211,9 +208,9 @@ public class ErpService {
     public void exportGoods(HttpServletResponse response){
         String fileName = "货品档案";
         String sheetName = "货品档案";
-        List<Goods> list = this.findAllGoods(null);
+        List<Goods> list = this.findGoods(null);
         LinkedHashMap<String, String> map = new LinkedHashMap<>();
-        map.put("序号","order");
+        map.put("序号","goodOrder");
         map.put("选择","checked");
         map.put("存货编码","goodsCode");
         map.put("存货名称","goodsname");
@@ -243,20 +240,19 @@ public class ErpService {
     }
 
     public Page<Collect> findCollectByPage(String keyword, Pageable pageable){
-        List<Collect> list = findCollect(keyword, pageable);
-        Page<Collect> page = new PageImpl<Collect>(list, pageable, list.size());
 
+        List<Collect> list = goodsRepository.findCollect(keyword, pageable);
+        Integer totle = goodsRepository.findCollectTotle(keyword);
+        Page<Collect> page = new PageImpl<Collect>(list, pageable, totle);
         return page;
     }
     /**
      * 收发存列表
      * @return
      */
-    public List<Collect> findCollect(String keyword, Pageable pageable){
-        if(null==keyword){
-            keyword = "";
-        }
-        List<Collect> collect = goodsRepository.findCollect(keyword,pageable);
+    public List<Collect> findCollect(String keyword){
+
+        List<Collect> collect = goodsRepository.findCollect(keyword,null);
         return collect;
     }
 
@@ -302,7 +298,7 @@ public class ErpService {
     public void exportCollect(HttpServletResponse response){
         String fileName = "收发存汇总表";
         String sheetName = "收发存汇总表";
-        List<Collect> collect = this.findCollect(null,null);
+        List<Collect> collect = this.findCollect(null);
         LinkedHashMap<String, String> map = new LinkedHashMap<>();
         map.put("仓库名称","storageName");
         map.put("存货编码","goodsCode");

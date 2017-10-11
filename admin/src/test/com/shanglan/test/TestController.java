@@ -1,12 +1,15 @@
 package com.shanglan.test;
 
+import com.shanglan.erp.entity.Collect;
 import com.shanglan.erp.repository.AttMachineRepository;
 import com.shanglan.erp.repository.GoodsRepository;
 import com.shanglan.erp.service.AttService;
+import com.shanglan.erp.service.ErpService;
 import com.shanglan.erp.utils.JavaUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -26,6 +29,8 @@ public class TestController {
     private GoodsRepository goodsRepository;
     @Autowired
     private AttService attService;
+    @Autowired
+    private ErpService erpService;
 
     @Test
     public void test() throws Exception{
@@ -72,6 +77,6 @@ public class TestController {
 
     @Test
     public void test5() throws Exception{
-//        goodsRepository.test();
+        Page<Collect> collectByPage = erpService.findCollectByPage("", null);
     }
 }

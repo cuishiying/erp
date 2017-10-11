@@ -99,7 +99,7 @@ public class ErpController {
     @RequestMapping(path = "/goods/list",method = RequestMethod.GET)
     public ModelAndView list(String keyword,@PageableDefault(value = 10,sort = "id",direction = Sort.Direction.DESC) Pageable pageable){
         ModelAndView model = new ModelAndView("erp_goods");
-        Page<GoodsDTO> page = erpService.findAllGoodsByPage(keyword,pageable);
+        Page<GoodsDTO> page = erpService.findGoodsByPage(keyword,pageable);
         List<CategoryTreeDTO> category = erpService.findCategory();
         model.addObject("category",category);
         model.addObject("page",page);
