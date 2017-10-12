@@ -25,7 +25,7 @@
           <div class="col-md-12">
             <div class="panel">
               <div class="panel-heading">
-                <h3 class="panel-title">考勤班次设置</h3>
+                <h3 class="panel-title">参数配置</h3>
               </div>
               <div class="controller">
                 <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">新增</button>
@@ -35,25 +35,17 @@
                 <table class="table table-striped">
                   <thead>
                   <tr>
-                    <th>名称</th>
-                    <th>上班时间段</th>
-                    <th>下班时间段</th>
-                    <th>上班时间段</th>
-                    <th>下班时间段</th>
+                    <th>配置风险项</th>
+                    <th>配置风险值</th>
                     <th>操作</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr th:each="item:${classes}">
+                  <tr th:each="item:${itemList}">
+                    <td th:text="${item.riskCondition.name}"></td>
                     <td th:text="${item.name}"></td>
-                    <td th:text="${item.t1}"></td>
-                    <td th:text="${item.t2}"></td>
-                    <td th:text="${item.t3}"></td>
-                    <td th:text="${item.t4}"></td>
                     <td>
-                      <!--<button class="btn btn-primary">编辑</button>-->
                       <a class="btn btn-primary delete" th:value="${item.id}">删除</a>
-
                     </td>
                   </tr>
                   </tbody>
@@ -85,12 +77,13 @@
         </h4>
       </div>
       <div class="modal-body">
-        <div class="bc_item">班次名称:<input type="text" class="name"><br/></div>
-        <div class="bc_item">上班时间:<input type="text" class="time startTime1">至<input type="text" class="time endTime1"><br/></div>
-        <div class="bc_item">下班时间:<input type="text" class="time startTime2">至<input type="text" class="time endTime2"><br/></div>
-        <div class="bc_item">上班时间:<input type="text" class="time startTime3">至<input type="text" class="time endTime3"><br/></div>
-        <div class="bc_item">下班时间:<input type="text" class="time startTime4">至<input type="text" class="time endTime4"><br/></div>
-
+        <div class="bc_item">配置风险项:
+          <select class="form-control risk_name">
+            <option th:each="c:${conditionList}"  th:text="${c?.name}" th:id="${c?.id}"></option>
+          </select><br/>
+        </div>
+        <div class="bc_item">配置风险值:
+          <input type="text" class="form-control risk_value">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">关闭
@@ -110,52 +103,20 @@
 
 <script type="text/javascript" th:inline="javascript">
     var ctx = /*[[@{/}]]*/;
-    $('.time').datetimepicker({
-        datepicker:false,
-        format:'H:i',
-        step:5
-    });
+    $('.save').click(function (e) {
 
-    $('.save').click(function () {
-        var attClasses = new Object();
-        var attClassTimes = new Array();
-        attClasses.name = $('.name').val();
-        attClasses.t1 = $('.startTime1').val()+'-'+$('.endTime1').val();
-        attClasses.t2 = $('.startTime2').val()+'-'+$('.endTime2').val();
-        attClasses.t3 = $('.startTime3').val()+'-'+$('.endTime3').val();
-        attClasses.t4 = $('.startTime4').val()+'-'+$('.endTime4').val();
-        if(attClasses.t1!='-'){
-            attClassTimes.push(attClasses.t1);
-        }
-        if(attClasses.t2!='-'){
-            attClassTimes.push(attClasses.t2);
-        }
-        if(attClasses.t3!='-'){
-            attClassTimes.push(attClasses.t3);
-        }
-        if(attClasses.t4!='-'){
-            attClassTimes.push(attClasses.t4);
-        }
-        attClasses.attClassTimes = attClassTimes;
+        var risk = new Object();
+        risk.conditionId = $(".bc_item").find("option:selected").attr("id");
+        risk.conditionValue = $(".risk_value").val();
 
-        if(attClasses.name.trim()==''){
-            alert("内容不能为空");
-            return;
-        }
-        ajaxUtils.postJson(ctx+'att/addClasses',attClasses,function (e) {
-            $('#myModal').modal('hide');
-            window.location.reload();
-        })
-    })
-
-    //删除
-    $(".delete").click(function () {
-        ajaxUtils.postParams(ctx+"att/deleteClass/"+$(this).attr("value"),"",function (e) {
+        ajaxUtils.postParams(ctx+"risk/item/save",risk,function (e) {
             if(e.success){
-                history.go(0);
+                $('#myModal').modal('hide');
+                window.location.reload();
             }
         })
-    })
+
+    });
 </script>
 </body>
 </html>
