@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="admin" />
         <module name="core" />
+        <module name="weixin" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -15,6 +16,7 @@
       <module name="core" target="1.8" />
       <module name="erp" target="1.8" />
       <module name="parent" target="1.8" />
+      <module name="weixin" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

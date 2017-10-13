@@ -92,6 +92,17 @@ public class RiskService {
                 Predicate ownerQuery = cb.equal(root.<Integer>get("riskMkDept"),deptRepository.findOne(queryVo.getDeptId()));
                 predicate.add(ownerQuery);
             }
+            //发布时间
+            if (queryVo!=null&&queryVo.getBeginDate() != null) {
+                LocalDateTime begin = LocalDateTime.of(queryVo.getBeginDate(), LocalTime.MIN);
+                Predicate dateQuery = cb.greaterThanOrEqualTo(root.<LocalDateTime>get("publishTime"), begin);
+                predicate.add(dateQuery);
+            }
+            if (queryVo!=null&&queryVo.getEndDate() != null) {
+                LocalDateTime end = LocalDateTime.of(queryVo.getEndDate(), LocalTime.MAX);
+                Predicate dateQuery = cb.lessThanOrEqualTo(root.<LocalDateTime>get("publishTime"), end);
+                predicate.add(dateQuery);
+            }
             return query.where(predicate.toArray(new Predicate[predicate.size()])).getRestriction();
         };
     }

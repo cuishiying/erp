@@ -21,6 +21,7 @@
         <module>admin</module>
         <module>core</module>
         <module>parent</module>
+        <module>weixin</module>
     </modules>
 
 </project>
