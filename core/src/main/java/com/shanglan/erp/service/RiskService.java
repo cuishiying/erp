@@ -67,6 +67,11 @@ public class RiskService {
         return all;
     }
 
+    public RiskValue findRiskValueById(Integer id){
+        RiskValue one = riskValueRepository.findOne(id);
+        return one;
+    }
+
     /**
      * 查询条件
      * @param queryVo

@@ -17,59 +17,47 @@
       border: none;
     }
   </style>
-
 </head>
 
 <body>
 <div id="wrapper">
   <!--<nav th:replace="common/fragment :: sidebar"></nav>-->
   <div class="main">
-    <div>
-      <div>
+    <div class="">
+      <div class="">
         <div class="row">
           <div class="col-md-12">
             <div class="panel">
               <div class="panel-heading">
-                <h3 class="panel-title">风险录入</h3>
+                <h3 class="panel-title">安全风险管控详情</h3>
               </div>
+
 
               <div class="panel-body">
                 <ul class="list-group">
                   <li class="list-group-item list-group-item-noneborder">
                     <span class="item-name">风险地点</span>
-                    <select class="form-control item-content risk_addr">
-                      <option th:each="a:${riskAddrs}"  th:text="${a?.name}" th:id="${a?.id}"></option>
-                    </select>
+                    <textarea type="text" class="form-control item-content risk_desc" th:text="${riskValue.riskAddr.name}"></textarea>
                   </li>
                   <li class="list-group-item list-group-item-noneborder">
                     <span class="item-name">风险描述</span>
-                    <textarea type="text" class="form-control item-content risk_desc"></textarea>
+                    <textarea type="text" class="form-control item-content risk_desc" th:text="${riskValue.riskDesc}"></textarea>
                   </li>
                   <li class="list-group-item list-group-item-noneborder">
                     <span class="item-name">风险等级</span>
-                    <select class="form-control item-content risk_level" >
-                      <option th:each="l:${riskLevels}"  th:text="${l?.name}" th:id="${l?.id}"></option>
-                    </select>
+                    <textarea type="text" class="form-control item-content risk_desc" th:text="${riskValue.riskLevel.name}"></textarea>
                   </li>
                   <li class="list-group-item list-group-item-noneborder">
                     <span class="item-name">管控措施</span>
-                    <textarea type="text" class="form-control item-content risk_mk"></textarea>
+                    <textarea type="text" class="form-control item-content risk_mk" th:text="${riskValue.precaution}"></textarea>
                   </li>
                   <li class="list-group-item list-group-item-noneborder">
                     <span class="item-name">管控人员部门</span>
-                    <select class="form-control risk_name item-content risk_dept">
-                      <option th:each="d:${deptList}"  th:text="${d?.name}" th:id="${d?.id}"></option>
-                    </select>
+                    <textarea type="text" class="form-control item-content risk_desc" th:text="${riskValue.riskMkDept.name}"></textarea>
                   </li>
                   <li class="list-group-item list-group-item-noneborder">
                     <span class="item-name">风险分析</span>
-                    <select class="form-control risk_name item-content risk_value">
-                      <option th:each="v:${riskValues}"  th:text="${v?.name}" th:id="${v?.id}"></option>
-                    </select>
-                  </li>
-                  <li class="list-group-item list-group-item-noneborder">
-                    <button type="button" class="btn btn-default">关闭</button>
-                    <button type="button" class="btn btn-primary save">保存</button>
+                    <textarea type="text" class="form-control item-content risk_desc" th:text="${riskValue.riskValue.name}"></textarea>
                   </li>
                 </ul>
               </div>
@@ -81,7 +69,10 @@
 
     </div>
   </div>
+
+
 </div>
+
 
 <script th:src="@{/static/js/jquery.min.js}"></script>
 <script th:src="@{/static/js/bootstrap.min.js}"></script>
@@ -90,24 +81,7 @@
 
 <script type="text/javascript" th:inline="javascript">
     var ctx = /*[[@{/}]]*/;
-    $('.save').click(function (e) {
 
-        var risk = new Object();
-        risk.riskAddrId = $(".risk_addr").find("option:selected").attr("id");
-        risk.riskDesc = $(".risk_desc").val();
-        risk.riskLevelId = $(".risk_level").find("option:selected").attr("id");
-        risk.precaution = $(".risk_mk").val();
-        risk.riskMkDeptId = $(".risk_dept").find("option:selected").attr("id");
-        risk.riskvalueId = $(".risk_value").find("option:selected").attr("id");
-        console.log(risk);
-        ajaxUtils.postParams(ctx+"risk/value/add",risk,function (e) {
-            if(e.success){
-                window.location.href = ctx+"risk/value/listview";
-            }
-        })
-
-    });
 </script>
-
 </body>
 </html>

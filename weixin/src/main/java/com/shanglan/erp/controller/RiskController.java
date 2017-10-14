@@ -70,6 +70,14 @@ public class RiskController {
         return model;
     }
 
+    @RequestMapping(path = "/value/{id}",method = RequestMethod.GET)
+    public ModelAndView findRiskValueById(@PathVariable Integer id){
+        ModelAndView model = new ModelAndView("risk_valuedetail");
+        RiskValue riskValue = riskService.findRiskValueById(id);
+        model.addObject("riskValue",riskValue);
+        return model;
+    }
+
     @RequestMapping(path = "/value/add",method = RequestMethod.GET)
     public ModelAndView addRiskValueView(){
 
