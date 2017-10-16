@@ -76,7 +76,7 @@
                     </select>
                   </li>
                   <li class="form-inline">
-                    <button type="button" class="btn btn-default">关闭</button>
+                    <button type="button" class="btn btn-default close-window">关闭</button>
                     <button type="button" class="btn btn-primary save">保存</button>
                   </li>
                 </ul>
@@ -116,6 +116,9 @@
         })
 
     });
+    $(".close-window").click(function (e) {
+        window.history.go(-1);
+    })
 </script>
 
 </body>

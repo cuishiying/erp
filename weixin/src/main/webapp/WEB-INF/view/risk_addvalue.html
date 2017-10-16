@@ -68,7 +68,7 @@
                     </select>
                   </li>
                   <li class="list-group-item list-group-item-noneborder">
-                    <button type="button" class="btn btn-default">关闭</button>
+                    <button type="button" class="btn btn-default close-window">关闭</button>
                     <button type="button" class="btn btn-primary save">保存</button>
                   </li>
                 </ul>
@@ -107,6 +107,10 @@
         })
 
     });
+
+    $(".close-window").click(function (e) {
+        window.history.go(-1);
+    })
 </script>
 
 </body>
