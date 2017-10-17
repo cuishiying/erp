@@ -36,6 +36,10 @@
               <div class="panel-body">
                 <ul class="list-group">
                   <li class="list-group-item list-group-item-noneborder">
+                    <span class="item-name">时间</span>
+                    <textarea type="text" class="form-control item-content risk_desc" th:text="${#temporals.format(riskValue.publishTime,'yyyy-MM-dd HH:mm:ss')}" readonly></textarea>
+                  </li>
+                  <li class="list-group-item list-group-item-noneborder">
                     <span class="item-name">风险地点</span>
                     <textarea type="text" class="form-control item-content risk_desc" th:text="${riskValue.riskAddr.name}" readonly></textarea>
                   </li>

@@ -2,10 +2,7 @@ package com.shanglan.erp.service;
 
 import com.shanglan.erp.base.AjaxResponse;
 import com.shanglan.erp.dto.RiskQueryDTO;
-import com.shanglan.erp.entity.Dept;
-import com.shanglan.erp.entity.RiskCondition;
-import com.shanglan.erp.entity.RiskItem;
-import com.shanglan.erp.entity.RiskValue;
+import com.shanglan.erp.entity.*;
 import com.shanglan.erp.repository.DeptRepository;
 import com.shanglan.erp.repository.RiskConditionRepository;
 import com.shanglan.erp.repository.RiskItemRepository;
@@ -39,6 +36,8 @@ public class RiskService {
     private DeptRepository deptRepository;
     @Autowired
     private RiskValueRepository riskValueRepository;
+    @Autowired
+    private UserService userService;
 
 
     public RiskCondition findById(Integer id){
@@ -121,7 +120,11 @@ public class RiskService {
         return AjaxResponse.success();
     }
 
-    public AjaxResponse saveRiskValue(Integer riskAddrId,String riskDesc,Integer riskLevelId,String precaution,Integer riskMkDeptId,Integer riskvalueId){
+    public AjaxResponse saveRiskValue(Integer uid,Integer riskAddrId,String riskDesc,Integer riskLevelId,String precaution,Integer riskMkDeptId,Integer riskvalueId){
+        User user = null;
+        if(null!=uid){
+            user = userService.findByUid(uid);
+        }
         RiskItem riskAddr = riskItemRepository.findOne(riskAddrId);
         RiskItem riskLevel = riskItemRepository.findOne(riskLevelId);
         RiskItem riskvalue = riskItemRepository.findOne(riskvalueId);
@@ -134,6 +137,7 @@ public class RiskService {
         item.setPrecaution(precaution);
         item.setRiskMkDept(dept);
         item.setRiskValue(riskvalue);
+        item.setPublishUser(user);
         riskValueRepository.save(item);
         return AjaxResponse.success();
     }

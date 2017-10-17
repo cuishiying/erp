@@ -88,7 +88,7 @@ public class RiskController {
     @RequestMapping(path = "/value/add",method = RequestMethod.POST)
     public AjaxResponse addRiskValue(@RequestParam Integer riskAddrId,@RequestParam String riskDesc,@RequestParam Integer riskLevelId,@RequestParam String precaution,@RequestParam Integer riskMkDeptId,@RequestParam Integer riskvalueId,HttpServletRequest request){
         Integer uid = (Integer) request.getSession().getAttribute("uid");
-        AjaxResponse response = riskService.saveRiskValue(riskAddrId, riskDesc, riskLevelId, precaution, riskMkDeptId, riskvalueId);
+        AjaxResponse response = riskService.saveRiskValue(uid,riskAddrId, riskDesc, riskLevelId, precaution, riskMkDeptId, riskvalueId);
         return response;
     }
 }

@@ -41,7 +41,7 @@
               </div>
               <form th:action="@{/risk/value/listview}" method="get">
                 <div class="controller form-inline">
-                  <a class="btn btn-primary" th:href="@{/risk/value/add}">新增</a>
+                  <a class="btn btn-primary" th:href="@{/risk/value/add}">录入</a>
                   <select class="form-control risk_name" name="riskAddrId">
                     <option value="">风险地点</option>
                     <option th:each="c:${riskAddrs}"  th:text="${c?.name}" th:id="${c?.id}" th:value="${c?.id}" th:selected="${queryDTO!=null&&queryDTO.riskAddrId==c.id}"></option>
