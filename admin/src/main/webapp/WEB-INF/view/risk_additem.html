@@ -60,8 +60,6 @@
 
     </div>
   </div>
-
-
 </div>
 
 <!-- 模态框（Modal） -->
@@ -95,7 +93,7 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal -->
 </div>
-
+</div>
 <script th:src="@{/static/js/jquery.min.js}"></script>
 <script th:src="@{/static/js/bootstrap.min.js}"></script>
 <script th:src="@{/static/js/jquery.datetimepicker.full.js}"></script>
@@ -115,7 +113,16 @@
                 window.location.reload();
             }
         })
+    });
 
+    $(".delete").click(function () {
+        ajaxUtils.getData(ctx+"risk/item/delete/"+$(this).attr("value"),function (e) {
+            if (e.success){
+                window.location.reload();
+            }else{
+                alert(e.message);
+            }
+        })
     });
 </script>
 </body>

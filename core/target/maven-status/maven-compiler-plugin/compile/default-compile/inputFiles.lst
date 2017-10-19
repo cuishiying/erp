@@ -5,6 +5,7 @@
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/sms/SmsService.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/dto/ErpChuku.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/ErpStorageRepository.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/service/RiskService.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/AjaxResponse.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/CategoryRepository.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/Collect.java
@@ -19,6 +20,7 @@
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/dto/User.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/service/ErpService.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/AttRecord.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/RiskValue.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/converter/LocalDateTimeConverter.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/SortRepository.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/enums/AttRecordStatus.java
@@ -27,9 +29,12 @@
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/dto/GoodsDTO.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/StorageService.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/Storage.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/UserRepository.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/BaseEntity.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/dto/AttForm.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/User.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/service/AttService.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/service/UserService.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/sms/SmsServiceImpl.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/config/AliyunOssConfig.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/Config.java
@@ -37,14 +42,19 @@
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/CollectRepository.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/DeptRepository.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/Category.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/RiskValueRepository.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/ExcelUtils.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/AttClasses.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/sms/StorageService.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/RiskConditionRepository.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/AliyunNewOss.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/service/DeptService.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/DateUtils.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/dto/QueryDTO.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/dto/CategoryTreeDTO.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/dto/RiskQueryDTO.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/RiskItem.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/RiskCondition.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/converter/LocalDateConverter.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/ConfigRepository.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/dto/WfChukuHead.java
@@ -57,5 +67,6 @@
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/AttMachineRepository.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/AttMgrJoinattRepository.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/AttRecordRepository.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/RiskItemRepository.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/AttRepository.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/AttMachine.java

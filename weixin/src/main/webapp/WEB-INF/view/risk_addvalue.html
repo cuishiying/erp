@@ -63,9 +63,11 @@
                   </li>
                   <li class="list-group-item list-group-item-noneborder">
                     <span class="item-name">风险分析</span>
-                    <select class="form-control risk_name item-content risk_value">
-                      <option th:each="v:${riskValues}"  th:text="${v?.name}" th:id="${v?.id}"></option>
-                    </select>
+                    <textarea type="text" class="form-control item-content risk_value"></textarea>
+                  </li>
+                  <li class="list-group-item list-group-item-noneborder">
+                    <span class="item-name">检查时间</span>
+                    <input type="text" class="form-control item-content risk_time date">
                   </li>
                   <li class="list-group-item list-group-item-noneborder">
                     <button type="button" class="btn btn-default close-window">关闭</button>
@@ -90,16 +92,28 @@
 
 <script type="text/javascript" th:inline="javascript">
     var ctx = /*[[@{/}]]*/;
-    $('.save').click(function (e) {
 
+    $('.date').datetimepicker({
+        lang:"ch", //语言选择中文 注：旧版本 新版方法：$.datetimepicker.setLocale('ch');
+        format:"Y-m-d H:i:s",      //格式化日期
+        roundTime: 'round',
+        timepicker:true,    //打开时间选项
+        step:1,
+        todayButton:true    //关闭选择今天按钮
+    });
+
+    $('.save').click(function (e) {
         var risk = new Object();
         risk.riskAddrId = $(".risk_addr").find("option:selected").attr("id");
         risk.riskDesc = $(".risk_desc").val();
         risk.riskLevelId = $(".risk_level").find("option:selected").attr("id");
         risk.precaution = $(".risk_mk").val();
         risk.riskMkDeptId = $(".risk_dept").find("option:selected").attr("id");
-        risk.riskvalueId = $(".risk_value").find("option:selected").attr("id");
-        console.log(risk);
+        risk.riskvalue = $(".risk_value").val();
+        risk.checkTime = $(".risk_time").val();
+        if(risk.checkTime==""||risk.checkTime==null||risk.riskDesc==""||risk.riskDesc==null||risk.precaution==""||risk.precaution==null||risk.riskvalue==""||risk.riskvalue==null){
+            return;
+        }
         ajaxUtils.postParams(ctx+"risk/value/add",risk,function (e) {
             if(e.success){
                 window.location.href = ctx+"risk/value/listview";
@@ -110,7 +124,7 @@
 
     $(".close-window").click(function (e) {
         window.history.go(-1);
-    })
+    });
 </script>
 
 </body>

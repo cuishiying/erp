@@ -2,10 +2,7 @@ package com.shanglan.erp.entity;
 
 import com.shanglan.erp.base.BaseEntity;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 /**
@@ -21,13 +18,17 @@ public class RiskValue extends BaseEntity{
     private String name;
     private String riskDesc;//风险描述
     private String precaution;//管控措施
+    private LocalDateTime checkTime;//检查时间
     private LocalDateTime publishTime;//发布时间
     private LocalDateTime handleTime;//处理时间
+    private String riskValue;//风险分析
+    private String handleResult;//管控措施执行情况
 
-    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
     private User publishUser;//发布人
 
-    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
     private User handleUser;//处理人
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
@@ -38,9 +39,6 @@ public class RiskValue extends BaseEntity{
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private Dept riskMkDept;//管控部门
-
-    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    private RiskItem riskValue;//风险分析
 
 
     public String getName() {
@@ -123,11 +121,27 @@ public class RiskValue extends BaseEntity{
         this.riskMkDept = riskMkDept;
     }
 
-    public RiskItem getRiskValue() {
+    public String getRiskValue() {
         return riskValue;
     }
 
-    public void setRiskValue(RiskItem riskValue) {
+    public void setRiskValue(String riskValue) {
         this.riskValue = riskValue;
+    }
+
+    public LocalDateTime getCheckTime() {
+        return checkTime;
+    }
+
+    public void setCheckTime(LocalDateTime checkTime) {
+        this.checkTime = checkTime;
+    }
+
+    public String getHandleResult() {
+        return handleResult;
+    }
+
+    public void setHandleResult(String handleResult) {
+        this.handleResult = handleResult;
     }
 }

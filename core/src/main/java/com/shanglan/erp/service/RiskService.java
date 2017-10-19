@@ -96,15 +96,15 @@ public class RiskService {
                 Predicate ownerQuery = cb.equal(root.<Integer>get("riskMkDept"),deptRepository.findOne(queryVo.getDeptId()));
                 predicate.add(ownerQuery);
             }
-            //发布时间
+            //检查时间
             if (queryVo!=null&&queryVo.getBeginDate() != null) {
                 LocalDateTime begin = LocalDateTime.of(queryVo.getBeginDate(), LocalTime.MIN);
-                Predicate dateQuery = cb.greaterThanOrEqualTo(root.<LocalDateTime>get("publishTime"), begin);
+                Predicate dateQuery = cb.greaterThanOrEqualTo(root.<LocalDateTime>get("checkTime"), begin);
                 predicate.add(dateQuery);
             }
             if (queryVo!=null&&queryVo.getEndDate() != null) {
                 LocalDateTime end = LocalDateTime.of(queryVo.getEndDate(), LocalTime.MAX);
-                Predicate dateQuery = cb.lessThanOrEqualTo(root.<LocalDateTime>get("publishTime"), end);
+                Predicate dateQuery = cb.lessThanOrEqualTo(root.<LocalDateTime>get("checkTime"), end);
                 predicate.add(dateQuery);
             }
             return query.where(predicate.toArray(new Predicate[predicate.size()])).getRestriction();
@@ -120,14 +120,26 @@ public class RiskService {
         return AjaxResponse.success();
     }
 
-    public AjaxResponse saveRiskValue(Integer uid,Integer riskAddrId,String riskDesc,Integer riskLevelId,String precaution,Integer riskMkDeptId,Integer riskvalueId){
-        User user = null;
-        if(null!=uid){
-            user = userService.findByUid(uid);
+    public AjaxResponse deleteRiskItem(Integer id){
+        try{
+            RiskItem riskItem = riskItemRepository.findOne(id);
+            Integer count = riskValueRepository.findCountByRiskItem(riskItem);
+            if(count<=0){
+                riskItemRepository.delete(id);
+            }else{
+                return AjaxResponse.fail("该参数项正在使用,无法删除");
+            }
+        }catch (Exception e){
+            return AjaxResponse.fail("删除出现错误");
         }
+        return AjaxResponse.success();
+    }
+
+    public AjaxResponse saveRiskValue(Integer uid,Integer riskAddrId,String riskDesc,Integer riskLevelId,String precaution,Integer riskMkDeptId,String riskvalue,LocalDateTime checkTime){
+
+
         RiskItem riskAddr = riskItemRepository.findOne(riskAddrId);
         RiskItem riskLevel = riskItemRepository.findOne(riskLevelId);
-        RiskItem riskvalue = riskItemRepository.findOne(riskvalueId);
         Dept dept = deptRepository.findOne(riskMkDeptId);
         RiskValue item = new RiskValue();
         item.setPublishTime(LocalDateTime.now());
@@ -137,8 +149,28 @@ public class RiskService {
         item.setPrecaution(precaution);
         item.setRiskMkDept(dept);
         item.setRiskValue(riskvalue);
-        item.setPublishUser(user);
+        item.setCheckTime(checkTime);
+        if(null!=uid){
+            User user = userService.findByUid(uid);
+            item.setPublishUser(user);
+        }else {
+            item.setPublishUser(null);
+        }
+
         riskValueRepository.save(item);
+        return AjaxResponse.success();
+    }
+
+    public AjaxResponse updateRiskValue(Integer uid,Integer valueId,String handleResult){
+        RiskValue riskValue = riskValueRepository.findOne(valueId);
+        if(null!=uid){
+            User user = userService.findByUid(uid);
+            riskValue.setHandleUser(user);
+        }else {
+            riskValue.setHandleUser(null);
+        }
+        riskValue.setHandleResult(handleResult);
+        riskValue.setHandleTime(LocalDateTime.now());
         return AjaxResponse.success();
     }
 

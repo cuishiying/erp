@@ -91,23 +91,19 @@
               <option value="">风险等级</option>
               <option th:each="c:${riskLevels}"  th:text="${c?.name}" th:id="${c?.id}" th:value="${c?.id}" th:selected="${queryDTO!=null&&queryDTO.riskLevelId==c.id}"></option>
             </select>
-            <select class="form-control risk_name" name="riskValueId">
-              <option value="">风险分析</option>
-              <option th:each="c:${riskValues}"  th:text="${c?.name}" th:id="${c?.id}" th:value="${c?.id}" th:selected="${queryDTO!=null&&queryDTO.riskValueId==c.id}"></option>
-            </select>
             <select class="form-control risk_name" name="deptId">
               <option value="">管控部门</option>
               <option th:each="c:${deptList}"  th:text="${c?.name}" th:id="${c?.id}" th:value="${c?.id}" th:selected="${queryDTO!=null&&queryDTO.deptId==c.id}"></option>
             </select>
-            <input type="text" class="form-control date" placeholder="开始时间" name="beginDate" th:value="${queryDTO.beginDate?.toString()}">
-            <input type="text" class="form-control date" placeholder="结束时间" name="endDate" th:value="${queryDTO.endDate?.toString()}">
+            <input type="text" class="form-control date" placeholder="开始时间(检查时间)" name="beginDate" th:value="${queryDTO.beginDate?.toString()}">
+            <input type="text" class="form-control date" placeholder="结束时间(检查时间)" name="endDate" th:value="${queryDTO.endDate?.toString()}">
             <button type="submit" class="btn btn-primary">搜索</button>
           </div>
         </form>
       </div><!-- /.modal-content -->
     </div><!-- /.modal -->
   </div>
-
+</div>
 
 <script th:src="@{/static/js/jquery.min.js}"></script>
 <script th:src="@{/static/js/bootstrap.min.js}"></script>
@@ -126,5 +122,6 @@
     });
 
 </script>
+
 </body>
 </html>

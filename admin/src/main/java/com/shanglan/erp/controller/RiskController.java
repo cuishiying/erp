@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.List;
 
 @RestController
@@ -47,6 +50,11 @@ public class RiskController {
         AjaxResponse response = riskService.saveRiskItem(conditionId, conditionValue);
         return response;
     }
+    @RequestMapping(path = "/item/delete/{id}",method = RequestMethod.GET)
+    public AjaxResponse deleteRiskItem(@PathVariable Integer id){
+        AjaxResponse response = riskService.deleteRiskItem(id);
+        return response;
+    }
 
     @RequestMapping(path = "/value/listview",method = RequestMethod.GET)
     public ModelAndView riskValueListView(String username,String truename,RiskQueryDTO queryDTO, @PageableDefault(value = 10,sort = "id",direction = Sort.Direction.DESC) Pageable pageable,HttpServletRequest request){
@@ -76,19 +84,47 @@ public class RiskController {
         ModelAndView model = new ModelAndView("risk_addvalue");
         List<RiskItem> riskAddrs = riskService.findRiskItems("风险地点");
         List<RiskItem> riskLevels = riskService.findRiskItems("风险等级");
-        List<RiskItem> riskValues = riskService.findRiskItems("风险分析");
         List<Dept> deptList = deptService.findAll();
         model.addObject("riskAddrs",riskAddrs);
         model.addObject("riskLevels",riskLevels);
-        model.addObject("riskValues",riskValues);
         model.addObject("deptList",deptList);
         return model;
     }
 
+
     @RequestMapping(path = "/value/add",method = RequestMethod.POST)
-    public AjaxResponse addRiskValue(@RequestParam Integer riskAddrId,@RequestParam String riskDesc,@RequestParam Integer riskLevelId,@RequestParam String precaution,@RequestParam Integer riskMkDeptId,@RequestParam Integer riskvalueId,HttpServletRequest request){
+    public AjaxResponse addRiskValue(@RequestParam Integer riskAddrId, @RequestParam String riskDesc, @RequestParam Integer riskLevelId, @RequestParam String precaution, @RequestParam Integer riskMkDeptId, @RequestParam String riskvalue, String checkTime, HttpServletRequest request){
         Integer uid = (Integer) request.getSession().getAttribute("uid");
-        AjaxResponse response = riskService.saveRiskValue(uid,riskAddrId, riskDesc, riskLevelId, precaution, riskMkDeptId, riskvalueId);
+        try{
+            LocalDateTime time = LocalDateTime.parse(checkTime, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+            AjaxResponse response = riskService.saveRiskValue(uid,riskAddrId, riskDesc, riskLevelId, precaution, riskMkDeptId, riskvalue,time);
+            return response;
+        }catch (DateTimeParseException | NullPointerException e){
+            e.printStackTrace();
+            return AjaxResponse.fail("时间格式有误");
+        }
+    }
+
+    @RequestMapping(path = "/value/detail/{id}",method = RequestMethod.GET)
+    public ModelAndView detailRiskValueView(@PathVariable Integer id){
+        ModelAndView model = new ModelAndView("risk_valuedetail");
+        RiskValue riskValue = riskService.findRiskValueById(id);
+        model.addObject("riskValue",riskValue);
+        return model;
+    }
+
+    @RequestMapping(path = "/value/edit/{id}",method = RequestMethod.GET)
+    public ModelAndView editRiskValueView(@PathVariable Integer id){
+        ModelAndView model = new ModelAndView("risk_editvalue");
+        RiskValue riskValue = riskService.findRiskValueById(id);
+        model.addObject("riskValue",riskValue);
+        return model;
+    }
+
+    @RequestMapping(path = "/value/edit/{id}",method = RequestMethod.POST)
+    public AjaxResponse addRiskValue(@PathVariable Integer id,@RequestParam String handleResult, HttpServletRequest request){
+        Integer uid = (Integer) request.getSession().getAttribute("uid");
+        AjaxResponse response = riskService.updateRiskValue(uid, id, handleResult);
         return response;
     }
 }

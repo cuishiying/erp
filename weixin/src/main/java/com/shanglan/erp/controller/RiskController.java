@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.List;
 
 @RestController
@@ -84,19 +87,30 @@ public class RiskController {
         ModelAndView model = new ModelAndView("risk_addvalue");
         List<RiskItem> riskAddrs = riskService.findRiskItems("风险地点");
         List<RiskItem> riskLevels = riskService.findRiskItems("风险等级");
-        List<RiskItem> riskValues = riskService.findRiskItems("风险分析");
         List<Dept> deptList = deptService.findAll();
         model.addObject("riskAddrs",riskAddrs);
         model.addObject("riskLevels",riskLevels);
-        model.addObject("riskValues",riskValues);
         model.addObject("deptList",deptList);
         return model;
     }
 
     @RequestMapping(path = "/value/add",method = RequestMethod.POST)
-    public AjaxResponse addRiskValue(@RequestParam Integer riskAddrId,@RequestParam String riskDesc,@RequestParam Integer riskLevelId,@RequestParam String precaution,@RequestParam Integer riskMkDeptId,@RequestParam Integer riskvalueId,HttpServletRequest request){
+    public AjaxResponse addRiskValue(@RequestParam Integer riskAddrId,@RequestParam String riskDesc,@RequestParam Integer riskLevelId,@RequestParam String precaution,@RequestParam Integer riskMkDeptId,@RequestParam String riskvalue,String checkTime,HttpServletRequest request){
         Integer uid = (Integer) request.getSession().getAttribute("uid");
-        AjaxResponse response = riskService.saveRiskValue(uid,riskAddrId, riskDesc, riskLevelId, precaution, riskMkDeptId, riskvalueId);
+        try{
+            LocalDateTime time = LocalDateTime.parse(checkTime, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+            AjaxResponse response = riskService.saveRiskValue(uid,riskAddrId, riskDesc, riskLevelId, precaution, riskMkDeptId, riskvalue,time);
+            return response;
+        }catch (DateTimeParseException | NullPointerException e){
+            e.printStackTrace();
+            return AjaxResponse.fail("时间格式有误");
+        }
+    }
+
+    @RequestMapping(path = "/value/edit/{id}",method = RequestMethod.POST)
+    public AjaxResponse addRiskValue(@PathVariable Integer id,@RequestParam String handleResult, HttpServletRequest request){
+        Integer uid = (Integer) request.getSession().getAttribute("uid");
+        AjaxResponse response = riskService.updateRiskValue(uid, id, handleResult);
         return response;
     }
 }
