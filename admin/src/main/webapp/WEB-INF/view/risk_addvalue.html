@@ -19,7 +19,7 @@
     }
 
     .form-inline .item-content{
-      width: 500px;
+      width: 50%;
     }
     .form-inline{
       margin: 5px;
@@ -74,6 +74,16 @@
                     <textarea type="text" class="form-control item-content risk_value"></textarea>
                   </li>
                   <li class="form-inline">
+                    <span class="item-name">风险值</span>
+                    <select class="form-control item-content risk_number">
+                      <option th:each="a:${riskNumbers}"  th:text="${a?.name}" th:id="${a?.id}"></option>
+                    </select>
+                  </li>
+                  <li class="form-inline">
+                    <span class="item-name">风险责任人</span>
+                    <input type="text" class="form-control item-content risk_responsible">
+                  </li>
+                  <li class="form-inline">
                     <span class="item-name">检查时间</span>
                     <input type="text" class="form-control item-content risk_time date">
                   </li>
@@ -104,7 +114,7 @@
 
     $('.date').datetimepicker({
         lang:"ch", //语言选择中文 注：旧版本 新版方法：$.datetimepicker.setLocale('ch');
-        format:"Y-m-d H:i:s",      //格式化日期
+        format:"Y-m-d H:i:00",      //格式化日期
         roundTime: 'round',
         timepicker:true,    //打开时间选项
         step:1,
@@ -120,8 +130,10 @@
         risk.precaution = $(".risk_mk").val();
         risk.riskMkDeptId = $(".risk_dept").find("option:selected").attr("id");
         risk.riskvalue = $(".risk_value").val();
+        risk.riskNumberId = $(".risk_number").find("option:selected").attr("id");
+        risk.responsible = $(".risk_responsible").val();
         risk.checkTime = $(".risk_time").val();
-        if(risk.checkTime==""||risk.checkTime==null||risk.riskDesc==""||risk.riskDesc==null||risk.precaution==""||risk.precaution==null||risk.riskvalue==""||risk.riskvalue==null){
+        if(!risk.checkTime||!risk.riskDesc||!risk.precaution||!risk.riskvalue||!risk.responsible){
             alert("您还有未填写的内容");
             return;
         }

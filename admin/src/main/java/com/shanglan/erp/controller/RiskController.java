@@ -67,11 +67,11 @@ public class RiskController {
         Page<RiskValue> page = riskService.findRiskValues(queryDTO,pageable);
         List<RiskItem> riskAddrs = riskService.findRiskItems("风险地点");
         List<RiskItem> riskLevels = riskService.findRiskItems("风险等级");
-        List<RiskItem> riskValues = riskService.findRiskItems("风险分析");
+        List<RiskItem> riskNumbers = riskService.findRiskItems("风险值");
         List<Dept> deptList = deptService.findAll();
         model.addObject("riskAddrs",riskAddrs);
         model.addObject("riskLevels",riskLevels);
-        model.addObject("riskValues",riskValues);
+        model.addObject("riskNumbers",riskNumbers);
         model.addObject("deptList",deptList);
         model.addObject("page",page);
         model.addObject("queryDTO",queryDTO);
@@ -84,20 +84,22 @@ public class RiskController {
         ModelAndView model = new ModelAndView("risk_addvalue");
         List<RiskItem> riskAddrs = riskService.findRiskItems("风险地点");
         List<RiskItem> riskLevels = riskService.findRiskItems("风险等级");
+        List<RiskItem> riskNumbers = riskService.findRiskItems("风险值");
         List<Dept> deptList = deptService.findAll();
         model.addObject("riskAddrs",riskAddrs);
         model.addObject("riskLevels",riskLevels);
+        model.addObject("riskNumbers",riskNumbers);
         model.addObject("deptList",deptList);
         return model;
     }
 
 
     @RequestMapping(path = "/value/add",method = RequestMethod.POST)
-    public AjaxResponse addRiskValue(@RequestParam Integer riskAddrId, @RequestParam String riskDesc, @RequestParam Integer riskLevelId, @RequestParam String precaution, @RequestParam Integer riskMkDeptId, @RequestParam String riskvalue, String checkTime, HttpServletRequest request){
+    public AjaxResponse addRiskValue(@RequestParam Integer riskAddrId, @RequestParam String riskDesc, @RequestParam Integer riskLevelId, @RequestParam String precaution, @RequestParam Integer riskMkDeptId, @RequestParam String riskvalue, @RequestParam String checkTime,@RequestParam Integer riskNumberId,@RequestParam String responsible, HttpServletRequest request){
         Integer uid = (Integer) request.getSession().getAttribute("uid");
         try{
             LocalDateTime time = LocalDateTime.parse(checkTime, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-            AjaxResponse response = riskService.saveRiskValue(uid,riskAddrId, riskDesc, riskLevelId, precaution, riskMkDeptId, riskvalue,time);
+            AjaxResponse response = riskService.saveRiskValue(uid,riskAddrId, riskDesc, riskLevelId, precaution, riskMkDeptId, riskvalue,time,riskNumberId,responsible);
             return response;
         }catch (DateTimeParseException | NullPointerException e){
             e.printStackTrace();

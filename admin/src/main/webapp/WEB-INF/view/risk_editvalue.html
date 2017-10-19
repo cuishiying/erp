@@ -19,7 +19,7 @@
     }
 
     .form-inline .item-content{
-      width: 1000px;
+      width: 70%;
     }
     .form-inline{
       margin: 5px;
@@ -76,7 +76,15 @@
                     <textarea type="text" class="form-control item-content risk_value"  th:text="${riskValue.riskValue}" readonly></textarea>
                   </li>
                   <li class="form-inline">
-                    <span class="item-name">管控措施执行情况</span>
+                    <span class="item-name">风险值</span>
+                    <textarea type="text" class="form-control item-content risk_number"  th:text="${riskValue.riskNumber?.name}" readonly></textarea>
+                  </li>
+                  <li class="form-inline">
+                    <span class="item-name">风险责任人</span>
+                    <textarea type="text" class="form-control item-content risk_responsible"  th:text="${riskValue.responsible}" readonly></textarea>
+                  </li>
+                  <li class="form-inline">
+                    <span class="item-name">管控情况</span>
                     <textarea type="text" class="form-control item-content handleResult"  th:text="${riskValue.handleResult}"></textarea>
                   </li>
                   <li class="form-inline">

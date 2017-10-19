@@ -22,7 +22,8 @@ public class RiskValue extends BaseEntity{
     private LocalDateTime publishTime;//发布时间
     private LocalDateTime handleTime;//处理时间
     private String riskValue;//风险分析
-    private String handleResult;//管控措施执行情况
+    private String handleResult;//管控情况
+    private String responsible;//责任人
 
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
@@ -36,6 +37,9 @@ public class RiskValue extends BaseEntity{
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private RiskItem riskAddr;//风险地点
+
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    private RiskItem riskNumber;//风险值
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private Dept riskMkDept;//管控部门
@@ -143,5 +147,21 @@ public class RiskValue extends BaseEntity{
 
     public void setHandleResult(String handleResult) {
         this.handleResult = handleResult;
+    }
+
+    public RiskItem getRiskNumber() {
+        return riskNumber;
+    }
+
+    public void setRiskNumber(RiskItem riskNumber) {
+        this.riskNumber = riskNumber;
+    }
+
+    public String getResponsible() {
+        return responsible;
+    }
+
+    public void setResponsible(String responsible) {
+        this.responsible = responsible;
     }
 }

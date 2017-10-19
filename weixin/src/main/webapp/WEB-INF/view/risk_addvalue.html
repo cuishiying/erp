@@ -66,6 +66,16 @@
                     <textarea type="text" class="form-control item-content risk_value"></textarea>
                   </li>
                   <li class="list-group-item list-group-item-noneborder">
+                    <span class="item-name">风险值</span>
+                    <select class="form-control item-content risk_number" >
+                      <option th:each="l:${riskNumbers}"  th:text="${l?.name}" th:id="${l?.id}"></option>
+                    </select>
+                  </li>
+                  <li class="list-group-item list-group-item-noneborder">
+                    <span class="item-name">风险责任人</span>
+                    <textarea type="text" class="form-control item-content risk_responsible"></textarea>
+                  </li>
+                  <li class="list-group-item list-group-item-noneborder">
                     <span class="item-name">检查时间</span>
                     <input type="text" class="form-control item-content risk_time date">
                   </li>
@@ -95,7 +105,7 @@
 
     $('.date').datetimepicker({
         lang:"ch", //语言选择中文 注：旧版本 新版方法：$.datetimepicker.setLocale('ch');
-        format:"Y-m-d H:i:s",      //格式化日期
+        format:"Y-m-d H:i:00",      //格式化日期
         roundTime: 'round',
         timepicker:true,    //打开时间选项
         step:1,
@@ -110,8 +120,10 @@
         risk.precaution = $(".risk_mk").val();
         risk.riskMkDeptId = $(".risk_dept").find("option:selected").attr("id");
         risk.riskvalue = $(".risk_value").val();
+        risk.riskNumberId = $(".risk_number").find("option:selected").attr("id");
+        risk.responsible = $(".risk_responsible").val();
         risk.checkTime = $(".risk_time").val();
-        if(risk.checkTime==""||risk.checkTime==null||risk.riskDesc==""||risk.riskDesc==null||risk.precaution==""||risk.precaution==null||risk.riskvalue==""||risk.riskvalue==null){
+        if(!risk.checkTime||!risk.riskDesc||!risk.precaution||!risk.riskvalue||!risk.responsible){
             return;
         }
         ajaxUtils.postParams(ctx+"risk/value/add",risk,function (e) {

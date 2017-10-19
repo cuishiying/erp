@@ -135,11 +135,12 @@ public class RiskService {
         return AjaxResponse.success();
     }
 
-    public AjaxResponse saveRiskValue(Integer uid,Integer riskAddrId,String riskDesc,Integer riskLevelId,String precaution,Integer riskMkDeptId,String riskvalue,LocalDateTime checkTime){
+    public AjaxResponse saveRiskValue(Integer uid,Integer riskAddrId,String riskDesc,Integer riskLevelId,String precaution,Integer riskMkDeptId,String riskvalue,LocalDateTime checkTime,Integer riskNumberId,String responsible){
 
 
         RiskItem riskAddr = riskItemRepository.findOne(riskAddrId);
         RiskItem riskLevel = riskItemRepository.findOne(riskLevelId);
+        RiskItem riskNumber = riskItemRepository.findOne(riskNumberId);
         Dept dept = deptRepository.findOne(riskMkDeptId);
         RiskValue item = new RiskValue();
         item.setPublishTime(LocalDateTime.now());
@@ -150,6 +151,8 @@ public class RiskService {
         item.setRiskMkDept(dept);
         item.setRiskValue(riskvalue);
         item.setCheckTime(checkTime);
+        item.setRiskNumber(riskNumber);
+        item.setResponsible(responsible);
         if(null!=uid){
             User user = userService.findByUid(uid);
             item.setPublishUser(user);
