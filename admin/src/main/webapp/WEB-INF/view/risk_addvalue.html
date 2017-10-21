@@ -54,35 +54,38 @@
                     <textarea type="text" class="form-control item-content risk_desc"></textarea>
                   </li>
                   <li class="form-inline">
-                    <span class="item-name">风险等级</span>
-                    <select class="form-control item-content risk_level" >
-                      <option th:each="l:${riskLevels}"  th:text="${l?.name}" th:id="${l?.id}"></option>
-                    </select>
-                  </li>
-                  <li class="form-inline">
-                    <span class="item-name">管控措施</span>
-                    <textarea type="text" class="form-control item-content risk_mk"></textarea>
-                  </li>
-                  <li class="form-inline">
-                    <span class="item-name">管控人员部门</span>
-                    <select class="form-control risk_name item-content risk_dept">
-                      <option th:each="d:${deptList}"  th:text="${d?.name}" th:id="${d?.id}"></option>
-                    </select>
-                  </li>
-                  <li class="form-inline">
-                    <span class="item-name">风险分析</span>
-                    <textarea type="text" class="form-control item-content risk_value"></textarea>
-                  </li>
-                  <li class="form-inline">
                     <span class="item-name">风险值</span>
                     <select class="form-control item-content risk_number">
                       <option th:each="a:${riskNumbers}"  th:text="${a?.name}" th:id="${a?.id}"></option>
                     </select>
                   </li>
                   <li class="form-inline">
-                    <span class="item-name">风险责任人</span>
+                    <span class="item-name">风险等级</span>
+                    <select class="form-control item-content risk_level" >
+                      <option th:each="l:${riskLevels}"  th:text="${l?.name}" th:id="${l?.id}"></option>
+                    </select>
+                  </li>
+                  <li class="form-inline">
+                    <span class="item-name">主要管控措施</span>
+                    <textarea type="text" class="form-control item-content risk_mk"></textarea>
+                  </li>
+                  <li class="form-inline">
+                    <span class="item-name">责任部门</span>
+                    <select class="form-control risk_name item-content risk_dept">
+                      <option th:each="d:${deptList}"  th:text="${d?.name}" th:id="${d?.id}"></option>
+                    </select>
+                  </li>
+
+                  <li class="form-inline">
+                    <span class="item-name">责任人</span>
                     <input type="text" class="form-control item-content risk_responsible">
                   </li>
+
+                  <li class="form-inline">
+                    <span class="item-name">风险分析</span>
+                    <textarea type="text" class="form-control item-content risk_value"></textarea>
+                  </li>
+
                   <li class="form-inline">
                     <span class="item-name">检查时间</span>
                     <input type="text" class="form-control item-content risk_time date">

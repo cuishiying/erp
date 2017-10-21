@@ -74,15 +74,15 @@
                   <thead>
                   <tr>
                     <th>检查时间</th>
-                    <th>录入时间</th>
+                    <!--<th>录入时间</th>-->
                     <th>风险地点</th>
                     <th>风险描述</th>
-                    <th>风险等级</th>
-                    <th>管控措施</th>
-                    <th>管控人员部门</th>
-                    <th>风险分析</th>
                     <th>风险值</th>
-                    <th>风险责任人</th>
+                    <th>风险等级</th>
+                    <th>主要管控措施</th>
+                    <th>责任部门</th>
+                    <th>责任人</th>
+                    <th>风险分析</th>
                     <th>管控情况</th>
                     <th>操作</th>
                   </tr>
@@ -90,19 +90,20 @@
                   <tbody>
                   <tr th:each="item:${page.content}">
                     <td th:text="${#temporals.format(item.checkTime,'yyyy-MM-dd HH:mm:ss')}"></td>
-                    <td th:text="${#temporals.format(item.publishTime,'yyyy-MM-dd HH:mm:ss')}"></td>
+                    <!--<td th:text="${#temporals.format(item.publishTime,'yyyy-MM-dd HH:mm:ss')}"></td>-->
                     <td th:text="${item.riskAddr.name}"></td>
                     <td th:text="${item.riskDesc}" class="td-ellipsis"></td>
+                    <td th:text="${item.riskNumber?.name}" class="td-ellipsis"></td>
                     <td th:text="${item.riskLevel.name}"></td>
                     <td th:text="${item.precaution}" class="td-ellipsis"></td>
                     <td th:text="${item.riskMkDept.name}"></td>
-                    <td th:text="${item.riskValue}" class="td-ellipsis"></td>
-                    <td th:text="${item.riskNumber?.name}" class="td-ellipsis"></td>
                     <td th:text="${item.responsible}" class="td-ellipsis"></td>
+                    <td th:text="${item.riskValue}" class="td-ellipsis"></td>
                     <td th:text="${item.handleResult}" class="td-ellipsis"></td>
                     <td>
-                      <a class="btn-sm btn-primary handle" th:value="${item.id}" th:href="@{/risk/value/edit/}+${item.id}">处理</a>
                       <a class="btn-sm btn-success detail" th:value="${item.id}" th:href="@{/risk/value/detail/}+${item.id}">详情</a>
+                      <a class="btn-sm btn-primary handle" th:value="${item.id}" th:href="@{/risk/value/edit/}+${item.id}">处理</a>
+                      <a class="btn-sm btn-primary delete" th:value="${item.id}" style="display: none">删除</a>
                     </td>
                   </tr>
                   </tbody>
@@ -182,7 +183,16 @@
                 window.location.reload();
             }
         })
+    });
 
+    $(".delete").click(function () {
+        ajaxUtils.getData(ctx+"risk/value/delete/"+$(this).attr("value"),function (e) {
+            if (e.success){
+                window.location.reload();
+            }else{
+                alert(e.message);
+            }
+        })
     });
 </script>
 </body>

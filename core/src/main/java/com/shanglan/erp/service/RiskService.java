@@ -107,10 +107,20 @@ public class RiskService {
                 Predicate dateQuery = cb.lessThanOrEqualTo(root.<LocalDateTime>get("checkTime"), end);
                 predicate.add(dateQuery);
             }
+            Predicate deletedQuery = cb.equal(root.<Integer>get("deleted"),false);
+            predicate.add(deletedQuery);
+
+
             return query.where(predicate.toArray(new Predicate[predicate.size()])).getRestriction();
         };
     }
 
+    /**
+     * 保存配置项
+     * @param conditionId
+     * @param conditionValue
+     * @return
+     */
     public AjaxResponse saveRiskItem(Integer conditionId,String conditionValue){
         RiskCondition condition = riskConditionRepository.findOne(conditionId);
         RiskItem riskItem = new RiskItem();
@@ -120,6 +130,11 @@ public class RiskService {
         return AjaxResponse.success();
     }
 
+    /**
+     * 删除配置项
+     * @param id
+     * @return
+     */
     public AjaxResponse deleteRiskItem(Integer id){
         try{
             RiskItem riskItem = riskItemRepository.findOne(id);
@@ -135,6 +150,20 @@ public class RiskService {
         return AjaxResponse.success();
     }
 
+    /**
+     * 保存风险数据
+     * @param uid
+     * @param riskAddrId
+     * @param riskDesc
+     * @param riskLevelId
+     * @param precaution
+     * @param riskMkDeptId
+     * @param riskvalue
+     * @param checkTime
+     * @param riskNumberId
+     * @param responsible
+     * @return
+     */
     public AjaxResponse saveRiskValue(Integer uid,Integer riskAddrId,String riskDesc,Integer riskLevelId,String precaution,Integer riskMkDeptId,String riskvalue,LocalDateTime checkTime,Integer riskNumberId,String responsible){
 
 
@@ -164,6 +193,13 @@ public class RiskService {
         return AjaxResponse.success();
     }
 
+    /**
+     * 更新风险数据
+     * @param uid
+     * @param valueId
+     * @param handleResult
+     * @return
+     */
     public AjaxResponse updateRiskValue(Integer uid,Integer valueId,String handleResult){
         RiskValue riskValue = riskValueRepository.findOne(valueId);
         if(null!=uid){
@@ -174,6 +210,43 @@ public class RiskService {
         }
         riskValue.setHandleResult(handleResult);
         riskValue.setHandleTime(LocalDateTime.now());
+        return AjaxResponse.success();
+    }
+
+    /**
+     * 逻辑删除风险值
+     * @param valueId
+     * @return
+     */
+    public AjaxResponse logicalDeletionRiskValue(Integer uid,Integer valueId){
+        try {
+            RiskValue riskValue = riskValueRepository.findOne(valueId);
+            riskValue.setDeleted(true);
+            if(null!=uid){
+                User user = userService.findByUid(uid);
+                riskValue.setDeleteUser(user);
+            }else {
+                riskValue.setDeleteUser(null);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            AjaxResponse.fail();
+        }
+        return AjaxResponse.success();
+    }
+
+    /**
+     * 物理删除风险值
+     * @param valueId
+     * @return
+     */
+    public AjaxResponse physicsDeleteRiskValue(Integer uid,Integer valueId){
+        try {
+            riskValueRepository.delete(valueId);
+        }catch (Exception e){
+            e.printStackTrace();
+            return AjaxResponse.fail();
+        }
         return AjaxResponse.success();
     }
 

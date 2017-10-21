@@ -129,4 +129,13 @@ public class RiskController {
         AjaxResponse response = riskService.updateRiskValue(uid, id, handleResult);
         return response;
     }
+
+    @RequestMapping(path = "/value/delete/{id}",method = RequestMethod.GET)
+    public AjaxResponse deleteRiskValue(@PathVariable Integer id,HttpServletRequest request){
+        Integer uid = (Integer) request.getSession().getAttribute("uid");
+        AjaxResponse response = riskService.logicalDeletionRiskValue(uid,id);
+        return response;
+    }
+
+
 }

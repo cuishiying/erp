@@ -24,13 +24,9 @@ public class RiskValue extends BaseEntity{
     private String riskValue;//风险分析
     private String handleResult;//管控情况
     private String responsible;//责任人
+    private boolean deleted;//逻辑删除，默认false
 
 
-    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
-    private User publishUser;//发布人
-
-    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
-    private User handleUser;//处理人
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private RiskItem riskLevel;//风险等级
@@ -43,6 +39,16 @@ public class RiskValue extends BaseEntity{
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private Dept riskMkDept;//管控部门
+
+
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    private User publishUser;//发布人
+
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    private User handleUser;//处理人
+
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    private User deleteUser;//处理人
 
 
     public String getName() {
@@ -163,5 +169,21 @@ public class RiskValue extends BaseEntity{
 
     public void setResponsible(String responsible) {
         this.responsible = responsible;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
+    }
+
+    public User getDeleteUser() {
+        return deleteUser;
+    }
+
+    public void setDeleteUser(User deleteUser) {
+        this.deleteUser = deleteUser;
     }
 }
