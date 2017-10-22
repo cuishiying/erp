@@ -78,6 +78,28 @@ public class RiskController {
         return model;
     }
 
+    @RequestMapping(path = "/value/read",method = RequestMethod.GET)
+    public ModelAndView riskValueReadView(String username,String truename,RiskQueryDTO queryDTO, @PageableDefault(value = 10,sort = "id",direction = Sort.Direction.DESC) Pageable pageable,HttpServletRequest request){
+        if(StringUtils.isNotEmpty(username)&&StringUtils.isNotEmpty(truename)){
+            User user = userService.findUserByUsernameAndtruename(username, truename);
+            request.getSession().invalidate();
+            request.getSession().setAttribute("uid", user.getUid());
+        }
+        ModelAndView model = new ModelAndView("risk_valueread");
+        Page<RiskValue> page = riskService.findRiskValues(queryDTO,pageable);
+        List<RiskItem> riskAddrs = riskService.findRiskItems("风险地点");
+        List<RiskItem> riskLevels = riskService.findRiskItems("风险等级");
+        List<RiskItem> riskNumbers = riskService.findRiskItems("风险值");
+        List<Dept> deptList = deptService.findAll();
+        model.addObject("riskAddrs",riskAddrs);
+        model.addObject("riskLevels",riskLevels);
+        model.addObject("riskNumbers",riskNumbers);
+        model.addObject("deptList",deptList);
+        model.addObject("page",page);
+        model.addObject("queryDTO",queryDTO);
+        return model;
+    }
+
     @RequestMapping(path = "/value/add",method = RequestMethod.GET)
     public ModelAndView addRiskValueView(){
 

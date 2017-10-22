@@ -49,7 +49,7 @@
               </div>
               <form th:action="@{/risk/value/listview}" method="get">
                 <div class="controller form-inline">
-                  <a class="btn btn-primary" th:href="@{/risk/value/add}">录入</a>
+                  <!--<a class="btn btn-primary" th:href="@{/risk/value/add}">录入</a>-->
                   <select class="form-control risk_name" name="riskAddrId">
                     <option value="">风险地点</option>
                     <option th:each="c:${riskAddrs}"  th:text="${c?.name}" th:id="${c?.id}" th:value="${c?.id}" th:selected="${queryDTO!=null&&queryDTO.riskAddrId==c.id}"></option>
@@ -84,7 +84,7 @@
                     <th>责任人</th>
                     <th>风险分析</th>
                     <th>管控情况</th>
-                    <th>操作</th>
+                    <!--<th>操作</th>-->
                   </tr>
                   </thead>
                   <tbody>
@@ -100,11 +100,11 @@
                     <td th:text="${item.responsible}" class="td-ellipsis"></td>
                     <td th:text="${item.riskValue}" class="td-ellipsis"></td>
                     <td th:text="${item.handleResult}" class="td-ellipsis"></td>
-                    <td>
-                      <!--<a class="btn-sm btn-success detail" th:value="${item.id}" th:href="@{/risk/value/detail/}+${item.id}">详情</a>-->
-                      <a class="btn-sm btn-primary handle" th:value="${item.id}" th:href="@{/risk/value/edit/}+${item.id}">处理</a>
-                      <a class="btn-sm btn-primary delete" th:value="${item.id}">删除</a>
-                    </td>
+                    <!--<td>-->
+                      <!--&lt;!&ndash;<a class="btn-sm btn-success detail" th:value="${item.id}" th:href="@{/risk/value/detail/}+${item.id}">详情</a>&ndash;&gt;-->
+                      <!--<a class="btn-sm btn-primary handle" th:value="${item.id}" th:href="@{/risk/value/edit/}+${item.id}">处理</a>-->
+                      <!--<a class="btn-sm btn-primary delete" th:value="${item.id}">删除</a>-->
+                    <!--</td>-->
                   </tr>
                   </tbody>
                 </table>
