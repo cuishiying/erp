@@ -77,12 +77,11 @@
                   </li>
                   <li class="list-group-item list-group-item-noneborder">
                     <span class="item-name">管控情况</span>
-                    <textarea type="text" class="form-control item-content handleResult" th:text="${riskValue.handleResult}"></textarea>
+                    <textarea type="text" class="form-control item-content handleResult" th:text="${riskValue.handleResult}" readonly></textarea>
                   </li>
                   <li class="list-group-item list-group-item-noneborder">
                     <button type="button" class="btn btn-default close-window">关闭</button>
-                    <button type="button" class="btn btn-success save">保存</button>
-                    <button type="button" class="btn btn-danger delete" th:value="${riskValue.id}">删除</button>
+                    <!--<button type="button" class="btn btn-success save">保存</button>-->
                   </li>
                 </ul>
               </div>
@@ -108,16 +107,16 @@
     var ctx = /*[[@{/}]]*/;
     var _id = /*[[${riskValue.id}]]*/;
     var handleResult = /*[[${riskValue.handleResult}]]*/;
-    $(function () {
-        if(handleResult==""||handleResult==null){
-            $(".save").show();
-            $(".handleResult").removeAttr("readonly");
-
-        }else{
-            $(".save").hide();
-            $(".handleResult").attr("readonly","readonly");
-        }
-    });
+//    $(function () {
+//        if(handleResult==""||handleResult==null){
+//            $(".save").show();
+//            $(".handleResult").removeAttr("readonly");
+//
+//        }else{
+//            $(".save").hide();
+//            $(".handleResult").attr("readonly","readonly");
+//        }
+//    });
     $('.save').click(function (e) {
         var risk = new Object();
         risk.id = _id;
@@ -127,17 +126,9 @@
                 window.location.href = ctx+"risk/value/listview";
             }
         })
+    });
 
-    });
-    $(".delete").click(function (e) {
-        ajaxUtils.getData(ctx+"risk/value/delete/"+$(this).attr("value"),function (e) {
-            if (e.success){
-                window.location.href=ctx+"risk/value/listview";
-            }else{
-                alert(e.message);
-            }
-        });
-    });
+
     $(".close-window").click(function (e) {
         window.history.go(-1);
     });

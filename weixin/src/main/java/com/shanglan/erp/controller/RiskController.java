@@ -73,9 +73,39 @@ public class RiskController {
         return model;
     }
 
+    @RequestMapping(path = "/value/read",method = RequestMethod.GET)
+    public ModelAndView riskValueView(String username,String truename,RiskQueryDTO queryDTO, @PageableDefault(value = 10,sort = "id",direction = Sort.Direction.DESC) Pageable pageable,HttpServletRequest request){
+        if(StringUtils.isNotEmpty(username)&&StringUtils.isNotEmpty(truename)){
+            User user = userService.findUserByUsernameAndtruename(username, truename);
+            request.getSession().invalidate();
+            request.getSession().setAttribute("uid", user.getUid());
+        }
+        ModelAndView model = new ModelAndView("risk_valueread");
+        Page<RiskValue> page = riskService.findRiskValues(queryDTO,pageable);
+        List<RiskItem> riskAddrs = riskService.findRiskItems("风险地点");
+        List<RiskItem> riskLevels = riskService.findRiskItems("风险等级");
+        List<RiskItem> riskNumbers = riskService.findRiskItems("风险值");
+        List<Dept> deptList = deptService.findAll();
+        model.addObject("riskAddrs",riskAddrs);
+        model.addObject("riskLevels",riskLevels);
+        model.addObject("riskNumbers",riskNumbers);
+        model.addObject("deptList",deptList);
+        model.addObject("page",page);
+        model.addObject("queryDTO",queryDTO);
+        return model;
+    }
+
     @RequestMapping(path = "/value/{id}",method = RequestMethod.GET)
     public ModelAndView findRiskValueById(@PathVariable Integer id){
         ModelAndView model = new ModelAndView("risk_valuedetail");
+        RiskValue riskValue = riskService.findRiskValueById(id);
+        model.addObject("riskValue",riskValue);
+        return model;
+    }
+
+    @RequestMapping(path = "/value/read/{id}",method = RequestMethod.GET)
+    public ModelAndView findRiskValueViewById(@PathVariable Integer id){
+        ModelAndView model = new ModelAndView("risk_valuedetailread");
         RiskValue riskValue = riskService.findRiskValueById(id);
         model.addObject("riskValue",riskValue);
         return model;
@@ -114,6 +144,12 @@ public class RiskController {
     public AjaxResponse addRiskValue(@PathVariable Integer id,@RequestParam String handleResult, HttpServletRequest request){
         Integer uid = (Integer) request.getSession().getAttribute("uid");
         AjaxResponse response = riskService.updateRiskValue(uid, id, handleResult);
+        return response;
+    }
+    @RequestMapping(path = "/value/delete/{id}",method = RequestMethod.GET)
+    public AjaxResponse deleteRiskValue(@PathVariable Integer id,HttpServletRequest request){
+        Integer uid = (Integer) request.getSession().getAttribute("uid");
+        AjaxResponse response = riskService.logicalDeletionRiskValue(uid,id);
         return response;
     }
 }
