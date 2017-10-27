@@ -32,3 +32,8 @@ String sql = "SELECT c.storageName,c.goodsCode,c.storageCode,c.goodsname,c.stand
 出入库流程实际设置
 考勤排班设置
 
+
+打包：
+mvn clean package -DskipTests -Pproduct
+mvn clean package -DskipTests -Psit
+

@@ -163,6 +163,7 @@ public class ErpController {
     }
 
 
+
     //******************************************收发存*************************************************************************
 
     /**
@@ -211,6 +212,7 @@ public class ErpController {
         erpService.exportCollect(response);
         return AjaxResponse.success();
     }
+
 
     @RequestMapping(path = "/collect/chongku",method = RequestMethod.POST)
     public AjaxResponse redbase(@RequestParam Integer storageId,@RequestParam Integer goodsId,@RequestParam Integer count){

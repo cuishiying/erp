@@ -210,6 +210,21 @@ public class ErpService {
         String fileName = "货品档案";
         String sheetName = "货品档案";
         List<Goods> list = this.findGoods(null);
+        if(list.size()==0){
+            Goods good = new Goods();
+            good.setGoodsCode("725");
+            good.setGoodsname("模板测试数据");
+            good.setStandard("CD215-100");
+            good.setGoodsdm("");
+            good.setUnit("台");
+            good.setSubcode("0611");
+            good.setUnitgroupname("");
+            good.setAbc("");
+            good.setUsedate("2012-07-05");
+            good.setUnitgroupcode("01");
+            good.setUnitcode("043");
+            list.add(good);
+        }
         LinkedHashMap<String, String> map = new LinkedHashMap<>();
         map.put("序号","goodOrder");
         map.put("选择","checked");
@@ -299,7 +314,27 @@ public class ErpService {
     public void exportCollect(HttpServletResponse response){
         String fileName = "收发存汇总表";
         String sheetName = "收发存汇总表";
-        List<Collect> collect = this.findCollect(null);
+        List<Collect> list = this.findCollect(null);
+        if(list.size()==0){
+            Collect c = new Collect();
+            c.setStorageName("大库房");
+            c.setGoodsCode("00116");
+            c.setStorageCode("1509109762");
+            c.setGoodsname("模板测试数据");
+            c.setStandard("7#");
+            c.setUnit("节");
+            c.setGoodsSubCode("0909");
+            c.setInventoryClassificationName("其他材料");
+            c.setOpeningInventoryQuantity("10");
+            c.setOpeningBalance("");
+            c.setStockInCount("0");
+            c.setStockInBalance("");
+            c.setStockOutCount("0");
+            c.setStockOutBalance("");
+            c.setEndingInventoryQuantity("10");
+            c.setEndingBalance("");
+            list.add(c);
+        }
         LinkedHashMap<String, String> map = new LinkedHashMap<>();
         map.put("仓库名称","storageName");
         map.put("存货编码","goodsCode");
@@ -318,7 +353,7 @@ public class ErpService {
         map.put("期末结存数量","endingInventoryQuantity");
         map.put("期末结存金额","endingBalance");
 
-        ExcelUtils.export(fileName,sheetName,Collect.class,collect,map,response);
+        ExcelUtils.export(fileName,sheetName,Collect.class,list,map,response);
     }
 
 
