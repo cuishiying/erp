@@ -375,7 +375,7 @@ public class GoodsRepository {
      */
     public List<ErpChuku> findChukuList(String keyword){
 
-        String sql = "select c.id,c.indentnumber,c.posttime,c.type,c.uid,c.storageid,c.status,c.uFlowId,s.storagename from cnoa_jxc_stock_chuku AS c LEFT JOIN cnoa_jxc_storage AS s ON c.storageid = s.id WHERE 1=1";
+        String sql = "select c.id,c.indentnumber,c.posttime,c.type,c.uid,c.storageid,c.status,c.uFlowId,s.storagename from cnoa_jxc_stock_chuku AS c LEFT JOIN cnoa_jxc_storage AS s ON c.storageid = s.id WHERE 1=1 AND c.status=1";
 
         List <Object> queryList=new ArrayList<Object>();
         if (keyword!=null&&!keyword.equals("")) {

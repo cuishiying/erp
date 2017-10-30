@@ -3,6 +3,7 @@
 ALTER TABLE cnoa_jxc_stock_goods_detail ADD tempId INT;
 
 DELIMITER //
+# 商品预减
 DROP TRIGGER IF EXISTS cnoa_afterinsert_on_cnoa_jxc_stock_chuku;
 CREATE TRIGGER cnoa_afterinsert_on_cnoa_jxc_stock_chuku AFTER INSERT
   ON cnoa_z_wf_d_93_1174 FOR EACH ROW
@@ -11,6 +12,7 @@ CREATE TRIGGER cnoa_afterinsert_on_cnoa_jxc_stock_chuku AFTER INSERT
     INSERT INTO cnoa_jxc_stock_goods_detail SET storageId = (SELECT storageId FROM cnoa_jxc_stock_chuku WHERE uFlowId = new.uFlowId),uFlowId = (new.uFlowId),tempId = (new.uFlowId),goodsId = (new.bindid),price = (new.D_219),quantity = (-new.D_214);
   END;
 
+# 流程结束回滚预减数量
 DROP TRIGGER IF EXISTS cnoa_afterinsert_on_cnoa_wf_u_step;
 create trigger cnoa_afterinsert_on_cnoa_wf_u_step AFTER INSERT
   ON cnoa_wf_u_step FOR EACH ROW
@@ -21,6 +23,7 @@ create trigger cnoa_afterinsert_on_cnoa_wf_u_step AFTER INSERT
     END IF ;
   END;
 
+# 流程拒绝后回滚预减数量
 DROP TRIGGER IF EXISTS cnoa_afterdelete_on_cnoa_wf_u_step;
 CREATE TRIGGER cnoa_afterdelete_on_cnoa_wf_u_step AFTER DELETE
   ON cnoa_wf_u_step FOR EACH ROW
@@ -92,6 +95,7 @@ CREATE TRIGGER cnoa_afterinsert_on_cnoa_jxc_goods_detail AFTER INSERT
     END IF ;
   END;
 
+# 退库后收发存数量回滚
 DROP TRIGGER IF EXISTS cnoa_afterdelete_on_cnoa_jxc_goods_detai;
 CREATE TRIGGER cnoa_afterdelete_on_cnoa_jxc_goods_detai AFTER DELETE
   ON cnoa_jxc_stock_goods_detail FOR EACH ROW
