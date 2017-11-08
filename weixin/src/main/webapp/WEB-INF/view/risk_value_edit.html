@@ -37,56 +37,60 @@
                 <ul class="list-group">
                   <li class="list-group-item list-group-item-noneborder">
                     <span class="item-name">风险点</span>
-                    <input type="text" class="form-control item-content risk_addr" th:value="${riskValue.riskAddr}" readonly>
+                    <input type="text" class="form-control item-content risk_addr" th:value="${riskValue.riskAddr}">
                   </li>
                   <li class="list-group-item list-group-item-noneborder">
                     <span class="item-name">风险描述</span>
-                    <textarea type="text" class="form-control item-content risk_desc" th:text="${riskValue.riskDesc}" readonly></textarea>
+                    <textarea type="text" class="form-control item-content risk_desc" th:text="${riskValue.riskDesc}"></textarea>
                   </li>
                   <li class="list-group-item list-group-item-noneborder">
                     <span class="item-name">类型</span>
-                    <textarea type="text" class="form-control item-content risk_desc" th:text="${riskValue.riskType.name}" readonly></textarea>
+                    <select class="form-control item-content risk_type" >
+                      <option th:each="a:${riskTypes}"  th:text="${a?.name}" th:id="${a?.id}" th:selected="${riskValue!=null&&riskValue.riskType.id==a.id}"></option>
+                    </select>
                   </li>
                   <li class="list-group-item list-group-item-noneborder">
                     <span class="item-name">风险值</span>
-                    <input type="text" class="form-control item-content risk_value" th:value="${riskValue.riskValue}" readonly>
+                    <input type="text" class="form-control item-content risk_value" th:value="${riskValue.riskValue}">
                   </li>
                   <li class="list-group-item list-group-item-noneborder">
                     <span class="item-name">风险分级</span>
-                    <textarea type="text" class="form-control item-content risk_desc" th:text="${riskValue.riskLevel.name}" readonly></textarea>
+                    <select class="form-control item-content risk_level" >
+                      <option th:each="l:${riskLevels}"  th:text="${l?.name}" th:id="${l?.id}" th:selected="${riskValue!=null&&riskValue.riskLevel.id==l.id}"></option>
+                    </select>
                   </li>
                   <li class="list-group-item list-group-item-noneborder">
                     <span class="item-name">主要管控措施</span>
-                    <textarea type="text" class="form-control item-content precaution" th:text="${riskValue.precaution}" readonly></textarea>
+                    <textarea type="text" class="form-control item-content precaution" th:text="${riskValue.precaution}"></textarea>
                   </li>
                   <li class="list-group-item list-group-item-noneborder">
                     <span class="item-name">风险分析</span>
-                    <textarea type="text" class="form-control item-content risk_analysis" th:text="${riskValue.riskAnalysis}" readonly></textarea>
+                    <textarea type="text" class="form-control item-content risk_analysis" th:text="${riskValue.riskAnalysis}"></textarea>
                   </li>
                   <li class="list-group-item list-group-item-noneborder">
                     <span class="item-name">责任部门</span>
-                    <textarea type="text" class="form-control item-content risk_dept" th:text="${riskValue.riskDept}" readonly></textarea>
+                    <textarea type="text" class="form-control item-content risk_dept" th:text="${riskValue.riskDept}"></textarea>
                   </li>
                   <li class="list-group-item list-group-item-noneborder">
                     <span class="item-name">责任人</span>
-                    <textarea type="text" class="form-control item-content risk_responsible" th:text="${riskValue.responsible}" readonly></textarea>
+                    <textarea type="text" class="form-control item-content risk_responsible" th:text="${riskValue.responsible}"></textarea>
                   </li>
                   <li class="list-group-item list-group-item-noneborder">
                     <span class="item-name">治理时限</span>
-                    <textarea type="text" class="form-control item-content risk_handleTimeLimit" th:text="${riskValue.handleTimeLimit}" th:value="${riskValue.handleMoney}" readonly></textarea>
+                    <textarea type="text" class="form-control item-content risk_handleTimeLimit" th:text="${riskValue.handleTimeLimit}" th:value="${riskValue.handleMoney}"></textarea>
                   </li>
 
                   <li class="list-group-item list-group-item-noneborder">
                     <span class="item-name">治理资金(万元)</span>
-                    <input type="text" class="form-control item-content risk_handleMoney" th:value="${riskValue.handleMoney}" readonly>
+                    <input type="text" class="form-control item-content risk_handleMoney" th:value="${riskValue.handleMoney}">
                   </li>
                   <li class="list-group-item list-group-item-noneborder">
                     <span class="item-name">管控措施执行情况</span>
-                    <textarea type="text" class="form-control item-content risk_handleResult" th:text="${riskValue.handleResult}" readonly></textarea>
+                    <textarea type="text" class="form-control item-content risk_handleResult" th:text="${riskValue.handleResult}"></textarea>
                   </li>
                   <li class="list-group-item list-group-item-noneborder">
                     <button type="button" class="btn btn-default close-window">关闭</button>
-                    <!--<button type="button" class="btn btn-primary save">保存</button>-->
+                    <button type="button" class="btn btn-primary save">保存</button>
                   </li>
                 </ul>
               </div>

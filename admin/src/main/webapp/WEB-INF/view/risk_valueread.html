@@ -50,21 +50,20 @@
               <form th:action="@{/risk/value/read}" method="get">
                 <div class="controller form-inline">
                   <!--<a class="btn btn-primary" th:href="@{/risk/value/add}">录入</a>-->
-                  <select class="form-control risk_name" name="riskAddrId">
-                    <option value="">风险地点</option>
-                    <option th:each="c:${riskAddrs}"  th:text="${c?.name}" th:id="${c?.id}" th:value="${c?.id}" th:selected="${queryDTO!=null&&queryDTO.riskAddrId==c.id}"></option>
+
+                  <input type="text" class="form-control" name="keyword" th:value="${queryDTO.keyword}" placeholder="风险点、责任部门、管控措施执行情况..." style="width: 300px"/>
+                  <select class="form-control risk_name" name="riskTypeId">
+                    <option value="">类型</option>
+                    <option th:each="c:${riskTypes}"  th:text="${c?.name}" th:id="${c?.id}" th:value="${c?.id}" th:selected="${queryDTO!=null&&queryDTO.riskTypeId==c.id}"></option>
                   </select>
                   <select class="form-control risk_name" name="riskLevelId">
-                    <option value="">风险等级</option>
+                    <option value="">风险分级</option>
                     <option th:each="c:${riskLevels}"  th:text="${c?.name}" th:id="${c?.id}" th:value="${c?.id}" th:selected="${queryDTO!=null&&queryDTO.riskLevelId==c.id}"></option>
                   </select>
-                  <select class="form-control risk_name" name="deptId">
-                    <option value="">管控部门</option>
-                    <option th:each="c:${deptList}"  th:text="${c?.name}" th:id="${c?.id}" th:value="${c?.id}" th:selected="${queryDTO!=null&&queryDTO.deptId==c.id}"></option>
-                  </select>
-                  <input type="text" class="form-control date" placeholder="开始时间(检查时间)" name="beginDate" th:value="${queryDTO.beginDate?.toString()}">
-                  <input type="text" class="form-control date" placeholder="结束时间(检查时间)" name="endDate" th:value="${queryDTO.endDate?.toString()}">
+                  <!--<input type="text" class="form-control date" placeholder="开始时间(检查时间)" name="beginDate" th:value="${queryDTO.beginDate?.toString()}">-->
+                  <!--<input type="text" class="form-control date" placeholder="结束时间(检查时间)" name="endDate" th:value="${queryDTO.endDate?.toString()}">-->
                   <button type="submit" class="btn btn-primary">搜索</button>
+                  <span th:text="${'共 '+page.totalElements+' 条'}"></span>
                 </div>
               </form>
 
@@ -73,36 +72,38 @@
                 <table class="table table-striped">
                   <thead>
                   <tr>
-                    <th>检查时间</th>
-                    <!--<th>录入时间</th>-->
-                    <th>风险地点</th>
-                    <th>风险描述</th>
-                    <th>风险值</th>
-                    <th>风险等级</th>
-                    <th>主要管控措施</th>
-                    <th>责任部门</th>
-                    <th>责任人</th>
-                    <th>风险分析</th>
-                    <th>管控情况</th>
-                    <!--<th>操作</th>-->
+                    <th style="width: 10%">风险点</th>
+                    <th style="width: 15%">风险描述</th>
+                    <th style="width: 5%">类型</th>
+                    <th style="width: 5%">风险值</th>
+                    <th style="width: 5%">风险分级</th>
+                    <th style="width: 15%">主要管控措施</th>
+                    <th style="width: 5%">风险分析</th>
+                    <th style="width: 5%">责任部门</th>
+                    <th style="width: 5%">责任人</th>
+                    <th style="width: 10%">治理时限</th>
+                    <th style="width: 5%">治理资金(万元)</th>
+                    <th style="width: 15%">管控措施执行情况</th>
+                    <!--<th style="width: 10%">操作</th>-->
                   </tr>
                   </thead>
                   <tbody>
                   <tr th:each="item:${page.content}">
-                    <td th:text="${#temporals.format(item.checkTime,'yyyy-MM-dd HH:mm:ss')}"></td>
-                    <!--<td th:text="${#temporals.format(item.publishTime,'yyyy-MM-dd HH:mm:ss')}"></td>-->
-                    <td th:text="${item.riskAddr.name}"></td>
+                    <td th:text="${item.riskAddr}" class="td-ellipsis"></td>
                     <td th:text="${item.riskDesc}" class="td-ellipsis"></td>
-                    <td th:text="${item.riskNumber?.name}" class="td-ellipsis"></td>
-                    <td th:text="${item.riskLevel.name}"></td>
-                    <td th:text="${item.precaution}" class="td-ellipsis"></td>
-                    <td th:text="${item.riskMkDept.name}"></td>
-                    <td th:text="${item.responsible}" class="td-ellipsis"></td>
+                    <td th:text="${item.riskType?.name}" class="td-ellipsis"></td>
                     <td th:text="${item.riskValue}" class="td-ellipsis"></td>
+                    <td th:text="${item.riskLevel.name}" class="td-ellipsis"></td>
+                    <td th:text="${item.precaution}" class="td-ellipsis"></td>
+                    <td th:text="${item.riskAnalysis}" class="td-ellipsis"></td>
+                    <td th:text="${item.riskDept}" class="td-ellipsis"></td>
+                    <td th:text="${item.responsible}" class="td-ellipsis"></td>
+                    <td th:text="${item.handleTimeLimit}" class="td-ellipsis"></td>
+                    <td th:text="${item.handleMoney}" class="td-ellipsis"></td>
                     <td th:text="${item.handleResult}" class="td-ellipsis"></td>
                     <!--<td>-->
-                      <!--&lt;!&ndash;<a class="btn-sm btn-success detail" th:value="${item.id}" th:href="@{/risk/value/detail/}+${item.id}">详情</a>&ndash;&gt;-->
-                      <!--<a class="btn-sm btn-primary handle" th:value="${item.id}" th:href="@{/risk/value/edit/}+${item.id}">处理</a>-->
+                      <!--<a class="btn-sm btn-success detail" th:value="${item.id}" th:href="@{/risk/value/detail/}+${item.id}">详情</a>-->
+                      <!--<a class="btn-sm btn-primary handle" th:value="${item.id}" th:href="@{/risk/value/edit/}+${item.id}">编辑</a>-->
                       <!--<a class="btn-sm btn-primary delete" th:value="${item.id}">删除</a>-->
                     <!--</td>-->
                   </tr>
@@ -123,37 +124,6 @@
 
 </div>
 
-<!-- 模态框（Modal） -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-          &times;
-        </button>
-        <h4 class="modal-title" id="myModalLabel">
-          添加班次
-        </h4>
-      </div>
-      <div class="modal-body">
-        <div class="bc_item">配置风险项:
-          <select class="form-control risk_name">
-          <option th:each="c:${conditionList}"  th:text="${c?.name}" th:id="${c?.id}"></option>
-        </select><br/></div>
-        <div class="bc_item">配置风险值:
-          <input type="text" class="form-control risk_value">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">关闭
-        </button>
-        <button type="button" class="btn btn-primary save">
-          保存
-        </button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal -->
-</div>
-</div>
 <script th:src="@{/static/js/jquery.min.js}"></script>
 <script th:src="@{/static/js/bootstrap.min.js}"></script>
 <script th:src="@{/static/js/jquery.datetimepicker.full.js}"></script>
@@ -169,20 +139,6 @@
         yearStart:2000,     //设置最小年份
         yearEnd:2050,        //设置最大年份
         todayButton:false    //关闭选择今天按钮
-    });
-
-    $('.save').click(function (e) {
-
-        var risk = new Object();
-        risk.conditionId = $(".bc_item").find("option:selected").attr("id");
-        risk.conditionValue = $(".risk_value").val();
-
-        ajaxUtils.postParams(ctx+"risk/item/save",risk,function (e) {
-            if(e.success){
-                $('#myModal').modal('hide');
-                window.location.reload();
-            }
-        })
     });
 
     $(".delete").click(function () {

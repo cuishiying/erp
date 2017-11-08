@@ -41,10 +41,10 @@
 
                 <ul class="list-group">
                   <li class="list-group-item list-group-item-noneborder item" th:each="item:${page.content}" th:id="${item.id}">
-                    <a th:href="@{/risk/value/}+${item.id}">
+                    <a th:href="@{/risk/value/edit/}+${item.id}">
                       <!--<span th:text="${item.riskDesc}"></span>-->
                       <div class="row">
-                        <span class="col-xs-5" th:text="${item.riskAddr.name}"></span>
+                        <span class="col-xs-5" th:text="${item.riskAddr}"></span>
                         <span class="col-xs-5" th:text="${item.riskLevel.name}"></span>
                         <img class="col-xs-2 text-right" th:src="@{/static/img/att_right.png}" style="width: 40px;height: 20px">
                         <!--<span th:text="${#temporals.format(item.publishTime,'yyyy-MM-dd HH:mm:ss')}"></span>-->
@@ -83,20 +83,16 @@
       <div class="modal-body">
         <form th:action="@{/risk/value/listview}" method="get">
           <div class="controller form-inline">
-            <select class="form-control risk_name" name="riskAddrId">
-              <option value="">风险地点</option>
-              <option th:each="c:${riskAddrs}"  th:text="${c?.name}" th:id="${c?.id}" th:value="${c?.id}" th:selected="${queryDTO!=null&&queryDTO.riskAddrId==c.id}"></option>
+            <select class="form-control risk_name" name="riskTypeId">
+              <option value="">类型</option>
+              <option th:each="c:${riskTypes}"  th:text="${c?.name}" th:id="${c?.id}" th:value="${c?.id}" th:selected="${queryDTO!=null&&queryDTO.riskTypeId==c.id}"></option>
             </select>
             <select class="form-control risk_name" name="riskLevelId">
-              <option value="">风险等级</option>
+              <option value="">风险分级</option>
               <option th:each="c:${riskLevels}"  th:text="${c?.name}" th:id="${c?.id}" th:value="${c?.id}" th:selected="${queryDTO!=null&&queryDTO.riskLevelId==c.id}"></option>
             </select>
-            <select class="form-control risk_name" name="deptId">
-              <option value="">管控部门</option>
-              <option th:each="c:${deptList}"  th:text="${c?.name}" th:id="${c?.id}" th:value="${c?.id}" th:selected="${queryDTO!=null&&queryDTO.deptId==c.id}"></option>
-            </select>
-            <input type="text" class="form-control date" placeholder="开始时间(检查时间)" name="beginDate" th:value="${queryDTO.beginDate?.toString()}">
-            <input type="text" class="form-control date" placeholder="结束时间(检查时间)" name="endDate" th:value="${queryDTO.endDate?.toString()}">
+            <!--<input type="text" class="form-control date" placeholder="开始时间(检查时间)" name="beginDate" th:value="${queryDTO.beginDate?.toString()}">-->
+            <!--<input type="text" class="form-control date" placeholder="结束时间(检查时间)" name="endDate" th:value="${queryDTO.endDate?.toString()}">-->
             <button type="submit" class="btn btn-primary">搜索</button>
           </div>
         </form>

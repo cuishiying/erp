@@ -15,7 +15,7 @@
   <style type="text/css">
     .item-name{
       display: inline-block;
-      min-width: 100px;
+      min-width: 120px;
     }
 
     .form-inline .item-content{
@@ -44,51 +44,57 @@
               <div class="panel-body">
                 <ul>
                   <li class="form-inline">
-                    <span class="item-name">风险地点</span>
-                    <select class="form-control item-content risk_addr">
-                      <option th:each="a:${riskAddrs}"  th:text="${a?.name}" th:id="${a?.id}"></option>
-                    </select>
+                    <span class="item-name">风险点</span>
+                    <input type="text" class="form-control item-content risk_addr">
                   </li>
                   <li class="form-inline">
                     <span class="item-name">风险描述</span>
-                    <textarea type="text" class="form-control item-content risk_desc"></textarea>
+                    <textarea type="text" class="form-control item-content risk_desc" rows="5"></textarea>
                   </li>
                   <li class="form-inline">
-                    <span class="item-name">风险值</span>
-                    <select class="form-control item-content risk_number">
-                      <option th:each="a:${riskNumbers}"  th:text="${a?.name}" th:id="${a?.id}"></option>
+                    <span class="item-name">类型</span>
+                    <select class="form-control item-content risk_type">
+                      <option th:each="a:${riskTypes}"  th:text="${a?.name}" th:id="${a?.id}"></option>
                     </select>
                   </li>
                   <li class="form-inline">
-                    <span class="item-name">风险等级</span>
+                    <span class="item-name">风险值</span>
+                    <input type="text" class="form-control item-content risk_value">
+                  </li>
+                  <li class="form-inline">
+                    <span class="item-name">风险分级</span>
                     <select class="form-control item-content risk_level" >
                       <option th:each="l:${riskLevels}"  th:text="${l?.name}" th:id="${l?.id}"></option>
                     </select>
                   </li>
                   <li class="form-inline">
                     <span class="item-name">主要管控措施</span>
-                    <textarea type="text" class="form-control item-content risk_mk"></textarea>
+                    <textarea type="text" class="form-control item-content precaution" rows="5"></textarea>
+                  </li>
+                  <li class="form-inline">
+                    <span class="item-name">风险分析</span>
+                    <textarea type="text" class="form-control item-content risk_analysis" rows="5"></textarea>
                   </li>
                   <li class="form-inline">
                     <span class="item-name">责任部门</span>
-                    <select class="form-control risk_name item-content risk_dept">
-                      <option th:each="d:${deptList}"  th:text="${d?.name}" th:id="${d?.id}"></option>
-                    </select>
+                    <input type="text" class="form-control item-content risk_dept">
                   </li>
-
                   <li class="form-inline">
                     <span class="item-name">责任人</span>
                     <input type="text" class="form-control item-content risk_responsible">
                   </li>
-
                   <li class="form-inline">
-                    <span class="item-name">风险分析</span>
-                    <textarea type="text" class="form-control item-content risk_value"></textarea>
+                    <span class="item-name">治理时限</span>
+                    <input type="text" class="form-control item-content risk_handleTimeLimit">
+                  </li>
+                  <li class="form-inline">
+                    <span class="item-name">治理资金(万元)</span>
+                    <input type="text" class="form-control item-content risk_handleMoney">
                   </li>
 
                   <li class="form-inline">
-                    <span class="item-name">检查时间</span>
-                    <input type="text" class="form-control item-content risk_time date">
+                    <span class="item-name">管控措施执行情况</span>
+                    <textarea type="text" class="form-control item-content risk_handleResult"></textarea>
                   </li>
                   <li class="form-inline">
                     <button type="button" class="btn btn-default close-window">关闭</button>
@@ -127,22 +133,35 @@
     $('.save').click(function (e) {
 
         var risk = new Object();
-        risk.riskAddrId = $(".risk_addr").find("option:selected").attr("id");
+        risk.riskAddr = $(".risk_addr").val();
         risk.riskDesc = $(".risk_desc").val();
+        risk.riskTypeId = $(".risk_type").find("option:selected").attr("id");
+        risk.riskValue = $(".risk_value").val();
         risk.riskLevelId = $(".risk_level").find("option:selected").attr("id");
-        risk.precaution = $(".risk_mk").val();
-        risk.riskMkDeptId = $(".risk_dept").find("option:selected").attr("id");
-        risk.riskvalue = $(".risk_value").val();
-        risk.riskNumberId = $(".risk_number").find("option:selected").attr("id");
+        risk.precaution = $(".precaution").val();
+        risk.riskAnalysis = $(".risk_analysis").val();
+        risk.riskDept = $(".risk_dept").val();
         risk.responsible = $(".risk_responsible").val();
-        risk.checkTime = $(".risk_time").val();
-        if(!risk.checkTime||!risk.riskDesc||!risk.precaution||!risk.riskvalue||!risk.responsible){
+        risk.handleTimeLimit = $(".risk_handleTimeLimit").val();
+        risk.handleMoney = $(".risk_handleMoney").val();
+        risk.handleResult = $(".risk_handleResult").val();
+        if(!risk.riskAddr
+            ||!risk.riskDesc
+            ||!risk.riskTypeId
+            ||!risk.riskValue
+            ||!risk.riskLevelId
+            ||!risk.precaution
+            ||!risk.riskAnalysis
+            ||!risk.riskDept
+            ||!risk.handleTimeLimit){
             alert("您还有未填写的内容");
             return;
         }
         ajaxUtils.postParams(ctx+"risk/value/add",risk,function (e) {
             if(e.success){
                 window.location.href = ctx+"risk/value/listview";
+            }else{
+                alert(e.message)
             }
         })
 

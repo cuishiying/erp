@@ -43,6 +43,8 @@ com/shanglan/erp/config/SmsConfig.class
 com/shanglan/erp/base/sms/SmsService.class
 com/shanglan/erp/dto/ErpChuku.class
 com/shanglan/erp/repository/AttRepository$4.class
+com/shanglan/erp/service/AutoService.class
+com/shanglan/erp/repository/RiskRepository.class
 com/shanglan/erp/entity/RiskValue.class
 com/shanglan/erp/repository/GoodsRepository$10.class
 com/shanglan/erp/service/DeptService.class
@@ -62,6 +64,7 @@ com/shanglan/erp/entity/Dept.class
 com/shanglan/erp/dto/User.class
 com/shanglan/erp/config/SpringRedisConfig.class
 com/shanglan/erp/repository/GoodsRepository$7.class
+com/shanglan/erp/entity/RiskValueOld.class
 com/shanglan/erp/repository/GoodsRepository$1.class
 com/shanglan/erp/base/sms/VerifyCodeService.class
 com/shanglan/erp/base/BaseEntity.class

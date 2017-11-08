@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>隐患排查</title>
+    <link rel="stylesheet" th:href="@{/static/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/static/css/layout.css}">
+    <link rel="stylesheet" th:href="@{/static/css/jquery.datetimepicker.css}">
+    <style type="text/css">
+        .item-name{
+            display: inline-block;
+            min-width: 150px;
+        }
+
+        .form-inline .item-content{
+            width: 70%;
+        }
+        .form-inline{
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <!--<nav th:replace="common/fragment :: sidebar"></nav>-->
+    <div class="main">
+        <div class="main-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">山西铺龙湾煤业有限公司隐患排查治理“五定”落实表</h3>
+                            </div>
+
+                            <div class="panel-body">
+                                <ul>
+                                    <li class="form-inline">
+                                        <span class="item-name">专业</span>
+                                        <textarea type="text" class="form-control item-content risk_checktime" th:text="${hiddenTrouble.majors}" readonly></textarea>
+                                    </li>
+                                    <li class="form-inline">
+                                        <span class="item-name">隐患等级</span>
+                                        <textarea type="text" class="form-control item-content risk_publishtime" th:text="${hiddenTrouble.grade}" readonly></textarea>
+                                    </li>
+                                    <li class="form-inline">
+                                        <span class="item-name">隐患内容</span>
+                                        <textarea type="text" class="form-control item-content risk_addr" th:text="${hiddenTrouble.content}" readonly></textarea>
+                                    </li>
+                                    <li class="form-inline">
+                                        <span class="item-name">整改措施</span>
+                                        <textarea type="text" class="form-control item-content risk_desc" th:text="${hiddenTrouble.actions}" readonly></textarea>
+                                    </li>
+                                    <li class="form-inline">
+                                        <span class="item-name">承办单位</span>
+                                        <textarea type="text" class="form-control item-content risk_number"  th:text="${hiddenTrouble.undertakeUnit}" readonly></textarea>
+                                    </li>
+                                    <li class="form-inline">
+                                        <span class="item-name">完成时间</span>
+                                        <textarea type="text" class="form-control item-content risk_level"  th:text="${#temporals.format(hiddenTrouble.finishTime,'yyyy-MM-dd')}" readonly></textarea>
+                                    </li>
+                                    <li class="form-inline">
+                                        <span class="item-name">责任人</span>
+                                        <textarea type="text" class="form-control item-content risk_mk"  th:text="${hiddenTrouble.responsiblePerson}" readonly></textarea>
+                                    </li>
+                                    <li class="form-inline">
+                                        <span class="item-name">治理资金</span>
+                                        <textarea type="text" class="form-control item-content risk_dept"  th:text="${hiddenTrouble.controllingMoney}" readonly></textarea>
+                                    </li>
+
+                                    <li class="form-inline">
+                                        <span class="item-name">治理预案</span>
+                                        <textarea type="text" class="form-control item-content risk_responsible"  th:text="${hiddenTrouble.managementPlan}" readonly></textarea>
+                                    </li>
+
+                                    <li class="form-inline">
+                                        <span class="item-name">验收时间</span>
+                                        <textarea type="text" class="form-control item-content risk_value"  th:text="${#temporals.format(hiddenTrouble.acceptanceTime,'yyyy-MM-dd')}" readonly></textarea>
+                                    </li>
+                                    <li class="form-inline">
+                                        <span class="item-name">验收人</span>
+                                        <textarea type="text" class="form-control item-content handleResult"  th:text="${hiddenTrouble.acceptancepeople}" readonly></textarea>
+                                    </li>
+                                    <li class="form-inline">
+                                        <span class="item-name">矿井名称</span>
+                                        <textarea type="text" class="form-control item-content handleResult"  th:text="${hiddenTrouble.pitName}" readonly></textarea>
+                                    </li>
+                                    <li class="form-inline">
+                                        <span class="item-name">分矿领导签字</span>
+                                        <textarea type="text" class="form-control item-content handleResult"  th:text="${hiddenTrouble.leader}" readonly></textarea>
+                                    </li>
+                                    <li class="form-inline">
+                                        <span class="item-name">检查人</span>
+                                        <textarea type="text" class="form-control item-content handleResult"  th:text="${hiddenTrouble.rummager}" readonly></textarea>
+                                    </li>
+                                    <li class="form-inline">
+                                        <span class="item-name">组织人</span>
+                                        <textarea type="text" class="form-control item-content handleResult"  th:text="${hiddenTrouble.organizationMan}" readonly></textarea>
+                                    </li>
+                                    <li class="form-inline">
+                                        <span class="item-name">填表人</span>
+                                        <textarea type="text" class="form-control item-content handleResult"  th:text="${hiddenTrouble.entryPerson}" readonly></textarea>
+                                    </li>
+                                    <li class="form-inline">
+                                        <span class="item-name">建表时间</span>
+                                        <textarea type="text" class="form-control item-content handleResult"  th:text="${#temporals.format(hiddenTrouble.createTime,'yyyy-MM-dd')}" readonly></textarea>
+                                    </li>
+                                    <li class="form-inline">
+                                        <button type="button" class="btn btn-default close-window">关闭</button>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="panel-footer"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+<script th:src="@{/static/js/jquery.min.js}"></script>
+<script th:src="@{/static/js/bootstrap.min.js}"></script>
+<script th:src="@{/static/js/jquery.datetimepicker.full.js}"></script>
+<script th:src="@{/static/utils/httpUtils.js}"></script>
+
+<script type="text/javascript" th:inline="javascript">
+    var ctx = /*[[@{/}]]*/;
+    $(".close-window").click(function (e) {
+        window.history.go(-1);
+    })
+
+</script>
+</body>
+</html>

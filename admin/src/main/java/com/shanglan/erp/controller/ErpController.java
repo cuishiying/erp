@@ -33,6 +33,9 @@ import java.util.*;
 
 import static sun.net.www.protocol.http.HttpURLConnection.userAgent;
 
+/**
+ * 出入库
+ */
 @RestController
 @RequestMapping(path = "/erp")
 public class ErpController {

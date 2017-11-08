@@ -11,6 +11,7 @@
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/Collect.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/AttMgrJoinatt.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/Goods.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/RiskRepository.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/config/SmsConfig.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/dto/WfChukuItem.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/AttClassesRepository.java
@@ -25,6 +26,7 @@
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/SortRepository.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/enums/AttRecordStatus.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/sms/SmsProperties.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/RiskValueOld.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/AttJoinAttRecord.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/dto/GoodsDTO.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/StorageService.java
@@ -57,6 +59,7 @@
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/RiskCondition.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/converter/LocalDateConverter.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/ConfigRepository.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/service/AutoService.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/dto/WfChukuHead.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/sms/VerifyCodeServiceImpl.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/Dept.java

@@ -88,6 +88,8 @@
     DROP TRIGGER IF EXISTS cnoa_afterdelete_on_cnoa_wf_u_step;
     DROP TRIGGER IF EXISTS cnoa_afterinsert_on_cnoa_jxc_goods_detail;
     DROP TRIGGER IF EXISTS cnoa_afterdelete_on_cnoa_jxc_goods_detai;
+    
+### 5.加数据库初始化接口，部分配置表数据自动预设数据 
 
 
 

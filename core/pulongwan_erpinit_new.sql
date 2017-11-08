@@ -110,3 +110,6 @@ DELETE FROM cnoa_jxc_stock_ruku;
 DELETE FROM cnoa_z_wf_t_93;
 DELETE FROM cnoa_z_wf_d_93_1174;
 # delete from cnoa_att_record;
+# TRUNCATE TABLE cnoa_risk_condition;
+# TRUNCATE TABLE cnoa_risk_item;
+# TRUNCATE TABLE cnoa_risk_value;

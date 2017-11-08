@@ -3,10 +3,7 @@ package com.shanglan.erp.service;
 import com.shanglan.erp.base.AjaxResponse;
 import com.shanglan.erp.dto.RiskQueryDTO;
 import com.shanglan.erp.entity.*;
-import com.shanglan.erp.repository.DeptRepository;
-import com.shanglan.erp.repository.RiskConditionRepository;
-import com.shanglan.erp.repository.RiskItemRepository;
-import com.shanglan.erp.repository.RiskValueRepository;
+import com.shanglan.erp.repository.*;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -38,7 +35,13 @@ public class RiskService {
     private RiskValueRepository riskValueRepository;
     @Autowired
     private UserService userService;
+    @Autowired
+    private RiskRepository riskRepository;
 
+
+    public void truncateTable(){
+        riskRepository.truncateTable();
+    }
 
     public RiskCondition findById(Integer id){
         RiskCondition one = riskConditionRepository.findOne(id);
@@ -49,6 +52,23 @@ public class RiskService {
         List<RiskCondition> all = riskConditionRepository.findAll();
         return all;
     }
+
+    public AjaxResponse initRiskConditions(){
+        List<RiskCondition> all = riskConditionRepository.findAll();
+        if (null!=all&&all.size()<=0){
+            List<RiskCondition> list = new ArrayList<>();
+            String[] names = new String[]{"类型","风险分级"};
+            for (int i=0;i<2;i++){
+                RiskCondition r = new RiskCondition();
+                r.setName(names[i]);
+                list.add(r);
+            }
+            riskConditionRepository.save(list);
+        }
+        return AjaxResponse.success();
+    }
+
+
 
     public List<RiskItem> findRiskItems(){
         List<RiskItem> all = riskItemRepository.findAll();
@@ -80,36 +100,37 @@ public class RiskService {
         return (root, query, cb) -> {
             List<Predicate> predicate = new ArrayList<>();
 
-            if(queryVo!=null&&queryVo.getRiskAddrId()!=null){
-                Predicate ownerQuery = cb.equal(root.<Integer>get("riskAddr"), riskItemRepository.findOne(queryVo.getRiskAddrId()));
-                predicate.add(ownerQuery);
+            //关键词
+            if(queryVo!=null&& StringUtils.isNotBlank(queryVo.getKeyword())){
+                predicate.add(cb.or(cb.like(root.<String>get("riskAddr"), "%" + queryVo.getKeyword().trim() + "%"),
+                        cb.like(root.<String>get("riskDept"), "%" + queryVo.getKeyword().trim() + "%"),
+                        cb.like(root.<String>get("handleResult"), "%" + queryVo.getKeyword().trim() + "%")));
+
             }
+            //类型
+            if(queryVo!=null&&queryVo.getRiskTypeId()!=null){
+                Predicate riskTypeQuery = cb.equal(root.<Integer>get("riskType").get("id"),queryVo.getRiskTypeId());
+                predicate.add(riskTypeQuery);
+            }
+            //风险分级
             if(queryVo!=null&&queryVo.getRiskLevelId()!=null){
-                Predicate ownerQuery = cb.equal(root.<Integer>get("riskLevel"), riskItemRepository.findOne(queryVo.getRiskLevelId()));
+                Predicate ownerQuery = cb.equal(root.<Integer>get("riskLevel").get("id"), queryVo.getRiskLevelId());
                 predicate.add(ownerQuery);
             }
-            if(queryVo!=null&&queryVo.getRiskValueId()!=null){
-                Predicate ownerQuery = cb.equal(root.<Integer>get("riskValue"),riskItemRepository.findOne(queryVo.getRiskValueId()));
-                predicate.add(ownerQuery);
-            }
-            if(queryVo!=null&&queryVo.getDeptId()!=null){
-                Predicate ownerQuery = cb.equal(root.<Integer>get("riskMkDept"),deptRepository.findOne(queryVo.getDeptId()));
-                predicate.add(ownerQuery);
-            }
+
             //检查时间
-            if (queryVo!=null&&queryVo.getBeginDate() != null) {
-                LocalDateTime begin = LocalDateTime.of(queryVo.getBeginDate(), LocalTime.MIN);
-                Predicate dateQuery = cb.greaterThanOrEqualTo(root.<LocalDateTime>get("checkTime"), begin);
-                predicate.add(dateQuery);
-            }
-            if (queryVo!=null&&queryVo.getEndDate() != null) {
-                LocalDateTime end = LocalDateTime.of(queryVo.getEndDate(), LocalTime.MAX);
-                Predicate dateQuery = cb.lessThanOrEqualTo(root.<LocalDateTime>get("checkTime"), end);
-                predicate.add(dateQuery);
-            }
+//            if (queryVo!=null&&queryVo.getBeginDate() != null) {
+//                LocalDateTime begin = LocalDateTime.of(queryVo.getBeginDate(), LocalTime.MIN);
+//                Predicate dateQuery = cb.greaterThanOrEqualTo(root.<LocalDateTime>get("checkTime"), begin);
+//                predicate.add(dateQuery);
+//            }
+//            if (queryVo!=null&&queryVo.getEndDate() != null) {
+//                LocalDateTime end = LocalDateTime.of(queryVo.getEndDate(), LocalTime.MAX);
+//                Predicate dateQuery = cb.lessThanOrEqualTo(root.<LocalDateTime>get("checkTime"), end);
+//                predicate.add(dateQuery);
+//            }
             Predicate deletedQuery = cb.equal(root.<Integer>get("deleted"),false);
             predicate.add(deletedQuery);
-
 
             return query.where(predicate.toArray(new Predicate[predicate.size()])).getRestriction();
         };
@@ -152,43 +173,37 @@ public class RiskService {
 
     /**
      * 保存风险数据
-     * @param uid
-     * @param riskAddrId
-     * @param riskDesc
-     * @param riskLevelId
-     * @param precaution
-     * @param riskMkDeptId
-     * @param riskvalue
-     * @param checkTime
-     * @param riskNumberId
-     * @param responsible
      * @return
      */
-    public AjaxResponse saveRiskValue(Integer uid,Integer riskAddrId,String riskDesc,Integer riskLevelId,String precaution,Integer riskMkDeptId,String riskvalue,LocalDateTime checkTime,Integer riskNumberId,String responsible){
+    public AjaxResponse saveRiskValue(Integer uid,String riskAddr,String riskDesc,Integer riskTypeId,String riskValue,Integer riskLevelId,String precaution,String riskAnalysis,String riskDept,String responsible,String handleTimeLimit,String handleMoney,String handleResult){
 
 
-        RiskItem riskAddr = riskItemRepository.findOne(riskAddrId);
+        RiskItem riskType = riskItemRepository.findOne(riskTypeId);
         RiskItem riskLevel = riskItemRepository.findOne(riskLevelId);
-        RiskItem riskNumber = riskItemRepository.findOne(riskNumberId);
-        Dept dept = deptRepository.findOne(riskMkDeptId);
         RiskValue item = new RiskValue();
-        item.setPublishTime(LocalDateTime.now());
+
         item.setRiskAddr(riskAddr);
         item.setRiskDesc(riskDesc);
+        item.setRiskType(riskType);
+        item.setRiskValue(riskValue);
         item.setRiskLevel(riskLevel);
         item.setPrecaution(precaution);
-        item.setRiskMkDept(dept);
-        item.setRiskValue(riskvalue);
-        item.setCheckTime(checkTime);
-        item.setRiskNumber(riskNumber);
+        item.setRiskAnalysis(riskAnalysis);
+        item.setRiskDept(riskDept);
         item.setResponsible(responsible);
+        item.setHandleTimeLimit(handleTimeLimit);
+        item.setHandleMoney(handleMoney);
+        item.setHandleResult(handleResult);
+
+        item.setPublishTime(LocalDateTime.now());
+        item.setUpdateTime(LocalDateTime.now());
+
         if(null!=uid){
             User user = userService.findByUid(uid);
             item.setPublishUser(user);
         }else {
             item.setPublishUser(null);
         }
-
         riskValueRepository.save(item);
         return AjaxResponse.success();
     }
@@ -196,20 +211,35 @@ public class RiskService {
     /**
      * 更新风险数据
      * @param uid
-     * @param valueId
+     * @param riskValueId
      * @param handleResult
      * @return
      */
-    public AjaxResponse updateRiskValue(Integer uid,Integer valueId,String handleResult){
-        RiskValue riskValue = riskValueRepository.findOne(valueId);
+    public AjaxResponse updateRiskValue(Integer uid,Integer riskValueId,String riskAddr,String riskDesc,Integer riskTypeId,String riskValue,Integer riskLevelId,String precaution,String riskAnalysis,String riskDept,String responsible,String handleTimeLimit,String handleMoney,String handleResult){
+        RiskValue item = riskValueRepository.findOne(riskValueId);
+        RiskItem riskType = riskItemRepository.findOne(riskTypeId);
+        RiskItem riskLevel = riskItemRepository.findOne(riskLevelId);
+
+        item.setRiskAddr(riskAddr);
+        item.setRiskDesc(riskDesc);
+        item.setRiskType(riskType);
+        item.setRiskValue(riskValue);
+        item.setRiskLevel(riskLevel);
+        item.setPrecaution(precaution);
+        item.setRiskAnalysis(riskAnalysis);
+        item.setRiskDept(riskDept);
+        item.setResponsible(responsible);
+        item.setHandleTimeLimit(handleTimeLimit);
+        item.setHandleMoney(handleMoney);
+        item.setHandleResult(handleResult);
+
         if(null!=uid){
             User user = userService.findByUid(uid);
-            riskValue.setHandleUser(user);
+            item.setHandleUser(user);
         }else {
-            riskValue.setHandleUser(null);
+            item.setHandleUser(null);
         }
-        riskValue.setHandleResult(handleResult);
-        riskValue.setHandleTime(LocalDateTime.now());
+        item.setUpdateTime(LocalDateTime.now());
         return AjaxResponse.success();
     }
 

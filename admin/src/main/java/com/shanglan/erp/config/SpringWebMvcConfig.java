@@ -118,7 +118,14 @@ public class SpringWebMvcConfig extends WebMvcConfigurerAdapter {
 
 		@Override
 		public LocalDateTime deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
-			return LocalDateTime.parse(jp.getText(), LocalDateTimeFormatter);
+			System.out.println(jp.getText());
+			try{
+				return LocalDateTime.parse(jp.getText(), LocalDateTimeFormatter);
+			}
+			catch(Exception e){
+				e.printStackTrace();
+				return null;
+			}
 		}
 	}
 
@@ -154,7 +161,13 @@ public class SpringWebMvcConfig extends WebMvcConfigurerAdapter {
 		@Override
 		public LocalDate deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
 			System.out.println(jp.getText());
-			return LocalDate.parse(jp.getText(), LocalDateFormatter);
+			try{
+				return LocalDate.parse(jp.getText(), LocalDateFormatter);
+			}
+			catch(Exception e){
+				e.printStackTrace();
+				return null;
+			}
 		}
 	}
 	private static class LocalTimeSerializer extends JsonSerializer<LocalTime> {

@@ -2,57 +2,77 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+
     <title>Title</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/layout.css">
+    <style rel="stylesheet" type="text/css">
+        html{
+            font-size: 62.5%;
+        }
+        body{
+            padding: 0;
+            margin: 0;
+        }
+        .data-item{
+            border-bottom: 1px solid #eee;
+            padding: 1rem 1rem 0 1rem;
+            display: block;
+            text-decoration: none;
+            cursor: pointer;
+            position: relative;
+        }
+        .data-item-title{
+            height: 2rem;
+            line-height: 2rem;
+            position: relative;
+        }
+        .data-item-title .name{
+            font-size: 1.8rem;
+        }
+        .data-item-content{
+            height: 2rem;
+            line-height: 2rem;
+            position: relative;
+        }
+        .data-item-footer{
+            height: 2rem;
+            line-height: 2rem;
+            position: relative;
+        }
+        .data-item-footer span{
+            margin-right: 1rem;
+        }
+        .data-item .data-item-content .att-right{
+            background-image: url('img/att_right.png');
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            background-position: center;
+            top: 50%;
+            right: 5%;
+            transform:translate(0%,-50%);
+            -webkit-transform:translate(0%,-50%);
+        }
+    </style>
 </head>
 <body>
-<div id="wrapper">
-    <div class="sidebar">
-        <div class="sidebar-scroll">
-            <nav>
-                <ul class="nav">
-                    <li><a href="">排班设置</a></li>
-                    <li><a href="">考勤人员</a></li>
-                    <li><a href="">考勤报表</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-    <div class="main">
-        <div class="main-content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="panel">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Basic Table</h3>
-                            </div>
-                            <div class="panel-body">
-                                <table class="table table-striped">
-                                    <thead>
-                                    <tr>
-                                        <th>name</th>
-                                        <th>pass</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>name1</td>
-                                        <td>name2</td>
-                                    </tr>
-                                    </tbody>
-
-                                </table>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+<div class="main">
+    <div class="data-list">
+        <a href="#" class="data-item">
+            <div class="data-item-title">
+                <div class="name">标题</div>
             </div>
-
-        </div>
+            <div class="data-item-content">
+                <div class="content">内容</div>
+                <span class="att-right"></span>
+            </div>
+            <div class="data-item-footer">
+                <span class="author">作者</span>
+                <span class="time">2017-10-12</span>
+            </div>
+        </a>
     </div>
 </div>
+
 </body>
 </html>
