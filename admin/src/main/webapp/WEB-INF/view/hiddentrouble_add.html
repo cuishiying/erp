@@ -210,22 +210,42 @@
 <script th:src="@{/static/js/jquery.min.js}"></script>
 <script th:src="@{/static/js/bootstrap.min.js}"></script>
 <script th:src="@{/static/js/jquery.datetimepicker.full.js}"></script>
+<script th:src="@{/static/js/laydate.js}"></script>
 <script th:src="@{/static/utils/httpUtils.js}"></script>
+<script th:src="@{/static/utils/dateUtils.js}"></script>
 
 <script type="text/javascript" th:inline="javascript">
     var ctx = /*[[@{/}]]*/;
 
-    $('.date').datetimepicker({
-        lang:"ch", //语言选择中文 注：旧版本 新版方法：$.datetimepicker.setLocale('ch');
-        format:"Y-m-d",      //格式化日期
-        roundTime: 'round',
-        timepicker:false,    //打开时间选项
-        step:1,
-        todayButton:false    //关闭选择今天按钮
-    });
+    //执行一个laydate实例，时间控件
+//    var loadLaydate = {} || loadLaydate;
+//    loadLaydate.init = function (){
+//        lay('.date').each(function(){
+//            laydate.render({
+//                elem: this,
+//                trigger: 'click'
+//            });
+//        });
+//    }
+
+    $(document).on('click','.date',function () {
+        $('.date').datetimepicker({
+            lang:"ch", //语言选择中文 注：旧版本 新版方法：$.datetimepicker.setLocale('ch');
+            format:"Y-m-d",      //格式化日期
+            roundTime: 'round',
+            timepicker:false,    //打开时间选项
+            step:1,
+            todayButton:false    //关闭选择今天按钮
+        });
+
+    })
+
 
     $(".item-add").on('click',function () {
+//        console.log($(".item-model").html())
+//        console.log(noEscapeHtml($(".item-model").html()))
         $(".item-model").before("<tr class='item-content' name='hiddenTroubleItem'>"+$(".item-model").html()+"</tr>");
+//        loadLaydate.init();
         $(".item-content").each(function (i,e) {
             $(this).find(".order").html(i+1);
         });
@@ -270,33 +290,24 @@
         });
         ajaxUtils.postJson(ctx+"hiddenTrouble/add",hiddenTroubles,function (e) {
             if(e.success){
-
+                window.location.href = ctx+"hiddenTrouble/list";
             }else{
-
+                alert(e.message);
             }
         })
     });
     
     $(function () {
-        var nowTime=new Date().Format("yyyy-MM-dd");
+        var nowTime= dateUtils.getToday();
         $(".createTime").html(nowTime);
     });
 
-    Date.prototype.Format = function (fmt) {
-        var o = {
-            "M+": this.getMonth() + 1, //月份
-            "d+": this.getDate(), //日
-            "H+": this.getHours(), //小时
-            "m+": this.getMinutes(), //分
-            "s+": this.getSeconds(), //秒
-            "q+": Math.floor((this.getMonth() + 3) / 3), //季度
-            "S": this.getMilliseconds() //毫秒
-        };
-        if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
-        for (var k in o)
-            if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
-        return fmt;
+    function noEscapeHtml(html) {
+        return html.replace(/(\&|\&)gt;/g, ">")
+            .replace(/(\&|\&)lt;/g, "<")
+            .replace(/(\&|\&)quot;/g, "\"");
     }
+
 
 </script>
 </body>

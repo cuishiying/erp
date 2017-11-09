@@ -1,14 +1,27 @@
 package com.shanglan.erp.service;
 
 import com.shanglan.erp.base.AjaxResponse;
+import com.shanglan.erp.dto.HiddenTroubleDTO;
+import com.shanglan.erp.dto.HiddenTroubleResultDTO;
+import com.shanglan.erp.dto.RiskQueryDTO;
 import com.shanglan.erp.entity.HiddenTroubleItem;
+import com.shanglan.erp.entity.HiddenTroubleResult;
+import com.shanglan.erp.entity.RiskValue;
 import com.shanglan.erp.repository.HiddenTroubleRepository;
+import com.shanglan.erp.repository.HiddenTroubleResultRepository;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.criteria.Predicate;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -16,6 +29,8 @@ import java.util.List;
 public class HiddenTroubleService {
     @Autowired
     private HiddenTroubleRepository hiddenTroubleRepository;
+    @Autowired
+    private HiddenTroubleResultRepository hiddenTroubleResultRepository;
 
     public AjaxResponse save(List<HiddenTroubleItem> list){
         try{
@@ -27,14 +42,99 @@ public class HiddenTroubleService {
         }
     }
 
-    public Page<HiddenTroubleItem> findAll(Pageable page){
-        Page<HiddenTroubleItem> list = hiddenTroubleRepository.findAll(page);
+    public AjaxResponse save(HiddenTroubleResult hiddenTroubleResult){
+        try{
+            hiddenTroubleResult.setPublicTime(LocalDateTime.now());
+            hiddenTroubleResultRepository.save(hiddenTroubleResult);
+            return AjaxResponse.success("发布成功");
+        }catch (Exception e){
+            e.printStackTrace();
+            return AjaxResponse.fail("发布失败");
+        }
+    }
+
+    public Page<HiddenTroubleResult> findAll(HiddenTroubleResultDTO hiddenTroubleResultDTO,Pageable page){
+        Specification<HiddenTroubleResult> spec = getResultWhereClause(hiddenTroubleResultDTO);
+        Page<HiddenTroubleResult> list = hiddenTroubleResultRepository.findAll(spec, page);
+        return list;
+    }
+
+    public Page<HiddenTroubleItem> findAll(HiddenTroubleDTO hiddenTroubleDTO,Pageable page){
+        Specification<HiddenTroubleItem> spec = getWhereClause(hiddenTroubleDTO);
+        Page<HiddenTroubleItem> list = hiddenTroubleRepository.findAll(spec,page);
         return list;
     }
 
     public HiddenTroubleItem findById(Integer id){
         HiddenTroubleItem troubleItem = hiddenTroubleRepository.findOne(id);
         return troubleItem;
+    }
+    public HiddenTroubleResult findResultById(Integer id){
+        HiddenTroubleResult one = hiddenTroubleResultRepository.findOne(id);
+        return one;
+    }
+
+    /**
+     * 查询条件
+     * @param queryVo
+     * @return
+     */
+    private Specification<HiddenTroubleItem> getWhereClause(HiddenTroubleDTO queryVo) {
+        return (root, query, cb) -> {
+            List<Predicate> predicate = new ArrayList<>();
+
+            //关键词
+            if(queryVo!=null&& StringUtils.isNotBlank(queryVo.getKeyword())){
+                predicate.add(cb.or(cb.like(root.<String>get("majors"), "%" + queryVo.getKeyword().trim() + "%"),
+                        cb.like(root.<String>get("grade"), "%" + queryVo.getKeyword().trim() + "%"),
+                        cb.like(root.<String>get("content"), "%" + queryVo.getKeyword().trim() + "%"),
+                        cb.like(root.<String>get("undertakeUnit"), "%" + queryVo.getKeyword().trim() + "%")));
+
+            }
+
+            //检查时间
+            if (queryVo!=null&&queryVo.getBeginDate() != null) {
+//                LocalDateTime begin = LocalDateTime.of(queryVo.getBeginDate(), LocalTime.MIN);
+                Predicate dateQuery = cb.greaterThanOrEqualTo(root.<LocalDate>get("finishTime"), queryVo.getBeginDate());
+                predicate.add(dateQuery);
+            }
+            if (queryVo!=null&&queryVo.getEndDate() != null) {
+//                LocalDateTime end = LocalDateTime.of(queryVo.getEndDate(), LocalTime.MAX);
+                Predicate dateQuery = cb.lessThanOrEqualTo(root.<LocalDate>get("finishTime"), queryVo.getEndDate());
+                predicate.add(dateQuery);
+            }
+//            Predicate deletedQuery = cb.equal(root.<Integer>get("deleted"),false);
+//            predicate.add(deletedQuery);
+
+            return query.where(predicate.toArray(new Predicate[predicate.size()])).getRestriction();
+        };
+    }
+
+    private Specification<HiddenTroubleResult> getResultWhereClause(HiddenTroubleResultDTO  queryVo) {
+        return (root, query, cb) -> {
+            List<Predicate> predicate = new ArrayList<>();
+
+            //关键词
+            if(queryVo!=null&& StringUtils.isNotBlank(queryVo.getKeyword())){
+                predicate.add(cb.or(cb.like(root.<String>get("name"), "%" + queryVo.getKeyword().trim() + "%"),
+                        cb.like(root.<String>get("content"), "%" + queryVo.getKeyword().trim() + "%")));
+
+            }
+
+            //检查时间
+            if (queryVo!=null&&queryVo.getBeginDate() != null) {
+                LocalDateTime begin = LocalDateTime.of(queryVo.getBeginDate(), LocalTime.MIN);
+                Predicate dateQuery = cb.greaterThanOrEqualTo(root.<LocalDateTime>get("publicTime"), begin);
+                predicate.add(dateQuery);
+            }
+            if (queryVo!=null&&queryVo.getEndDate() != null) {
+                LocalDateTime end = LocalDateTime.of(queryVo.getEndDate(), LocalTime.MAX);
+                Predicate dateQuery = cb.lessThanOrEqualTo(root.<LocalDateTime>get("publicTime"), end);
+                predicate.add(dateQuery);
+            }
+
+            return query.where(predicate.toArray(new Predicate[predicate.size()])).getRestriction();
+        };
     }
 
 }

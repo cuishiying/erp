@@ -50,13 +50,13 @@
                     <div class="col-md-12">
                         <div class="panel">
                             <div class="panel-heading">
-                                <h3 class="panel-title">山西铺龙湾煤业有限公司隐患排查治理“五定”落实表</h3>
+                                <h3 class="panel-title">山西铺龙湾煤业有限公司隐患分布、治理进展情况公布</h3>
                             </div>
-                            <form th:action="@{/hiddenTrouble/list}" method="get">
+                            <form th:action="@{/hiddenTrouble/result/list}" method="get">
                                 <div class="controller form-inline">
                                     <!--<a class="btn btn-primary" th:href="@{/risk/value/add}">录入</a>-->
 
-                                    <input type="text" class="form-control" name="keyword" th:value="${query.keyword}" placeholder="专业、隐患等级、隐患内容、承办单位..." style="width: 300px"/>
+                                    <input type="text" class="form-control" name="keyword" th:value="${query.keyword}" placeholder="标题、内容..." style="width: 300px"/>
                                     <!--<select class="form-control risk_name" name="riskTypeId">-->
                                         <!--<option value="">类型</option>-->
                                         <!--<option th:each="c:${riskTypes}"  th:text="${c?.name}" th:id="${c?.id}" th:value="${c?.id}" th:selected="${queryDTO!=null&&queryDTO.riskTypeId==c.id}"></option>-->
@@ -75,35 +75,19 @@
                                 <table class="table table-striped table-bordered">
                                     <thead>
                                     <tr class="text-center">
-                                        <th class="text-center" style="width: 5%">专业</th>
-                                        <th class="text-center" style="width: 5%">隐患等级</th>
-                                        <th class="text-center" style="width: 15%">隐患内容</th>
-                                        <th class="text-center" style="width: 15%">整改措施</th>
-                                        <th class="text-center" style="width: 5%">承办单位</th>
-                                        <th class="text-center" style="width: 10%">完成时间</th>
-                                        <th class="text-center" style="width: 5%">责任人</th>
-                                        <th class="text-center" style="width: 5%">治理资金</th>
-                                        <th class="text-center" style="width: 10%">治理预案</th>
-                                        <th class="text-center" style="width: 10%">验收时间</th>
-                                        <th class="text-center" style="width: 5%">验收人</th>
-                                        <th class="text-center" style="width: 5%">操作</th>
+                                        <th class="text-center" style="width: 20%">标题</th>
+                                        <th class="text-center" style="width: 45%">内容</th>
+                                        <th class="text-center" style="width: 20%">发布时间</th>
+                                        <th class="text-center" style="width: 15%">操作</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <tr class="item-content" name="hiddenTroubleItem" th:each="item:${page.content}">
-                                        <td  class="td-ellipsis text-center" th:text="${item.majors}"></td>
-                                        <td  class="td-ellipsis text-center" th:text="${item.grade}"></td>
+                                        <td  class="td-ellipsis text-center" th:text="${item.name}"></td>
                                         <td  class="td-ellipsis text-center" th:text="${item.content}"></td>
-                                        <td  class="td-ellipsis text-center" th:text="${item.actions}"></td>
-                                        <td  class="td-ellipsis text-center" th:text="${item.undertakeUnit}"></td>
-                                        <td  class="td-ellipsis text-center finishTime" th:text="${item.finishTime}"></td>
-                                        <td  class="td-ellipsis text-center" th:text="${item.responsiblePerson}"></td>
-                                        <td  class="td-ellipsis text-center" th:text="${item.controllingMoney}"></td>
-                                        <td  class="td-ellipsis text-center" th:text="${item.managementPlan}"></td>
-                                        <td  class="td-ellipsis text-center" th:text="${item.acceptanceTime}"></td>
-                                        <td  class="td-ellipsis text-center" th:text="${item.acceptancepeople}"></td>
-                                        <td  class="td-ellipsis">
-                                            <a class="btn-sm btn-success" th:href="@{/hiddenTrouble/detail/}+${item.id}">详情</a>
+                                        <td  class="td-ellipsis text-center" th:text="${item.publicTime}"></td>
+                                        <td  class="td-ellipsis text-center">
+                                            <a class="btn-sm btn-success" th:href="@{/hiddenTrouble/result/detail/}+${item.id}">详情</a>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -143,19 +127,17 @@
     });
 
 
-
-    $(function () {
-        var now= dateUtils.getToday();
-        $('tbody tr').each(function (i,e) {
-            var p = $(this).find('.finishTime').html();
-            var r = dateUtils.compareDate(p,now);
-            if (!r){
-                $(this).css('color','red');
-            }
-        })
-
-
-    });
+//
+//    $(function () {
+//        var now= dateUtils.getToday();
+//        $('tbody tr').each(function (i,e) {
+//            var p = $(this).find('.finishTime').html();
+//            var r = dateUtils.compareDate(p,now);
+//            if (!r){
+//                $(this).css('color','red');
+//            }
+//        })
+//    });
 </script>
 </body>
 </html>
