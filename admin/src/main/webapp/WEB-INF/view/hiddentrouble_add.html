@@ -73,7 +73,7 @@
                                         <th class="text-center" style="width: 5%">序号</th>
                                         <th class="text-center" style="width: 5%">专业</th>
                                         <th class="text-center" style="width: 5%">隐患等级</th>
-                                        <th class="text-center" style="width: 15%">隐患内容</th>
+                                        <th class="text-center" style="width: 13%">隐患内容</th>
                                         <th class="text-center" style="width: 15%">整改措施</th>
                                         <th class="text-center" style="width: 5%">承办单位</th>
                                         <th class="text-center" style="width: 10%">完成时间</th>
@@ -82,7 +82,7 @@
                                         <th class="text-center" style="width: 10%">治理预案</th>
                                         <th class="text-center" style="width: 10%">验收时间</th>
                                         <th class="text-center" style="width: 5%">验收人</th>
-                                        <th class="text-center" style="width: 5%">操作</th>
+                                        <th class="text-center" style="width: 8%">操作</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -95,7 +95,11 @@
                                             <input type="text" class="form-control majors" style="height: 25px">
                                         </td>
                                         <td  class="td-ellipsis text-center">
-                                            <input type="text" class="form-control grade" style="height: 25px">
+                                            <select class="select_two_box grade" name="grades" id="grades">
+                                                <!--<option value="">请选择</option>-->
+                                                <option th:each="g:${grades}" th:value="${g?.toString()}" th:text="${g.name}"></option>
+                                            </select>
+                                            <!--<input type="text" class="form-control grade" style="height: 25px">-->
                                         </td>
                                         <td  class="td-ellipsis text-center">
                                             <input type="text" class="form-control content" style="height: 25px">
@@ -137,7 +141,10 @@
                                             <input type="text" class="form-control majors" style="height: 25px">
                                         </td>
                                         <td  class="td-ellipsis text-center">
-                                            <input type="text" class="form-control grade" style="height: 25px">
+                                            <select class="select_two_box grade" name="grades" id="grades">
+                                                <!--<option value="">请选择</option>-->
+                                                <option th:each="g:${grades}" th:value="${g?.toString()}" th:text="${g.name}"></option>
+                                            </select>
                                         </td>
                                         <td  class="td-ellipsis text-center">
                                             <input type="text" class="form-control content" style="height: 25px">

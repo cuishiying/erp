@@ -1,5 +1,7 @@
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/dto/HiddenTroubleResultDTO.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/utils/JavaUtils.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/sms/SmsParams.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/HiddenTroubleItem.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/config/Constance.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/FileUploadProgress.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/sms/SmsService.java
@@ -12,6 +14,7 @@
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/AttMgrJoinatt.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/Goods.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/RiskRepository.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/HiddenTrouble.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/config/SmsConfig.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/dto/WfChukuItem.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/AttClassesRepository.java
@@ -25,7 +28,10 @@
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/converter/LocalDateTimeConverter.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/SortRepository.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/enums/AttRecordStatus.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/HiddenTroubleRepository.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/sms/SmsProperties.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/HiddenTroubleResultRepository.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/service/HiddenTroubleService.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/RiskValueOld.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/AttJoinAttRecord.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/dto/GoodsDTO.java
@@ -42,6 +48,7 @@
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/Config.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/Sort.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/CollectRepository.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/HiddenTroubleResult.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/DeptRepository.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/Category.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/RiskValueRepository.java
@@ -49,6 +56,7 @@
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/AttClasses.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/sms/StorageService.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/RiskConditionRepository.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/dto/HiddenTroubleDTO.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/AliyunNewOss.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/service/DeptService.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/DateUtils.java

@@ -2,6 +2,7 @@ com/shanglan/erp/controller/AttController.class
 com/shanglan/erp/config/SpringWebMvcConfig$LocalDateSerializer.class
 com/shanglan/erp/controller/ErpController.class
 com/shanglan/erp/timetask/RecordsCenterTiming.class
+com/shanglan/erp/controller/HiddenTroubleController.class
 com/shanglan/erp/config/SpringWebMvcConfig$LocalDateTimeSerializer.class
 com/shanglan/erp/config/SpringWebMvcConfig$LocalMonthDeserializer.class
 com/shanglan/erp/config/SpringWebMvcConfig$LocalDateTimeDeserializer.class

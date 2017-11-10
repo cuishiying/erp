@@ -13,6 +13,7 @@ public class HiddenTroubleResult extends BaseEntity{
     private static final long serialVersionUID = -8388601211574305265L;
 
     private String name;
+    @Lob
     private String content;
     private LocalDateTime publicTime;
 

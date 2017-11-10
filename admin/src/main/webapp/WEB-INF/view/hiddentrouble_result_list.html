@@ -85,7 +85,7 @@
                                     <tr class="item-content" name="hiddenTroubleItem" th:each="item:${page.content}">
                                         <td  class="td-ellipsis text-center" th:text="${item.name}"></td>
                                         <td  class="td-ellipsis text-center" th:text="${item.content}"></td>
-                                        <td  class="td-ellipsis text-center" th:text="${item.publicTime}"></td>
+                                        <td  class="td-ellipsis text-center" th:text="${#temporals.format(item.publicTime,'yyyy-MM-dd HH:mm:ss')}"></td>
                                         <td  class="td-ellipsis text-center">
                                             <a class="btn-sm btn-success" th:href="@{/hiddenTrouble/result/detail/}+${item.id}">详情</a>
                                         </td>

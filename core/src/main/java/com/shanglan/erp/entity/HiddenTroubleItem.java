@@ -3,6 +3,7 @@ package com.shanglan.erp.entity;
 import com.shanglan.erp.base.BaseEntity;
 
 import javax.persistence.Entity;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -14,12 +15,15 @@ public class HiddenTroubleItem extends BaseEntity{
 
     private String majors;  //专业
     private String grade;  //隐患等级
+    @Lob
     private String content;  //隐患内容
+    @Lob
     private String actions;  //整改措施
     private String undertakeUnit;  //承办单位
     private LocalDate finishTime;  //完成时间
     private String responsiblePerson;  //责任人
     private String controllingMoney;  //治理资金
+    @Lob
     private String managementPlan;  //治理预案
     private LocalDate acceptanceTime;  //验收时间
     private String acceptancepeople;  //验收人

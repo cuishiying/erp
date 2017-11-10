@@ -5,6 +5,7 @@ import com.shanglan.erp.dto.HiddenTroubleDTO;
 import com.shanglan.erp.dto.HiddenTroubleResultDTO;
 import com.shanglan.erp.entity.HiddenTroubleItem;
 import com.shanglan.erp.entity.HiddenTroubleResult;
+import com.shanglan.erp.enums.HiddenTroubleLevels;
 import com.shanglan.erp.service.HiddenTroubleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -47,6 +48,7 @@ public class HiddenTroubleController {
     @RequestMapping(path = "/add",method = RequestMethod.GET)
     public ModelAndView addView(){
         ModelAndView model = new ModelAndView("hiddentrouble_add");
+        model.addObject("grades", HiddenTroubleLevels.values());
         return model;
     }
 
