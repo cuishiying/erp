@@ -7,6 +7,7 @@ import com.shanglan.erp.dto.RiskQueryDTO;
 import com.shanglan.erp.entity.HiddenTroubleItem;
 import com.shanglan.erp.entity.HiddenTroubleResult;
 import com.shanglan.erp.entity.RiskValue;
+import com.shanglan.erp.entity.User;
 import com.shanglan.erp.repository.HiddenTroubleRepository;
 import com.shanglan.erp.repository.HiddenTroubleResultRepository;
 import org.apache.commons.lang3.StringUtils;
@@ -72,6 +73,24 @@ public class HiddenTroubleService {
     public HiddenTroubleResult findResultById(Integer id){
         HiddenTroubleResult one = hiddenTroubleResultRepository.findOne(id);
         return one;
+    }
+    public AjaxResponse delete(Integer id){
+        try {
+            hiddenTroubleRepository.delete(id);
+        }catch (Exception e){
+            e.printStackTrace();
+            return  AjaxResponse.fail("删除失败");
+        }
+        return AjaxResponse.success("删除成功");
+    }
+    public AjaxResponse deleteResult(Integer id){
+        try {
+            hiddenTroubleResultRepository.delete(id);
+        }catch (Exception e){
+            e.printStackTrace();
+            return  AjaxResponse.fail("删除失败");
+        }
+        return AjaxResponse.success("删除成功");
     }
 
     /**

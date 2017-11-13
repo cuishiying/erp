@@ -44,6 +44,11 @@ public class HiddenTroubleController {
         model.addObject("hiddenTrouble",hiddenTrouble);
         return model;
     }
+    @RequestMapping(path = "/delete/{id}",method = RequestMethod.GET)
+    public AjaxResponse delete(@PathVariable Integer id){
+        AjaxResponse response = hiddenTroubleService.delete(id);
+        return response;
+    }
 
     @RequestMapping(path = "/add",method = RequestMethod.GET)
     public ModelAndView addView(){
@@ -78,6 +83,12 @@ public class HiddenTroubleController {
         HiddenTroubleResult hiddenTroubleResult = hiddenTroubleService.findResultById(id);
         model.addObject("hiddenTroubleResult",hiddenTroubleResult);
         return model;
+    }
+
+    @RequestMapping(path = "/result/delete/{id}",method = RequestMethod.GET)
+    public AjaxResponse deleteResult(@PathVariable Integer id){
+        AjaxResponse response = hiddenTroubleService.deleteResult(id);
+        return response;
     }
 
     @RequestMapping(path = "/result/add",method = RequestMethod.POST)

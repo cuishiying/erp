@@ -15,11 +15,11 @@
         <property name="yearIsDateType" value="false" />
       </driver-properties>
     </data-source>
-    <data-source source="LOCAL" name="cnoa_oa@139.129.227.31" uuid="c679db85-2f39-4d99-ba6e-03f2f27ecfdd">
+    <data-source source="LOCAL" name="cnoa_oa@10.38.8.201" uuid="b34c84cd-b4b4-4307-b394-6bac83924cd9">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://139.129.227.31:3306/cnoa_oa</jdbc-url>
+      <jdbc-url>jdbc:mysql://10.38.8.201:3306/cnoa_oa</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />
@@ -29,11 +29,11 @@
         <property name="yearIsDateType" value="false" />
       </driver-properties>
     </data-source>
-    <data-source source="LOCAL" name="cnoa_oa@10.38.8.201" uuid="b34c84cd-b4b4-4307-b394-6bac83924cd9">
+    <data-source source="LOCAL" name="cnoa_oa@139.129.227.31" uuid="a508b2a7-1aab-47a1-be7c-dcfea24c0221">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://10.38.8.201:3306/cnoa_oa</jdbc-url>
+      <jdbc-url>jdbc:mysql://139.129.227.31:3306/cnoa_oa</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />

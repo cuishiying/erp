@@ -104,6 +104,7 @@
                                         <td  class="td-ellipsis text-center" th:text="${item.acceptancepeople}"></td>
                                         <td  class="td-ellipsis">
                                             <a class="btn-sm btn-success" th:href="@{/hiddenTrouble/detail/}+${item.id}">详情</a>
+                                            <a class="btn-sm btn-primary delete" th:value="${item.id}">删除</a>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -151,6 +152,16 @@
             var r = dateUtils.compareDate(p,now);
             if (!r){
                 $(this).css('color','red');
+            }
+        })
+    });
+
+    $(".delete").click(function () {
+        ajaxUtils.getData(ctx+"hiddenTrouble/delete/"+$(this).attr("value"),function (e) {
+            if (e.success){
+                window.location.reload();
+            }else{
+                alert(e.message);
             }
         })
     });

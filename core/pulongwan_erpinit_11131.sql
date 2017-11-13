@@ -2,17 +2,24 @@
 
 ALTER TABLE cnoa_jxc_stock_goods_detail ADD tempId INT;
 
+# 批量删除触发器
+DROP TRIGGER IF EXISTS cnoa_afterinsert_on_cnoa_jxc_stock_chuku;
+DROP TRIGGER IF EXISTS cnoa_afterinsert_on_cnoa_wf_u_step;
+DROP TRIGGER IF EXISTS cnoa_afterdelete_on_cnoa_wf_u_step;
+DROP TRIGGER IF EXISTS cnoa_afterinsert_on_cnoa_jxc_goods_detail;
+DROP TRIGGER IF EXISTS cnoa_afterdelete_on_cnoa_jxc_goods_detai;
+
+
 DELIMITER //
-# 商品预减
 DROP TRIGGER IF EXISTS cnoa_afterinsert_on_cnoa_jxc_stock_chuku;
 CREATE TRIGGER cnoa_afterinsert_on_cnoa_jxc_stock_chuku AFTER INSERT
   ON cnoa_wf_u_step FOR EACH ROW
   BEGIN
     IF(NEW.stepType = 1) THEN
-      INSERT INTO cnoa_jxc_stock_goods_detail SET storageId = (SELECT storageId FROM cnoa_jxc_stock_chuku WHERE uFlowId = new.uFlowId),uFlowId = (new.uFlowId),tempId = (new.uFlowId),goodsId = (SELECT bindid FROM cnoa_z_wf_d_93_1174 WHERE uFlowId = new.uFlowId),price = (SELECT D_219 FROM cnoa_z_wf_d_93_1174 WHERE uFlowId = new.uFlowId),quantity = -(SELECT D_214 FROM cnoa_z_wf_d_93_1174 WHERE uFlowId = new.uFlowId);
-    ELSEIF (NEW.stepType = 2) THEN
+      SELECT SUM(quantity) INTO @ct FROM `cnoa_jxc_stock_goods_detail`;
+    ELSEIF (NEW.stepType = 2 AND NEW.stepname <> '出库确认') THEN
       IF((SELECT COUNT(1) FROM `cnoa_jxc_stock_goods_detail`WHERE tempId = NEW.uFlowId)<=0) THEN
-        INSERT INTO cnoa_jxc_stock_goods_detail SET storageId = (SELECT storageId FROM cnoa_jxc_stock_chuku WHERE uFlowId = new.uFlowId),uFlowId = (new.uFlowId),tempId = (new.uFlowId),goodsId = (SELECT bindid FROM cnoa_z_wf_d_93_1174 WHERE uFlowId = new.uFlowId),price = (SELECT D_219 FROM cnoa_z_wf_d_93_1174 WHERE uFlowId = new.uFlowId),quantity = -(SELECT D_214 FROM cnoa_z_wf_d_93_1174 WHERE uFlowId = new.uFlowId);
+        INSERT INTO cnoa_jxc_stock_goods_detail(goodsId,price,quantity,storageId,uFlowId,tempId) SELECT c.bindid,c.D_219,-c.D_214,ck.storageId,c.uFlowId,c.uFlowId FROM cnoa_z_wf_d_93_1174 AS c,cnoa_jxc_stock_chuku AS ck WHERE c.uFlowId = ck.uFlowId AND c.uFlowId = new.uFlowId;
       END IF;
     ELSEIF (NEW.stepType = 3) THEN
       DELETE FROM cnoa_jxc_stock_goods_detail WHERE tempId = NEW.uFlowId;

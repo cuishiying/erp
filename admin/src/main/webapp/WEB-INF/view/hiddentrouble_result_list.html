@@ -88,6 +88,8 @@
                                         <td  class="td-ellipsis text-center" th:text="${#temporals.format(item.publicTime,'yyyy-MM-dd HH:mm:ss')}"></td>
                                         <td  class="td-ellipsis text-center">
                                             <a class="btn-sm btn-success" th:href="@{/hiddenTrouble/result/detail/}+${item.id}">详情</a>
+                                            <a class="btn-sm btn-primary delete" th:value="${item.id}">删除</a>
+
                                         </td>
                                     </tr>
                                     </tbody>
@@ -127,17 +129,15 @@
     });
 
 
-//
-//    $(function () {
-//        var now= dateUtils.getToday();
-//        $('tbody tr').each(function (i,e) {
-//            var p = $(this).find('.finishTime').html();
-//            var r = dateUtils.compareDate(p,now);
-//            if (!r){
-//                $(this).css('color','red');
-//            }
-//        })
-//    });
+    $(".delete").click(function () {
+        ajaxUtils.getData(ctx+"hiddenTrouble/result/delete/"+$(this).attr("value"),function (e) {
+            if (e.success){
+                window.location.reload();
+            }else{
+                alert(e.message);
+            }
+        })
+    });
 </script>
 </body>
 </html>
