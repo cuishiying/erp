@@ -92,5 +92,34 @@
 ### 5.加数据库初始化接口，部分配置表数据自动预设数据 
 
 
+#视频监控
+
+###1、方案
+
+    1.搭建好IPC和NVR环境后，可以通过NVR的IP地址（内网）和rtsp协议访问到关联此NVR的IPC视频
+    2.通过路由器的端口映射功能，将NVR的端口映射到外网上，这样我们就能通过外网IP和映射的外网端口访问到与承此NVR关联的所有IPC视频,
+    3.在远程服务器上使用ffmpeg将rtsp视频转换成hls视频
+    4.通过nginx将hls视频进行转发
+    注：ip为NVR的ip，通过通道号来区分具体的摄像头，重复调用转码指令。
+
+
+###2、 拉流指令
+
+    ffmpeg -i "rtsp://admin:slkj0520@192.168.0.100:554/h264/ch1/main/av_stream" -vcodec copy -acodec aac -ar 44100 -strict -2 -ac 1 -f hls -s 1280x720 -q 10 -hls_wrap 15 D:/app/nginx-1.12.2/html/hls/slkj.m3u8
+    ffmpeg -i "rtsp://admin:slkj0520@192.168.0.100:554/h264/ch1/main/av_stream" -vcodec copy -acodec aac -ar 44100 -strict -2 -ac 1 -f hls -s 1280x720 -q 10 -hls_wrap 15 /usr/local/Cellar/nginx/1.12.2_1/html/hls/slkj.m3u8
+    /usr/local/Cellar/nginx/1.12.2_1/bin/nginx -c /usr/local/etc/nginx/nginx.conf 
+       
+    
+###3、具体步骤：
+
+    1、安装ffmpeg
+    2、安装nginx并配置
+    3、测试NVR中rtsp流
+    4、ffmpeg转码hls推流
+    5、nginx发布
+    6、java程序通过nginx拉流预览（通道配置+视频管理）
+
+
+
 
 

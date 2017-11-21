@@ -14,6 +14,11 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -79,4 +84,32 @@ public class TestController {
     public void test5() throws Exception{
         Page<Collect> collectByPage = erpService.findCollectByPage("", null);
     }
+
+    @Test
+    public void hls() throws Exception{
+        String command = "ffmpeg -i rtsp://admin:slkj0520@192.168.0.100:554/h264/ch1/main/av_stream -vcodec copy -acodec aac -ar 44100 -strict -2 -ac 1 -f hls -s 1280x720 -q 10 -hls_wrap 15 /usr/local/Cellar/nginx/1.12.2_1/html/hls/slkj.m3u8";
+
+        String[] commandSplit = command.split(" ");
+        List<String> lcommand = new ArrayList<String>();
+        for (int i = 0; i < commandSplit.length; i++) {
+            lcommand.add(commandSplit[i]);
+        }
+
+        ProcessBuilder processBuilder = new ProcessBuilder(lcommand);
+        processBuilder.redirectErrorStream(true);
+        Process p = processBuilder.start();
+        InputStream is = p.getInputStream();
+        BufferedReader bs = new BufferedReader(new InputStreamReader(is));
+
+        p.waitFor();
+        if (p.exitValue() != 0) {
+            //说明命令执行失败
+            //可以进入到错误处理步骤中
+        }
+        String line = null;
+        while ((line = bs.readLine()) != null) {
+            System.out.println(line);
+        }
+    }
+
 }

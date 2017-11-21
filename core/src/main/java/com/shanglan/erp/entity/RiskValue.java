@@ -21,6 +21,7 @@ public class RiskValue extends BaseEntity{
     private String riskValue;//风险值
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private RiskItem riskLevel;//风险分级
+    @Column(length = 3000)
     private String precaution;//管控措施
     private String riskAnalysis;//风险分析
     private String riskDept;//责任部门
