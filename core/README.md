@@ -107,8 +107,7 @@
 
     ffmpeg -i "rtsp://admin:slkj0520@192.168.0.100:554/h264/ch1/main/av_stream" -vcodec copy -acodec aac -ar 44100 -strict -2 -ac 1 -f hls -s 1280x720 -q 10 -hls_wrap 15 D:/app/nginx-1.12.2/html/hls/slkj.m3u8
     ffmpeg -i "rtsp://admin:slkj0520@192.168.0.100:554/h264/ch1/main/av_stream" -vcodec copy -acodec aac -ar 44100 -strict -2 -ac 1 -f hls -s 1280x720 -q 10 -hls_wrap 15 /usr/local/Cellar/nginx/1.12.2_1/html/hls/slkj.m3u8
-    /usr/local/Cellar/nginx/1.12.2_1/bin/nginx -c /usr/local/etc/nginx/nginx.conf 
-       
+    
     
 ###3、具体步骤：
 
@@ -119,6 +118,61 @@
     5、nginx发布
     6、java程序通过nginx拉流预览（通道配置+视频管理）
 
+###4、mac nginx启动
+
+    二、启动
+    
+    在终端中输入
+    
+    ps -ef|grep nginx
+    如果执行的结果是
+    
+      501 15800     1   0 12:17上午 ??         0:00.00 nginx: master process /usr/local/Cellar/nginx/1.8.0/bin/nginx -c /usr/local/etc/nginx/nginx.conf  
+      501 15801 15800   0 12:17上午 ??         0:00.00 nginx: worker process  
+      501 15848 15716   0 12:21上午 ttys000    0:00.00 grep nginx
+    
+    表示已启动成功，如果不是上图结果，在终端中执行
+    
+    /usr/local/Cellar/nginx/1.12.2_1/bin/nginx -c /usr/local/etc/nginx/nginx.conf 
+    命令即可启动nginx。
+    这时候如果成功访问localhost:8080，说明成功安装和启动好了。
+    
+    三、停止
+    
+    在终端中输入 ps -ef|grep nginx  获取到nginx的进程号，注意是找到“nginx:master”的那个进程号，如下面的进程好是 15800
+    
+    
+      501 15800     1   0 12:17上午 ??         0:00.00 nginx: master process /usr/local/Cellar/nginx/1.8.0/bin/nginx -c /usr/local/etc/nginx/nginx.conf  
+      501 15801 15800   0 12:17上午 ??         0:00.00 nginx: worker process  
+      501 15848 15716   0 12:21上午 ttys000    0:00.00 grep nginx
+    
+    在终端中输入以下几种命令都可以停止
+    
+    kill -QUIT  15800 (从容的停止，即不会立刻停止)
+    
+    Kill -TERM  15800 （立刻停止）
+    
+    Kill -INT  15800  （和上面一样，也是立刻停止）
+    
+    四、重启
+    
+    如果配置文件错误，则将启动失败，所以在启动nginx之前，需要先验证在配置文件的正确性，如下表示配置文件正确
+    
+    promote:bin yangqianhua$ /usr/local/Cellar/nginx/1.8.0/bin/nginx -t -c /usr/local/etc/nginx/nginx.conf
+    nginx: the configuration file /usr/local/etc/nginx/nginx.conf syntax is ok
+    nginx: configuration file /usr/local/etc/nginx/nginx.conf test is successful
+    重启有两种方法
+    1）在终端输入输入如下命令即可重启
+    
+    
+    promote:~ yangqianhua$ cd /usr/local/Cellar/nginx/1.8.0/bin/
+    promote:bin yangqianhua$ ./nginx -s reload
+    promote:bin yangqianhua$ 
+    
+    2）根据进程号重启，执行命令 kill -HUP 进程号
+    
+    
+    VIDEOJS: ERROR: TypeError: Cannot read property 'duration' of undefined
 
 
 

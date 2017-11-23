@@ -1,6 +1,7 @@
 package com.shanglan.test;
 
 import com.shanglan.erp.entity.Collect;
+import com.shanglan.erp.interf.StreamGobbler;
 import com.shanglan.erp.repository.AttMachineRepository;
 import com.shanglan.erp.repository.GoodsRepository;
 import com.shanglan.erp.service.AttService;
@@ -95,21 +96,55 @@ public class TestController {
             lcommand.add(commandSplit[i]);
         }
 
+        Process process = null;
         ProcessBuilder processBuilder = new ProcessBuilder(lcommand);
         processBuilder.redirectErrorStream(true);
-        Process p = processBuilder.start();
-        InputStream is = p.getInputStream();
-        BufferedReader bs = new BufferedReader(new InputStreamReader(is));
+        try{
+            process = processBuilder.start();
+            StreamGobbler  errorGobbler  =  new StreamGobbler(process.getErrorStream(),  "ERROR");
+            errorGobbler.start();//  kick  off  stderr
+            StreamGobbler  outGobbler  =  new  StreamGobbler(process.getInputStream(),  "STDOUT");
+            outGobbler.start();//  kick  off  stdout
 
-        p.waitFor();
-        if (p.exitValue() != 0) {
-            //说明命令执行失败
-            //可以进入到错误处理步骤中
+            process.waitFor();
+        }catch (Exception e){
+            e.printStackTrace();
+            process.destroy();
         }
-        String line = null;
-        while ((line = bs.readLine()) != null) {
-            System.out.println(line);
+
+
+//        InputStream is = p.getInputStream();
+//        BufferedReader bs = new BufferedReader(new InputStreamReader(is));
+//
+//        p.waitFor();
+//        if (p.exitValue() != 0) {
+//            //说明命令执行失败
+//            //可以进入到错误处理步骤中
+//        }
+//        String line = null;
+//        while ((line = bs.readLine()) != null) {
+//            System.out.println(line);
+//        }
+    }
+
+    @Test
+    public void hls2() throws Exception{
+        String command = "ffmpeg -i rtsp://admin:slkj0520@192.168.0.100:554/h264/ch1/main/av_stream -vcodec copy -acodec aac -ar 44100 -strict -2 -ac 1 -f hls -s 1280x720 -q 10 -hls_wrap 15 /usr/local/Cellar/nginx/1.12.2_1/html/hls/slkj.m3u8";
+        Process process = null;
+        try{
+            process = Runtime.getRuntime().exec(new String[]{"sh","-c",command});
+
+            StreamGobbler  errorGobbler  =  new StreamGobbler(process.getErrorStream(),  "ERROR");
+            errorGobbler.start();//  kick  off  stderr
+            StreamGobbler  outGobbler  =  new  StreamGobbler(process.getInputStream(),  "STDOUT");
+            outGobbler.start();//  kick  off  stdout
+
+            process.waitFor();
+        }catch (Exception e){
+            e.printStackTrace();
+            process.destroy();
         }
+
     }
 
 }

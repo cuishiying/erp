@@ -3,44 +3,154 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>使用 layDate 独立版</title>
+    <title>共16行</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
-
-    <style>
-        body{padding: 20px;}
-        .demo-input{padding-left: 10px; height: 38px; min-width: 262px; line-height: 38px; border: 1px solid #e6e6e6;  background-color: #fff;  border-radius: 2px;}
-        .demo-footer{padding: 50px 0; color: #999; font-size: 14px;}
-        .demo-footer a{padding: 0 5px; color: #01AAED;}
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <style rel="stylesheet" type="text/css">
+        .table-title{
+            text-align: center;
+        }
+        .table-sub-title{
+            height: 30px;
+        }
+        .table-date{
+            float: right;
+        }
+        .table-fix{
+            table-layout:fixed
+        }
+        .td-ellipsis{
+            overflow:hidden;
+            white-space:nowrap;
+            text-overflow:ellipsis;
+        }
+        .table-fix .table-content-center{
+            vertical-align: middle;
+            text-align: center;
+            border-bottom: 1px solid #333;
+        }
+        .table-fix td{
+            height: 40px;
+        }
+        .table-fix .no-padding{
+            padding: 0px;
+        }
+        .table-fix td{
+            overflow:hidden;
+            white-space:nowrap;
+            text-overflow:ellipsis;
+            text-align: center;
+        }
+        .table-fix input{
+            height: 25px;
+        }
     </style>
 </head>
 <body>
-<input type="text" class="demo-input test1"  placeholder="请选择日期">
-<button class="add">add</button>
-<script src="js/laydate.js"></script> <!-- 改成你的路径 -->
-<script src="js/jquery.min.js"></script>
-<script>
+<button onclick="javascript:window.print();">打印</button>
+<button onclick="printArea()">jq打印</button>
+<!--startprint-->
+<h3 class="table-title">事故隐患排查治理登记台账</h3>
+<div class="table-sub-title">
+    <span class="table-date">20&nbsp;&nbsp;&nbsp;&nbsp;年&nbsp;&nbsp;&nbsp;&nbsp;月</span>
+</div>
+<div class="table-responsive">
+    <table border="1" cellpadding="10" width="100%" class="table table-fix table-layout">
+        <thead>
+            <tr>
+                <th rowspan="2" class="table-content-center" scope="col" style="width: 2%">序<br>号</th>
+                <th rowspan="2" class="table-content-center" scope="col" style="width: 8%">排查地点</th>
+                <th rowspan="2" class="table-content-center" scope="col" style="width: 5%">排查<br>时间</th>
+                <th rowspan="2" class="table-content-center" scope="col" style="width: 5%">排查<br>人员</th>
+                <th rowspan="2" class="table-content-center" scope="col" style="width: 15%">存在的隐患及问题</th>
+                <th rowspan="2" class="table-content-center" scope="col" style="width: 5%">类别</th>
+                <th rowspan="2" class="table-content-center" scope="col" style="width: 5%">等级</th>
+                <th colspan="6" class="table-content-center no-padding" scope="col" style="width: 30%">隐患整改『五落实』</th>
+                <th rowspan="2" class="table-content-center" scope="col" style="width: 5%">督办部<br>门/人员</th>
+                <th rowspan="2" class="table-content-center" scope="col" style="width: 5%">验收<br>时间</th>
+                <th rowspan="2" class="table-content-center" scope="col" style="width: 5%">验收部<br>门/人员</th>
+                <th rowspan="2" class="table-content-center" scope="col" style="width: 10%">整改结果</th>
+            </tr>
 
-    //执行一个laydate实例
-    var loadLaydate = {} || loadLaydate;
+            <tr>
+                <th colspan="2" class="table-content-center no-padding" scope="col" style="width: 14%">整改措施</th>
+                <th class="table-content-center no-padding" scope="col" style="width: 4%">责任单位<br>/责任人</th>
+                <th class="table-content-center no-padding" scope="col" style="width: 4%">资金</th>
+                <th class="table-content-center no-padding" scope="col" style="width: 4%">时限</th>
+                <th class="table-content-center no-padding" scope="col" style="width: 4%">预案</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <i class="orderNumber">1</i>
+                </td>
+                <td >
+                    <input type="text" class="form-control checkAddress">
+                </td>
+                <td>
+                    <input type="text" class="form-control checkTime date">
+                </td>
+                <td>
+                    <input type="text" class="form-control checkPerson">
+                </td>
+                <td>
+                    <input type="text" class="form-control content">
+                </td>
+                <td>
+                    <input type="text" class="form-control type">
+                </td>
+                <td>
+                    <input type="text" class="form-control level">
+                </td>
+                <td colspan="2">
+                    <input type="text" class="form-control actions">
+                </td>
+                <td>
+                    <input type="text" class="form-control responsiblePerson">
+                </td>
+                <td>
+                    <input type="text" class="form-control controllingMoney">
+                </td>
+                <td>
+                    <input type="text" class="form-control timeLimit">
+                </td>
+                <td>
+                    <input type="text" class="form-control managementPlan">
+                </td>
+                <td>
+                    <input type="text" class="form-control handlePerson">
+                </td>
+                <td>
+                    <input type="text" class="form-control acceptanceTime date">
+                </td>
+                <td>
+                    <input type="text" class="form-control acceptancePeople">
+                </td>
+                <td>
+                    <input type="text" class="form-control result">
+                </td>
+            </tr>
 
-    loadLaydate.init = function (){
-        lay('.test1').each(function(){
-            laydate.render({
-                elem: this,
-                trigger: 'click'
-            });
-        });
+        </tbody>
+
+</table>
+</div>
+<!--endprint-->
+<script src="./js/jquery.min.js"></script>
+<script src="./vendor/print/jquery.jqprint-0.3.js"></script>
+<script src="./vendor/print/jquery-migrate-1.2.1.min.js"></script>
+<script type="application/javascript">
+    function printArea() {
+//        preview();
     }
 
-    $('.add').on('click',function() {
-        $('body').append("<input type='text' class='demo-input test1'  placeholder='请选择日期' />");
-        loadLaydate.init();
-    })
+
 </script>
 </body>
 </html>

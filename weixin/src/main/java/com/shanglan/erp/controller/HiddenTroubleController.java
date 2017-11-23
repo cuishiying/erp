@@ -3,6 +3,7 @@ package com.shanglan.erp.controller;
 import com.shanglan.erp.base.AjaxResponse;
 import com.shanglan.erp.dto.HiddenTroubleDTO;
 import com.shanglan.erp.dto.HiddenTroubleResultDTO;
+import com.shanglan.erp.entity.HiddenTrouble;
 import com.shanglan.erp.entity.HiddenTroubleItem;
 import com.shanglan.erp.entity.HiddenTroubleResult;
 import com.shanglan.erp.service.HiddenTroubleService;
@@ -30,7 +31,7 @@ public class HiddenTroubleController {
     @RequestMapping(path = "/list",method = RequestMethod.GET)
     public ModelAndView hiddenTroubleListView(String username, String truename, HiddenTroubleDTO hiddenTroubleDTO, @PageableDefault(value = 10,sort = "finishTime",direction = Sort.Direction.DESC) Pageable pageable, HttpServletRequest request){
         ModelAndView model = new ModelAndView("hiddentrouble_list");
-        Page<HiddenTroubleItem> page = hiddenTroubleService.findAll(hiddenTroubleDTO,pageable);
+        Page<HiddenTrouble> page = hiddenTroubleService.findAll(hiddenTroubleDTO,pageable);
         model.addObject("page",page);
         model.addObject("query",hiddenTroubleDTO);
         return model;
@@ -42,14 +43,14 @@ public class HiddenTroubleController {
      */
     @RequestMapping(path = "list/data",method = RequestMethod.GET)
     public AjaxResponse hiddenTrouble(HiddenTroubleDTO hiddenTroubleDTO,@PageableDefault(value = 10,sort = "finishTime",direction = Sort.Direction.DESC) Pageable pageable){
-        Page<HiddenTroubleItem> page = hiddenTroubleService.findAll(hiddenTroubleDTO,pageable);
+        Page<HiddenTrouble> page = hiddenTroubleService.findAll(hiddenTroubleDTO,pageable);
         return AjaxResponse.success(page);
     }
 
     @RequestMapping(path = "/detail/{id}",method = RequestMethod.GET)
     public ModelAndView hiddenTroubleDetail(@PathVariable Integer id, String username, String truename, @PageableDefault(value = 10,sort = "finishTime",direction = Sort.Direction.DESC) Pageable pageable, HttpServletRequest request){
         ModelAndView model = new ModelAndView("hiddentrouble_detail");
-        HiddenTroubleItem hiddenTrouble = hiddenTroubleService.findById(id);
+        HiddenTrouble hiddenTrouble = hiddenTroubleService.findById(id);
         model.addObject("hiddenTrouble",hiddenTrouble);
         return model;
     }

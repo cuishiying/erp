@@ -2,6 +2,7 @@ package com.shanglan.erp.entity;
 
 import com.shanglan.erp.base.BaseEntity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Lob;
 import javax.persistence.Table;
@@ -13,44 +14,57 @@ import java.time.LocalDateTime;
 public class HiddenTroubleItem extends BaseEntity{
     private static final long serialVersionUID = -8388601211574305265L;
 
-    private String majors;  //专业
-    private String grade;  //隐患等级
-    @Lob
-    private String content;  //隐患内容
-    @Lob
-    private String actions;  //整改措施
-    private String undertakeUnit;  //承办单位
-    private LocalDate finishTime;  //完成时间
-    private String responsiblePerson;  //责任人
-    private String controllingMoney;  //治理资金
-    @Lob
-    private String managementPlan;  //治理预案
-    private LocalDate acceptanceTime;  //验收时间
-    private String acceptancepeople;  //验收人
+    private Integer orderNumber;    //序号
+    private String checkAddress;     //排查地点
+    private LocalDate checkTime;     //排查时间
+    private String checkPerson;     //排查人员
+    @Column(length = 3000)
+    private String content;     //存在的隐患及问题
+    private String type;     //类别
+    private String level;     //等级
+    @Column(length = 3000)
+    private String actions;     //整改措施
+    private String responsiblePerson;     //责任单位/责任人
+    private String controllingMoney;     //资金
+    private String timeLimit;     //时限
+    @Column(length = 3000)
+    private String managementPlan;     //预案
+    private String handlePerson;     //督办部门/人员
+    private LocalDate acceptanceTime;     //验收时间
+    private String acceptancePeople;     //验收部门/人员
+    private String result;     //整改结果
 
-    private String pitName; //矿井名称
-    private String leader;   //分矿领导签字
-    private String rummager;   //检查人
-    private String organizationMan;   //组织人
-    private String entryPerson;   //填表人
-    private LocalDate createTime; //建表时间
 
-    private Integer hiddentroubleId;
-
-    public String getMajors() {
-        return majors;
+    public Integer getOrderNumber() {
+        return orderNumber;
     }
 
-    public void setMajors(String majors) {
-        this.majors = majors;
+    public void setOrderNumber(Integer orderNumber) {
+        this.orderNumber = orderNumber;
     }
 
-    public String getGrade() {
-        return grade;
+    public String getCheckAddress() {
+        return checkAddress;
     }
 
-    public void setGrade(String grade) {
-        this.grade = grade;
+    public void setCheckAddress(String checkAddress) {
+        this.checkAddress = checkAddress;
+    }
+
+    public LocalDate getCheckTime() {
+        return checkTime;
+    }
+
+    public void setCheckTime(LocalDate checkTime) {
+        this.checkTime = checkTime;
+    }
+
+    public String getCheckPerson() {
+        return checkPerson;
+    }
+
+    public void setCheckPerson(String checkPerson) {
+        this.checkPerson = checkPerson;
     }
 
     public String getContent() {
@@ -61,28 +75,28 @@ public class HiddenTroubleItem extends BaseEntity{
         this.content = content;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
     public String getActions() {
         return actions;
     }
 
     public void setActions(String actions) {
         this.actions = actions;
-    }
-
-    public String getUndertakeUnit() {
-        return undertakeUnit;
-    }
-
-    public void setUndertakeUnit(String undertakeUnit) {
-        this.undertakeUnit = undertakeUnit;
-    }
-
-    public LocalDate getFinishTime() {
-        return finishTime;
-    }
-
-    public void setFinishTime(LocalDate finishTime) {
-        this.finishTime = finishTime;
     }
 
     public String getResponsiblePerson() {
@@ -101,12 +115,28 @@ public class HiddenTroubleItem extends BaseEntity{
         this.controllingMoney = controllingMoney;
     }
 
+    public String getTimeLimit() {
+        return timeLimit;
+    }
+
+    public void setTimeLimit(String timeLimit) {
+        this.timeLimit = timeLimit;
+    }
+
     public String getManagementPlan() {
         return managementPlan;
     }
 
     public void setManagementPlan(String managementPlan) {
         this.managementPlan = managementPlan;
+    }
+
+    public String getHandlePerson() {
+        return handlePerson;
+    }
+
+    public void setHandlePerson(String handlePerson) {
+        this.handlePerson = handlePerson;
     }
 
     public LocalDate getAcceptanceTime() {
@@ -117,67 +147,19 @@ public class HiddenTroubleItem extends BaseEntity{
         this.acceptanceTime = acceptanceTime;
     }
 
-    public String getAcceptancepeople() {
-        return acceptancepeople;
+    public String getAcceptancePeople() {
+        return acceptancePeople;
     }
 
-    public void setAcceptancepeople(String acceptancepeople) {
-        this.acceptancepeople = acceptancepeople;
+    public void setAcceptancePeople(String acceptancePeople) {
+        this.acceptancePeople = acceptancePeople;
     }
 
-    public String getPitName() {
-        return pitName;
+    public String getResult() {
+        return result;
     }
 
-    public void setPitName(String pitName) {
-        this.pitName = pitName;
-    }
-
-    public String getLeader() {
-        return leader;
-    }
-
-    public void setLeader(String leader) {
-        this.leader = leader;
-    }
-
-    public String getRummager() {
-        return rummager;
-    }
-
-    public void setRummager(String rummager) {
-        this.rummager = rummager;
-    }
-
-    public String getOrganizationMan() {
-        return organizationMan;
-    }
-
-    public void setOrganizationMan(String organizationMan) {
-        this.organizationMan = organizationMan;
-    }
-
-    public String getEntryPerson() {
-        return entryPerson;
-    }
-
-    public void setEntryPerson(String entryPerson) {
-        this.entryPerson = entryPerson;
-    }
-
-    public Integer getHiddentroubleId() {
-        return hiddentroubleId;
-    }
-
-    public void setHiddentroubleId(Integer hiddentroubleId) {
-        this.hiddentroubleId = hiddentroubleId;
-    }
-
-    public LocalDate getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(LocalDate createTime) {
-        this.createTime = createTime;
+    public void setResult(String result) {
+        this.result = result;
     }
 }

@@ -1,13 +1,17 @@
 package com.shanglan.erp.service;
 
 
+import com.shanglan.erp.base.AjaxResponse;
+import com.shanglan.erp.entity.Video;
 import com.shanglan.erp.interf.IStringGetter;
+import com.shanglan.erp.utils.CmdExecuter;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +20,7 @@ import java.util.List;
  */
 @Service
 @Transactional
-public class VideoService implements IStringGetter{
+public class VideoService{
 
 
     /**
@@ -29,57 +33,39 @@ public class VideoService implements IStringGetter{
         new Thread(new Runnable() {
             @Override
             public void run() {
-                List<String> commend = new ArrayList<String>();
-                commend.add("ffmpeg");
-                commend.add("-i");
-                commend.add(rtspPath);
-                commend.add("-vcodec");
-                commend.add("copy");
-                commend.add("-acodec");
-                commend.add("aac");
-                commend.add("-ar");
-                commend.add("44100");
-                commend.add("-strict");
-                commend.add("-2");
-                commend.add("-ac");
-                commend.add("1");
-                commend.add("-f");
-                commend.add("hls");
-                commend.add("-s");
-                commend.add("1280x720");
-                commend.add("-q");
-                commend.add("10");
-                commend.add("-hls_wrap");
-                commend.add("15");
-                commend.add(hlsPath);
+                List<String> cmd = new ArrayList<String>();
+                cmd.add("ffmpeg");
+                cmd.add("-i");
+                cmd.add(rtspPath);
+                cmd.add("-vcodec");
+                cmd.add("copy");
+                cmd.add("-acodec");
+                cmd.add("aac");
+                cmd.add("-ar");
+                cmd.add("44100");
+                cmd.add("-strict");
+                cmd.add("-2");
+                cmd.add("-ac");
+                cmd.add("1");
+                cmd.add("-f");
+                cmd.add("hls");
+                cmd.add("-s");
+                cmd.add("1280x720");
+                cmd.add("-q");
+                cmd.add("10");
+                cmd.add("-hls_wrap");
+                cmd.add("15");
+                cmd.add(hlsPath);
 
-                try {
-                    ProcessBuilder processBuilder = new ProcessBuilder(commend);
-                    processBuilder.redirectErrorStream(true);
-                    Process p = processBuilder.start();
-                    InputStream is = p.getInputStream();
-                    BufferedReader bs = new BufferedReader(new InputStreamReader(is));
-                    p.waitFor();
-                    if (p.exitValue() != 0) {
-                        //说明命令执行失败，此处命令不需要退出
-                        //可以进入到错误处理步骤中
-                        System.out.println("命令执行失败");
-                    }
-                    String line = null;
-                    while ((line = bs.readLine()) != null) {
-                        System.out.println(line);
-                    }
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                CmdExecuter.exec(cmd,null);
             }
         }).start();
-
     }
 
-    @Override
-    public void dealString(String str) {
+    public AjaxResponse setConfig(){
+        Video vidio = new Video();
 
+        return AjaxResponse.success();
     }
+
 }
