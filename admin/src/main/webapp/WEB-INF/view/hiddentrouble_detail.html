@@ -29,6 +29,7 @@
             overflow:hidden;
             white-space:nowrap;
             text-overflow:ellipsis;
+            text-align: center;
         }
         .table-fix .table-content-center{
             vertical-align: middle;
@@ -41,12 +42,12 @@
         .table-fix .no-padding{
             padding: 0px;
         }
-        .table-fix td{
-            overflow:hidden;
-            white-space:nowrap;
-            text-overflow:ellipsis;
-            text-align: center;
-        }
+        /*.table-fix td{*/
+            /*overflow:hidden;*/
+            /*white-space:nowrap;*/
+            /*text-overflow:ellipsis;*/
+            /*text-align: center;*/
+        /*}*/
         .table-fix input{
             height: 25px;
         }
@@ -85,6 +86,7 @@
                                 <div>
                                     <a type="button" class="btn btn-primary btn-export noprint" th:href="@{/hiddenTrouble/export/}+${hiddenTroubleId}">导出</a>
                                     <button type="button" class="btn btn-primary btn-print noprint" onclick="javascript:window.print();">打印</button>
+                                    <button type="button" class="btn btn-primary btn-toggle noprint">隐藏</button>
                                 </div>
                                 <!--startprint-->
                                 <div class="print" >
@@ -179,6 +181,16 @@
         window.document.body.innerHTML=bdhtml;//还原界面
         location.reload();
     }
+    $(".btn-toggle").click(function () {
+        if($(".table-fix td").hasClass("td-ellipsis")){
+            $(".table-fix td").removeClass("td-ellipsis");
+            $(this).html("隐藏");
+        }else{
+            $(".table-fix td").addClass("td-ellipsis");
+            $(this).html("显示");
+        }
+    });
+
 
 </script>
 </body>

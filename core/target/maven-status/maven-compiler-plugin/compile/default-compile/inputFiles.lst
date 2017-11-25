@@ -6,6 +6,7 @@
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/FileUploadProgress.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/dto/ErpChuku.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/sms/SmsService.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/interf/StreamGobbler.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/ErpStorageRepository.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/service/RiskService.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/CategoryRepository.java
@@ -15,6 +16,7 @@
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/RiskRepository.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/Goods.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/HiddenTrouble.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/interf/IStringGetter.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/config/SmsConfig.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/dto/WfChukuItem.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/AttClassesRepository.java
@@ -36,6 +38,7 @@
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/AttJoinAttRecord.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/dto/GoodsDTO.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/StorageService.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/utils/CmdExecuter.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/UserRepository.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/Storage.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/BaseEntity.java
@@ -50,7 +53,9 @@
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/Config.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/HiddenTroubleResult.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/DeptRepository.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/Video.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/Category.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/enums/StreamType.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/RiskValueRepository.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/ExcelUtils.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/AttClasses.java
@@ -70,10 +75,13 @@
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/ConfigRepository.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/service/AutoService.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/dto/WfChukuHead.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/service/VideoService.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/Dept.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/sms/VerifyCodeServiceImpl.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/HiddenTroubleItemOld.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/sms/VerifyCodeService.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/UploadStatus.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/HiddenTroubleItemRepository.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/GoodsRepository.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/sms/VerifyResult.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/AttMachineRepository.java

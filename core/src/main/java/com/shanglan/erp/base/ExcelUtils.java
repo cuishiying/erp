@@ -2,24 +2,27 @@ package com.shanglan.erp.base;
 
 import com.shanglan.erp.dto.ExcelBean;
 import com.shanglan.erp.entity.Collect;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.hssf.usermodel.*;
+import org.apache.poi.hssf.util.HSSFColor;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddress;
+import org.apache.poi.ss.util.RegionUtil;
 import org.apache.poi.xssf.usermodel.*;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.apache.poi.xwpf.usermodel.XWPFTable;
+import org.apache.poi.xwpf.usermodel.XWPFTableCell;
+import org.apache.poi.xwpf.usermodel.XWPFTableRow;
+import org.openxmlformats.schemas.wordprocessingml.x2006.main.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.beans.IntrospectionException;
 import java.beans.PropertyDescriptor;
-import java.io.BufferedOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.math.RoundingMode;
 import java.net.URLEncoder;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -188,6 +191,7 @@ public class ExcelUtils {
             e.printStackTrace();
         }
     }
+
      /**
      * @param sheetName 工作簿名称
      * @param clazz  数据源model类型
@@ -213,8 +217,11 @@ public class ExcelUtils {
         createTableRows(sheet, map, objs, clazz);//创建内容
         return workbook;
     }
+
     private static XSSFCellStyle fontStyle;
     private static XSSFCellStyle fontStyle2;
+    private static XSSFCellStyle fontStyle3;
+    private static XSSFCellStyle fontStyle4;
     public static void createFont(XSSFWorkbook workbook) {
         // 表头
         fontStyle = workbook.createCellStyle();
@@ -240,6 +247,22 @@ public class ExcelUtils {
         fontStyle2.setBorderTop(XSSFCellStyle.BORDER_THIN);// 上边框
         fontStyle2.setBorderRight(XSSFCellStyle.BORDER_THIN);// 右边框
         fontStyle2.setAlignment(XSSFCellStyle.ALIGN_CENTER); // 居中
+
+        fontStyle3 = workbook.createCellStyle();
+        XSSFFont font3 = workbook.createFont();
+        font3.setBoldweight(XSSFFont.BOLDWEIGHT_BOLD);
+        font3.setFontName("黑体");
+        font3.setFontHeightInPoints((short) 14);// 设置字体大小
+        fontStyle3.setFont(font3);
+        fontStyle3.setAlignment(XSSFCellStyle.ALIGN_CENTER); // 居中
+
+        fontStyle4 = workbook.createCellStyle();
+        XSSFFont font4 = workbook.createFont();
+        font4.setBoldweight(XSSFFont.BOLDWEIGHT_BOLD);
+        font4.setFontName("宋体");
+        font4.setFontHeightInPoints((short) 12);// 设置字体大小
+        fontStyle4.setFont(font4);
+        fontStyle4.setAlignment(XSSFCellStyle.ALIGN_RIGHT); // 居中
     }
 
     /**
@@ -251,45 +274,49 @@ public class ExcelUtils {
      *            每行每个单元格对应的列头信息
      */
     public static final void createTableHeader(XSSFSheet sheet, Map<Integer, List<ExcelBean>> map) {
-        int startIndex=0;//cell起始位置
-        int endIndex=0;//cell终止位置
 
         for (Map.Entry<Integer, List<ExcelBean>> entry : map.entrySet()) {
-            XSSFRow row = sheet.createRow(entry.getKey());
-            List<ExcelBean> excels = entry.getValue();
+
+            int firstRow = 0;   //行起始位置
+            int lastRow = 0;    //行终止位置
+            int firstCol = 0;   //列起始位置
+            int lastCol = 0;    //列终止位置
+
+            XSSFRow row = sheet.createRow(entry.getKey());  //根据行号创建行
+            List<ExcelBean> excels = entry.getValue();  //获取行数据
             for (int x = 0; x < excels.size(); x++) {
-                //合并单元格
+                //占多列。合并单元格
                 if(excels.get(x).getCols()>1){
-                    if(x==0){
-                        endIndex+=excels.get(x).getCols()-1;
-                        CellRangeAddress range=new CellRangeAddress(0,0,startIndex,endIndex);
-                        sheet.addMergedRegion(range);
-                        startIndex+=excels.get(x).getCols();
-                    }else{
-                        endIndex+=excels.get(x).getCols();
-                        CellRangeAddress range=new CellRangeAddress(0,0,startIndex,endIndex);
-                        sheet.addMergedRegion(range);
-                        startIndex+=excels.get(x).getCols();
-                    }
-                    XSSFCell cell = row.createCell(startIndex-excels.get(x).getCols());
+
+                    lastCol+=excels.get(x).getCols();
+
+                    sheet.addMergedRegion(new CellRangeAddress(0,0,firstCol,lastCol-1));
+
+                    firstCol+=excels.get(x).getCols();
+                    int columnIndex = firstCol-excels.get(x).getCols();
+                    XSSFCell cell = row.createCell(columnIndex);
                     cell.setCellValue(excels.get(x).getHeadTextName());// 设置内容
                     if (excels.get(x).getCellStyle() != null) {
                         cell.setCellStyle(excels.get(x).getCellStyle());// 设置格式
                     }
                     cell.setCellStyle(fontStyle);
                 }else{
-
-                    XSSFCell cell = row.createCell(x);
+                    //占一列
+                    XSSFCell cell = row.createCell(firstCol);
                     cell.setCellValue(excels.get(x).getHeadTextName());// 设置内容
                     if (excels.get(x).getCellStyle() != null) {
                         cell.setCellStyle(excels.get(x).getCellStyle());// 设置格式
                     }
                     cell.setCellStyle(fontStyle);
+                    firstCol++;
+                    lastCol++;
                 }
-
             }
+
         }
     }
+
+
 
     /**
      *
@@ -360,6 +387,122 @@ public class ExcelUtils {
             width = width < 2500 ? 2500 : width + 300;
             width = width > 10000 ? 10000 + 300 : width + 300;
             sheet.setColumnWidth(index, width);
+        }
+    }
+
+    /****************************************隐患排查定制***************************************/
+
+    public static void exportHiddenTrouble(String fileName,String sheetName,Class clazz, List objs,LinkedHashMap<String,String> map,HttpServletResponse response){
+        try {
+            if(org.apache.commons.lang.StringUtils.contains(userAgent, "Firefox") || org.apache.commons.lang.StringUtils.contains(userAgent, "firefox")){//火狐浏览器
+                fileName = new String(fileName.getBytes(), "ISO8859-1");
+            }else{
+                fileName = URLEncoder.encode(fileName,"UTF-8");//其他浏览器
+            }
+
+
+            // 指定下载的文件名
+            response.setHeader("Content-Disposition", "attachment;filename=" + fileName + ".xlsx");
+            response.setContentType("application/vnd.ms-excel;charset=UTF-8");
+            response.setHeader("Pragma", "no-cache");
+            response.setHeader("Cache-Control", "no-cache");
+            response.setDateHeader("Expires", 0);
+
+            List<ExcelBean> excel = new ArrayList<ExcelBean>();
+            Map<Integer, List<ExcelBean>> mapExcel = new LinkedHashMap<Integer, List<ExcelBean>>();
+            XSSFWorkbook xssfWorkbook = null;
+            //设置标题栏
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                excel.add(new ExcelBean(entry.getKey(), entry.getValue(), 0));
+            }
+            mapExcel.put(0, excel);
+            mapExcel.put(1, excel);
+            mapExcel.put(3, excel);
+            mapExcel.put(4, excel);
+            xssfWorkbook = ExcelUtils.createMergeExcelFile(clazz, objs, mapExcel, sheetName);
+            OutputStream output;
+            try {
+                output = response.getOutputStream();
+                BufferedOutputStream bufferedOutPut = new BufferedOutputStream(output);
+                bufferedOutPut.flush();
+                xssfWorkbook.write(bufferedOutPut);
+                bufferedOutPut.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static XSSFWorkbook createMergeExcelFile(Class clazz, List objs, Map<Integer, List<ExcelBean>> map, String sheetName) throws IllegalArgumentException,IllegalAccessException,
+            InvocationTargetException, ClassNotFoundException, IntrospectionException, ParseException {
+        // 创建新的Excel 工作簿
+        XSSFWorkbook workbook = new XSSFWorkbook();
+        // 在Excel工作簿中建一工作表，其名为缺省值, 也可以指定Sheet名称
+        XSSFSheet sheet = workbook.createSheet(sheetName);
+        // 以下为excel的字体样式以及excel的标题与内容的创建，下面会具体分析;
+        createFont(workbook);//字体样式
+        createMergeTableHeader(sheet, map);//创建标题（头）
+        createTableRows(sheet, map, objs, clazz);//创建内容
+        return workbook;
+    }
+
+    /**
+     * 复杂表头（合并单元格）
+     * @param sheet
+     * @param map
+     */
+    public static final void createMergeTableHeader(XSSFSheet sheet, Map<Integer, List<ExcelBean>> map) {
+
+        //创建第1行
+        XSSFRow row = sheet.createRow((short) 0);
+        XSSFCell cell ;
+        cell = row.createCell(0);
+        cell.setCellValue("事故隐患排查治理登记台账");
+        cell.setCellStyle(fontStyle3);
+        sheet.autoSizeColumn(0);//自动设宽
+        sheet.addMergedRegion(new CellRangeAddress(0,0,0,15));//横向：合并第1行
+
+
+
+        //创建第2行
+        row = sheet.createRow((short) 1);
+        cell = row.createCell(0);
+        cell.setCellValue("20    年    月");
+        cell.setCellStyle(fontStyle4);
+        sheet.autoSizeColumn(0);//自动设宽
+        sheet.addMergedRegion(new CellRangeAddress(1,1,0,15));//横向：合并第1行
+
+
+        //创建第3行
+        row = sheet.createRow((short) 2);
+
+        String[] excelHeader = { "序号", "排查地点", "排查时间","排查人员","存在的隐患及问题","类别","等级","隐患整改“五落实”","隐患整改“五落实”","隐患整改“五落实”","隐患整改“五落实”","隐患整改“五落实”","督办部门/人员","验收时间","验收部门/人员","整改结果"};
+        String[] excelSubHeader = { "序号", "排查地点", "排查时间","排查人员","存在的隐患及问题","类别","等级","整改措施", "责任单位/责任人", "资金","时限","预案","督办部门/人员","验收时间","验收部门/人员","整改结果"};
+        for (int i = 0; i < excelHeader.length; i++) {//设置表头-标题
+            cell = row.createCell(i);
+            cell.setCellValue(excelHeader[i]);
+            cell.setCellStyle(fontStyle);
+            sheet.autoSizeColumn(i);//自动设宽
+        }
+        //设置合并的标题头(注意：横向合并的时候，标题头单元格必须长度和内容单元格一致否则合并时会把其他标题头单元格内容挤掉)
+        sheet.addMergedRegion(new CellRangeAddress(2,2,7,11));//横向：合并第3行的第7列到第11列
+        for(int i=0;i<7;i++){
+            sheet.addMergedRegion(new CellRangeAddress(2,3,i,i));//纵向：合并第一列的第3行和第4行第
+        }
+        for(int j=12;j<16;j++){
+            sheet.addMergedRegion(new CellRangeAddress(2,3,j,j));
+        }
+
+
+        //创建第4行
+        row = sheet.createRow((short)3);
+        for (int i = 0; i < excelSubHeader.length; i++) {//设置表头-标题
+            cell = row.createCell(i);
+            cell.setCellValue(excelSubHeader[i]);
+            cell.setCellStyle(fontStyle);
+            sheet.autoSizeColumn(i);//自动设宽
         }
     }
 }

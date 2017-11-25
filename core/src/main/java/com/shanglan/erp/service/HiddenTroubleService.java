@@ -207,7 +207,7 @@ public class HiddenTroubleService {
         map.put("验收时间","acceptanceTime");
         map.put("验收部门/人员","acceptancePeople");
         map.put("整改结果","result");
-        ExcelUtils.export(fileName,sheetName,HiddenTroubleItem.class,list,map,response);
+        ExcelUtils.exportHiddenTrouble(fileName,sheetName,HiddenTroubleItem.class,list,map,response);
     }
 
 }
