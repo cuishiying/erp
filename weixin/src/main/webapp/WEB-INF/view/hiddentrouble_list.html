@@ -1,184 +1,184 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <title>隐患排查</title>
-  <link rel="stylesheet" th:href="@{/static/vendor/dropload-gh-pages/dist/dropload.css}">
-  <style type="text/css">
-    *{
-      margin: 0;
-      padding:0;
-      -webkit-tap-highlight-color:rgba(0,0,0,0);
-      -webkit-text-size-adjust:none;
-    }
-    html{
-      font-size:10px;
-    }
-    body{
-      background-color: #f5f5f5;
-      font-size: 1.2em;
-    }
-    .outer{
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-direction:column;
-      -webkit-box-orient:vertical;
-      box-orient:vertical;
-      -webkit-flex-direction:column;
-      flex-direction:column;
-    }
+    <title>隐患排查</title>
+    <link rel="stylesheet" th:href="@{/static/vendor/dropload-gh-pages/dist/dropload.css}">
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding:0;
+            -webkit-tap-highlight-color:rgba(0,0,0,0);
+            -webkit-text-size-adjust:none;
+        }
+        html{
+            font-size:10px;
+        }
+        body{
+            background-color: #f5f5f5;
+            font-size: 1.2em;
+        }
+        .outer{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction:column;
+            -webkit-box-orient:vertical;
+            box-orient:vertical;
+            -webkit-flex-direction:column;
+            flex-direction:column;
+        }
 
-    .header{
-      position: relative;
-      height: 44px;
-      line-height: 44px;
-      border-bottom: 1px solid #ccc;
-      background-color: #eee;
-    }
-    .header h1{
-      text-align: center;
-      font-size: 2rem;
-      font-weight: normal;
-    }
-    .header .btn{
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: 4em;
-      height: 100%;
-      text-align: center;
-      color: #06c;
-      font-size: 1.4rem;
-      background-color: #ccc;
-    }
-    .header .btn:active{
-      background-color: #aaa;
-      color: #fff;
-    }
+        .header{
+            position: relative;
+            height: 44px;
+            line-height: 44px;
+            border-bottom: 1px solid #ccc;
+            background-color: #eee;
+        }
+        .header h1{
+            text-align: center;
+            font-size: 2rem;
+            font-weight: normal;
+        }
+        .header .btn{
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 4em;
+            height: 100%;
+            text-align: center;
+            color: #06c;
+            font-size: 1.4rem;
+            background-color: #ccc;
+        }
+        .header .btn:active{
+            background-color: #aaa;
+            color: #fff;
+        }
 
-    .inner .item{
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align:center;
-      -webkit-box-align:center;
-      box-align:center;
-      -webkit-align-items:center;
-      align-items:center;
-      padding:3.125%;
-      border-bottom: 1px solid #ddd;
-      color: #333;
-      text-decoration: none;
-    }
+        .inner .item{
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align:center;
+            -webkit-box-align:center;
+            box-align:center;
+            -webkit-align-items:center;
+            align-items:center;
+            padding:3.125%;
+            border-bottom: 1px solid #ddd;
+            color: #333;
+            text-decoration: none;
+        }
 
-    .inner .item{
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align:center;
-      -webkit-box-align:center;
-      box-align:center;
-      -webkit-align-items:center;
-      align-items:center;
-      padding:3.125%;
-      border-bottom: 1px solid #ddd;
-      color: #333;
-      text-decoration: none;
-    }
-    .inner .item img{
-      display: block;
-      width: 40px;
-      height: 40px;
-      border:1px solid #ddd;
-    }
-    .inner .item .content {
-      display: block;
-      height: 60px;
-      max-height: 60px;
-      flex: 1;
-      margin: 0 10px 0 0;
-      overflow: hidden;
-    }
-    .inner .item .intro {
-      display: block;
-      height: 35px;
-      max-height: 35px;
-      flex: 1;
-      overflow: hidden;
-      margin-top: 5px;
-    }
-    .inner .item h3{
-      display: block;
-      -webkit-box-flex: 1;
-      -webkit-flex: 1;
-      -ms-flex: 1;
-      flex: 1;
-      width: 100%;
-      max-height: 40px;
-      overflow: hidden;
-      line-height: 20px;
-      margin: 0 10px;
-      font-size: 1.2rem;
-    }
-    .inner .item .date{
-      display: block;
-      height: 20px;
-      line-height: 20px;
-      color: #999;
-    }
-    .opacity{
-      -webkit-animation: opacity 0.3s linear;
-      animation: opacity 0.3s linear;
-    }
-    @-webkit-keyframes opacity {
-      0% {
-        opacity:0;
-      }
-      100% {
-        opacity:1;
-      }
-    }
-    @keyframes opacity {
-      0% {
-        opacity:0;
-      }
-      100% {
-        opacity:1;
-      }
-    }
-  </style>
+        .inner .item{
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align:center;
+            -webkit-box-align:center;
+            box-align:center;
+            -webkit-align-items:center;
+            align-items:center;
+            padding:3.125%;
+            border-bottom: 1px solid #ddd;
+            color: #333;
+            text-decoration: none;
+        }
+        .inner .item img{
+            display: block;
+            width: 40px;
+            height: 40px;
+            border:1px solid #ddd;
+        }
+        .inner .item .content {
+            display: block;
+            height: 60px;
+            max-height: 60px;
+            flex: 1;
+            margin: 0 10px 0 0;
+            overflow: hidden;
+        }
+        .inner .item .intro {
+            display: block;
+            height: 35px;
+            max-height: 35px;
+            flex: 1;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+        .inner .item h3{
+            display: block;
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            width: 100%;
+            max-height: 40px;
+            overflow: hidden;
+            line-height: 20px;
+            margin: 0 10px;
+            font-size: 1.2rem;
+        }
+        .inner .item .date{
+            display: block;
+            height: 20px;
+            line-height: 20px;
+            color: #999;
+        }
+        .opacity{
+            -webkit-animation: opacity 0.3s linear;
+            animation: opacity 0.3s linear;
+        }
+        @-webkit-keyframes opacity {
+            0% {
+                opacity:0;
+            }
+            100% {
+                opacity:1;
+            }
+        }
+        @keyframes opacity {
+            0% {
+                opacity:0;
+            }
+            100% {
+                opacity:1;
+            }
+        }
+    </style>
 
 </head>
 
 <body>
 
 <div class="wrap outer">
-  <div class="main inner" style="background-color: white">
-    <div class="lists">
-      <a th:href="@{/hiddenTrouble/detail/}+${item.id}" th:each="item:${page.content}" class="item">
-        <div class="content">
-          <h3 class="name" style="margin: 0px" th:text="${item.majors}">1文字</h3>
-          <span class="intro" th:text="${item.content}">2content</span>
+    <div class="main inner" style="background-color: white">
+        <div class="lists">
+            <a th:href="@{/hiddenTrouble/detail/}+${item.id}" th:each="item:${page.content}" class="item">
+                <div class="content">
+                    <h3 class="name" style="margin: 0px" th:text="${item.name}">1文字</h3>
+                    <span class="intro" th:text="${item.entryPerson}">2content</span>
+                </div>
+                <span class="finishTime" th:text="${item.createTime}">2014-14-14</span>
+            </a>
         </div>
-        <span class="finishTime" th:text="${item.finishTime}">2014-14-14</span>
-      </a>
     </div>
-  </div>
 </div>
 
 <script th:src="@{/static/js/jquery.min.js}"></script>
@@ -206,13 +206,13 @@
                         var currentSize = e.data.numberOfElements;
                         if(currentSize>0){
                             for(var i=0; i<currentSize; i++){
-                                   result +=   '<a href="'+ctx+"hiddenTrouble/detail/"+e.data.content[i].id+'" class="item">'
-                                        +'<div class="content">'
-                                        +'<h3 class="name" style="margin: 0px">'+e.data.content[i].majors+'</h3>'
-                                        +'<span class="intro">'+e.data.content[i].content+'</span>'
-                                        +'</div>'
-                                        +'<span class="finishTime">'+e.data.content[i].finishTime+'</span>'
-                                        +'</a>';
+                                result +=   '<a href="'+ctx+"hiddenTrouble/detail/"+e.data.content[i].id+'" class="item">'
+                                    +'<div class="content">'
+                                    +'<h3 class="name" style="margin: 0px">'+e.data.content[i].majors+'</h3>'
+                                    +'<span class="intro">'+e.data.content[i].content+'</span>'
+                                    +'</div>'
+                                    +'<span class="finishTime">'+e.data.content[i].finishTime+'</span>'
+                                    +'</a>';
                             }
                             // 如果没有数据
                         }else{
@@ -225,7 +225,7 @@
                         $('.lists').append(result);
                         // 每次数据插入，必须重置
                         me.resetload();
-                        resetColor();
+//                        resetColor();
                     }else{
                         // 即使加载出错，也得重置
                         me.resetload();
@@ -236,21 +236,21 @@
 
     });
 
-    resetColor();
+//    resetColor();
 
-    function resetColor() {
-        var now= dateUtils.getToday();
-        $('.lists a').each(function (i,e) {
-            var p = $(this).find('.finishTime').html();
-            if(p){
-                var r = dateUtils.compareDate(p,now);
-                console.log("zou",r);
-                if (!r){
-                    $(this).css('color','red');
-                }
-            }
-        })
-    }
+//    function resetColor() {
+//        var now= dateUtils.getToday();
+//        $('.lists a').each(function (i,e) {
+//            var p = $(this).find('.finishTime').html();
+//            if(p){
+//                var r = dateUtils.compareDate(p,now);
+//                console.log("zou",r);
+//                if (!r){
+//                    $(this).css('color','red');
+//                }
+//            }
+//        })
+//    }
 
 </script>
 

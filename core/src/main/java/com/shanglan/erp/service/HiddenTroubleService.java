@@ -48,6 +48,9 @@ public class HiddenTroubleService {
 
     public AjaxResponse save(HiddenTrouble hiddenTrouble){
         try{
+            String[] split = hiddenTrouble.getCreateMonth().split("-");
+            hiddenTrouble.setCreateMonthStr(split[0]+"年"+split[1]+"月");
+            hiddenTrouble.setCreateTime(LocalDateTime.now());
             hiddenTroubleRepository.save(hiddenTrouble);
             return AjaxResponse.success();
         }catch (Exception e){
@@ -169,7 +172,8 @@ public class HiddenTroubleService {
     public void export(Integer id,HttpServletResponse response){
         String fileName = "事故隐患排查治理登记台账";
         String sheetName = "事故隐患排查治理登记台账";
-        List<HiddenTroubleItem> list = findById(id).getHiddentroubles();
+        HiddenTrouble hiddenTrouble = findById(id);
+        List<HiddenTroubleItem> list = hiddenTrouble.getHiddentroubles();
         if(list.size()==0){
             HiddenTroubleItem item = new HiddenTroubleItem();
             item.setOrderNumber(0);
@@ -207,7 +211,7 @@ public class HiddenTroubleService {
         map.put("验收时间","acceptanceTime");
         map.put("验收部门/人员","acceptancePeople");
         map.put("整改结果","result");
-        ExcelUtils.exportHiddenTrouble(fileName,sheetName,HiddenTroubleItem.class,list,map,response);
+        ExcelUtils.exportHiddenTrouble(fileName,sheetName,HiddenTroubleItem.class,list,map,response,hiddenTrouble.getCreateMonthStr());
     }
 
 }

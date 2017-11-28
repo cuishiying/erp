@@ -8,6 +8,7 @@ import com.shanglan.erp.repository.AttMachineRepository;
 import com.shanglan.erp.repository.GoodsRepository;
 import com.shanglan.erp.service.AttService;
 import com.shanglan.erp.service.ErpService;
+import com.shanglan.erp.utils.CmdExecuter;
 import com.shanglan.erp.utils.JavaUtils;
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.hssf.util.HSSFColor;
@@ -93,7 +94,7 @@ public class TestController {
 
     @Test
     public void hls() throws Exception{
-        String command = "ffmpeg -i rtsp://admin:slkj0520@192.168.0.100:554/h264/ch1/main/av_stream -vcodec copy -acodec aac -ar 44100 -strict -2 -ac 1 -f hls -s 1280x720 -q 10 -hls_wrap 15 /usr/local/Cellar/nginx/1.12.2_1/html/hls/slkj.m3u8";
+        String command = "hls -i rtsp://admin:slkj0520@192.168.0.100:554/h264/ch1/main/av_stream -vcodec copy -acodec aac -ar 44100 -strict -2 -ac 1 -f hls -s 1280x720 -q 10 -hls_wrap 15 /usr/local/Cellar/nginx/1.12.2_1/html/hls/slkj.m3u8";
 
         String[] commandSplit = command.split(" ");
         List<String> lcommand = new ArrayList<String>();
@@ -117,24 +118,11 @@ public class TestController {
             process.destroy();
         }
 
-
-//        InputStream is = p.getInputStream();
-//        BufferedReader bs = new BufferedReader(new InputStreamReader(is));
-//
-//        p.waitFor();
-//        if (p.exitValue() != 0) {
-//            //说明命令执行失败
-//            //可以进入到错误处理步骤中
-//        }
-//        String line = null;
-//        while ((line = bs.readLine()) != null) {
-//            System.out.println(line);
-//        }
     }
 
     @Test
     public void hls2() throws Exception{
-        String command = "ffmpeg -i rtsp://admin:slkj0520@192.168.0.100:554/h264/ch1/main/av_stream -vcodec copy -acodec aac -ar 44100 -strict -2 -ac 1 -f hls -s 1280x720 -q 10 -hls_wrap 15 /usr/local/Cellar/nginx/1.12.2_1/html/hls/slkj.m3u8";
+        String command = "hls -i rtsp://admin:slkj0520@192.168.0.100:554/h264/ch1/sub/av_stream -vcodec copy -acodec aac -ar 44100 -strict -2 -ac 1 -f hls -s 1280x720 -q 10 -hls_wrap 15 /usr/local/Cellar/nginx/1.12.2_1/html/hls/slkj.m3u8";
         Process process = null;
         try{
             process = Runtime.getRuntime().exec(new String[]{"sh","-c",command});
@@ -151,73 +139,11 @@ public class TestController {
         }
 
     }
-
     @Test
-    public void testExcel() throws Exception{
-        HSSFWorkbook wb = new HSSFWorkbook();
-        HSSFSheet sheet = wb.createSheet("new sheet");
+    public void hls3() throws Exception{
+//        FFmpegManager manager = new FFmpegManagerImpl();
+//        manager.start("tomcat", "hls -i rtsp://admin:slkj0520@192.168.0.100:554/h264/ch1/sub/av_stream -vcodec copy -acodec aac -ar 44100 -strict -2 -ac 1 -f hls -s 1280x720 -q 10 -hls_wrap 15 /usr/local/Cellar/nginx/1.12.2_1/html/hls/slkj.m3u8",false);
 
-        HSSFRow row = sheet.createRow(1);
-        HSSFCell cell = row.createCell((short)1);
-        cell.setCellValue("This is a test of merging");
-
-        //1.生成字体对象
-        HSSFFont font = wb.createFont();
-        font.setFontHeightInPoints((short) 10);
-        font.setFontName("新宋体");
-        font.setColor(HSSFColor.BLUE.index);
-        font.setBoldweight((short) 0.8);
-        //2.生成样式对象
-        HSSFCellStyle style = wb.createCellStyle();
-        style.setAlignment(HSSFCellStyle.ALIGN_CENTER);
-        style.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);
-        style.setFont(font); //调用字体样式对象
-        style.setWrapText(true);
-        //增加表格边框的样式 例子
-        style.setBorderTop(HSSFCellStyle.BORDER_DOUBLE);
-        style.setBorderLeft(HSSFCellStyle.BORDER_DOUBLE);
-        style.setTopBorderColor(HSSFColor.GOLD.index);
-        style.setLeftBorderColor(HSSFColor.PLUM.index);
-
-        //3.单元格应用样式
-        cell.setCellStyle(style);
-
-
-
-        //新版用法 3.8版
-//             sheet.addMergedRegion(new CellRangeAddress(
-//                     1, //first row (0-based)  from 行
-//                     2, //last row  (0-based)  to 行
-//                     1, //first column (0-based) from 列
-//                     1  //last column  (0-based)  to 列
-//             ));
-        //表示合并B2,B3
-        sheet.addMergedRegion(new CellRangeAddress(
-                1, //first row (0-based)
-                (short)1, //first column  (0-based)
-                2, //last row (0-based)
-                (short)1  //last column  (0-based)
-        ));
-
-        //合并叠加  表示合并B3 B4。但是B3已经和B2合并了，所以，变成B2:B4合并了
-        sheet.addMergedRegion(new CellRangeAddress(
-                2, //first row (0-based)
-                (short)1, //first column  (0-based)
-                3, //last row (0-based)
-                (short)1  //last column  (0-based)
-        ));
-
-        //一下代码表示在D4 cell 插入一段字符串
-        HSSFRow row2 = sheet.createRow(3);
-        HSSFCell cell2 = row2.createCell((short)3);
-        cell2.setCellValue("this is a very very very long string , please check me out.");
-        //cell2.setCellValue(new HSSFRichTextString("我是单元格！"));
-
-
-        // Write the output to a file
-        FileOutputStream fileOut = new FileOutputStream("workbook.xls");
-        wb.write(fileOut);
-        fileOut.close();
     }
 
 }

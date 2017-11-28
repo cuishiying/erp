@@ -12,6 +12,7 @@
     <link rel="stylesheet" th:href="@{/static/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/static/css/layout.css}">
     <link rel="stylesheet" th:href="@{/static/css/jquery.datetimepicker.css}">
+    <link rel="stylesheet" th:href="@{/static/css/SimpleCanleder.css}">
     <style rel="stylesheet" type="text/css">
         .table-title{
             text-align: center;
@@ -103,9 +104,10 @@
                                 <div class="print">
                                     <h3 class="table-title">事故隐患排查治理登记台账</h3>
                                     <div class="table-sub-title">
-                                        <span class="table-date">20
-                                            <input type="text" class="table-head-date">年
-                                            <input type="text" class="table-head-date">月</span>
+                                        <input type="text" class="month-input table-date" placeholder="请选择月份" style="width: 100px" th:value="${#dates.format(curMonth,'yyyy-MM')}">
+                                        <!--<span class="table-date">20-->
+                                            <!--<input type="text" class="table-head-date">年-->
+                                            <!--<input type="text" class="table-head-date">月</span>-->
                                     </div>
                                     <div class="table-responsive">
                                         <table border="1" cellpadding="10" width="100%" class="table table-fix table-layout">
@@ -1027,6 +1029,7 @@
 <script th:src="@{/static/js/jquery.min.js}"></script>
 <script th:src="@{/static/js/bootstrap.min.js}"></script>
 <script th:src="@{/static/js/jquery.datetimepicker.full.js}"></script>
+<script th:src="@{/static/js/SimpleCanleder.js}"></script>
 <script th:src="@{/static/js/laydate.js}"></script>
 <script th:src="@{/static/utils/httpUtils.js}"></script>
 <script th:src="@{/static/utils/fetchUtils.js}"></script>
@@ -1044,12 +1047,11 @@
         todayButton:false    //关闭选择今天按钮
     });
 
+    $(".month-input").simpleCanleder();
 
     $(".item-add").on('click',function () {
-//        console.log($(".item-model").html())
-//        console.log(noEscapeHtml($(".item-model").html()))
+
         $(".item-model").before("<tr class='item-content' name='hiddenTroubleItem'>"+$(".item-model").html()+"</tr>");
-//        loadLaydate.init();
         $(".item-content").each(function (i,e) {
             $(this).find(".order").html(i+1);
         });
@@ -1097,6 +1099,7 @@
         hiddenTrouble.hiddentroubles = hiddenTroubleList;
         hiddenTrouble.name = $(".pitName").val().trim();
         hiddenTrouble.createTime = $(".createTime").html();
+        hiddenTrouble.createMonth = $(".month-input").val();
         $.postJson(ctx+"hiddenTrouble/add",hiddenTrouble,function (e) {
             if(e.success){
                 window.location.href = ctx+"hiddenTrouble/list";

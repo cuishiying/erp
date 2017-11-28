@@ -42,12 +42,9 @@
         .table-fix .no-padding{
             padding: 0px;
         }
-        /*.table-fix td{*/
-            /*overflow:hidden;*/
-            /*white-space:nowrap;*/
-            /*text-overflow:ellipsis;*/
-            /*text-align: center;*/
-        /*}*/
+        .table-fix td{
+            text-align: center;
+        }
         .table-fix input{
             height: 25px;
         }
@@ -92,7 +89,7 @@
                                 <div class="print" >
                                     <h3 class="table-title">事故隐患排查治理登记台账</h3>
                                     <div class="table-sub-title">
-                                        <span class="table-date">20&nbsp;&nbsp;&nbsp;&nbsp;年&nbsp;&nbsp;&nbsp;&nbsp;月</span>
+                                        <span class="table-date" th:text="${hiddenTrouble.createMonthStr}">20&nbsp;&nbsp;&nbsp;&nbsp;年&nbsp;&nbsp;&nbsp;&nbsp;月</span>
                                     </div>
                                     <div class="table-responsive">
                                         <table border="1" cellpadding="10" width="100%" class="table table-fix table-layout">

@@ -18,6 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -64,6 +66,7 @@ public class HiddenTroubleController {
     public ModelAndView addView(){
         ModelAndView model = new ModelAndView("hiddentrouble_add");
         model.addObject("level", HiddenTroubleLevels.values());
+        model.addObject("curMonth", new Date());
         return model;
     }
 

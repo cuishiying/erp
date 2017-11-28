@@ -64,6 +64,8 @@ public class SpringWebMvcConfig extends WebMvcConfigurerAdapter {
 				.deserializerByType(LocalDate.class, new LocalDateDeserializer())
 				.serializerByType(LocalTime.class, new LocalTimeSerializer())
 				.deserializerByType(LocalTime.class, new LocalTimeDeserializer())
+				.serializerByType(LocalTime.class, new LocalMonthSerializer())
+				.deserializerByType(LocalTime.class, new LocalMonthDeserializer())
 				.featuresToDisable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 		converters.add(new MappingJackson2HttpMessageConverter(builder.build()));
 	}

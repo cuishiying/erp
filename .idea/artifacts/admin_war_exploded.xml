@@ -84,6 +84,7 @@
           <element id="library" level="project" name="Maven: cglib:cglib-nodep:3.2.5" />
           <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.9.3" />
           <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.2" />
+          <element id="file-copy" path="$PROJECT_DIR$/core/lib/FFmpegCommandHandler.jar" />
         </element>
       </element>
       <element id="directory" name="META-INF">

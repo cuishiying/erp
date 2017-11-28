@@ -21,34 +21,39 @@
         .table-date{
             float: right;
         }
-        .table-fix{
-            table-layout:fixed
-        }
-        .td-ellipsis{
-            overflow:hidden;
-            white-space:nowrap;
-            text-overflow:ellipsis;
-        }
-        .table-fix .table-content-center{
-            vertical-align: middle;
-            text-align: center;
-            border-bottom: 1px solid #333;
-        }
-        .table-fix td{
-            height: 40px;
-        }
-        .table-fix .no-padding{
-            padding: 0px;
-        }
-        .table-fix td{
-            overflow:hidden;
-            white-space:nowrap;
-            text-overflow:ellipsis;
-            text-align: center;
-        }
-        .table-fix input{
-            height: 25px;
-        }
+        /*.table-fix{*/
+            /*table-layout:fixed*/
+        /*}*/
+        /*.td-ellipsis{*/
+            /*overflow:hidden;*/
+            /*white-space:nowrap;*/
+            /*text-overflow:ellipsis;*/
+        /*}*/
+        /*.table-fix .table-content-center{*/
+            /*vertical-align: middle;*/
+            /*text-align: center;*/
+            /*border-bottom: 1px solid #333;*/
+        /*}*/
+        /*.table-fix td{*/
+            /*height: 40px;*/
+        /*}*/
+        /*.table-fix .no-padding{*/
+            /*padding: 0px;*/
+        /*}*/
+        /*.table-fix td{*/
+            /*overflow:hidden;*/
+            /*white-space:nowrap;*/
+            /*text-overflow:ellipsis;*/
+            /*text-align: center;*/
+            /*word-break: keep-all*/
+        /*}*/
+        /*.table-fix th{*/
+            /*word-break: keep-all;*/
+            /*white-space:nowrap*/
+        /*}*/
+        /*.table-fix input{*/
+            /*height: 25px;*/
+        /*}*/
     </style>
 </head>
 <body>
@@ -63,7 +68,7 @@
     <table border="1" cellpadding="10" width="100%" class="table table-fix table-layout">
         <thead>
             <tr>
-                <th rowspan="2" class="table-content-center" scope="col" style="width: 2%">序<br>号</th>
+                <th rowspan="2" style="width: 2%">序<br>号</th>
                 <th rowspan="2" class="table-content-center" scope="col" style="width: 8%">排查地点</th>
                 <th rowspan="2" class="table-content-center" scope="col" style="width: 5%">排查<br>时间</th>
                 <th rowspan="2" class="table-content-center" scope="col" style="width: 5%">排查<br>人员</th>

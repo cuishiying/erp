@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 
 /**
  * 通道配置
- *    ffmpeg -i "rtsp://admin:slkj0520@192.168.0.100:554/h264/ch1/main/av_stream" -vcodec copy -acodec aac -ar 44100 -strict -2 -ac 1 -f hls -s 1280x720 -q 10 -hls_wrap 15 /usr/local/Cellar/nginx/1.12.2_1/html/hls/slkj.m3u8
+ *    hls -i "rtsp://admin:slkj0520@192.168.0.100:554/h264/ch1/main/av_stream" -vcodec copy -acodec aac -ar 44100 -strict -2 -ac 1 -f hls -s 1280x720 -q 10 -hls_wrap 15 /usr/local/Cellar/nginx/1.12.2_1/html/hls/slkj.m3u8
  */
 @Entity
 public class Video extends BaseEntity{

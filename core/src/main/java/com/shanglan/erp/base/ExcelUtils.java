@@ -392,7 +392,7 @@ public class ExcelUtils {
 
     /****************************************隐患排查定制***************************************/
 
-    public static void exportHiddenTrouble(String fileName,String sheetName,Class clazz, List objs,LinkedHashMap<String,String> map,HttpServletResponse response){
+    public static void exportHiddenTrouble(String fileName,String sheetName,Class clazz, List objs,LinkedHashMap<String,String> map,HttpServletResponse response,String month){
         try {
             if(org.apache.commons.lang.StringUtils.contains(userAgent, "Firefox") || org.apache.commons.lang.StringUtils.contains(userAgent, "firefox")){//火狐浏览器
                 fileName = new String(fileName.getBytes(), "ISO8859-1");
@@ -419,7 +419,7 @@ public class ExcelUtils {
             mapExcel.put(1, excel);
             mapExcel.put(3, excel);
             mapExcel.put(4, excel);
-            xssfWorkbook = ExcelUtils.createMergeExcelFile(clazz, objs, mapExcel, sheetName);
+            xssfWorkbook = ExcelUtils.createMergeExcelFile(clazz, objs, mapExcel, sheetName,month);
             OutputStream output;
             try {
                 output = response.getOutputStream();
@@ -435,7 +435,7 @@ public class ExcelUtils {
         }
     }
 
-    public static XSSFWorkbook createMergeExcelFile(Class clazz, List objs, Map<Integer, List<ExcelBean>> map, String sheetName) throws IllegalArgumentException,IllegalAccessException,
+    public static XSSFWorkbook createMergeExcelFile(Class clazz, List objs, Map<Integer, List<ExcelBean>> map, String sheetName,String month) throws IllegalArgumentException,IllegalAccessException,
             InvocationTargetException, ClassNotFoundException, IntrospectionException, ParseException {
         // 创建新的Excel 工作簿
         XSSFWorkbook workbook = new XSSFWorkbook();
@@ -443,7 +443,7 @@ public class ExcelUtils {
         XSSFSheet sheet = workbook.createSheet(sheetName);
         // 以下为excel的字体样式以及excel的标题与内容的创建，下面会具体分析;
         createFont(workbook);//字体样式
-        createMergeTableHeader(sheet, map);//创建标题（头）
+        createMergeTableHeader(sheet, map,month);//创建标题（头）
         createTableRows(sheet, map, objs, clazz);//创建内容
         return workbook;
     }
@@ -453,7 +453,7 @@ public class ExcelUtils {
      * @param sheet
      * @param map
      */
-    public static final void createMergeTableHeader(XSSFSheet sheet, Map<Integer, List<ExcelBean>> map) {
+    public static final void createMergeTableHeader(XSSFSheet sheet, Map<Integer, List<ExcelBean>> map,String month) {
 
         //创建第1行
         XSSFRow row = sheet.createRow((short) 0);
@@ -469,7 +469,7 @@ public class ExcelUtils {
         //创建第2行
         row = sheet.createRow((short) 1);
         cell = row.createCell(0);
-        cell.setCellValue("20    年    月");
+        cell.setCellValue(month);
         cell.setCellStyle(fontStyle4);
         sheet.autoSizeColumn(0);//自动设宽
         sheet.addMergedRegion(new CellRangeAddress(1,1,0,15));//横向：合并第1行

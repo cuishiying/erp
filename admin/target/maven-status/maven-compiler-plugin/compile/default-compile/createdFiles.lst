@@ -12,5 +12,6 @@ com/shanglan/erp/config/SpringWebMvcConfig$LocalDateDeserializer.class
 com/shanglan/erp/config/SpringWebMvcConfig$LocalMonthSerializer.class
 com/shanglan/erp/config/SpringWebMvcConfig$LocalTimeDeserializer.class
 com/shanglan/erp/config/SpringWebMvcConfig.class
+com/shanglan/erp/controller/Test.class
 com/shanglan/erp/controller/RiskController.class
 com/shanglan/erp/config/SpringWebMvcConfig$LocalTimeSerializer.class

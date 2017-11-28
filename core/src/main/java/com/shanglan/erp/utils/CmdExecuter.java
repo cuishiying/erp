@@ -1,9 +1,15 @@
 package com.shanglan.erp.utils;
 
 import com.shanglan.erp.interf.IStringGetter;
+import com.shanglan.erp.interf.OutHandler;
 import com.shanglan.erp.interf.StreamGobbler;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 public class CmdExecuter {
 
@@ -60,6 +66,8 @@ public class CmdExecuter {
 
     static public void execRuntime(String cmd){
 
+        cmd = "ffmpeg -i rtsp://admin:slkj0520@192.168.0.100:554/h264/ch1/main/av_stream -vcodec copy -acodec aac -ar 44100 -strict -2 -ac 1 -f hls -s 1280x720 -q 10 -hls_wrap 15 /usr/local/Cellar/nginx/1.12.2_1/html/hls/slkj.m3u8";
+
         Process process = null;
         try{
             process = Runtime.getRuntime().exec(new String[]{"sh","-c",cmd});
@@ -75,6 +83,42 @@ public class CmdExecuter {
             process.destroy();
         }
     }
+
+    public static ConcurrentMap<String, Object> push(Map<String, Object> paramMap) throws IOException{
+        String cmd = "ffmpeg -i rtsp://admin:slkj0520@192.168.0.100:554/h264/ch1/main/av_stream -vcodec copy -acodec aac -ar 44100 -strict -2 -ac 1 -f hls -s 1280x720 -q 10 -hls_wrap 15 /usr/local/Cellar/nginx/1.12.2_1/html/hls/slkj.m3u8";
+
+        ConcurrentMap<String, Object> resultMap = null;
+
+        // 执行命令行
+        final Process proc = Runtime.getRuntime().exec(cmd);
+        System.out.println("执行命令----start commond");
+        OutHandler errorGobbler = new OutHandler(proc.getErrorStream(), "Error");
+        OutHandler outputGobbler = new OutHandler(proc.getInputStream(), "Info");
+
+        errorGobbler.start();
+        outputGobbler.start();
+        // 返回参数
+        resultMap = new ConcurrentHashMap<String, Object>();
+        resultMap.put("info", outputGobbler);
+        resultMap.put("error", errorGobbler);
+        resultMap.put("process", proc);
+        return resultMap;
+    }
+
+    private static ConcurrentMap<String, ConcurrentMap<String, Object>> handlerMap = new ConcurrentHashMap<String, ConcurrentMap<String, Object>>(20);
+//    public void removePush(String pushId){
+//        if (hd.isHave(pushId)){
+//            ConcurrentMap<String, Object> map = hd.get(pushId);
+//            //关闭两个线程
+//            ((OutHandler)map.get("error")).destroy();
+//            ((OutHandler)map.get("info")).destroy();
+//
+//            System.out.println("停止命令-----end commond");
+//            //关闭命令主进程
+//            ((Process)map.get("process")).destroy();
+//            hd.delete(pushId);
+//        }
+//    }
 
 
 }

@@ -107,7 +107,7 @@
                                             <tr class="item-content" th:each="item:${page.content}">
                                                 <td th:text="${item.name}"></td>
                                                 <td th:text="${item.entryPerson}"></td>
-                                                <td th:text="${item.createTime}"></td>
+                                                <td th:text="${#temporals.format(item.createTime,'yyyy-MM-dd HH:mm:ss')}"></td>
                                                 <td>
                                                     <a class="btn-sm btn-success" th:href="@{/hiddenTrouble/detail/}+${item.id}">详情</a>
                                                     <a class="btn-sm btn-primary delete" th:value="${item.id}">删除</a>
