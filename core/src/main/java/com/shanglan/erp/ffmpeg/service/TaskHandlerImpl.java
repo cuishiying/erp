@@ -6,6 +6,8 @@ import com.shanglan.erp.ffmpeg.config.FFmpegConfig;
 import com.shanglan.erp.ffmpeg.entity.TaskEntity;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TaskHandlerImpl implements TaskHandler {
     private Runtime runtime = null;
@@ -25,16 +27,31 @@ public class TaskHandlerImpl implements TaskHandler {
         Process process = null;
         OutHandler outHandler = null;
         TaskEntity tasker = null;
-        try {
-            if (runtime == null) {
-                runtime = Runtime.getRuntime();
-            }
-            if(FFmpegConfig.isDebug())
-                System.out.println("执行命令："+command);
 
-            process = runtime.exec(command);// 执行本地命令获取任务主进程
-            outHandler = new OutHandler(process.getErrorStream(), id, this.ohm);
+        String[] commandSplit = command.split(" ");
+        List<String> lcommand = new ArrayList<String>();
+        for (int i = 0; i < commandSplit.length; i++) {
+            lcommand.add(commandSplit[i]);
+        }
+
+        ProcessBuilder processBuilder = null;
+        try {
+            if(processBuilder==null){
+                processBuilder = new ProcessBuilder();
+            }
+            processBuilder.redirectErrorStream(true);
+            if(FFmpegConfig.isDebug()){
+                System.out.println("执行命令："+command);
+            }
+            processBuilder.command(lcommand);
+            process = processBuilder.start();   // 执行本地命令获取任务主进程
+
+            outHandler = new OutHandler(process.getErrorStream(), id+"_err", this.ohm);
             outHandler.start();
+
+            OutHandler inHandler = new OutHandler(process.getInputStream(), id+"_in", this.ohm);
+            inHandler.start();
+
             tasker = new TaskEntity(id, process, outHandler);
         } catch (IOException e) {
             if(FFmpegConfig.isDebug())

@@ -1,11 +1,16 @@
 package com.shanglan.erp.controller;
 
+import com.shanglan.erp.base.AjaxResponse;
+import com.shanglan.erp.entity.Video;
+import com.shanglan.erp.enums.StreamType;
 import com.shanglan.erp.service.VideoService;
 import com.shanglan.erp.utils.CmdExecuter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -15,25 +20,53 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/video")
 public class VideoController {
 
+
     @Autowired
     private VideoService videoService;
 
 
-    @RequestMapping(path = "/hls",method = RequestMethod.GET)
-    public ModelAndView hls(){
-        ModelAndView model = new ModelAndView("video_detail");
-        String rtspPath = "rtsp://admin:slkj0520@192.168.0.100:554/h264/ch1/sub/av_stream";
-        String nginxPath = "/usr/local/Cellar/nginx/1.12.2_1/html";
-        String nginxIp = "http://192.168.0.102:20000";
-        String ipcPath = "/hls/slkj.m3u8";
-        videoService.start();
-//        videoService.startFFmpeg(rtspPath,nginxPath+ipcPath);
-        model.addObject("ipcPath",nginxIp+ipcPath);
+    @RequestMapping(path = "/list",method = RequestMethod.GET)
+    public ModelAndView videoListView(@PageableDefault(value = 10,sort = "id",direction = Sort.Direction.DESC) Pageable pageable){
+        ModelAndView model = new ModelAndView("video_list");
+        Page<Video> page = videoService.findVideos(pageable);
+        model.addObject("page",page);
         return model;
     }
 
-    @RequestMapping(path = "/test",method = RequestMethod.GET)
-    public void test(){
-        CmdExecuter.execRuntime("");
+    @RequestMapping(path = "/detail/{id}",method = RequestMethod.GET)
+    public ModelAndView videoDetailView(@PathVariable Integer id){
+        ModelAndView model = new ModelAndView("video_detail");
+        Video video = videoService.findVideo(id);
+        model.addObject("ipcPath",video.getVideoPath());
+        return model;
     }
+
+
+    @RequestMapping(path = "/add",method = RequestMethod.GET)
+    public ModelAndView addVideoView(){
+        ModelAndView model = new ModelAndView("video_add");
+        model.addObject("streamType", StreamType.values());
+        return model;
+    }
+
+    @RequestMapping(path = "/add",method = RequestMethod.POST)
+    public AjaxResponse addVideo(@RequestBody Video video){
+        AjaxResponse ajaxResponse = videoService.saveVideoMsg(video);
+        return ajaxResponse;
+    }
+
+
+    @RequestMapping(path = "/transcoding/{id}",method = RequestMethod.GET)
+    public AjaxResponse transcoding(@PathVariable Integer id){
+        AjaxResponse ajaxResponse = videoService.transcoding(id);
+        return ajaxResponse;
+    }
+
+    @RequestMapping(path = "/transcoding/stop/{id}",method = RequestMethod.GET)
+    public AjaxResponse stopTranscoding(@PathVariable Integer id){
+        AjaxResponse ajaxResponse = videoService.stopTranscoding(id);
+        return ajaxResponse;
+    }
+
+
 }

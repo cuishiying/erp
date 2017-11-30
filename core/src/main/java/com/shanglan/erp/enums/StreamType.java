@@ -5,7 +5,7 @@ package com.shanglan.erp.enums;
  */
 public enum StreamType {
 
-    mainStream(0,"主码流"),subStream(1,"子码流");
+    main(0,"主码流"),sub(1,"子码流");
 
     private Integer id;
     private String name;

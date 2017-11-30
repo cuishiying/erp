@@ -39,8 +39,13 @@ public class CmdExecuter {
         }
     }
 
+    /**
+     * ok
+     *
+     * @param cmd
+     * @param getter
+     */
     static public void exec(String cmd, IStringGetter getter ){
-
         String[] commandSplit = cmd.split(" ");
         List<String> lcommand = new ArrayList<String>();
         for (int i = 0; i < commandSplit.length; i++) {
@@ -48,7 +53,8 @@ public class CmdExecuter {
         }
 
         Process process = null;
-        ProcessBuilder processBuilder = new ProcessBuilder(lcommand);
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        processBuilder.command(lcommand);
         processBuilder.redirectErrorStream(true);
         try{
             process = processBuilder.start();
@@ -64,6 +70,7 @@ public class CmdExecuter {
         }
     }
 
+
     static public void execRuntime(String cmd){
 
         cmd = "ffmpeg -i rtsp://admin:slkj0520@192.168.0.100:554/h264/ch1/main/av_stream -vcodec copy -acodec aac -ar 44100 -strict -2 -ac 1 -f hls -s 1280x720 -q 10 -hls_wrap 15 /usr/local/Cellar/nginx/1.12.2_1/html/hls/slkj.m3u8";
@@ -71,6 +78,8 @@ public class CmdExecuter {
         Process process = null;
         try{
             process = Runtime.getRuntime().exec(new String[]{"sh","-c",cmd});
+
+            System.out.println("当前线程"+Thread.currentThread().getName());
 
             StreamGobbler  errorGobbler  =  new StreamGobbler(process.getErrorStream(),  "ERROR");
             errorGobbler.start();//  kick  off  stderr
@@ -113,7 +122,7 @@ public class CmdExecuter {
 //            ((OutHandler)map.get("error")).destroy();
 //            ((OutHandler)map.get("info")).destroy();
 //
-//            System.out.println("停止命令-----end commond");
+//            system.out.println("停止命令-----end commond");
 //            //关闭命令主进程
 //            ((Process)map.get("process")).destroy();
 //            hd.delete(pushId);
