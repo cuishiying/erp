@@ -173,9 +173,50 @@ public class RiskService {
      * @param riskValue
      * @return
      */
-    public AjaxResponse addRiskValue(RiskValue riskValue){
+    public AjaxResponse addRiskValue(Integer uid,RiskValue riskValue){
         try {
+            riskValue.setPublishTime(LocalDateTime.now());
+            riskValue.setUpdateTime(LocalDateTime.now());
+            if(null!=uid){
+                User user = userService.findByUid(uid);
+                riskValue.setPublishUser(user);
+            }else {
+                riskValue.setPublishUser(null);
+            }
             riskValueRepository.save(riskValue);
+            return AjaxResponse.success();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return AjaxResponse.fail("保存失败");
+        }
+    }
+
+    /**
+     * 更新风险项信息
+     * @param uid
+     * @param r
+     * @return
+     */
+    public AjaxResponse updateRiskValue(Integer uid,RiskValue r){
+        try {
+            RiskValue riskValue = riskValueRepository.findOne(r.getId());
+            riskValue.setRiskElement(r.getRiskElement());
+            riskValue.setRiskDesc(r.getRiskDesc());
+            riskValue.setRiskAddr(r.getRiskAddr());
+            riskValue.setRiskLevel(r.getRiskLevel());
+            riskValue.setRiskDept(r.getRiskDept());
+            riskValue.setResponsible(r.getResponsible());
+            riskValue.setBranchLeader(r.getBranchLeader());
+            riskValue.setOrgLeader(r.getOrgLeader());
+            riskValue.setHandleTimeLimit(r.getHandleTimeLimit());
+
+            riskValue.setUpdateTime(LocalDateTime.now());
+            if(null!=uid){
+                User user = userService.findByUid(uid);
+                riskValue.setHandleUser(user);
+            }else {
+                riskValue.setHandleUser(null);
+            }
             return AjaxResponse.success();
         } catch (Exception e) {
             e.printStackTrace();

@@ -137,9 +137,9 @@
                         </thead>
                         <tbody class="risk-handle">
                             <tr class="item-content" name="riskItem" th:each="item:${riskValue.riskHandles}" th:value="${item.warming}">
-                                <td  class="td-ellipsis text-center td-input" th:text="${item.precaution}">
+                                <td  class="td-input" th:text="${item.precaution}">
                                 </td>
-                                <td  class="td-ellipsis text-center td-input" th:text="${item.handleResult}">
+                                <td  class="td-input" th:text="${item.handleResult}">
                                 </td>
                             </tr>
                         </tbody>

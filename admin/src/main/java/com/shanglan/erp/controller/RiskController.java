@@ -87,7 +87,7 @@ public class RiskController {
     @RequestMapping(path = "/value/add",method = RequestMethod.POST)
     public AjaxResponse addRiskValue(@RequestBody RiskValue riskValue, HttpServletRequest request){
         Integer uid = (Integer) request.getSession().getAttribute("uid");
-        AjaxResponse ajaxResponse = riskService.addRiskValue(riskValue);
+        AjaxResponse ajaxResponse = riskService.addRiskValue(uid,riskValue);
         return ajaxResponse;
     }
 
@@ -98,6 +98,20 @@ public class RiskController {
         model.addObject("riskValue",riskValue);
         model.addObject("readonly",true);
         return model;
+    }
+    @RequestMapping(path = "/value/edit/{id}",method = RequestMethod.GET)
+    public ModelAndView editRiskValueView(@PathVariable Integer id){
+        ModelAndView model = new ModelAndView("risk_editvalue");
+        RiskValue riskValue = riskService.findRiskValueById(id);
+        model.addObject("riskValue",riskValue);
+        model.addObject("readonly",false);
+        return model;
+    }
+    @RequestMapping(path = "/value/edit/{id}",method = RequestMethod.POST)
+    public AjaxResponse editRiskValue(@PathVariable Integer id,@RequestBody RiskValue riskValue, HttpServletRequest request){
+        Integer uid = (Integer) request.getSession().getAttribute("uid");
+        AjaxResponse response = riskService.updateRiskValue(uid, riskValue);
+        return response;
     }
     @RequestMapping(path = "/value/delete/{id}",method = RequestMethod.GET)
     public AjaxResponse deleteRiskValue(@PathVariable Integer id,HttpServletRequest request){

@@ -7,51 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b769e75-03a0-4700-871b-f705f620cfb6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/main/webapp/static/img/icon-mark-normal.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/main/webapp/static/img/icon-mark.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/src/main/webapp/static/img/video.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/main/webapp/static/utils/strUtils.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/RiskHandle.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/src/main/java/com/shanglan/erp/controller/VideoController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view/video_detail.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/src/main/webapp/static/utils/fetchUtils.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/src/main/webapp/static/vendor/print/jquery-migrate-1.2.1.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/src/main/webapp/static/vendor/print/jquery.jqprint-0.3.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/src/main/webapp/static/vendor/video/css/video-js.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/src/main/webapp/static/vendor/video/js/video.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/src/main/webapp/static/vendor/video/js/videojs-contrib-hls.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/src/main/webapp/static/vendor/video/js/videojs-flash.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/src/main/webapp/static/vendor/video/js/videojs-ie8.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/src/main/webapp/static/vendor/video/js/videojs-live.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_editvalue.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valueread.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/HiddenTroubleItemOld.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/RiskValueOld.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit.sql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_1001.sql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_11131.sql" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/static/img/add.png" afterPath="$PROJECT_DIR$/admin/src/main/webapp/static/img/add.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/lib/core-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/lib/core-1.0-SNAPSHOT.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/target/core.jar" afterPath="$PROJECT_DIR$/core/target/core.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/RiskController.java" afterPath="$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/RiskController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_additem.html" afterPath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_additem.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_addvalue.html" afterPath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_addvalue.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valuedetail.html" afterPath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valuedetail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valuelist.html" afterPath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valuelist.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/video_detail.html" afterPath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/video_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/admin/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/admin/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/RiskItem.java" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/RiskItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/RiskValue.java" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/RiskValue.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/RiskValueRepository.java" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/RiskValueRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/AutoService.java" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/AutoService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/RiskService.java" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/RiskService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/core/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/core/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/core/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/weixin/src/main/java/com/shanglan/erp/controller/RiskController.java" afterPath="$PROJECT_DIR$/weixin/src/main/java/com/shanglan/erp/controller/RiskController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view/video_list.html" afterPath="$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view/video_list.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -99,31 +58,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RiskController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RiskController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/RiskController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+            <state relative-caret-position="432">
+              <caret line="95" column="56" lean-forward="false" selection-start-line="95" selection-start-column="56" selection-end-line="95" selection-end-column="56" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RiskService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/RiskService.java">
+      <file leaf-file-name="risk_valuedetail.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valuedetail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="125" column="37" lean-forward="false" selection-start-line="125" selection-start-column="37" selection-end-line="125" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="risk_valuelist.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valuelist.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="897">
-              <caret line="107" column="11" lean-forward="false" selection-start-line="107" selection-start-column="11" selection-end-line="107" selection-end-column="11" />
+            <state relative-caret-position="481">
+              <caret line="141" column="44" lean-forward="false" selection-start-line="141" selection-start-column="44" selection-end-line="141" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -239,10 +188,10 @@
         <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/RiskHandle.java" />
         <option value="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_addvalue.html" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/RiskValue.java" />
-        <option value="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valuedetail.html" />
         <option value="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valuelist.html" />
-        <option value="$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/RiskController.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/RiskService.java" />
+        <option value="$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/RiskController.java" />
+        <option value="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valuedetail.html" />
       </list>
     </option>
   </component>
@@ -1174,14 +1123,7 @@
       <workItem from="1512284932026" duration="5039000" />
       <workItem from="1512293573053" duration="895000" />
       <workItem from="1512294602208" duration="1459000" />
-      <workItem from="1512302809223" duration="4050000" />
-    </task>
-    <task id="LOCAL-00057" summary="V1ok">
-      <created>1505960536781</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1505960536782</updated>
+      <workItem from="1512302809223" duration="5446000" />
     </task>
     <task id="LOCAL-00058" summary="V1ok">
       <created>1505962405717</created>
@@ -1519,7 +1461,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512055850696</updated>
     </task>
-    <option name="localTasksCounter" value="106" />
+    <task id="LOCAL-00106" summary="风险管控重做">
+      <created>1512308571240</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1512308571247</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1555,7 +1504,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="700699000" />
+    <option name="totallyTimeSpent" value="702095000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1581,7 +1530,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36642784" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36642784" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3265097" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1707,7 +1656,8 @@
     <MESSAGE value="隐患排查" />
     <MESSAGE value="隐患排查更新" />
     <MESSAGE value="监控雏形" />
-    <option name="LAST_COMMIT_MESSAGE" value="监控雏形" />
+    <MESSAGE value="风险管控重做" />
+    <option name="LAST_COMMIT_MESSAGE" value="风险管控重做" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2032,34 +1982,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valuedetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="175" column="30" lean-forward="false" selection-start-line="175" selection-start-column="30" selection-end-line="175" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valuelist.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="897">
-          <caret line="107" column="11" lean-forward="false" selection-start-line="107" selection-start-column="11" selection-end-line="107" selection-end-column="11" />
+        <state relative-caret-position="410">
+          <caret line="67" column="33" lean-forward="true" selection-start-line="67" selection-start-column="33" selection-end-line="67" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/RiskService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="125" column="37" lean-forward="false" selection-start-line="125" selection-start-column="37" selection-end-line="125" selection-end-column="37" />
+        <state relative-caret-position="309">
+          <caret line="199" column="24" lean-forward="false" selection-start-line="199" selection-start-column="24" selection-end-line="199" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/RiskController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+        <state relative-caret-position="432">
+          <caret line="95" column="56" lean-forward="false" selection-start-line="95" selection-start-column="56" selection-end-line="95" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valuedetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="141" column="44" lean-forward="false" selection-start-line="141" selection-start-column="44" selection-end-line="141" selection-end-column="44" />
           <folding />
         </state>
       </provider>
