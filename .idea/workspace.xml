@@ -3,39 +3,55 @@
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
       <artifact name="admin:war exploded" />
-      <artifact name="weixin:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b769e75-03a0-4700-871b-f705f620cfb6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/video_add.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/video_list.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/VideoConfig.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/VideoConfigRepository.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/VideoRepository.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/system/EPlatform.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/system/OSinfo.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view/video_list.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/main/webapp/static/img/icon-mark-normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/main/webapp/static/img/icon-mark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/src/main/webapp/static/img/video.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/admin/src/main/webapp/static/utils/strUtils.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/RiskHandle.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/src/main/java/com/shanglan/erp/controller/VideoController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view/video_detail.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/src/main/webapp/static/utils/fetchUtils.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/src/main/webapp/static/vendor/print/jquery-migrate-1.2.1.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/src/main/webapp/static/vendor/print/jquery.jqprint-0.3.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/src/main/webapp/static/vendor/video/css/video-js.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/src/main/webapp/static/vendor/video/js/video.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/src/main/webapp/static/vendor/video/js/videojs-contrib-hls.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/src/main/webapp/static/vendor/video/js/videojs-flash.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/src/main/webapp/static/vendor/video/js/videojs-ie8.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/weixin/src/main/webapp/static/vendor/video/js/videojs-live.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_editvalue.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valueread.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/HiddenTroubleItemOld.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/RiskValueOld.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_1001.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_11131.sql" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/static/img/add.png" afterPath="$PROJECT_DIR$/admin/src/main/webapp/static/img/add.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/lib/core-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/lib/core-1.0-SNAPSHOT.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/admin_war.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/admin_war.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/admin_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/admin_war_exploded.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/target/core.jar" afterPath="$PROJECT_DIR$/core/target/core.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/admin.iml" afterPath="$PROJECT_DIR$/admin/admin.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/VideoController.java" afterPath="$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/VideoController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/RiskController.java" afterPath="$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/RiskController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_additem.html" afterPath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_additem.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_addvalue.html" afterPath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_addvalue.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valuedetail.html" afterPath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valuedetail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valuelist.html" afterPath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valuelist.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/video_detail.html" afterPath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/video_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/static/vendor/video/js/video.js" afterPath="$PROJECT_DIR$/admin/src/main/webapp/static/vendor/video/js/video.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/test/com/shanglan/test/TestController.java" afterPath="$PROJECT_DIR$/admin/src/test/com/shanglan/test/TestController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/Video.java" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/Video.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/enums/StreamType.java" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/enums/StreamType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/ffmpeg/service/DefaultOutHandlerMethod.java" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/ffmpeg/service/DefaultOutHandlerMethod.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/ffmpeg/service/TaskHandlerImpl.java" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/ffmpeg/service/TaskHandlerImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/admin/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/admin/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/RiskItem.java" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/RiskItem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/RiskValue.java" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/RiskValue.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/RiskValueRepository.java" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/RiskValueRepository.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/AutoService.java" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/AutoService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/VideoService.java" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/VideoService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/utils/CmdExecuter.java" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/utils/CmdExecuter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/resources/erp-core.properties" afterPath="$PROJECT_DIR$/core/src/main/resources/erp-core.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/target/classes/erp-core.properties" afterPath="$PROJECT_DIR$/core/target/classes/erp-core.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/weixin/src/main/java/com/shanglan/erp/timetask/RecordsCenterTiming.java" afterPath="$PROJECT_DIR$/weixin/src/main/java/com/shanglan/erp/timetask/RecordsCenterTiming.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/weixin/src/main/webapp/static/vendor/dropload-gh-pages/examples/load-bottom.html" afterPath="$PROJECT_DIR$/weixin/src/main/webapp/static/vendor/dropload-gh-pages/examples/load-bottom.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/RiskService.java" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/RiskService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/core/target/maven-archiver/pom.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/core/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/core/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/weixin/src/main/java/com/shanglan/erp/controller/RiskController.java" afterPath="$PROJECT_DIR$/weixin/src/main/java/com/shanglan/erp/controller/RiskController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view/video_list.html" afterPath="$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view/video_list.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -83,27 +99,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="video_list.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view/video_list.html">
+      <file leaf-file-name="RiskController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/RiskController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1763">
-              <caret line="187" column="7" lean-forward="true" selection-start-line="187" selection-start-column="7" selection-end-line="187" selection-end-column="7" />
-              <folding>
-                <marker date="1512055792628" expanded="true" signature="4073:4084" ph="..." />
-              </folding>
+            <state relative-caret-position="417">
+              <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hiddentrouble_list.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view/hiddentrouble_list.html">
+      <file leaf-file-name="RiskService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/RiskService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="162" column="9" lean-forward="true" selection-start-line="162" selection-start-column="9" selection-end-line="162" selection-end-column="9" />
-              <folding>
-                <element signature="n#script#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <marker date="1511769496000" expanded="true" signature="6306:6317" ph="..." />
-              </folding>
+            <state relative-caret-position="249">
+              <caret line="125" column="37" lean-forward="false" selection-start-line="125" selection-start-column="37" selection-end-line="125" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="risk_valuelist.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valuelist.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="897">
+              <caret line="107" column="11" lean-forward="false" selection-start-line="107" selection-start-column="11" selection-end-line="107" selection-end-column="11" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -113,19 +134,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="Interface" />
         <option value="Enum" />
         <option value="Class" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>cnoa_afterinsert_on_cnoa_jxc_stock_chuku</find>
-      <find>cnoa_afterdelete_on_cnoa_wf_u_step</find>
       <find>cnoa_wf_u_step</find>
       <find>cnoa_jxc_stock_goods_detail</find>
       <find>@media print</find>
@@ -154,6 +173,8 @@
       <find>当前线程</find>
       <find>当前</find>
       <find>end</find>
+      <find>count</find>
+      <find>form</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/core</dir>
@@ -171,21 +192,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/HiddenTrouble.java" />
-        <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/HiddenTroubleService.java" />
-        <option value="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/hiddentrouble_add.html" />
-        <option value="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/hiddentrouble_list.html" />
-        <option value="$PROJECT_DIR$/admin/src/main/webapp/static/demo.html" />
-        <option value="$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/HiddenTroubleController.java" />
-        <option value="$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view/hiddentrouble_add.html" />
-        <option value="$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view/hiddentrouble_detail.html" />
-        <option value="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/hiddentrouble_detail.html" />
-        <option value="$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view/risk_valuelist.html" />
-        <option value="$PROJECT_DIR$/weixin/src/main/java/com/shanglan/erp/controller/HiddenTroubleController.java" />
-        <option value="$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view/hiddentrouble_list.html" />
-        <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/interf/OutHandler.java" />
-        <option value="$PROJECT_DIR$/core/pom.xml" />
-        <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/ffmpeg/TaskHandler.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/ffmpeg/service/OutHandlerMethod.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/ffmpeg/service/CommandAssembly.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/ffmpeg/service/CommandAssemblyImpl.java" />
@@ -210,18 +216,33 @@
         <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/System/OSinfo.java" />
         <option value="$PROJECT_DIR$/admin/src/test/com/shanglan/test/TestController.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/VideoConfig.java" />
-        <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/AutoService.java" />
         <option value="$PROJECT_DIR$/core/src/main/resources/erp-core.properties" />
         <option value="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/video_add.html" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/ffmpeg/service/TaskHandlerImpl.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/Video.java" />
         <option value="$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/VideoController.java" />
-        <option value="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/video_detail.html" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/VideoRepository.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/VideoService.java" />
         <option value="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/video_list.html" />
         <option value="$PROJECT_DIR$/weixin/src/main/webapp/static/vendor/dropload-gh-pages/examples/load-bottom.html" />
+        <option value="$PROJECT_DIR$/weixin/src/main/java/com/shanglan/erp/controller/VideoController.java" />
+        <option value="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/video_detail.html" />
         <option value="$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view/video_list.html" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/User.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/AutoService.java" />
+        <option value="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_editvalue.html" />
+        <option value="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valueread.html" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/RiskValueRepository.java" />
+        <option value="$PROJECT_DIR$/weixin/src/main/java/com/shanglan/erp/controller/RiskController.java" />
+        <option value="$PROJECT_DIR$/admin/src/main/webapp/static/utils/strUtils.js" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/RiskItem.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/RiskHandle.java" />
+        <option value="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_addvalue.html" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/RiskValue.java" />
+        <option value="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valuedetail.html" />
+        <option value="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valuelist.html" />
+        <option value="$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/RiskController.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/RiskService.java" />
       </list>
     </option>
   </component>
@@ -289,9 +310,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -302,85 +320,60 @@
             <path>
               <item name="erp" type="b2602c69:ProjectViewProjectNode" />
               <item name="erp" type="462c0819:PsiDirectoryNode" />
-              <item name="weixin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="erp" type="b2602c69:ProjectViewProjectNode" />
               <item name="erp" type="462c0819:PsiDirectoryNode" />
-              <item name="weixin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="erp" type="b2602c69:ProjectViewProjectNode" />
               <item name="erp" type="462c0819:PsiDirectoryNode" />
-              <item name="weixin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="erp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="erp" type="462c0819:PsiDirectoryNode" />
-              <item name="weixin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="erp" type="b2602c69:ProjectViewProjectNode" />
               <item name="erp" type="462c0819:PsiDirectoryNode" />
-              <item name="weixin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="erp" type="b2602c69:ProjectViewProjectNode" />
               <item name="erp" type="462c0819:PsiDirectoryNode" />
-              <item name="weixin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="erp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="erp" type="b2602c69:ProjectViewProjectNode" />
               <item name="erp" type="462c0819:PsiDirectoryNode" />
-              <item name="weixin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="erp" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="erp" type="b2602c69:ProjectViewProjectNode" />
               <item name="erp" type="462c0819:PsiDirectoryNode" />
-              <item name="weixin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
-              <item name="dropload-gh-pages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="erp" type="b2602c69:ProjectViewProjectNode" />
               <item name="erp" type="462c0819:PsiDirectoryNode" />
-              <item name="weixin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="vendor" type="462c0819:PsiDirectoryNode" />
-              <item name="dropload-gh-pages" type="462c0819:PsiDirectoryNode" />
-              <item name="examples" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="erp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="erp" type="462c0819:PsiDirectoryNode" />
-              <item name="weixin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
@@ -389,18 +382,66 @@
             <path>
               <item name="erp" type="b2602c69:ProjectViewProjectNode" />
               <item name="erp" type="462c0819:PsiDirectoryNode" />
-              <item name="weixin" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="erp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="erp" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="erp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="erp" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="erp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="erp" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="erp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="erp" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="erp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="erp" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="erp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="erp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="erp" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="erp" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -417,25 +458,25 @@
     <property name="SearchEverywhereHistoryKey" value="**&#9;FILE&#9;file:///Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/enums/AttRecordStatus.java" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view" />
-      <recent name="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view" />
-      <recent name="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/ffmpeg/service" />
-      <recent name="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/ffmpeg" />
-      <recent name="$PROJECT_DIR$/core/lib" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.shanglan.erp.ffmpeg.service" />
-      <recent name="com.shanglan.erp.ffmpeg.entity" />
-      <recent name="com.shanglan.erp.repository" />
-      <recent name="com.shanglan.erp.entity" />
-      <recent name="com.shanglan.erp.enums" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql" />
       <recent name="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view" />
       <recent name="$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view" />
       <recent name="$PROJECT_DIR$/admin/src/main/webapp/static/css" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.shanglan.erp.controller" />
+      <recent name="com.shanglan.erp.ffmpeg.service" />
+      <recent name="com.shanglan.erp.ffmpeg.entity" />
+      <recent name="com.shanglan.erp.repository" />
+      <recent name="com.shanglan.erp.entity" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view" />
+      <recent name="$PROJECT_DIR$/admin/src/main/webapp/static/img" />
+      <recent name="$PROJECT_DIR$/weixin/src/main/webapp/static/vendor" />
+      <recent name="$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view" />
+      <recent name="$PROJECT_DIR$/weixin/src/main/webapp/static/utils" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -452,16 +493,11 @@
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat">
     <configuration name="Tomcat" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.11" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="UPDATING_POLICY" value="restart-server" />
+      <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
       <deployment>
         <artifact name="admin:war exploded">
           <settings>
             <option name="CONTEXT_PATH" value="/" />
-          </settings>
-        </artifact>
-        <artifact name="weixin:war exploded">
-          <settings>
-            <option name="CONTEXT_PATH" value="/weixin" />
           </settings>
         </artifact>
       </deployment>
@@ -543,7 +579,6 @@
       <method>
         <option name="BuildArtifacts" enabled="true">
           <artifact name="admin:war exploded" />
-          <artifact name="weixin:war exploded" />
         </option>
       </method>
     </configuration>
@@ -1131,14 +1166,15 @@
       <workItem from="1511963166319" duration="19448000" />
       <workItem from="1512049462329" duration="357000" />
       <workItem from="1512049918514" duration="140000" />
-      <workItem from="1512053225266" duration="1445000" />
-    </task>
-    <task id="LOCAL-00056" summary="草稿ok">
-      <created>1505896625872</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1505896625872</updated>
+      <workItem from="1512053225266" duration="1515000" />
+      <workItem from="1512088676377" duration="7045000" />
+      <workItem from="1512099201493" duration="327000" />
+      <workItem from="1512108717889" duration="1552000" />
+      <workItem from="1512194299353" duration="15095000" />
+      <workItem from="1512284932026" duration="5039000" />
+      <workItem from="1512293573053" duration="895000" />
+      <workItem from="1512294602208" duration="1459000" />
+      <workItem from="1512302809223" duration="4050000" />
     </task>
     <task id="LOCAL-00057" summary="V1ok">
       <created>1505960536781</created>
@@ -1476,7 +1512,14 @@
       <option name="project" value="LOCAL" />
       <updated>1511877926040</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="监控雏形">
+      <created>1512055850692</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1512055850696</updated>
+    </task>
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1512,7 +1555,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="665167000" />
+    <option name="totallyTimeSpent" value="700699000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1538,7 +1581,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2691914" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36642784" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3265097" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1550,8 +1593,8 @@
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27840328" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22466423" sideWeight="0.49010655" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26007327" sideWeight="0.5098935" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24236874" sideWeight="0.48618218" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22710623" sideWeight="0.5138178" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26007327" sideWeight="0.5098935" order="7" side_tool="true" content_ui="tabs" />
@@ -1663,11 +1706,12 @@
     <MESSAGE value="出库脚本" />
     <MESSAGE value="隐患排查" />
     <MESSAGE value="隐患排查更新" />
-    <option name="LAST_COMMIT_MESSAGE" value="隐患排查更新" />
+    <MESSAGE value="监控雏形" />
+    <option name="LAST_COMMIT_MESSAGE" value="监控雏形" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="281" />
+      <option name="time" value="293" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1676,369 +1720,347 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/AttService.java">
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/Category.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        <state relative-caret-position="150">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/ErpService.java">
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/Config.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1916">
-          <caret line="35" column="13" lean-forward="false" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+        <state relative-caret-position="150">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/GoodsRepository.java">
+    <entry file="file://$PROJECT_DIR$/weixin/src/main/webapp/static/vendor/dropload-gh-pages/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="76" column="48" lean-forward="true" selection-start-line="76" selection-start-column="7" selection-end-line="76" selection-end-column="48" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/system/EPlatform.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/test/com/shanglan/test/TestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/system/OSinfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="86" column="28" lean-forward="false" selection-start-line="86" selection-start-column="28" selection-end-line="86" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/hiddentrouble_add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="160" column="69" lean-forward="true" selection-start-line="160" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_editvalue.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="154" column="29" lean-forward="false" selection-start-line="154" selection-start-column="29" selection-end-line="154" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/enums/HiddenTroubleLevels.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_addvalue.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-651">
-          <caret line="66" column="94" lean-forward="false" selection-start-line="66" selection-start-column="78" selection-end-line="66" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/HiddenTroubleController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="80" column="31" lean-forward="true" selection-start-line="80" selection-start-column="31" selection-end-line="80" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/VideoConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="32" lean-forward="false" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/DeptService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/enums/StreamType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/resources/erp-core.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="566">
-          <caret line="63" column="25" lean-forward="false" selection-start-line="63" selection-start-column="25" selection-end-line="63" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/Goods.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="25" column="2" lean-forward="true" selection-start-line="25" selection-start-column="2" selection-end-line="25" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/video_add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="657">
-          <caret line="115" column="54" lean-forward="false" selection-start-line="115" selection-start-column="54" selection-end-line="115" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/RiskController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="62" column="195" lean-forward="true" selection-start-line="62" selection-start-column="97" selection-end-line="62" selection-end-column="195" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/static/utils/fetchUtils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="11" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/README.md">
+    <entry file="file://$PROJECT_DIR$/weixin/src/main/webapp/static/vendor/dropload-gh-pages/Changelog.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="460">
-            <caret line="129" column="139" lean-forward="false" selection-start-line="129" selection-start-column="118" selection-end-line="129" selection-end-column="139" />
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/ffmpeg/service/TaskHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="12" column="22" lean-forward="false" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/hiddentrouble_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2118">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/hiddentrouble_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1758">
-          <caret line="20" column="9" lean-forward="true" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/static/vendor/video/js/video.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="24073" column="15" lean-forward="false" selection-start-line="24073" selection-start-column="12" selection-end-line="24073" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/HTML5.js" />
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/AttClassesRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/DeptRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/Video.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="31" column="31" lean-forward="false" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/VideoRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/video_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="61" lean-forward="true" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/AutoService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="38" column="30" lean-forward="false" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/VideoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="60" column="53" lean-forward="true" selection-start-line="60" selection-start-column="53" selection-end-line="60" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/VideoService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="45" column="25" lean-forward="false" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/ffmpeg/service/FFmpegManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="65" column="18" lean-forward="false" selection-start-line="65" selection-start-column="18" selection-end-line="65" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="999" column="32" lean-forward="false" selection-start-line="999" selection-start-column="32" selection-end-line="999" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/ffmpeg/service/TaskHandlerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="65" column="0" lean-forward="true" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valuelist.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="64" column="62" lean-forward="true" selection-start-line="64" selection-start-column="51" selection-end-line="64" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/video_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="51" column="41" lean-forward="false" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/static/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/static/demo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/weixin/src/main/webapp/static/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="9" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/weixin/src/main/webapp/static/vendor/dropload-gh-pages/examples/load-top-bottom.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1890">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/weixin/src/main/webapp/static/vendor/dropload-gh-pages/examples/product-list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/weixin/src/main/webapp/static/img/att_right.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/weixin/src/main/webapp/static/img/glyphicons-halflings.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/weixin/src/main/webapp/static/vendor/dropload-gh-pages/examples/load-bottom.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="110" column="17" lean-forward="false" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view/risk_valuelist.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-544">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view/risk_valueread.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-592">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view/risk_valuedetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1856">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+    <entry file="file://$PROJECT_DIR$/weixin/src/main/webapp/static/vendor/dropload-gh-pages/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-1042">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view/hiddentrouble_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="162" column="9" lean-forward="true" selection-start-line="162" selection-start-column="9" selection-end-line="162" selection-end-column="9" />
+        <state relative-caret-position="149">
+          <caret line="170" column="35" lean-forward="true" selection-start-line="170" selection-start-column="35" selection-end-line="170" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view/hiddentrouble_result_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2325">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/RiskValueOld.java" />
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/Sort.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/Storage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/Video.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/VideoConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/HiddenTroubleResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/HiddenTroubleItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/HiddenTrouble.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/Goods.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_addvalue_old.html" />
+    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_editvalue_old.html" />
+    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valuedetail_old.html" />
+    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valuelist_old.html" />
+    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valueread_old.html" />
+    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_editvalue.html" />
+    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valueread.html" />
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/RiskConditionRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/RiskItemRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/RiskValueRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/RiskRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view/risk_valuelist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weixin/src/main/java/com/shanglan/erp/controller/VideoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-491">
+          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weixin/src/main/webapp/static/vendor/dropload-gh-pages/examples/load-bottom.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="40" column="8" lean-forward="true" selection-start-line="40" selection-start-column="8" selection-end-line="52" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/static/img/delete.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/static/utils/dateUtils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/static/utils/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/static/utils/httpUtils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="45" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/static/utils/strUtils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/static/img/icon-mark-normal.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/static/img/icon-mark.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/static/img/add.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/HiddenTroubleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="28" column="31" lean-forward="false" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/RiskCondition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/RiskItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weixin/src/main/java/com/shanglan/erp/controller/RiskController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/static/utils/fetchUtils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="4" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_addvalue.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="231" column="18" lean-forward="true" selection-start-line="231" selection-start-column="18" selection-end-line="231" selection-end-column="18" />
           <folding>
-            <element signature="n#script#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <marker date="1511769496000" expanded="true" signature="6306:6317" ph="..." />
+            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#td#2;n#tr#0;n#tbody#0;n#table#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#1;n#td#2;n#tr#0;n#tbody#0;n#table#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#td#2;n#tr#1;n#tbody#0;n#table#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#1;n#td#2;n#tr#1;n#tbody#0;n#table#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view/video_list.html">
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/RiskHandle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1763">
-          <caret line="187" column="7" lean-forward="true" selection-start-line="187" selection-start-column="7" selection-end-line="187" selection-end-column="7" />
+        <state relative-caret-position="255">
+          <caret line="21" column="31" lean-forward="false" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/RiskValue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="837">
+          <caret line="202" column="39" lean-forward="false" selection-start-line="202" selection-start-column="39" selection-end-line="202" selection-end-column="39" />
           <folding>
-            <marker date="1512055792628" expanded="true" signature="4073:4084" ph="..." />
+            <element signature="e#4798#4799#0" expanded="true" />
+            <element signature="e#4859#4860#0" expanded="true" />
+            <element signature="e#4911#4912#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valuedetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="175" column="30" lean-forward="false" selection-start-line="175" selection-start-column="30" selection-end-line="175" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valuelist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="897">
+          <caret line="107" column="11" lean-forward="false" selection-start-line="107" selection-start-column="11" selection-end-line="107" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/RiskService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="125" column="37" lean-forward="false" selection-start-line="125" selection-start-column="37" selection-end-line="125" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/RiskController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -27,7 +27,6 @@ public class AutoService {
      */
     @PostConstruct
     public void initRiskConditions(){
-//        riskRepository.truncateTable();
         riskService.initRiskConditions();
     }
 

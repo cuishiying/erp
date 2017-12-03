@@ -8,7 +8,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
- * 警报项
+ * 配置项
  */
 @Entity
 @Table(name = "cnoa_risk_item")

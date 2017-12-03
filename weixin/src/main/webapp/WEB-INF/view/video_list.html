@@ -101,89 +101,68 @@
     <link rel="stylesheet" th:href="@{/static/vendor/dropload-gh-pages/dist/dropload.css}">
 </head>
 <body>
-<div class="header">
-    <h1>就当我是新闻页吧</h1>
-</div>
 <div class="content">
     <div class="lists">
-        <a href="" class="item opacity">
-            <img src="http://d8.yihaodianimg.com/N05/M03/D4/1E/CgQI0lYEBwWAQIvJAAFyostaOYY12501_80x80.jpg" alt="">
-            <h3>测试</h3>
-            <span class="date">2017-10-10</span>
+        <a th:href="@{/video/detail/}+${item.id}" class="item opacity" th:each="item:${page.content}">
+            <img th:src="@{/static/img/video.png}" alt="">
+            <h3 th:text="${item.showName}">测试</h3>
+            <span class="date" th:text="${item.rtspIp}">2017-10-10</span>
         </a>
     </div>
 </div>
 
 <script th:src="@{/static/js/jquery.min.js}"></script>
 <script th:src="@{/static/utils/httpUtils.js}"></script>
+<script th:src="@{/static/utils/fetchUtils.js}"></script>
 <script th:src="@{/static/vendor/dropload-gh-pages/dist/dropload.min.js}"></script>
 <script th:src="@{/static/utils/dateUtils.js}"></script>
 
-<!--<script type="text/javascript" th:inline="javascript">-->
-    <!--var ctx = /*[[@{/}]]*/;-->
-    <!--var page = /*[[${page}]]*/;-->
-    <!--// 页数-->
-    <!--var pageNumber = 0;-->
-    <!--// 每页展示10个-->
-    <!--var pageSize = 10;-->
+<script type="text/javascript" th:inline="javascript">
+    var ctx = /*[[@{/}]]*/;
+    var page = /*[[${page}]]*/;
+    // 页数
+    var pageNumber = 0;
+    // 每页展示10个
+    var pageSize = 10;
 
-    <!--$(function(){-->
-        <!--$('.main').dropload({-->
-            <!--scrollArea : window,-->
-            <!--loadDownFn : function(me){-->
-                <!--pageNumber++;-->
-                <!--var result = '';-->
-                <!--ajaxUtils.getData(ctx+"hiddenTrouble/list/data?page="+pageNumber+"&size="+pageSize,function (e) {-->
-                    <!--if(e.success){-->
-                        <!--var currentSize = e.data.numberOfElements;-->
-                        <!--if(currentSize>0){-->
-                            <!--for(var i=0; i<currentSize; i++){-->
-                                <!--result +=   '<a href="'+ctx+"hiddenTrouble/detail/"+e.data.content[i].id+'" class="item">'-->
-                                    <!--+'<div class="content">'-->
-                                    <!--+'<h3 class="name" style="margin: 0px">'+e.data.content[i].majors+'</h3>'-->
-                                    <!--+'<span class="intro">'+e.data.content[i].content+'</span>'-->
-                                    <!--+'</div>'-->
-                                    <!--+'<span class="finishTime">'+e.data.content[i].finishTime+'</span>'-->
-                                    <!--+'</a>';-->
-                            <!--}-->
-                            <!--// 如果没有数据-->
-                        <!--}else{-->
-                            <!--// 锁定-->
-                            <!--me.lock();-->
-                            <!--// 无数据-->
-                            <!--me.noData();-->
-                        <!--}-->
-                        <!--// 插入数据到页面，放到最后面-->
-                        <!--$('.lists').append(result);-->
-                        <!--// 每次数据插入，必须重置-->
-                        <!--me.resetload();-->
-<!--//                        resetColor();-->
-                    <!--}else{-->
-                        <!--// 即使加载出错，也得重置-->
-                        <!--me.resetload();-->
-                    <!--}-->
-                <!--});-->
-            <!--}-->
-        <!--});-->
+    $(function(){
+        $('.content').dropload({
+            scrollArea : window,
+            loadDownFn : function(me){
+                pageNumber++;
+                var result = '';
+                $.getData(ctx+"video/list/data?page="+pageNumber+"&size="+pageSize,function (e) {
+                    if(e.success){
+                        var currentSize = e.data.numberOfElements;
+                        if(currentSize>0){
+                            for(var i=0; i<currentSize; i++){
+                                result +=   '<a href="'+ctx+"video/detail/"+e.data.content[i].id+'" class="item">'
+                                    +'<img src="./../static/img/video.png" alt="">'
+                                    +'<h3>'+e.data.content[i].showName+'</h3>'
+                                    +'<span class="date">'+e.data.content[i].rtspIp+'</span>'
+                                    +'</a>';
+                            }
+                            // 如果没有数据
+                        }else{
+                            // 锁定
+                            me.lock();
+                            // 无数据
+                            me.noData();
+                        }
+                        // 插入数据到页面，放到最后面
+                        $('.lists').append(result);
+                        // 每次数据插入，必须重置
+                        me.resetload();
+                    }else{
+                        // 即使加载出错，也得重置
+                        me.resetload();
+                    }
+                });
+            }
+        });
 
-    <!--});-->
+    });
 
-    <!--//    resetColor();-->
-
-    <!--//    function resetColor() {-->
-    <!--//        var now= dateUtils.getToday();-->
-    <!--//        $('.lists a').each(function (i,e) {-->
-    <!--//            var p = $(this).find('.finishTime').html();-->
-    <!--//            if(p){-->
-    <!--//                var r = dateUtils.compareDate(p,now);-->
-    <!--//                console.log("zou",r);-->
-    <!--//                if (!r){-->
-    <!--//                    $(this).css('color','red');-->
-    <!--//                }-->
-    <!--//            }-->
-    <!--//        })-->
-    <!--//    }-->
-
-<!--</script>-->
+</script>
 </body>
 </html>

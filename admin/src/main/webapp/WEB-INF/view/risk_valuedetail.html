@@ -1,119 +1,238 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>安全风险管控</title>
+    <link rel="stylesheet" th:href="@{/static/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/static/css/layout.css}">
+    <link rel="stylesheet" th:href="@{/static/css/jquery.datetimepicker.css}">
 
-  <title>安全风险管控</title>
-  <link rel="stylesheet" th:href="@{/static/css/bootstrap.min.css}">
-  <link rel="stylesheet" th:href="@{/static/css/layout.css}">
-  <link rel="stylesheet" th:href="@{/static/css/jquery.datetimepicker.css}">
-  <style type="text/css">
-    .item-name{
-      display: inline-block;
-      min-width: 150px;
-    }
-
-    .form-inline .item-content{
-      width: 70%;
-    }
-    .form-inline{
-      margin: 5px;
-    }
-  </style>
+    <style type="text/css">
+        .form-inline .item-content{
+            width: 500px;
+        }
+        .form-inline{
+            margin: 5px;
+        }
+        .table{
+            table-layout: fixed;
+        }
+        .td-ellipsis{
+            overflow:hidden;
+            white-space:nowrap;
+            text-overflow:ellipsis;
+        }
+        .header-item{
+            float: left;
+            margin-bottom: 7px;
+            margin-top: 5px;
+            margin-right: 50px;
+        }
+        .head-table tr>td{
+            width: 50%;
+        }
+        .head-table .head-table-body td{
+            border-top: 0px;
+        }
+        .head-table-body input{
+            border-left-width:0px;
+            border-top-width:0px;
+            border-right-width:0px;
+            border-bottom-width:1px;
+            border-bottom-color:black;
+            outline:none;
+            width: 80%;
+        }
+        .td-input>textarea,input{
+            border-color:#fff;
+            box-shadow: none;
+            border-left-width:0px;
+            border-top-width:0px;
+            border-right-width:0px;
+            border-bottom-width:0px;
+            outline:none;
+            width: 100%;
+        }
+        .risk-handle img{
+            margin-left: 20px;
+        }
+        .risk-handle  .td-control{
+            vertical-align: middle !important;
+        }
+    </style>
 
 </head>
-
 <body>
 <div id="wrapper">
-  <!--<nav th:replace="common/fragment :: sidebar"></nav>-->
-  <div class="main">
-    <div class="main-content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12">
             <div class="panel">
-              <div class="panel-heading">
-                <h3 class="panel-title">风险详情</h3>
-              </div>
+                <div class="panel-heading">
+                    <h3 class="panel-title">风险详情</h3>
+                </div>
+                <div class="panel-body">
 
-              <div class="panel-body">
-                <ul>
-                  <li class="form-inline">
-                    <span class="item-name">检查时间</span>
-                    <textarea type="text" class="form-control item-content risk_checktime" th:text="${#temporals.format(riskValue.checkTime,'yyyy-MM-dd HH:mm:ss')}" readonly></textarea>
-                  </li>
-                  <li class="form-inline">
-                    <span class="item-name">录入时间</span>
-                    <textarea type="text" class="form-control item-content risk_publishtime" th:text="${#temporals.format(riskValue.publishTime,'yyyy-MM-dd HH:mm:ss')}" readonly></textarea>
-                  </li>
-                  <li class="form-inline">
-                    <span class="item-name">风险地点</span>
-                    <textarea type="text" class="form-control item-content risk_addr" th:text="${riskValue.riskAddr?.name}" readonly></textarea>
-                  </li>
-                  <li class="form-inline">
-                    <span class="item-name">风险描述</span>
-                    <textarea type="text" class="form-control item-content risk_desc" th:text="${riskValue.riskDesc}" readonly></textarea>
-                  </li>
-                  <li class="form-inline">
-                    <span class="item-name">风险值</span>
-                    <textarea type="text" class="form-control item-content risk_number"  th:text="${riskValue.riskNumber?.name}" readonly></textarea>
-                  </li>
-                  <li class="form-inline">
-                    <span class="item-name">风险等级</span>
-                    <textarea type="text" class="form-control item-content risk_level"  th:text="${riskValue.riskLevel?.name}" readonly></textarea>
-                  </li>
-                  <li class="form-inline">
-                    <span class="item-name">主要管控措施</span>
-                    <textarea type="text" class="form-control item-content risk_mk"  th:text="${riskValue.precaution}" readonly></textarea>
-                  </li>
-                  <li class="form-inline">
-                    <span class="item-name">责任部门</span>
-                    <textarea type="text" class="form-control item-content risk_dept"  th:text="${riskValue.riskMkDept?.name}" readonly></textarea>
-                  </li>
+                    <table class="table head-table">
+                        <tbody class="head-table-body">
+                            <tr class="item-content " name="riskItem">
+                                <td  class="td-ellipsis">
+                                    <label for="riskElement">危险因素:&nbsp;&nbsp;</label>
+                                    <input type="text" class="riskElement" id="riskElement" th:value="${riskValue.riskElement}">
+                                </td>
+                                <td  class="td-ellipsis">
+                                    <label for="riskDesc">风险描述:&nbsp;&nbsp;</label>
+                                    <input type="text" class="riskDesc" id="riskDesc" th:value="${riskValue.riskDesc}">
+                                </td>
+                            </tr>
+                            <tr class="item-content " name="riskItem">
+                                <td  class="td-ellipsis">
+                                    <label for="riskAddr">风险地点:&nbsp;&nbsp;</label>
+                                    <input type="text" class="riskAddr" id="riskAddr" th:value="${riskValue.riskAddr}">
+                                </td>
+                                <td  class="td-ellipsis">
+                                    <label for="riskLevel">级别:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                    <input type="text" class="riskLevel" id="riskLevel" th:value="${riskValue.riskLevel}">
+                                </td>
+                            </tr>
+                            <tr class="item-content " name="riskItem">
+                                <td  class="td-ellipsis">
+                                    <label for="riskDept">责任单位:&nbsp;&nbsp;</label>
+                                    <input type="text" class="riskDept" id="riskDept" th:value="${riskValue.riskDept}">
+                                </td>
+                                <td  class="td-ellipsis">
+                                    <label for="responsible">责任人:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                    <input type="text" class="responsible" id="responsible" th:value="${riskValue.responsible}">
+                                </td>
+                            </tr>
+                            <tr class="item-content" name="riskItem">
+                                <td  class="td-ellipsis">
+                                    <label for="branchLeader">矿分管领导:</label>
+                                    <input type="text" class="branchLeader" id="branchLeader" th:value="${riskValue.branchLeader}">
+                                </td>
+                                <td  class="td-ellipsis">
+                                    <label for="orgLeader">组织领导:&nbsp;&nbsp;</label>
+                                    <input type="text" class="orgLeader" id="orgLeader" th:value="${riskValue.orgLeader}">
+                                </td>
+                            </tr>
+                            <tr class="item-content " name="riskItem">
+                                <td  class="td-ellipsis">
+                                    <label for="handleTimeLimit">时限:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                    <input type="text" class="handleTimeLimit" id="handleTimeLimit" th:value="${riskValue.handleTimeLimit}">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-                  <li class="form-inline">
-                    <span class="item-name">责任人</span>
-                    <textarea type="text" class="form-control item-content risk_responsible"  th:text="${riskValue.responsible}" readonly></textarea>
-                  </li>
-
-                  <li class="form-inline">
-                    <span class="item-name">风险分析</span>
-                    <textarea type="text" class="form-control item-content risk_value"  th:text="${riskValue.riskValue}" readonly></textarea>
-                  </li>
-                  <li class="form-inline">
-                    <span class="item-name">管控情况</span>
-                    <textarea type="text" class="form-control item-content handleResult"  th:text="${riskValue.handleResult}" readonly></textarea>
-                  </li>
-                  <li class="form-inline">
-                    <button type="button" class="btn btn-default close-window">关闭</button>
-                  </li>
-                </ul>
-
-              </div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="text-center" style="width: 50%">管控措施</th>
+                                <th class="text-center" style="width: 50%">管控措施落实情况</th>
+                            </tr>
+                        </thead>
+                        <tbody class="risk-handle">
+                            <tr class="item-content" name="riskItem" th:each="item:${riskValue.riskHandles}" th:value="${item.warming}">
+                                <td  class="td-ellipsis text-center td-input" th:text="${item.precaution}">
+                                </td>
+                                <td  class="td-ellipsis text-center td-input" th:text="${item.handleResult}">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="form-group">
+                        <div class="col-sm-12 text-center" style="margin-top: 10px">
+                            <!--<button type="button" class="btn btn-success save">保存</button>-->
+                            <button type="button" class="btn btn-danger" onclick="javascript:history.go(-1);">关闭</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-          </div>
         </div>
-      </div>
-
     </div>
-  </div>
 </div>
-
 <script th:src="@{/static/js/jquery.min.js}"></script>
 <script th:src="@{/static/js/bootstrap.min.js}"></script>
 <script th:src="@{/static/js/jquery.datetimepicker.full.js}"></script>
-<script th:src="@{/static/utils/httpUtils.js}"></script>
-
+<script th:src="@{/static/js/laydate.js}"></script>
+<script th:src="@{/static/utils/fetchUtils.js}"></script>
+<script th:src="@{/static/utils/dateUtils.js}"></script>
+<script th:src="@{/static/utils/strUtils.js}"></script>
 <script type="text/javascript" th:inline="javascript">
-    $(".close-window").click(function (e) {
-        window.history.go(-1);
-    })
+    var ctx = /*[[@{/}]]*/;
+    var readonly = /*[[${readonly}]]*/;
+
+    $(function () {
+        if(readonly){
+            $('table input').attr('readonly','readonly');
+        }
+
+        $('.risk-handle tr').each(function (e) {
+           if ($(this).attr('value')=='true'){
+               $(this).css('background-color','red');
+           }
+        });
+    });
+
+
+    $(".item-add").on('click',function () {
+        $(".item-model").before("<tr class='item-content' name='riskItem'>"+$(".item-model").html()+"</tr>");
+    });
+    $(document).on('click','.item-delete',function() {
+        if ($(".risk-handle tr").size() == 2) {
+            alert("无法删除，至少包含一个选项");
+        }else{
+            $(this).parent().parent().remove();
+        }
+    });
+    $(document).on('click','.item-mark',function () {
+        var img = strUtils.splitImg($(this));
+        if('icon-mark-normal.png'==img){
+            $(this).attr('src','/static/img/icon-mark.png');
+        }else{
+            $(this).attr('src','/static/img/icon-mark-normal.png');
+        }
+    });
+
+    $(".save").click(function () {
+        var risk = new Object();
+        $(".risk-handle .item-content").each(function (e) {
+            var hiddenTrouble = new Object();
+            hiddenTrouble.majors = $(this).find(".majors").val().trim();
+            hiddenTrouble.grade = $(this).find(".grade").val().trim();
+            hiddenTrouble.content = $(this).find(".content").val().trim();
+            hiddenTrouble.actions = $(this).find(".actions").val().trim();
+            hiddenTrouble.undertakeUnit = $(this).find(".undertakeUnit").val().trim();
+            hiddenTrouble.finishTime = $(this).find(".finishTime").val().trim();
+            hiddenTrouble.responsiblePerson = $(this).find(".responsiblePerson").val().trim();
+            hiddenTrouble.controllingMoney = $(this).find(".controllingMoney").val().trim();
+            hiddenTrouble.managementPlan = $(this).find(".managementPlan").val().trim();
+            hiddenTrouble.acceptanceTime = $(this).find(".acceptanceTime").val().trim();
+            hiddenTrouble.acceptancepeople = $(this).find(".acceptancepeople").val().trim();
+
+
+            hiddenTrouble.pitName = $("#pitName").val().trim();
+            hiddenTrouble.leader = $("#leader").val().trim();
+            hiddenTrouble.createTime = $(".createTime").html();
+            hiddenTrouble.rummager = $("#rummager").val().trim();
+            hiddenTrouble.organizationMan = $("#organizationMan").val().trim();
+            hiddenTrouble.entryPerson = $("#entryPerson").val().trim();
+
+            hiddenTroubles.push(hiddenTrouble);
+        });
+        ajaxUtils.postJson(ctx+"hiddenTrouble/add",hiddenTroubles,function (e) {
+            if(e.success){
+                window.location.href = ctx+"hiddenTrouble/list";
+            }else{
+                alert(e.message);
+            }
+        })
+    });
+
 </script>
 
 </body>

@@ -1,3 +1,7 @@
+com/shanglan/erp/repository/VideoRepository.class
+com/shanglan/erp/system/OSinfo.class
+com/shanglan/erp/ffmpeg/service/DefaultOutHandlerMethod.class
+com/shanglan/erp/system/EPlatform.class
 com/shanglan/erp/base/sms/VerifyResult.class
 com/shanglan/erp/repository/AttRepository$2.class
 com/shanglan/erp/repository/GoodsRepository$2.class
@@ -9,7 +13,7 @@ com/shanglan/erp/entity/Goods.class
 com/shanglan/erp/enums/AttRecordStatus.class
 com/shanglan/erp/entity/Sort.class
 com/shanglan/erp/base/sms/SmsProperties.class
-com/shanglan/erp/service/VideoService$1.class
+com/shanglan/erp/ffmpeg/dao/TaskDao.class
 com/shanglan/erp/repository/AttRepository.class
 com/shanglan/erp/entity/Config.class
 com/shanglan/erp/dto/RiskQueryDTO.class
@@ -23,6 +27,7 @@ com/shanglan/erp/base/sms/SmsService.class
 com/shanglan/erp/repository/RiskRepository.class
 com/shanglan/erp/repository/GoodsRepository$10.class
 com/shanglan/erp/service/DeptService.class
+com/shanglan/erp/ffmpeg/service/OutHandlerMethod.class
 com/shanglan/erp/dto/HiddenTroubleResultDTO.class
 com/shanglan/erp/repository/GoodsRepository$5.class
 com/shanglan/erp/repository/GoodsRepository$8.class
@@ -31,6 +36,8 @@ com/shanglan/erp/entity/HiddenTroubleItemOld.class
 com/shanglan/erp/service/UserService.class
 com/shanglan/erp/entity/Dept.class
 com/shanglan/erp/dto/User.class
+com/shanglan/erp/entity/VideoConfig.class
+com/shanglan/erp/repository/VideoConfigRepository.class
 com/shanglan/erp/repository/GoodsRepository$7.class
 com/shanglan/erp/config/SpringRedisConfig.class
 com/shanglan/erp/service/VideoService.class
@@ -41,6 +48,7 @@ com/shanglan/erp/dto/ExcelBean.class
 com/shanglan/erp/entity/Video.class
 com/shanglan/erp/enums/HiddenTroubleLevels.class
 com/shanglan/erp/repository/RiskConditionRepository.class
+com/shanglan/erp/ffmpeg/service/OutHandler.class
 com/shanglan/erp/converter/LocalDateTimeConverter.class
 com/shanglan/erp/repository/HiddenTroubleItemRepository.class
 com/shanglan/erp/entity/HiddenTrouble.class
@@ -55,6 +63,7 @@ com/shanglan/erp/repository/SortRepository$1.class
 com/shanglan/erp/repository/AttRecordRepository.class
 com/shanglan/erp/dto/HiddenTroubleDTO.class
 com/shanglan/erp/entity/AttMachine.class
+com/shanglan/erp/ffmpeg/service/FFmpegManager.class
 com/shanglan/erp/repository/GoodsRepository$6.class
 com/shanglan/erp/repository/GoodsRepository$11.class
 com/shanglan/erp/entity/AttRecord.class
@@ -64,13 +73,16 @@ com/shanglan/erp/base/FileUploadProgress.class
 com/shanglan/erp/repository/CategoryRepository.class
 com/shanglan/erp/config/AliyunOssConfig.class
 com/shanglan/erp/repository/RiskItemRepository.class
+com/shanglan/erp/ffmpeg/config/FFmpegConfig.class
 com/shanglan/erp/repository/GoodsRepository$9.class
 com/shanglan/erp/base/ExcelUtils.class
+com/shanglan/erp/ffmpeg/service/TaskHandler.class
 com/shanglan/erp/dto/WfChukuItem.class
 com/shanglan/erp/repository/AttRepository$1.class
 com/shanglan/erp/entity/AttJoinAttRecord.class
 com/shanglan/erp/entity/AttMgrJoinatt.class
 com/shanglan/erp/base/AliyunNewOss.class
+com/shanglan/erp/ffmpeg/service/TaskHandlerImpl.class
 com/shanglan/erp/base/DateUtils.class
 com/shanglan/erp/config/SmsConfig.class
 com/shanglan/erp/utils/CmdExecuter.class
@@ -96,6 +108,7 @@ com/shanglan/erp/base/sms/VerifyCodeService.class
 com/shanglan/erp/repository/AttRepository$3.class
 com/shanglan/erp/repository/SortRepository.class
 com/shanglan/erp/interf/IStringGetter.class
+com/shanglan/erp/interf/OutHandler.class
 com/shanglan/erp/enums/StreamType.class
 com/shanglan/erp/repository/ErpStorageRepository.class
 com/shanglan/erp/dto/GoodsDTO.class
@@ -108,6 +121,8 @@ com/shanglan/erp/repository/UserRepository$2.class
 com/shanglan/erp/repository/RiskValueRepository.class
 com/shanglan/erp/dto/QueryDTO.class
 com/shanglan/erp/converter/LocalDateConverter.class
+com/shanglan/erp/ffmpeg/dao/TaskDaoImpl.class
+com/shanglan/erp/ffmpeg/entity/TaskEntity.class
 com/shanglan/erp/base/sms/StorageService.class
 com/shanglan/erp/dto/CategoryTreeDTO.class
 com/shanglan/erp/dto/AttForm.class
