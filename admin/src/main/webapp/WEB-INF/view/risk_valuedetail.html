@@ -64,6 +64,14 @@
         .risk-handle  .td-control{
             vertical-align: middle !important;
         }
+        .panel .panel-body .table>tbody>tr>td{
+            border-top: none;
+        }
+        .table-fix .table-content-center{
+            vertical-align: middle;
+            text-align: center;
+            border-bottom: 1px solid #333;
+        }
     </style>
 
 </head>
@@ -127,12 +135,12 @@
                             </tr>
                         </tbody>
                     </table>
-
-                    <table class="table table-bordered">
+                    <div class="table-responsive">
+                        <table border="1" cellpadding="10" width="100%" class="table table-fix table-layout" >
                         <thead>
                             <tr>
-                                <th class="text-center" style="width: 50%">管控措施</th>
-                                <th class="text-center" style="width: 50%">管控措施落实情况</th>
+                                <th class="text-center table-content-center" style="width: 50%">管控措施</th>
+                                <th class="text-center table-content-center" style="width: 50%">管控措施落实情况</th>
                             </tr>
                         </thead>
                         <tbody class="risk-handle">
@@ -144,6 +152,7 @@
                             </tr>
                         </tbody>
                     </table>
+                    </div>
                     <div class="form-group">
                         <div class="col-sm-12 text-center" style="margin-top: 10px">
                             <!--<button type="button" class="btn btn-success save">保存</button>-->
