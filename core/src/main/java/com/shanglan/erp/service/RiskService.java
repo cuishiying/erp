@@ -146,7 +146,8 @@ public class RiskService {
             //关键词
             if(queryVo!=null&& StringUtils.isNotBlank(queryVo.getKeyword())){
                 predicate.add(cb.or(cb.like(root.<String>get("riskAddr"), "%" + queryVo.getKeyword().trim() + "%"),
-                        cb.like(root.<String>get("riskDept"), "%" + queryVo.getKeyword().trim() + "%")));
+                        cb.like(root.<String>get("riskElement"), "%" + queryVo.getKeyword().trim() + "%"),
+                        cb.like(root.<String>get("riskDesc"), "%" + queryVo.getKeyword().trim() + "%")));
 
             }
             //风险分级
