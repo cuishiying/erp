@@ -206,10 +206,10 @@
     $(document).on('click','.item-mark',function () {
         var img = strUtils.splitImg($(this));
         if('icon-mark-normal.png'==img){
-            $(this).attr('src','/static/img/icon-mark.png');
+            $(this).attr('src',ctx+'static/img/icon-mark.png');
             $(this).attr('value',true);
         }else{
-            $(this).attr('src','/static/img/icon-mark-normal.png');
+            $(this).attr('src',ctx+'static/img/icon-mark-normal.png');
             $(this).attr('value',false);
         }
     });

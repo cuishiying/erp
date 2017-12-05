@@ -76,9 +76,29 @@ public class RiskController {
         model.addObject("queryDTO", queryDTO);
         return model;
     }
+    @RequestMapping(path = "/value/list/read", method = RequestMethod.GET)
+    public ModelAndView riskValueListRead(String username, String truename, RiskQueryDTO queryDTO, @PageableDefault(value = 10, sort = "updateTime", direction = Sort.Direction.DESC) Pageable pageable, HttpServletRequest request) {
+        if (StringUtils.isNotEmpty(username) && StringUtils.isNotEmpty(truename)) {
+            User user = userService.findUserByUsernameAndtruename(username, truename);
+            request.getSession().invalidate();
+            request.getSession().setAttribute("uid", user.getUid());
+        }
+        ModelAndView model = new ModelAndView("risk_valuelist_read");
+        Page<RiskValue> page = riskService.findRiskValues(queryDTO, pageable);
+        List<RiskItem> riskLevels = riskService.findRiskItems("风险分级");
+        model.addObject("riskLevels", riskLevels);
+        model.addObject("page", page);
+        model.addObject("queryDTO", queryDTO);
+        return model;
+    }
 
     @RequestMapping(path = "/value/add",method = RequestMethod.GET)
-    public ModelAndView addRiskValueView(){
+    public ModelAndView addRiskValueView(String username, String truename, HttpServletRequest request){
+        if (StringUtils.isNotEmpty(username) && StringUtils.isNotEmpty(truename)) {
+            User user = userService.findUserByUsernameAndtruename(username, truename);
+            request.getSession().invalidate();
+            request.getSession().setAttribute("uid", user.getUid());
+        }
         ModelAndView model = new ModelAndView("risk_addvalue");
         List<RiskItem> riskLevels = riskService.findRiskItems("风险分级");
         model.addObject("riskLevels",riskLevels);

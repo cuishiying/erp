@@ -29,7 +29,7 @@
             overflow:hidden;
             white-space:nowrap;
             text-overflow:ellipsis;
-            text-align: center;
+            /*text-align: center;*/
         }
         .table-fix .table-content-center{
             vertical-align: middle;
@@ -67,89 +67,88 @@
 <body>
 <div id="wrapper">
     <!--<nav th:replace="common/fragment :: sidebar"></nav>-->
-    <div class="main">
-        <div class="main-content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12">
 
-                        <div class="panel">
-                            <!--<div class="panel-heading">-->
-                                <!--<h3 class="panel-title">山西铺龙湾煤业有限公司隐患排查治理“五定”落实表</h3>-->
-                            <!--</div>-->
+            <div class="panel">
+                <!--<div class="panel-heading">-->
+                <!--<h3 class="panel-title">山西铺龙湾煤业有限公司隐患排查治理“五定”落实表</h3>-->
+                <!--</div>-->
 
 
-                            <div class="panel-body">
-                                <div>
-                                    <a type="button" class="btn btn-primary btn-export noprint" th:href="@{/hiddenTrouble/export/}+${hiddenTroubleId}">导出</a>
-                                    <button type="button" class="btn btn-primary btn-print noprint" onclick="javascript:window.print();">打印</button>
-                                    <button type="button" class="btn btn-primary btn-toggle noprint">隐藏</button>
-                                </div>
-                                <!--startprint-->
-                                <div class="print" >
-                                    <h3 class="table-title">事故隐患排查治理登记台账</h3>
-                                    <div class="table-sub-title">
-                                        <span class="table-date" th:text="${hiddenTrouble.createMonthStr}">20&nbsp;&nbsp;&nbsp;&nbsp;年&nbsp;&nbsp;&nbsp;&nbsp;月</span>
-                                    </div>
-                                    <div class="table-responsive">
-                                        <table border="1" cellpadding="10" width="100%" class="table table-fix table-layout">
-                                            <thead>
-                                            <tr>
-                                                <th rowspan="2" class="table-content-center" scope="col" style="width: 2%">序<br>号</th>
-                                                <th rowspan="2" class="table-content-center" scope="col" style="width: 8%">排查地点</th>
-                                                <th rowspan="2" class="table-content-center" scope="col" style="width: 8%">排查<br>时间</th>
-                                                <th rowspan="2" class="table-content-center" scope="col" style="width: 5%">排查<br>人员</th>
-                                                <th rowspan="2" class="table-content-center" scope="col" style="width: 15%">存在的隐患及问题</th>
-                                                <th rowspan="2" class="table-content-center" scope="col" style="width: 5%">类别</th>
-                                                <th rowspan="2" class="table-content-center" scope="col" style="width: 5%">等级</th>
-                                                <th colspan="5" class="table-content-center no-padding" scope="col" style="width: 30%">隐患整改“五落实”</th>
-                                                <th rowspan="2" class="table-content-center" scope="col" style="width: 5%">督办部<br>门/人员</th>
-                                                <th rowspan="2" class="table-content-center" scope="col" style="width: 8%">验收<br>时间</th>
-                                                <th rowspan="2" class="table-content-center" scope="col" style="width: 5%">验收部<br>门/人员</th>
-                                                <th rowspan="2" class="table-content-center" scope="col" style="width: 10%">整改结果</th>
-                                            </tr>
-
-                                            <tr>
-                                                <th class="table-content-center no-padding" scope="col" style="width: 14%">整改措施</th>
-                                                <th class="table-content-center no-padding" scope="col" style="width: 4%">责任单位<br>/责任人</th>
-                                                <th class="table-content-center no-padding" scope="col" style="width: 4%">资金</th>
-                                                <th class="table-content-center no-padding" scope="col" style="width: 4%">时限</th>
-                                                <th class="table-content-center no-padding" scope="col" style="width: 4%">预案</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr class="item-content" th:each="item:${hiddenTrouble.hiddentroubles}">
-                                                <td th:text="${item.orderNumber}"></td>
-                                                <td th:text="${item.checkAddress}"></td>
-                                                <td th:text="${item.checkTime}"></td>
-                                                <td th:text="${item.checkPerson}"></td>
-                                                <td th:text="${item.content}"></td>
-                                                <td th:text="${item.type}"></td>
-                                                <td th:text="${item.level}"></td>
-                                                <td th:text="${item.actions}" ></td>
-                                                <td th:text="${item.responsiblePerson}"></td>
-                                                <td th:text="${item.controllingMoney}"></td>
-                                                <td th:text="${item.timeLimit}"></td>
-                                                <td th:text="${item.managementPlan}"></td>
-                                                <td th:text="${item.handlePerson}"></td>
-                                                <td th:text="${item.acceptanceTime}"></td>
-                                                <td th:text="${item.acceptancePeople}"></td>
-                                                <td th:text="${item.result}"></td>
-                                            </tr>
-
-                                            </tbody>
-
-                                        </table>
-                                    </div>
-                                </div>
-                                <!--endprint-->
-                            </div>
-
-                            <!--<div class="panel-footer"></div>-->
+                <div class="panel-body">
+                    <div>
+                        <a type="button" class="btn btn-primary btn-export noprint" th:href="@{/hiddenTrouble/export/}+${hiddenTroubleId}">导出</a>
+                        <button type="button" class="btn btn-primary btn-print noprint" onclick="javascript:window.print();">打印</button>
+                        <!--<button type="button" class="btn btn-primary btn-toggle noprint">隐藏</button>-->
+                    </div>
+                    <!--startprint-->
+                    <div class="print" >
+                        <h3 class="table-title">事故隐患排查治理登记台账</h3>
+                        <div class="table-sub-title">
+                            <span class="table-date" th:text="${hiddenTrouble.createMonthStr}">20&nbsp;&nbsp;&nbsp;&nbsp;年&nbsp;&nbsp;&nbsp;&nbsp;月</span>
                         </div>
+                        <div class="table-responsive">
+                            <table border="1" cellpadding="10" width="100%" class="table table-fix table-layout">
+                                <thead>
+                                <tr>
+                                    <th rowspan="2" class="table-content-center" scope="col" style="width: 2%">序<br>号</th>
+                                    <th rowspan="2" class="table-content-center" scope="col" style="width: 8%">排查地点</th>
+                                    <th rowspan="2" class="table-content-center" scope="col" style="width: 8%">排查<br>时间</th>
+                                    <th rowspan="2" class="table-content-center" scope="col" style="width: 5%">排查<br>人员</th>
+                                    <th rowspan="2" class="table-content-center" scope="col" style="width: 15%">存在的隐患及问题</th>
+                                    <th rowspan="2" class="table-content-center" scope="col" style="width: 5%">类别</th>
+                                    <th rowspan="2" class="table-content-center" scope="col" style="width: 5%">等级</th>
+                                    <th colspan="5" class="table-content-center no-padding" scope="col" style="width: 30%">隐患整改“五落实”</th>
+                                    <th rowspan="2" class="table-content-center" scope="col" style="width: 5%">督办部<br>门/人员</th>
+                                    <th rowspan="2" class="table-content-center" scope="col" style="width: 8%">验收<br>时间</th>
+                                    <th rowspan="2" class="table-content-center" scope="col" style="width: 5%">验收部<br>门/人员</th>
+                                    <th rowspan="2" class="table-content-center" scope="col" style="width: 10%">整改结果</th>
+                                </tr>
 
+                                <tr>
+                                    <th class="table-content-center no-padding" scope="col" style="width: 14%">整改措施</th>
+                                    <th class="table-content-center no-padding" scope="col" style="width: 4%">责任单位<br>/责任人</th>
+                                    <th class="table-content-center no-padding" scope="col" style="width: 4%">资金</th>
+                                    <th class="table-content-center no-padding" scope="col" style="width: 4%">时限</th>
+                                    <th class="table-content-center no-padding" scope="col" style="width: 4%">预案</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="item-content" th:each="item:${hiddenTrouble.hiddentroubles}">
+                                    <td th:text="${item.orderNumber}"></td>
+                                    <td th:text="${item.checkAddress}"></td>
+                                    <td th:text="${item.checkTime}"></td>
+                                    <td th:text="${item.checkPerson}"></td>
+                                    <td th:text="${item.content}"></td>
+                                    <td th:text="${item.type}"></td>
+                                    <td th:text="${item.level}"></td>
+                                    <td th:text="${item.actions}" ></td>
+                                    <td th:text="${item.responsiblePerson}"></td>
+                                    <td th:text="${item.controllingMoney}"></td>
+                                    <td th:text="${item.timeLimit}"></td>
+                                    <td th:text="${item.managementPlan}"></td>
+                                    <td th:text="${item.handlePerson}"></td>
+                                    <td th:text="${item.acceptanceTime}"></td>
+                                    <td th:text="${item.acceptancePeople}"></td>
+                                    <td th:text="${item.result}"></td>
+                                </tr>
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                    <!--endprint-->
+                    <div class="form-group noprint">
+                        <div class="col-sm-12 text-center" style="margin-top: 10px">
+                            <!--<button type="button" class="btn btn-success save">保存</button>-->
+                            <button type="button" class="btn btn-danger" onclick="javascript:history.go(-1);">关闭</button>
+                        </div>
                     </div>
                 </div>
+
+                <!--<div class="panel-footer"></div>-->
             </div>
 
         </div>

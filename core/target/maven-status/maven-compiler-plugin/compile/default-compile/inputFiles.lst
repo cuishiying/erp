@@ -39,6 +39,7 @@
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/dto/QueryDTO.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/enums/HiddenTroubleLevels.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/dto/RiskQueryDTO.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/RiskHandle.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/RiskCondition.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/service/VideoService.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/Dept.java
@@ -72,7 +73,6 @@
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/HiddenTroubleRepository.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/HiddenTroubleResultRepository.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/service/HiddenTroubleService.java
-/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/RiskValueOld.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/AttJoinAttRecord.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/StorageService.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/UserRepository.java
@@ -96,7 +96,6 @@
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/service/AutoService.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/dto/WfChukuHead.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/sms/VerifyCodeServiceImpl.java
-/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/HiddenTroubleItemOld.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/ffmpeg/service/FFmpegManager.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/sms/VerifyCodeService.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/HiddenTroubleItemRepository.java

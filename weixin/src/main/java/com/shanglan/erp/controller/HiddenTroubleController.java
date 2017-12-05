@@ -82,8 +82,9 @@ public class HiddenTroubleController {
     }
 
     @RequestMapping(path = "/add",method = RequestMethod.POST)
-    public AjaxResponse add(@RequestBody HiddenTrouble hiddenTrouble){
-        AjaxResponse response = hiddenTroubleService.save(hiddenTrouble);
+    public AjaxResponse add(@RequestBody HiddenTrouble hiddenTrouble,HttpServletRequest request){
+        Integer uid = (Integer) request.getSession().getAttribute("uid");
+        AjaxResponse response = hiddenTroubleService.save(uid,hiddenTrouble);
         return response;
     }
 

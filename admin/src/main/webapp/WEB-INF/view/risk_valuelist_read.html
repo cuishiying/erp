@@ -19,7 +19,7 @@
             margin: 5px;
         }
         .table{
-            /*table-layout: fixed;*/
+            table-layout: fixed;
         }
         .td-ellipsis{
             overflow:hidden;
@@ -32,34 +32,47 @@
             margin-top: 5px;
             margin-right: 50px;
         }
-        .no-padding{
-            padding: 0px;
-        }
     </style>
 </head>
 <body>
 <div id="wrapper">
-    <div class="">
-        <div class="col-md-12 no-padding">
+    <div class="row">
+        <div class="col-md-12">
             <div class="panel">
                 <div class="panel-heading">
                     <h3 class="panel-title">安全风险管控列表</h3>
                 </div>
+                <form th:action="@{/risk/value/list}" method="get">
+                    <div class="controller form-inline">
+                        <input type="text" class="form-control" name="keyword" th:value="${queryDTO.keyword}" placeholder="危险因素、风险描述、风险地点..." style="width: 300px"/>
+                        <!--<select class="form-control risk_name" name="riskTypeId">-->
+                            <!--<option value="">类型</option>-->
+                            <!--<option th:each="c:${riskTypes}"  th:text="${c?.name}" th:id="${c?.id}" th:value="${c?.id}" th:selected="${queryDTO!=null&&queryDTO.riskTypeId==c.id}"></option>-->
+                        <!--</select>-->
+                        <!--<select class="form-control risk_name" name="riskLevelId">-->
+                            <!--<option value="">风险分级</option>-->
+                            <!--<option th:each="c:${riskLevels}"  th:text="${c?.name}" th:id="${c?.id}" th:value="${c?.id}" th:selected="${queryDTO!=null&&queryDTO.riskLevelId==c.id}"></option>-->
+                        <!--</select>-->
+                        <!--<input type="text" class="form-control date" placeholder="开始时间(检查时间)" name="beginDate" th:value="${queryDTO.beginDate?.toString()}">-->
+                        <!--<input type="text" class="form-control date" placeholder="结束时间(检查时间)" name="endDate" th:value="${queryDTO.endDate?.toString()}">-->
+                        <button type="submit" class="btn btn-primary">搜索</button>
+                        <span th:text="${'共 '+page.totalElements+' 条'}"></span>
+                    </div>
+                </form>
                 <div class="panel-body">
-                    <div class="table-responsive">
-                        <table class="table table-striped table-bordered" border="1" cellpadding="10" width="100%">
+                    <table class="table table-striped table-bordered">
                         <thead>
                             <tr>
-                                <th class="text-center" scope="col" style="width: 15%">危险因素</th>
-                                <th class="text-center" scope="col" style="width: 15%">风险描述</th>
-                                <th class="text-center" scope="col" style="width: 10%">风险地点</th>
-                                <th class="text-center" scope="col" style="width: 5%">级别</th>
-                                <th class="text-center" scope="col" style="width: 5%">责任单位</th>
-                                <th class="text-center" scope="col" style="width: 5%">责任人</th>
-                                <th class="text-center" scope="col" style="width: 10%">矿分管领导</th>
-                                <th class="text-center" scope="col" style="width: 5%">组织领导</th>
-                                <th class="text-center" scope="col" style="width: 15%">时限</th>
-                                <th class="text-center" scope="col" style="width: 15%">操作</th>
+                                <th class="text-center" style="width: 15%">危险因素</th>
+                                <th class="text-center" style="width: 15%">风险描述</th>
+                                <th class="text-center" style="width: 10%">风险地点</th>
+                                <th class="text-center" style="width: 5%">级别</th>
+                                <th class="text-center" style="width: 5%">责任单位</th>
+                                <th class="text-center" style="width: 5%">责任人</th>
+                                <th class="text-center" style="width: 10%">矿分管领导</th>
+                                <th class="text-center" style="width: 5%">组织领导</th>
+                                <th class="text-center" style="width: 15%">时限</th>
+                                <th class="text-center" style="width: 15%">操作</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -82,7 +95,6 @@
 
                         </tbody>
                     </table>
-                    </div>
                 </div>
             </div>
 

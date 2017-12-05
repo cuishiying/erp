@@ -35,6 +35,8 @@ public class HiddenTroubleService {
     private HiddenTroubleRepository hiddenTroubleRepository;
     @Autowired
     private HiddenTroubleResultRepository hiddenTroubleResultRepository;
+    @Autowired
+    private UserService userService;
 
     public AjaxResponse save(List<HiddenTroubleItem> list){
         try{
@@ -46,8 +48,14 @@ public class HiddenTroubleService {
         }
     }
 
-    public AjaxResponse save(HiddenTrouble hiddenTrouble){
+    public AjaxResponse save(Integer uid,HiddenTrouble hiddenTrouble){
         try{
+            if(null!=uid){
+                User user = userService.findByUid(uid);
+                hiddenTrouble.setEntryPerson(user.getUsername());
+            }else {
+                hiddenTrouble.setEntryPerson(null);
+            }
             String[] split = hiddenTrouble.getCreateMonth().split("-");
             hiddenTrouble.setCreateMonthStr(split[0]+"年"+split[1]+"月");
             hiddenTrouble.setCreateTime(LocalDateTime.now());

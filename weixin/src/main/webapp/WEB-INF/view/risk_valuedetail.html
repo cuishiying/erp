@@ -22,6 +22,13 @@
         .table{
             table-layout: fixed;
         }
+        .no-padding{
+            padding: 0px;
+        }
+        .no-padding input{
+            border-bottom: 1px solid #333333;
+            width: 100%;
+        }
         .td-ellipsis{
             overflow:hidden;
             white-space:nowrap;
@@ -34,7 +41,7 @@
             margin-right: 50px;
         }
         .head-table tr>td{
-            width: 50%;
+            /*width: 50%;*/
         }
         .head-table .head-table-body td{
             border-top: 0px;
@@ -56,7 +63,7 @@
             border-right-width:0px;
             border-bottom-width:0px;
             outline:none;
-            width: 100%;
+            /*width: 100%;*/
         }
         .risk-handle img{
             margin-left: 20px;
@@ -77,65 +84,105 @@
 </head>
 <body>
 <div id="wrapper">
-    <div class="row">
-        <div class="col-md-12">
+    <div class="">
+        <div class="col-md-12 no-padding">
             <div class="panel">
                 <div class="panel-heading">
                     <h3 class="panel-title">风险详情</h3>
                 </div>
                 <div class="panel-body">
+                    <ul  class="no-padding">
+                        <li>
+                            <label for="riskElement">危险因素:&nbsp;&nbsp;</label>
+                            <input type="text" class="riskElement" id="riskElement" th:value="${riskValue.riskElement}">
+                        </li>
+                        <li>
+                            <label for="riskDesc">风险描述:&nbsp;&nbsp;</label>
+                            <input type="text" class="riskDesc" id="riskDesc" th:value="${riskValue.riskDesc}">
+                        </li>
+                        <li>
+                            <label for="riskAddr">风险地点:&nbsp;&nbsp;</label>
+                            <input type="text" class="riskAddr" id="riskAddr" th:value="${riskValue.riskAddr}">
+                        </li>
+                        <li>
+                            <label for="riskLevel">级别:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                            <input type="text" class="riskLevel" id="riskLevel" th:value="${riskValue.riskLevel}">
+                        </li>
+                        <li>
+                            <label for="riskDept">责任单位:&nbsp;&nbsp;</label>
+                            <input type="text" class="riskDept" id="riskDept" th:value="${riskValue.riskDept}">
+                        </li>
+                        <li>
+                            <label for="responsible">责任人:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                            <input type="text" class="responsible" id="responsible" th:value="${riskValue.responsible}">
+                        </li>
+                        <li>
+                            <label for="branchLeader">矿分管领导:</label>
+                            <input type="text" class="branchLeader" id="branchLeader" th:value="${riskValue.branchLeader}">
+                        </li>
+                        <li>
+                            <label for="orgLeader">组织领导:&nbsp;&nbsp;</label>
+                            <input type="text" class="orgLeader" id="orgLeader" th:value="${riskValue.orgLeader}">
+                        </li>
+                        <li>
+                            <label for="handleTimeLimit">时限:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                            <input type="text" class="handleTimeLimit" id="handleTimeLimit" th:value="${riskValue.handleTimeLimit}">
+                        </li>
 
-                    <table class="table head-table">
-                        <tbody class="head-table-body">
-                            <tr class="item-content " name="riskItem">
-                                <td  class="td-ellipsis">
-                                    <label for="riskElement">危险因素:&nbsp;&nbsp;</label>
-                                    <input type="text" class="riskElement" id="riskElement" th:value="${riskValue.riskElement}">
-                                </td>
-                                <td  class="td-ellipsis">
-                                    <label for="riskDesc">风险描述:&nbsp;&nbsp;</label>
-                                    <input type="text" class="riskDesc" id="riskDesc" th:value="${riskValue.riskDesc}">
-                                </td>
-                            </tr>
-                            <tr class="item-content " name="riskItem">
-                                <td  class="td-ellipsis">
-                                    <label for="riskAddr">风险地点:&nbsp;&nbsp;</label>
-                                    <input type="text" class="riskAddr" id="riskAddr" th:value="${riskValue.riskAddr}">
-                                </td>
-                                <td  class="td-ellipsis">
-                                    <label for="riskLevel">级别:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                    <input type="text" class="riskLevel" id="riskLevel" th:value="${riskValue.riskLevel}">
-                                </td>
-                            </tr>
-                            <tr class="item-content " name="riskItem">
-                                <td  class="td-ellipsis">
-                                    <label for="riskDept">责任单位:&nbsp;&nbsp;</label>
-                                    <input type="text" class="riskDept" id="riskDept" th:value="${riskValue.riskDept}">
-                                </td>
-                                <td  class="td-ellipsis">
-                                    <label for="responsible">责任人:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                    <input type="text" class="responsible" id="responsible" th:value="${riskValue.responsible}">
-                                </td>
-                            </tr>
-                            <tr class="item-content" name="riskItem">
-                                <td  class="td-ellipsis">
-                                    <label for="branchLeader">矿分管领导:</label>
-                                    <input type="text" class="branchLeader" id="branchLeader" th:value="${riskValue.branchLeader}">
-                                </td>
-                                <td  class="td-ellipsis">
-                                    <label for="orgLeader">组织领导:&nbsp;&nbsp;</label>
-                                    <input type="text" class="orgLeader" id="orgLeader" th:value="${riskValue.orgLeader}">
-                                </td>
-                            </tr>
-                            <tr class="item-content " name="riskItem">
-                                <td  class="td-ellipsis">
-                                    <label for="handleTimeLimit">时限:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                    <input type="text" class="handleTimeLimit" id="handleTimeLimit" th:value="${riskValue.handleTimeLimit}">
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="table-responsive">
+
+                    </ul>
+
+                    <!--<table class="table head-table">-->
+                        <!--<tbody class="head-table-body">-->
+                            <!--<tr class="item-content " name="riskItem">-->
+                                <!--<td  class="td-ellipsis">-->
+                                    <!--<label for="riskElement">危险因素:&nbsp;&nbsp;</label>-->
+                                    <!--<input type="text" class="riskElement" id="riskElement" th:value="${riskValue.riskElement}">-->
+                                <!--</td>-->
+                                <!--<td  class="td-ellipsis">-->
+                                    <!--<label for="riskDesc">风险描述:&nbsp;&nbsp;</label>-->
+                                    <!--<input type="text" class="riskDesc" id="riskDesc" th:value="${riskValue.riskDesc}">-->
+                                <!--</td>-->
+                            <!--</tr>-->
+                            <!--<tr class="item-content " name="riskItem">-->
+                                <!--<td  class="td-ellipsis">-->
+                                    <!--<label for="riskAddr">风险地点:&nbsp;&nbsp;</label>-->
+                                    <!--<input type="text" class="riskAddr" id="riskAddr" th:value="${riskValue.riskAddr}">-->
+                                <!--</td>-->
+                                <!--<td  class="td-ellipsis">-->
+                                    <!--<label for="riskLevel">级别:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>-->
+                                    <!--<input type="text" class="riskLevel" id="riskLevel" th:value="${riskValue.riskLevel}">-->
+                                <!--</td>-->
+                            <!--</tr>-->
+                            <!--<tr class="item-content " name="riskItem">-->
+                                <!--<td  class="td-ellipsis">-->
+                                    <!--<label for="riskDept">责任单位:&nbsp;&nbsp;</label>-->
+                                    <!--<input type="text" class="riskDept" id="riskDept" th:value="${riskValue.riskDept}">-->
+                                <!--</td>-->
+                                <!--<td  class="td-ellipsis">-->
+                                    <!--<label for="responsible">责任人:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>-->
+                                    <!--<input type="text" class="responsible" id="responsible" th:value="${riskValue.responsible}">-->
+                                <!--</td>-->
+                            <!--</tr>-->
+                            <!--<tr class="item-content" name="riskItem">-->
+                                <!--<td  class="td-ellipsis">-->
+                                    <!--<label for="branchLeader">矿分管领导:</label>-->
+                                    <!--<input type="text" class="branchLeader" id="branchLeader" th:value="${riskValue.branchLeader}">-->
+                                <!--</td>-->
+                                <!--<td  class="td-ellipsis">-->
+                                    <!--<label for="orgLeader">组织领导:&nbsp;&nbsp;</label>-->
+                                    <!--<input type="text" class="orgLeader" id="orgLeader" th:value="${riskValue.orgLeader}">-->
+                                <!--</td>-->
+                            <!--</tr>-->
+                            <!--<tr class="item-content " name="riskItem">-->
+                                <!--<td  class="td-ellipsis">-->
+                                    <!--<label for="handleTimeLimit">时限:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>-->
+                                    <!--<input type="text" class="handleTimeLimit" id="handleTimeLimit" th:value="${riskValue.handleTimeLimit}">-->
+                                <!--</td>-->
+                            <!--</tr>-->
+                        <!--</tbody>-->
+                    <!--</table>-->
+                    <div class="">
                         <table border="1" cellpadding="10" width="100%" class="table table-fix table-layout" >
                         <thead>
                             <tr>
@@ -145,7 +192,7 @@
                         </thead>
                         <tbody class="risk-handle">
                             <tr class="item-content" name="riskItem" th:each="item:${riskValue.riskHandles}" th:value="${item.warming}">
-                                <td  class="td-input" th:text="${item.precaution}">
+                                <td  class="td-input" th:text="${item.precaution}" style="word-break:break-all">
                                 </td>
                                 <td  class="td-input" th:text="${item.handleResult}">
                                 </td>
@@ -185,6 +232,7 @@
                $(this).css('background-color','red');
            }
         });
+        $("body").css("height", $(window).height());
     });
 
 

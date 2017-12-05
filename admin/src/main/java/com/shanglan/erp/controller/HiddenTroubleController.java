@@ -6,8 +6,11 @@ import com.shanglan.erp.dto.HiddenTroubleResultDTO;
 import com.shanglan.erp.entity.HiddenTrouble;
 import com.shanglan.erp.entity.HiddenTroubleItem;
 import com.shanglan.erp.entity.HiddenTroubleResult;
+import com.shanglan.erp.entity.User;
 import com.shanglan.erp.enums.HiddenTroubleLevels;
 import com.shanglan.erp.service.HiddenTroubleService;
+import com.shanglan.erp.service.UserService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -31,10 +34,30 @@ public class HiddenTroubleController {
 
     @Autowired
     private HiddenTroubleService hiddenTroubleService;
+    @Autowired
+    private UserService userService;
 
     @RequestMapping(path = "/list",method = RequestMethod.GET)
     public ModelAndView hiddenTroubleListView(String username, String truename, HiddenTroubleDTO hiddenTroubleDTO, @PageableDefault(value = 10,sort = "createTime",direction = Sort.Direction.DESC) Pageable pageable, HttpServletRequest request){
+        if (StringUtils.isNotEmpty(username) && StringUtils.isNotEmpty(truename)) {
+            User user = userService.findUserByUsernameAndtruename(username, truename);
+            request.getSession().invalidate();
+            request.getSession().setAttribute("uid", user.getUid());
+        }
         ModelAndView model = new ModelAndView("hiddentrouble_list");
+        Page<HiddenTrouble> page = hiddenTroubleService.findAll(hiddenTroubleDTO,pageable);
+        model.addObject("page",page);
+        model.addObject("query",hiddenTroubleDTO);
+        return model;
+    }
+    @RequestMapping(path = "/list/read",method = RequestMethod.GET)
+    public ModelAndView hiddenTroubleListViewRead(String username, String truename, HiddenTroubleDTO hiddenTroubleDTO, @PageableDefault(value = 10,sort = "createTime",direction = Sort.Direction.DESC) Pageable pageable, HttpServletRequest request){
+        if (StringUtils.isNotEmpty(username) && StringUtils.isNotEmpty(truename)) {
+            User user = userService.findUserByUsernameAndtruename(username, truename);
+            request.getSession().invalidate();
+            request.getSession().setAttribute("uid", user.getUid());
+        }
+        ModelAndView model = new ModelAndView("hiddentrouble_list_read");
         Page<HiddenTrouble> page = hiddenTroubleService.findAll(hiddenTroubleDTO,pageable);
         model.addObject("page",page);
         model.addObject("query",hiddenTroubleDTO);
@@ -63,7 +86,12 @@ public class HiddenTroubleController {
     }
 
     @RequestMapping(path = "/add",method = RequestMethod.GET)
-    public ModelAndView addView(){
+    public ModelAndView addView(String username, String truename, HttpServletRequest request){
+        if (StringUtils.isNotEmpty(username) && StringUtils.isNotEmpty(truename)) {
+            User user = userService.findUserByUsernameAndtruename(username, truename);
+            request.getSession().invalidate();
+            request.getSession().setAttribute("uid", user.getUid());
+        }
         ModelAndView model = new ModelAndView("hiddentrouble_add");
         model.addObject("level", HiddenTroubleLevels.values());
         model.addObject("curMonth", new Date());
@@ -71,8 +99,9 @@ public class HiddenTroubleController {
     }
 
     @RequestMapping(path = "/add",method = RequestMethod.POST)
-    public AjaxResponse add(@RequestBody HiddenTrouble hiddenTrouble){
-        AjaxResponse response = hiddenTroubleService.save(hiddenTrouble);
+    public AjaxResponse add(@RequestBody HiddenTrouble hiddenTrouble,HttpServletRequest request){
+        Integer uid = (Integer) request.getSession().getAttribute("uid");
+        AjaxResponse response = hiddenTroubleService.save(uid,hiddenTrouble);
         return response;
     }
 

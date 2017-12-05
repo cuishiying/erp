@@ -25,6 +25,7 @@ com/shanglan/erp/base/StorageService.class
 com/shanglan/erp/base/UploadStatus.class
 com/shanglan/erp/base/sms/SmsService.class
 com/shanglan/erp/repository/RiskRepository.class
+com/shanglan/erp/entity/RiskHandle.class
 com/shanglan/erp/repository/GoodsRepository$10.class
 com/shanglan/erp/service/DeptService.class
 com/shanglan/erp/ffmpeg/service/OutHandlerMethod.class
@@ -32,7 +33,6 @@ com/shanglan/erp/dto/HiddenTroubleResultDTO.class
 com/shanglan/erp/repository/GoodsRepository$5.class
 com/shanglan/erp/repository/GoodsRepository$8.class
 com/shanglan/erp/entity/RiskItem.class
-com/shanglan/erp/entity/HiddenTroubleItemOld.class
 com/shanglan/erp/service/UserService.class
 com/shanglan/erp/entity/Dept.class
 com/shanglan/erp/dto/User.class
@@ -103,7 +103,6 @@ com/shanglan/erp/config/Constance.class
 com/shanglan/erp/service/ErpService$1.class
 com/shanglan/erp/repository/HiddenTroubleRepository.class
 com/shanglan/erp/converter/SimplePhysicalNamingStrategy.class
-com/shanglan/erp/entity/RiskValueOld.class
 com/shanglan/erp/base/sms/VerifyCodeService.class
 com/shanglan/erp/repository/AttRepository$3.class
 com/shanglan/erp/repository/SortRepository.class
