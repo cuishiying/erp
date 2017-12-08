@@ -2,6 +2,7 @@ package com.shanglan.erp.utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -12,6 +13,9 @@ import java.util.regex.Pattern;
  * Created by cuishiying on 2017/6/29.
  */
 public class JavaUtils {
+
+    private static DateTimeFormatter LocalDateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
 
     /**
      *  java去除字符串中的空格、回车、换行符、制表符
@@ -277,7 +281,52 @@ public class JavaUtils {
         a.set(Calendar.DAY_OF_MONTH, 1);
         a.add(Calendar.DAY_OF_MONTH,-1);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String firstDayOfMonth = sdf.format(a.getTime());
-        return firstDayOfMonth;
+        String lastDayOfMonth = sdf.format(a.getTime());
+        return lastDayOfMonth;
+    }
+
+    public static String getMonth(int year,int month){
+        Calendar a = Calendar.getInstance();
+        a.set(Calendar.YEAR, year);
+        a.set(Calendar.MONTH, month);
+        a.set(Calendar.DAY_OF_MONTH, 1);
+        a.add(Calendar.DAY_OF_MONTH,-1);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM");
+        String lastDayOfMonth = sdf.format(a.getTime());
+        return lastDayOfMonth;
+    }
+
+    /**
+     * 字符串日期转换
+     * @param date
+     * @return
+     */
+    public static LocalDate convert2LocalDate(String date){
+        try{
+            LocalDate d = LocalDate.parse(date, LocalDateFormatter);
+            return d;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static LocalDate getFirstDayOfMonth(Date date){
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        String firstDayOfMonth = getFirstDayOfMonth(c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1);
+        return convert2LocalDate(firstDayOfMonth);
+    }
+    public static LocalDate getLastDayOfMonth(Date date){
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        String lastDayOfMonth = getLastDayOfMonth(c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1);
+        return convert2LocalDate(lastDayOfMonth);
+    }
+    public static String getMonth(Date date){
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+//        String month = getMonth(c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1);
+        return c.get(Calendar.YEAR)+"年"+(c.get(Calendar.MONTH) + 1)+"月";
     }
 }

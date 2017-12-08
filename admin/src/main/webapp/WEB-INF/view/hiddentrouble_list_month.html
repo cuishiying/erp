@@ -12,6 +12,8 @@
     <link rel="stylesheet" th:href="@{/static/css/bootstrap.css}">
     <link rel="stylesheet" th:href="@{/static/css/layout.css}">
     <link rel="stylesheet" th:href="@{/static/css/jquery.datetimepicker.css}">
+    <link rel="stylesheet" th:href="@{/static/css/SimpleCanleder.css}">
+
     <style rel="stylesheet" type="text/css">
         .table-title{
             text-align: center;
@@ -75,7 +77,7 @@
 
                         <div class="panel">
                             <!--<div class="panel-heading">-->
-                                <!--<h3 class="panel-title">山西铺龙湾煤业有限公司隐患排查治理“五定”落实表</h3>-->
+                            <!--<h3 class="panel-title">山西铺龙湾煤业有限公司隐患排查治理“五定”落实表</h3>-->
                             <!--</div>-->
 
 
@@ -85,15 +87,23 @@
                                     <form id="uploadForm" enctype="multipart/form-data" method="post" style="display: none">
                                         <input id="upfile" type="file" name="upfile" >
                                     </form>
-                                    <a type="button" class="btn btn-primary btn-export noprint" th:href="@{/hiddenTrouble/export/}+${hiddenTroubleId}">导出</a>
+                                    <a type="button" class="btn btn-primary btn-export noprint">导出</a>
                                     <button type="button" class="btn btn-primary btn-print noprint" onclick="javascript:window.print();">打印</button>
                                     <button type="button" class="btn btn-primary btn-toggle noprint">隐藏</button>
+                                    <button type="button" class="btn btn-primary btn-search noprint">查询</button>
                                 </div>
                                 <!--startprint-->
                                 <div class="print" >
                                     <h3 class="table-title">事故隐患排查治理登记台账</h3>
                                     <div class="table-sub-title">
-                                        <span class="table-date" th:text="${hiddenTrouble.createMonthStr}">20&nbsp;&nbsp;&nbsp;&nbsp;年&nbsp;&nbsp;&nbsp;&nbsp;月</span>
+                                        <form th:action="@{/hiddenTrouble/list/month}" method="get" class="month-query">
+                                            <select class="type" name="type">
+                                                <option value="">类别</option>
+                                                <option th:each="c:${types}"  th:text="${c?.name}" th:id="${c?.id}" th:value="${c?.name}" th:selected="${query!=null&&query.type==c.name}"></option>
+                                            </select>
+                                            <input type="text" class="month-input table-date" name="queryDate" placeholder="请选择月份" style="width: 100px" th:value="${#dates.format(query?.queryDate,'yyyy-MM')}">
+                                            <!--<span class="table-date" th:value="${#dates.format(query?.queryDate,'yyyy-MM')}">20&nbsp;&nbsp;&nbsp;&nbsp;年&nbsp;&nbsp;&nbsp;&nbsp;月</span>-->
+                                        </form>
                                     </div>
                                     <div class="table-responsive">
                                         <table border="1" cellpadding="10" width="100%" class="table table-fix table-layout">
@@ -110,7 +120,8 @@
                                                 <th rowspan="2" class="table-content-center" scope="col" style="width: 5%">督办部<br>门/人员</th>
                                                 <th rowspan="2" class="table-content-center" scope="col" style="width: 8%">验收<br>时间</th>
                                                 <th rowspan="2" class="table-content-center" scope="col" style="width: 5%">验收部<br>门/人员</th>
-                                                <th rowspan="2" class="table-content-center" scope="col" style="width: 10%">整改结果</th>
+                                                <th rowspan="2" class="table-content-center" scope="col" style="width: 5%">整改结果</th>
+                                                <th rowspan="2" class="table-content-center" scope="col" style="width: 5%">操作</th>
                                             </tr>
 
                                             <tr>
@@ -122,7 +133,7 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr class="item-content" th:each="item:${hiddenTrouble.hiddentroubles}">
+                                            <tr class="item-content" th:each="item:${page.content}">
                                                 <td th:text="${item.orderNumber}"></td>
                                                 <td th:text="${item.checkAddress}"></td>
                                                 <td th:text="${item.checkTime}"></td>
@@ -138,7 +149,11 @@
                                                 <td th:text="${item.handlePerson}"></td>
                                                 <td th:text="${item.acceptanceTime}"></td>
                                                 <td th:text="${item.acceptancePeople}"></td>
-                                                <td th:text="${item.result}"></td>
+                                                <td th:text="${item.result}" class="result"></td>
+                                                <td>
+                                                    <a class="btn-sm btn-success" th:href="@{/hiddenTrouble/month/update/}+${item?.id}" style="padding: 1px 1px">修改</a>
+                                                    <a class="btn-sm btn-danger delete" th:value="${item?.id}" style="padding: 1px 1px">删除</a>
+                                                </td>
                                             </tr>
 
                                             </tbody>
@@ -147,12 +162,15 @@
                                     </div>
                                 </div>
                                 <!--endprint-->
-                                <!--&lt;!&ndash;分页&ndash;&gt;-->
-                                <!--<nav th:replace="common/page::paging"></nav>-->
+                                <!--分页-->
+                                <div class="noprint">
+                                    <nav th:replace="common/page::paging"></nav>
+                                </div>
+
                                 <div class="form-group noprint">
                                     <div class="col-sm-12 text-center" style="margin-top: 10px">
                                         <!--<button type="button" class="btn btn-success save">保存</button>-->
-                                        <button type="button" class="btn btn-danger" onclick="javascript:history.go(-1);">关闭</button>
+                                        <!--<button type="button" class="btn btn-danger" onclick="javascript:history.go(-1);">关闭</button>-->
                                     </div>
                                 </div>
                             </div>
@@ -173,14 +191,19 @@
 <script th:src="@{/static/js/jquery.min.js}"></script>
 <script th:src="@{/static/js/bootstrap.min.js}"></script>
 <script th:src="@{/static/js/jquery.datetimepicker.full.js}"></script>
+<script th:src="@{/static/js/SimpleCanleder.js}"></script>
 <script th:src="@{/static/js/jquery.form.js}"></script>
 <script th:src="@{/static/utils/fetchUtils.js}"></script>
+<script th:src="@{/static/utils/dateUtils.js}"></script>
 
 <script type="text/javascript" th:inline="javascript">
     var ctx = /*[[@{/}]]*/;
     $(".close-window").click(function (e) {
         window.history.go(-1);
     });
+
+    $(".month-input").simpleCanleder();
+
     function preview() {
         var bdhtml=window.document.body.innerHTML;//获取当前页的html代码
         var startStr="<!--startprint-->";//设置打印开始区域
@@ -243,6 +266,32 @@
         }
         return true;
     }
+
+    $('.btn-search').click(function () {
+        $('.month-query').submit();
+    });
+
+    $('.btn-export').click(function () {
+        window.location.href = ctx+'hiddenTrouble/export/month?queryDate='+$('.table-date').val();
+    });
+
+    $(".delete").click(function () {
+        $.postParams(ctx+"hiddenTrouble/month/delete/"+$(this).attr("value"),"",function (e) {
+            if(e.success){
+                alert(e.data);
+                window.location.reload();
+            }else{
+                alert(e.message);
+            }
+        });
+    });
+    $(function () {
+        $("tbody .item-content").each(function (e) {
+            if($(this).find(".result").html()=='未整改'){
+                $(this).css('background','#ff4400');
+            }
+        });
+    });
 
 
 </script>

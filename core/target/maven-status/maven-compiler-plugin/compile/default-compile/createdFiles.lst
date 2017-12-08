@@ -42,6 +42,7 @@ com/shanglan/erp/repository/GoodsRepository$7.class
 com/shanglan/erp/config/SpringRedisConfig.class
 com/shanglan/erp/service/VideoService.class
 com/shanglan/erp/repository/GoodsRepository$1.class
+com/shanglan/erp/entity/HiddenTroubleConfig.class
 com/shanglan/erp/base/BaseEntity.class
 com/shanglan/erp/repository/CollectRepository.class
 com/shanglan/erp/dto/ExcelBean.class
@@ -73,6 +74,7 @@ com/shanglan/erp/base/FileUploadProgress.class
 com/shanglan/erp/repository/CategoryRepository.class
 com/shanglan/erp/config/AliyunOssConfig.class
 com/shanglan/erp/repository/RiskItemRepository.class
+com/shanglan/erp/dto/HiddenTroubleItemDTO.class
 com/shanglan/erp/ffmpeg/config/FFmpegConfig.class
 com/shanglan/erp/repository/GoodsRepository$9.class
 com/shanglan/erp/base/ExcelUtils.class
@@ -82,6 +84,7 @@ com/shanglan/erp/repository/AttRepository$1.class
 com/shanglan/erp/entity/AttJoinAttRecord.class
 com/shanglan/erp/entity/AttMgrJoinatt.class
 com/shanglan/erp/base/AliyunNewOss.class
+com/shanglan/erp/repository/HiddenTroubleConfigRepository.class
 com/shanglan/erp/ffmpeg/service/TaskHandlerImpl.class
 com/shanglan/erp/base/DateUtils.class
 com/shanglan/erp/config/SmsConfig.class

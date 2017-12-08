@@ -101,6 +101,13 @@
     3.在远程服务器上使用ffmpeg将rtsp视频转换成hls视频
     4.通过nginx将hls视频进行转发
     注：ip为NVR的ip，通过通道号来区分具体的摄像头，重复调用转码指令。
+    
+    http://10.38.8.20/   admin/admin
+    http://10.38.5.10:85/   admin/12345
+    rtsp://admin:admin12345@10.38.8.28:554/h264/ch1/main/av_stream      铺龙湾海康摄像机
+    
+     测试：   ffmpeg -i "rtsp://admin:admin12345@10.38.8.28:554/h264/ch1/main/av_stream" -vcodec copy -acodec aac -ar 44100 -strict -2 -ac 1 -f hls -s 1280x720 -q 10 -hls_wrap 15 /usr/local/Cellar/nginx/1.12.2_1/html/hls/slkj.m3u8
+
 
 
 ###2、 拉流指令

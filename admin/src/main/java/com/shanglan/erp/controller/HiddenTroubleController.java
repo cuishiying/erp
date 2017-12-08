@@ -2,11 +2,9 @@ package com.shanglan.erp.controller;
 
 import com.shanglan.erp.base.AjaxResponse;
 import com.shanglan.erp.dto.HiddenTroubleDTO;
+import com.shanglan.erp.dto.HiddenTroubleItemDTO;
 import com.shanglan.erp.dto.HiddenTroubleResultDTO;
-import com.shanglan.erp.entity.HiddenTrouble;
-import com.shanglan.erp.entity.HiddenTroubleItem;
-import com.shanglan.erp.entity.HiddenTroubleResult;
-import com.shanglan.erp.entity.User;
+import com.shanglan.erp.entity.*;
 import com.shanglan.erp.enums.HiddenTroubleLevels;
 import com.shanglan.erp.service.HiddenTroubleService;
 import com.shanglan.erp.service.UserService;
@@ -17,10 +15,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.InputStream;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -37,6 +38,26 @@ public class HiddenTroubleController {
     @Autowired
     private UserService userService;
 
+    @RequestMapping(path = "/config/addview",method = RequestMethod.GET)
+    public ModelAndView addRiskItemView(){
+        ModelAndView model = new ModelAndView("hiddentrouble_config");
+        List<HiddenTroubleConfig> configs = hiddenTroubleService.findAll();
+        model.addObject("configs",configs);
+        return model;
+    }
+
+
+    @RequestMapping(path = "/config/add",method = RequestMethod.POST)
+    public AjaxResponse saveRiskItem(@RequestParam String name,@RequestParam String type){
+        AjaxResponse response = hiddenTroubleService.saveConfig(name, type);
+        return response;
+    }
+    @RequestMapping(path = "/config/delete/{id}",method = RequestMethod.GET)
+    public AjaxResponse deleteRiskItem(@PathVariable Integer id){
+        AjaxResponse response = hiddenTroubleService.deleteConfig(id);
+        return response;
+    }
+
     @RequestMapping(path = "/list",method = RequestMethod.GET)
     public ModelAndView hiddenTroubleListView(String username, String truename, HiddenTroubleDTO hiddenTroubleDTO, @PageableDefault(value = 10,sort = "createTime",direction = Sort.Direction.DESC) Pageable pageable, HttpServletRequest request){
         if (StringUtils.isNotEmpty(username) && StringUtils.isNotEmpty(truename)) {
@@ -50,6 +71,52 @@ public class HiddenTroubleController {
         model.addObject("query",hiddenTroubleDTO);
         return model;
     }
+
+    /**
+     * 新版
+     * @param username
+     * @param truename
+     * @param pageable
+     * @param request
+     * @return
+     */
+    @RequestMapping(path = "/list/month",method = RequestMethod.GET)
+    public ModelAndView hiddenTroubleList(String username, String truename, HiddenTroubleItemDTO hiddenTroubleItemDTO, @PageableDefault(value = 10,sort = "checkTime",direction = Sort.Direction.ASC) Pageable pageable, HttpServletRequest request){
+        if (StringUtils.isNotEmpty(username) && StringUtils.isNotEmpty(truename)) {
+            User user = userService.findUserByUsernameAndtruename(username, truename);
+            request.getSession().invalidate();
+            request.getSession().setAttribute("uid", user.getUid());
+        }
+        ModelAndView model = new ModelAndView("hiddentrouble_list_month");
+        Page<HiddenTroubleItem> page = hiddenTroubleService.findAll(hiddenTroubleItemDTO,pageable);
+        List<HiddenTroubleConfig> types = hiddenTroubleService.findAll();
+        model.addObject("page",page);
+        model.addObject("query",hiddenTroubleItemDTO);
+        model.addObject("types",types);
+        return model;
+    }
+
+    @RequestMapping(path = "/month/update/{id}",method = RequestMethod.GET)
+    public ModelAndView updateMonthItemView(@PathVariable Integer id){
+        ModelAndView model = new ModelAndView("hiddentrouble_edit");
+        HiddenTroubleItem item = hiddenTroubleService.findItemById(id);
+        model.addObject("hiddenTrouble",item);
+        return model;
+    }
+
+    @RequestMapping(path = "/month/update/{id}",method = RequestMethod.POST)
+    public AjaxResponse updateMonthItemView(@PathVariable Integer id,@RequestBody HiddenTroubleItem hiddenTroubleItem){
+        AjaxResponse ajaxResponse = hiddenTroubleService.updateHiddenTroubleItem(id, hiddenTroubleItem);
+        return ajaxResponse;
+    }
+
+    @RequestMapping(path = "/month/delete/{id}",method = RequestMethod.POST)
+    public AjaxResponse deleteMonthItem(@PathVariable Integer id){
+        AjaxResponse response = hiddenTroubleService.deleteItem(id);
+        return response;
+    }
+
+
     @RequestMapping(path = "/list/read",method = RequestMethod.GET)
     public ModelAndView hiddenTroubleListViewRead(String username, String truename, HiddenTroubleDTO hiddenTroubleDTO, @PageableDefault(value = 10,sort = "createTime",direction = Sort.Direction.DESC) Pageable pageable, HttpServletRequest request){
         if (StringUtils.isNotEmpty(username) && StringUtils.isNotEmpty(truename)) {
@@ -105,6 +172,23 @@ public class HiddenTroubleController {
         return response;
     }
 
+    /**
+     * 导入数据
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(path = "/import", method = RequestMethod.POST)
+    public AjaxResponse<?> importCollect(HttpServletRequest request) throws Exception{
+        MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+        MultipartFile file = multipartRequest.getFile("upfile");
+        if(file.isEmpty()){
+            throw new Exception("文件不存在！");
+        }
+        InputStream in = file.getInputStream();
+        AjaxResponse ajaxResponse = hiddenTroubleService.importData(in, file);
+        return ajaxResponse;
+    }
+
     @RequestMapping(path = "/result/list",method = RequestMethod.GET)
     public ModelAndView resultListView(HiddenTroubleResultDTO hiddenTroubleResultDTO,@PageableDefault(value = 10,sort = "publicTime",direction = Sort.Direction.DESC) Pageable pageable){
         ModelAndView model = new ModelAndView("hiddentrouble_result_list");
@@ -139,9 +223,17 @@ public class HiddenTroubleController {
         return response;
     }
     @RequestMapping(path = "/export/{id}",method = RequestMethod.GET)
-    public AjaxResponse exportGoods(@PathVariable Integer id,HttpServletRequest request, HttpServletResponse response) {
+    public AjaxResponse exportHiddentrouble(@PathVariable Integer id,HttpServletRequest request, HttpServletResponse response) {
         response.reset(); //清除buffer缓存
         hiddenTroubleService.export(id,response);
         return AjaxResponse.success();
     }
+
+    @RequestMapping(path = "/export/month",method = RequestMethod.GET)
+    public AjaxResponse exportHiddentroubleItems(HiddenTroubleItemDTO hiddenTroubleItemDTO,HttpServletRequest request, HttpServletResponse response) {
+        response.reset(); //清除buffer缓存
+        hiddenTroubleService.export(hiddenTroubleItemDTO,response);
+        return AjaxResponse.success();
+    }
+
 }

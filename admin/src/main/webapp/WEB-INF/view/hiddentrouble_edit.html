@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>隐患排查修改</title>
+    <link rel="stylesheet" th:href="@{/static/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/static/css/layout.css}">
+    <link rel="stylesheet" th:href="@{/static/css/jquery.datetimepicker.css}">
+    <style type="text/css">
+        .item-name{
+            display: inline-block;
+            min-width: 150px;
+        }
+
+        .form-inline .item-content{
+            width: 70%;
+        }
+        .form-inline{
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <!--<nav th:replace="common/fragment :: sidebar"></nav>-->
+    <div class="main">
+        <div class="main-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">山西铺龙湾煤业有限公司隐患排查治理“五定”落实表</h3>
+                            </div>
+
+                            <div class="panel-body">
+                                <ul>
+                                    <li class="form-inline">
+                                        <span class="item-name">序号</span>
+                                        <textarea type="text" class="form-control item-content orderNumber" th:text="${hiddenTrouble.orderNumber}"></textarea>
+                                    </li>
+                                    <li class="form-inline">
+                                        <span class="item-name">排查地点</span>
+                                        <textarea type="text" class="form-control item-content checkAddress" th:text="${hiddenTrouble.checkAddress}" ></textarea>
+                                    </li>
+                                    <li class="form-inline">
+                                        <span class="item-name">排查时间</span>
+                                        <textarea type="text" class="form-control item-content checkTime" th:text="${#temporals.format(hiddenTrouble.checkTime,'yyyy-MM-dd')}" ></textarea>
+                                    </li>
+                                    <li class="form-inline">
+                                        <span class="item-name">排查人员</span>
+                                        <textarea type="text" class="form-control item-content checkPerson" th:text="${hiddenTrouble.checkPerson}" ></textarea>
+                                    </li>
+                                    <li class="form-inline">
+                                        <span class="item-name">存在的隐患及问题</span>
+                                        <textarea type="text" class="form-control item-content content"  th:text="${hiddenTrouble.content}" ></textarea>
+                                    </li>
+                                    <li class="form-inline">
+                                        <span class="item-name">类别</span>
+                                        <textarea type="text" class="form-control item-content type"  th:text="${hiddenTrouble.type}" ></textarea>
+                                    </li>
+                                    <li class="form-inline">
+                                        <span class="item-name">等级</span>
+                                        <textarea type="text" class="form-control item-content level"  th:text="${hiddenTrouble.level}" ></textarea>
+                                    </li>
+                                    <li class="form-inline">
+                                        <span class="item-name">整改措施</span>
+                                        <textarea type="text" class="form-control item-content actions"  th:text="${hiddenTrouble.actions}" ></textarea>
+                                    </li>
+
+                                    <li class="form-inline">
+                                        <span class="item-name">责任单位/责任人</span>
+                                        <textarea type="text" class="form-control item-content responsiblePerson"  th:text="${hiddenTrouble.responsiblePerson}" ></textarea>
+                                    </li>
+
+                                    <li class="form-inline">
+                                        <span class="item-name">资金</span>
+                                        <textarea type="text" class="form-control item-content controllingMoney"  th:text="${hiddenTrouble.controllingMoney}" ></textarea>
+                                    </li>
+                                    <li class="form-inline">
+                                        <span class="item-name">时限</span>
+                                        <textarea type="text" class="form-control item-content timeLimit"  th:text="${hiddenTrouble.timeLimit}" ></textarea>
+                                    </li>
+                                    <li class="form-inline">
+                                        <span class="item-name">预案</span>
+                                        <textarea type="text" class="form-control item-content managementPlan"  th:text="${hiddenTrouble.managementPlan}" ></textarea>
+                                    </li>
+                                    <li class="form-inline">
+                                        <span class="item-name">督办部门/人员</span>
+                                        <textarea type="text" class="form-control item-content handlePerson"  th:text="${hiddenTrouble.handlePerson}" ></textarea>
+                                    </li>
+                                    <li class="form-inline">
+                                        <span class="item-name">验收时间</span>
+                                        <textarea type="text" class="form-control item-content acceptanceTime"  th:text="${#temporals.format(hiddenTrouble.acceptanceTime,'yyyy-MM-dd')}" ></textarea>
+                                    </li>
+                                    <li class="form-inline">
+                                        <span class="item-name">验收部门/人员</span>
+                                        <textarea type="text" class="form-control item-content acceptancePeople"  th:text="${hiddenTrouble.acceptancePeople}" ></textarea>
+                                    </li>
+                                    <li class="form-inline">
+                                        <span class="item-name">整改结果</span>
+                                        <textarea type="text" class="form-control item-content result"  th:text="${hiddenTrouble.result}" ></textarea>
+                                    </li>
+                                    <li class="form-inline">
+                                        <button type="button" class="btn btn-primary save">保存</button>
+                                        <button type="button" class="btn btn-default close-window">关闭</button>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="panel-footer"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+<script th:src="@{/static/js/jquery.min.js}"></script>
+<script th:src="@{/static/js/bootstrap.min.js}"></script>
+<script th:src="@{/static/js/jquery.datetimepicker.full.js}"></script>
+<script th:src="@{/static/utils/fetchUtils.js}"></script>
+
+<script type="text/javascript" th:inline="javascript">
+    var ctx = /*[[@{/}]]*/;
+    var _id = /*[[${hiddenTrouble.id}]]*/;
+
+
+    $(".close-window").click(function (e) {
+        window.history.go(-1);
+    })
+    $('.save').click(function (e) {
+
+        var hiddentrouble = new Object();
+        hiddentrouble.orderNumber = $(".orderNumber").val().trim();
+        hiddentrouble.checkAddress = $(".checkAddress").val().trim();
+        hiddentrouble.checkTime = $(".checkTime").val().trim();
+        hiddentrouble.checkPerson = $(".checkPerson").val().trim();
+        hiddentrouble.content = $(".content").val().trim();
+        hiddentrouble.type = $(".type").val().trim();
+        hiddentrouble.level = $(".level").val().trim();
+        hiddentrouble.actions = $(".actions").val().trim();
+        hiddentrouble.responsiblePerson = $(".responsiblePerson").val().trim();
+        hiddentrouble.controllingMoney = $(".controllingMoney").val().trim();
+        hiddentrouble.timeLimit = $(".timeLimit").val().trim();
+        hiddentrouble.managementPlan = $(".managementPlan").val().trim();
+        hiddentrouble.handlePerson = $(".handlePerson").val().trim();
+        hiddentrouble.acceptanceTime = $(".acceptanceTime").val().trim();
+        hiddentrouble.acceptancePeople = $(".acceptancePeople").val().trim();
+        hiddentrouble.result = $(".result").val();
+
+        if(!hiddentrouble.checkAddress
+            ||!hiddentrouble.checkTime
+            ||!hiddentrouble.checkPerson
+            ||!hiddentrouble.content
+            ||!hiddentrouble.type
+            ||!hiddentrouble.level
+            ||!hiddentrouble.actions
+            ||!hiddentrouble.responsiblePerson
+            ||!hiddentrouble.controllingMoney
+            ||!hiddentrouble.timeLimit
+            ||!hiddentrouble.managementPlan
+            ||!hiddentrouble.handlePerson
+            ||!hiddentrouble.acceptanceTime
+            ||!hiddentrouble.acceptancePeople
+            ||!hiddentrouble.result){
+            alert("您还有未填写的内容");
+            return;
+        }
+        $.postJson(ctx+"hiddenTrouble/month/update/"+_id,hiddentrouble,function (e) {
+            if(e.success){
+                window.location.href = ctx+"hiddenTrouble/list/month";
+            }
+        })
+
+    });
+
+</script>
+</body>
+</html>

@@ -7,8 +7,8 @@ import java.time.LocalDate;
 public class RiskQueryDTO {
 
     private String keyword;
-    private Integer riskTypeId;
-    private Integer riskLevelId;
+    private Integer riskTypeId; //危险因素
+    private Integer riskLevelId;    //风险分级
 
 //    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
 //    private LocalDate beginDate;
@@ -32,7 +32,7 @@ public class RiskQueryDTO {
         this.riskTypeId = riskTypeId;
     }
 
-    public Integer getRiskLevelId() {
+    public Integer  getRiskLevelId() {
         return riskLevelId;
     }
 

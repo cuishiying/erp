@@ -59,7 +59,7 @@ public class RiskService {
         List<RiskCondition> all = riskConditionRepository.findAll();
         if (null!=all&&all.size()<=0){
             List<RiskCondition> list = new ArrayList<>();
-            String[] names = new String[]{"风险分级"};
+            String[] names = new String[]{"危险因素","风险分级"};
             for (int i=0;i<names.length;i++){
                 RiskCondition r = new RiskCondition();
                 r.setName(names[i]);
@@ -146,10 +146,16 @@ public class RiskService {
             //关键词
             if(queryVo!=null&& StringUtils.isNotBlank(queryVo.getKeyword())){
                 predicate.add(cb.or(cb.like(root.<String>get("riskAddr"), "%" + queryVo.getKeyword().trim() + "%"),
-                        cb.like(root.<String>get("riskElement"), "%" + queryVo.getKeyword().trim() + "%"),
                         cb.like(root.<String>get("riskDesc"), "%" + queryVo.getKeyword().trim() + "%")));
 
             }
+
+            //危险因素
+            if(queryVo!=null&&queryVo.getRiskTypeId()!=null){
+                Predicate ownerQuery = cb.equal(root.<Integer>get("riskElement").get("id"), queryVo.getRiskTypeId());
+                predicate.add(ownerQuery);
+            }
+
             //风险分级
             if(queryVo!=null&&queryVo.getRiskLevelId()!=null){
                 Predicate ownerQuery = cb.equal(root.<Integer>get("riskLevel").get("id"), queryVo.getRiskLevelId());
@@ -176,6 +182,13 @@ public class RiskService {
      */
     public AjaxResponse addRiskValue(Integer uid,RiskValue riskValue){
         try {
+
+            RiskItem riskElement = riskItemRepository.findOne(riskValue.getRiskElement().getId());
+            RiskItem riskLevel = riskItemRepository.findOne(riskValue.getRiskLevel().getId());
+
+            riskValue.setRiskElement(riskElement);
+            riskValue.setRiskLevel(riskLevel);
+
             riskValue.setPublishTime(LocalDateTime.now());
             riskValue.setUpdateTime(LocalDateTime.now());
             if(null!=uid){

@@ -90,11 +90,17 @@
                             <tr class="item-content " name="riskItem">
                                 <td  class="td-ellipsis">
                                     <label for="riskElement">危险因素:&nbsp;&nbsp;</label>
-                                    <input type="text" class="riskElement" id="riskElement">
+                                    <!--<input type="text" class="riskElement" id="riskElement">-->
+                                    <select class="riskElement" id="riskElement">
+                                        <option th:each="a:${riskElement}"  th:text="${a?.name}" th:id="${a?.id}"></option>
+                                    </select>
                                 </td>
                                 <td  class="td-ellipsis">
-                                    <label for="riskDesc">风险描述:&nbsp;&nbsp;</label>
-                                    <input type="text" class="riskDesc" id="riskDesc">
+                                    <label for="riskLevel">级别:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                    <!--<input type="text" class="riskLevel" id="riskLevel">-->
+                                    <select class="riskLevel" id="riskLevel" >
+                                        <option th:each="l:${riskLevels}"  th:text="${l?.name}" th:id="${l?.id}"></option>
+                                    </select>
                                 </td>
                             </tr>
                             <tr class="item-content " name="riskItem">
@@ -103,8 +109,8 @@
                                     <input type="text" class="riskAddr" id="riskAddr">
                                 </td>
                                 <td  class="td-ellipsis">
-                                    <label for="riskLevel">级别:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                    <input type="text" class="riskLevel" id="riskLevel">
+                                    <label for="riskDesc">风险描述:&nbsp;&nbsp;</label>
+                                    <input type="text" class="riskDesc" id="riskDesc">
                                 </td>
                             </tr>
                             <tr class="item-content " name="riskItem">
@@ -216,10 +222,19 @@
 
     $(".save").click(function () {
         var risk = new Object();
-        risk.riskElement = $(".riskElement").val();
+
+        risk.riskLevel = new Object();
+        risk.riskLevel.id = $(".riskLevel").find("option:selected").attr("id");
+//        risk.riskLevel = $(".riskLevel").val();
+
+        risk.riskElement = new Object();
+        risk.riskElement.id = $(".riskElement").find("option:selected").attr("id");
+//        risk.riskElement = $(".riskElement").val();
         risk.riskDesc = $(".riskDesc").val();
         risk.riskAddr = $(".riskAddr").val();
-        risk.riskLevel = $(".riskLevel").val();
+
+
+
         risk.riskDept = $(".riskDept").val();
         risk.responsible = $(".responsible").val();
         risk.branchLeader = $(".branchLeader").val();
@@ -234,7 +249,7 @@
             riskHandle.warming = $(this).find(".warming ").attr('value')=='true'?true:false;
             risk.riskHandles.push(riskHandle);
         });
-        if(!risk.riskElement){
+        if(!risk.riskAddr||!risk.riskDesc ||!risk.riskDept ||!risk.responsible ||!risk.branchLeader ||!risk.orgLeader||!risk.handleTimeLimit){
             return;
         }
         $.postJson(ctx+"risk/value/add",risk,function (e) {

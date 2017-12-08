@@ -71,7 +71,10 @@ public class RiskController {
         ModelAndView model = new ModelAndView("risk_valuelist");
         Page<RiskValue> page = riskService.findRiskValues(queryDTO, pageable);
         List<RiskItem> riskLevels = riskService.findRiskItems("风险分级");
+        List<RiskItem> riskElement = riskService.findRiskItems("危险因素");
+
         model.addObject("riskLevels", riskLevels);
+        model.addObject("riskElement", riskElement);
         model.addObject("page", page);
         model.addObject("queryDTO", queryDTO);
         return model;
@@ -81,7 +84,10 @@ public class RiskController {
     public ModelAndView addRiskValueView(){
         ModelAndView model = new ModelAndView("risk_addvalue");
         List<RiskItem> riskLevels = riskService.findRiskItems("风险分级");
+        List<RiskItem> riskElement = riskService.findRiskItems("危险因素");
+
         model.addObject("riskLevels",riskLevels);
+        model.addObject("riskElement", riskElement);
         return model;
     }
     @RequestMapping(path = "/value/add",method = RequestMethod.POST)

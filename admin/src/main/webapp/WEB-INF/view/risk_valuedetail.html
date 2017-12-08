@@ -90,7 +90,7 @@
                             <tr class="item-content " name="riskItem">
                                 <td  class="td-ellipsis">
                                     <label for="riskElement">危险因素:&nbsp;&nbsp;</label>
-                                    <input type="text" class="riskElement" id="riskElement" th:value="${riskValue.riskElement}">
+                                    <input type="text" class="riskElement" id="riskElement" th:value="${riskValue.riskElement.name}">
                                 </td>
                                 <td  class="td-ellipsis">
                                     <label for="riskDesc">风险描述:&nbsp;&nbsp;</label>
@@ -104,7 +104,7 @@
                                 </td>
                                 <td  class="td-ellipsis">
                                     <label for="riskLevel">级别:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                    <input type="text" class="riskLevel" id="riskLevel" th:value="${riskValue.riskLevel}">
+                                    <input type="text" class="riskLevel" id="riskLevel" th:value="${riskValue.riskLevel.name}">
                                 </td>
                             </tr>
                             <tr class="item-content " name="riskItem">

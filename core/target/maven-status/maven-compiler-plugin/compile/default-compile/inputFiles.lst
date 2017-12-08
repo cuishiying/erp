@@ -9,6 +9,7 @@
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/HiddenTrouble.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/config/SmsConfig.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/AttClassesRepository.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/dto/HiddenTroubleItemDTO.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/converter/SimplePhysicalNamingStrategy.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/ffmpeg/service/TaskHandler.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/config/SpringRedisConfig.java
@@ -85,9 +86,11 @@
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/Config.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/VideoRepository.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/HiddenTroubleResult.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/repository/HiddenTroubleConfigRepository.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/ffmpeg/service/OutHandlerMethod.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/AttClasses.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/dto/HiddenTroubleDTO.java
+/Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/HiddenTroubleConfig.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/base/DateUtils.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/dto/CategoryTreeDTO.java
 /Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/entity/RiskItem.java

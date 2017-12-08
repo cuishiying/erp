@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>隐患配置</title>
+  <link rel="stylesheet" th:href="@{/static/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/static/css/layout.css}">
+  <link rel="stylesheet" th:href="@{/static/css/jquery.datetimepicker.css}">
+
+</head>
+
+<body>
+<div id="wrapper">
+  <!--<nav th:replace="common/fragment :: sidebar"></nav>-->
+  <div class="main">
+    <div class="main-content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="panel">
+              <div class="panel-heading">
+                <h3 class="panel-title">参数配置</h3>
+              </div>
+              <div class="controller">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">新增</button>
+              </div>
+
+              <div class="panel-body">
+                <table class="table table-striped">
+                  <thead>
+                  <tr>
+                    <th class="text-center">类别</th>
+                    <th class="text-center">操作</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr th:each="item:${configs}">
+                    <td th:text="${item.name}" class="text-center"></td>
+                    <td class="text-center">
+                      <a class="btn btn-primary delete" th:value="${item.id}">删除</a>
+                    </td>
+                  </tr>
+                  </tbody>
+
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+          &times;
+        </button>
+        <h4 class="modal-title" id="myModalLabel">
+          新增配置
+        </h4>
+      </div>
+      <div class="modal-body">
+        <!--<div class="bc_item">配置风险项:-->
+          <!--<select class="form-control risk_name">-->
+            <!--<option th:each="c:${configs}"  th:text="${c?.name}" th:id="${c?.id}"></option>-->
+          <!--</select><br/>-->
+        <!--</div>-->
+          <div class="bc_item">配置值:
+            <input type="text" class="form-control config_name">
+          </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+        </button>
+        <button type="button" class="btn btn-primary save">
+          保存
+        </button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal -->
+</div>
+</div>
+<script th:src="@{/static/js/jquery.min.js}"></script>
+<script th:src="@{/static/js/bootstrap.min.js}"></script>
+<script th:src="@{/static/js/jquery.datetimepicker.full.js}"></script>
+<script th:src="@{/static/utils/httpUtils.js}"></script>
+
+<script type="text/javascript" th:inline="javascript">
+    var ctx = /*[[@{/}]]*/;
+    $('.save').click(function (e) {
+
+        var configParams = new Object();
+        configParams.name = $(".config_name").val();
+        configParams.type = '';
+
+        ajaxUtils.postParams(ctx+"hiddenTrouble/config/add",configParams,function (e) {
+            if(e.success){
+                $('#myModal').modal('hide');
+                window.location.reload();
+            }
+        })
+    });
+
+    $(".delete").click(function () {
+        ajaxUtils.getData(ctx+"hiddenTrouble/config/delete/"+$(this).attr("value"),function (e) {
+            if (e.success){
+                window.location.reload();
+            }else{
+                alert(e.message);
+            }
+        })
+    });
+</script>
+</body>
+</html>

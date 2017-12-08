@@ -15,13 +15,14 @@ public class RiskValue extends BaseEntity{
 
 
     private static final long serialVersionUID = 1211747394022548863L;
-    private String riskElement;//风险因素
+
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    private RiskItem riskElement;//风险因素
     private String riskAddr;//风险地点
     private String riskDesc;//风险描述
     private String riskValue;//风险值
-//    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-//    private RiskItem riskLevel;//风险分级
-    private String riskLevel;//风险分级
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    private RiskItem riskLevel;//风险分级
     private String riskAnalysis;//风险分析
     private String riskDept;//责任部门
     private String responsible;//责任人
@@ -48,11 +49,12 @@ public class RiskValue extends BaseEntity{
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
     private User deleteUser;//删除人
 
-    public String getRiskElement() {
+
+    public RiskItem getRiskElement() {
         return riskElement;
     }
 
-    public void setRiskElement(String riskElement) {
+    public void setRiskElement(RiskItem riskElement) {
         this.riskElement = riskElement;
     }
 
@@ -80,11 +82,12 @@ public class RiskValue extends BaseEntity{
         this.riskValue = riskValue;
     }
 
-    public String getRiskLevel() {
+
+    public RiskItem getRiskLevel() {
         return riskLevel;
     }
 
-    public void setRiskLevel(String riskLevel) {
+    public void setRiskLevel(RiskItem riskLevel) {
         this.riskLevel = riskLevel;
     }
 
