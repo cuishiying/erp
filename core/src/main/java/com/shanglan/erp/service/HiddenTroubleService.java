@@ -51,13 +51,15 @@ public class HiddenTroubleService {
     private HiddenTroubleConfigRepository hiddenTroubleConfigRepository;
 
 
-    public AjaxResponse saveConfig(String name,String type){
-        HiddenTroubleConfig config = new HiddenTroubleConfig(name,type);
+    public AjaxResponse saveConfig(String name,String classifyName){
+        HiddenTroubleConfig config = new HiddenTroubleConfig();
+        config.setName(name);
+        config.setClassifyName(classifyName);
         hiddenTroubleConfigRepository.save(config);
         return AjaxResponse.success();
     }
 
-    public List<HiddenTroubleConfig> findAll(){
+    public List<HiddenTroubleConfig> findAllConfigs(){
         List<HiddenTroubleConfig> list = hiddenTroubleConfigRepository.findAll();
         return list;
     }
@@ -243,8 +245,8 @@ public class HiddenTroubleService {
                 predicate.add(lastQuery);
             }
 
-            if (queryVo!=null&&StringUtils.isNotBlank(queryVo.getType())) {
-                predicate.add(cb.like(root.<String>get("type"), "%" + queryVo.getType().trim() + "%"));
+            if (queryVo!=null&&StringUtils.isNotBlank(queryVo.getQueryType())) {
+                predicate.add(cb.like(root.<String>get("type"), "%" + queryVo.getQueryType().trim() + "%"));
             }
 
             return query.where(predicate.toArray(new Predicate[predicate.size()])).getRestriction();

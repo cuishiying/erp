@@ -3,49 +3,22 @@
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
       <artifact name="admin:war exploded" />
-      <artifact name="weixin:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b769e75-03a0-4700-871b-f705f620cfb6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/lib/core-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/lib/core-1.0-SNAPSHOT.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/lib/taobao-sdk-java-auto_1452788057542-20160201.jar" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/lib/taobao-sdk-java-auto_1452788057542-20160201.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/static/img/glyphicons-halflings.png" afterPath="$PROJECT_DIR$/admin/target/admin/static/img/glyphicons-halflings.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/target/classes/com/shanglan/erp/config/Constance.class" afterPath="$PROJECT_DIR$/core/target/classes/com/shanglan/erp/config/Constance.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/target/core.jar" afterPath="$PROJECT_DIR$/core/target/core.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/classes/jdbc.properties" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/classes/jdbc.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/classes/log4j.properties" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/classes/log4j.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/classes/pulongwan-timing-conf.xml" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/classes/pulongwan-timing-conf.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/classes/spring-context.xml" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/classes/spring-context.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/att_classes.html" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/att_classes.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/att_note.html" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/att_note.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/att_record.html" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/att_record.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/att_user_detail.html" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/att_user_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/att_users.html" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/att_users.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/common/fragment.html" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/common/fragment.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/common/fragment_erp.html" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/common/fragment_erp.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/common/page.html" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/common/page.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/erp_category.html" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/erp_category.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/erp_collect.html" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/erp_collect.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/erp_goods.html" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/erp_goods.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/erp_stockin.html" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/erp_stockin.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/erp_stockout.html" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/erp_stockout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/static/css/SimpleCanleder.css" afterPath="$PROJECT_DIR$/admin/target/admin/static/css/SimpleCanleder.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/static/css/bootstrap.css" afterPath="$PROJECT_DIR$/admin/target/admin/static/css/bootstrap.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/static/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/admin/target/admin/static/css/bootstrap.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/static/css/jquery.datetimepicker.css" afterPath="$PROJECT_DIR$/admin/target/admin/static/css/jquery.datetimepicker.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/static/css/style.css" afterPath="$PROJECT_DIR$/admin/target/admin/static/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/static/js/DatePicker.js" afterPath="$PROJECT_DIR$/admin/target/admin/static/js/DatePicker.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/static/js/SimpleCanleder.js" afterPath="$PROJECT_DIR$/admin/target/admin/static/js/SimpleCanleder.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/static/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/admin/target/admin/static/js/bootstrap.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/static/js/jquery-1.7.2.min.js" afterPath="$PROJECT_DIR$/admin/target/admin/static/js/jquery-1.7.2.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/static/js/jquery.datetimepicker.full.js" afterPath="$PROJECT_DIR$/admin/target/admin/static/js/jquery.datetimepicker.full.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/static/js/jquery.min.js" afterPath="$PROJECT_DIR$/admin/target/admin/static/js/jquery.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/classes/jdbc.properties" afterPath="$PROJECT_DIR$/admin/target/classes/jdbc.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/classes/log4j.properties" afterPath="$PROJECT_DIR$/admin/target/classes/log4j.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/classes/pulongwan-timing-conf.xml" afterPath="$PROJECT_DIR$/admin/target/classes/pulongwan-timing-conf.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/classes/spring-context.xml" afterPath="$PROJECT_DIR$/admin/target/classes/spring-context.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/README.md" afterPath="$PROJECT_DIR$/core/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/HiddenTroubleController.java" afterPath="$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/HiddenTroubleController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/hiddentrouble_config.html" afterPath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/hiddentrouble_config.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/hiddentrouble_list_month.html" afterPath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/hiddentrouble_list_month.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/config/Constance.java" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/config/Constance.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/dto/HiddenTroubleItemDTO.java" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/dto/HiddenTroubleItemDTO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/HiddenTroubleConfig.java" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/HiddenTroubleConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/HiddenTroubleService.java" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/HiddenTroubleService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/core/target/maven-archiver/pom.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -92,53 +65,7 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="HiddenTroubleController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/HiddenTroubleController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="90" column="64" lean-forward="false" selection-start-line="90" selection-start-column="64" selection-end-line="90" selection-end-column="64" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HiddenTroubleService.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/HiddenTroubleService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="241" column="97" lean-forward="false" selection-start-line="241" selection-start-column="97" selection-end-line="241" selection-end-column="97" />
-              <folding>
-                <element signature="e#10480#10488#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HiddenTroubleItem.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/HiddenTroubleItem.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="22" column="18" lean-forward="false" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HiddenTroubleItemDTO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/dto/HiddenTroubleItemDTO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="34" column="18" lean-forward="false" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
-              <folding>
-                <element signature="e#713#714#0" expanded="true" />
-                <element signature="e#740#741#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -201,11 +128,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/video_add.html" />
-        <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/ffmpeg/service/TaskHandlerImpl.java" />
-        <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/Video.java" />
-        <option value="$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/VideoController.java" />
-        <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/VideoRepository.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/VideoService.java" />
         <option value="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/video_list.html" />
         <option value="$PROJECT_DIR$/weixin/src/main/webapp/static/vendor/dropload-gh-pages/examples/load-bottom.html" />
@@ -242,16 +164,21 @@
         <option value="$PROJECT_DIR$/admin/src/test/com/shanglan/test/TestController.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/utils/JavaUtils.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/HiddenTroubleConfigRepository.java" />
-        <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/dto/HiddenTroubleItemDTO.java" />
-        <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/HiddenTroubleConfig.java" />
-        <option value="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/hiddentrouble_config.html" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/HiddenTroubleItem.java" />
         <option value="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/hiddentrouble_edit.html" />
-        <option value="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/hiddentrouble_list_month.html" />
-        <option value="$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/HiddenTroubleController.java" />
         <option value="$PROJECT_DIR$/core/README.md" />
         <option value="$PROJECT_DIR$/core/src/main/resources/erp-core.properties" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/dto/HiddenTroubleItemDTO.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/config/Constance.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/HiddenTroubleRepository.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/HiddenTroubleConditionRepository.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/HiddenTrouble.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/HiddenTroubleCondition.java" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/HiddenTroubleConfig.java" />
+        <option value="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/hiddentrouble_config.html" />
+        <option value="$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/HiddenTroubleController.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/HiddenTroubleService.java" />
+        <option value="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/hiddentrouble_list_month.html" />
       </list>
     </option>
   </component>
@@ -320,8 +247,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -377,22 +303,6 @@
             <path>
               <item name="erp" type="b2602c69:ProjectViewProjectNode" />
               <item name="erp" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="erp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="erp" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="erp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="erp" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -414,14 +324,54 @@
               <item name="core" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="erp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="erp" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="erp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="erp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="erp" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="erp" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="erp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="erp" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="erp" type="462c0819:PsiDirectoryNode" />
+              <item name="dto" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="erp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="erp" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="erp" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -438,25 +388,25 @@
     <property name="SearchEverywhereHistoryKey" value="**&#9;FILE&#9;file:///Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/enums/AttRecordStatus.java" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql" />
-      <recent name="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view" />
-      <recent name="$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view" />
-      <recent name="$PROJECT_DIR$/admin/src/main/webapp/static/css" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.shanglan.erp.repository" />
-      <recent name="com.shanglan.erp.dto" />
-      <recent name="com.shanglan.erp.controller" />
-      <recent name="com.shanglan.erp.ffmpeg.service" />
-      <recent name="com.shanglan.erp.ffmpeg.entity" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view" />
       <recent name="$PROJECT_DIR$/weixin/src/main/webapp/static/utils" />
       <recent name="$PROJECT_DIR$/weixin/src/main/webapp/static/js" />
       <recent name="$PROJECT_DIR$/weixin/src/main/webapp/static/img" />
       <recent name="$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.shanglan.erp.repository" />
+      <recent name="com.shanglan.erp.entity" />
+      <recent name="com.shanglan.erp.dto" />
+      <recent name="com.shanglan.erp.controller" />
+      <recent name="com.shanglan.erp.ffmpeg.service" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql" />
+      <recent name="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view" />
+      <recent name="$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view" />
+      <recent name="$PROJECT_DIR$/admin/src/main/webapp/static/css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -503,11 +453,6 @@
         <artifact name="admin:war exploded">
           <settings>
             <option name="CONTEXT_PATH" value="/" />
-          </settings>
-        </artifact>
-        <artifact name="weixin:war exploded">
-          <settings>
-            <option name="CONTEXT_PATH" value="/weixin" />
           </settings>
         </artifact>
       </deployment>
@@ -589,7 +534,6 @@
       <method>
         <option name="BuildArtifacts" enabled="true">
           <artifact name="admin:war exploded" />
-          <artifact name="weixin:war exploded" />
         </option>
       </method>
     </configuration>
@@ -649,6 +593,18 @@
       </option>
       <envs />
       <patterns />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="erp" />
+      <envs />
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
@@ -928,18 +884,6 @@
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="erp" />
-      <envs />
-    </configuration>
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="filePath" />
@@ -1205,14 +1149,8 @@
       <workItem from="1512712614059" duration="11243000" />
       <workItem from="1512727543026" duration="303000" />
       <workItem from="1512731783364" duration="222000" />
-      <workItem from="1512778885936" duration="2956000" />
-    </task>
-    <task id="LOCAL-00063" summary="ok">
-      <created>1506185909816</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1506185909817</updated>
+      <workItem from="1512778885936" duration="10140000" />
+      <workItem from="1512795215070" duration="2646000" />
     </task>
     <task id="LOCAL-00064" summary="ok">
       <created>1506225916345</created>
@@ -1550,7 +1488,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512726577640</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="隐患排查">
+      <created>1512786050251</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1512786050255</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1586,7 +1531,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="752124000" />
+    <option name="totallyTimeSpent" value="761954000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1599,7 +1544,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1612,9 +1556,9 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34902763" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3480041" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3265097" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32548618" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1624,9 +1568,10 @@
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27840328" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23931624" sideWeight="0.48085105" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23321123" sideWeight="0.48085105" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24542125" sideWeight="0.51914895" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3274648" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26007327" sideWeight="0.5098935" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1638,7 +1583,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47082907" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3285568" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1735,15 +1679,15 @@
     <MESSAGE value="逻辑删除" />
     <MESSAGE value="增加只读页面" />
     <MESSAGE value="出库脚本" />
-    <MESSAGE value="隐患排查" />
     <MESSAGE value="隐患排查更新" />
     <MESSAGE value="监控雏形" />
     <MESSAGE value="风险管控重做" />
-    <option name="LAST_COMMIT_MESSAGE" value="风险管控重做" />
+    <MESSAGE value="隐患排查" />
+    <option name="LAST_COMMIT_MESSAGE" value="隐患排查" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="337" />
+      <option name="time" value="351" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1752,98 +1696,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/ErpService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="197" column="26" lean-forward="true" selection-start-line="197" selection-start-column="26" selection-end-line="197" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/config/Constance.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/config/SpringWebMvcConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="166" column="72" lean-forward="false" selection-start-line="166" selection-start-column="23" selection-end-line="166" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/dto/HiddenTroubleDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/dto/AttForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/dto/QueryDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="22" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/AttRecordRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="23" column="20" lean-forward="false" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/hiddentrouble_result_add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/att_user_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="84" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/static/utils/strUtils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="6" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/static/js/DatePicker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2070">
-          <caret line="144" column="0" lean-forward="false" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/static/utils/dateUtils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="13" lean-forward="false" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/AttService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="230" column="56" lean-forward="true" selection-start-line="230" selection-start-column="56" selection-end-line="230" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/AttController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="650">
@@ -1894,27 +1746,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/RiskCondition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/HiddenTrouble.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valuelist.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="51" column="24" lean-forward="false" selection-start-line="51" selection-start-column="24" selection-end-line="54" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-jpa/1.10.6.RELEASE/spring-data-jpa-1.10.6.RELEASE.jar!/org/springframework/data/jpa/repository/JpaRepository.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1929,31 +1760,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/RiskService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1346">
-          <caret line="153" column="53" lean-forward="false" selection-start-line="153" selection-start-column="53" selection-end-line="153" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/HiddenTroubleConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.5/commons-lang3-3.5.jar!/org/apache/commons/lang3/StringUtils.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="59" column="26" lean-forward="false" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_additem.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-401">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1962,13 +1772,6 @@
         <state relative-caret-position="465">
           <caret line="50" column="3" lean-forward="false" selection-start-line="50" selection-start-column="3" selection-end-line="59" selection-end-column="5" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/hiddentrouble_config.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1997,13 +1800,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
           <caret line="1076" column="83" lean-forward="false" selection-start-line="1076" selection-start-column="48" selection-end-line="1076" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/hiddentrouble_list_month.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="739">
-          <caret line="290" column="47" lean-forward="false" selection-start-line="290" selection-start-column="47" selection-end-line="290" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -2041,6 +1837,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="22" lean-forward="false" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2048,6 +1845,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
           <caret line="37" column="41" lean-forward="true" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2062,6 +1860,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+          <folding>
+            <element signature="e#329#330#0" expanded="false" />
+            <element signature="e#357#358#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2077,7 +1879,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="799">
           <caret line="62" column="35" lean-forward="false" selection-start-line="62" selection-start-column="35" selection-end-line="62" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2086,45 +1887,207 @@
         <state split_layout="FIRST">
           <first_editor relative-caret-position="388">
             <caret line="106" column="4" lean-forward="true" selection-start-line="106" selection-start-column="4" selection-end-line="106" selection-end-column="66" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/dto/HiddenTroubleItemDTO.java">
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/RiskCondition.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="34" column="18" lean-forward="false" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
+        <state relative-caret-position="135">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/RiskItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="19" column="3" lean-forward="false" selection-start-line="19" selection-start-column="3" selection-end-line="37" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/dto/RiskQueryDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="24" lean-forward="true" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/ConfigRepository.java" />
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/HiddenTroubleItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="25" column="38" lean-forward="true" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/ErpService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="288" column="17" lean-forward="false" selection-start-line="288" selection-start-column="17" selection-end-line="288" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/AttClassesRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/RiskItemRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/HiddenTroubleRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/HiddenTrouble.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="41" />
           <folding>
-            <element signature="e#713#714#0" expanded="true" />
-            <element signature="e#740#741#0" expanded="true" />
+            <element signature="e#1003#1004#0" expanded="false" />
+            <element signature="e#1037#1038#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/HiddenTroubleController.java">
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/HiddenTroubleCondition.java" />
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/dto/HiddenTroubleDTO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="90" column="64" lean-forward="false" selection-start-line="90" selection-start-column="64" selection-end-line="90" selection-end-column="64" />
+        <state relative-caret-position="60">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/HiddenTroubleItem.java">
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/HiddenTroubleConditionRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="22" column="18" lean-forward="false" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="18" />
+        <state relative-caret-position="60">
+          <caret line="7" column="72" lean-forward="false" selection-start-line="7" selection-start-column="72" selection-end-line="7" selection-end-column="72" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/RiskService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="700">
+          <caret line="79" column="66" lean-forward="false" selection-start-line="79" selection-start-column="66" selection-end-line="79" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weixin/src/main/java/com/shanglan/erp/controller/HiddenTroubleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="93" column="70" lean-forward="false" selection-start-line="93" selection-start-column="70" selection-end-line="93" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/dto/HiddenTroubleResultDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_valuelist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-498">
+          <caret line="43" column="22" lean-forward="false" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/risk_additem.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="498">
+          <caret line="106" column="75" lean-forward="false" selection-start-line="106" selection-start-column="40" selection-end-line="106" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/config/Constance.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/dto/HiddenTroubleItemDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/HiddenTroubleConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="16" column="29" lean-forward="false" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+          <folding>
+            <element signature="e#498#499#0" expanded="true" />
+            <element signature="e#538#539#0" expanded="true" />
+            <element signature="e#570#571#0" expanded="true" />
+            <element signature="e#609#610#0" expanded="true" />
+            <element signature="e#644#645#0" expanded="true" />
+            <element signature="e#700#701#0" expanded="true" />
+            <element signature="e#748#749#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/HiddenTroubleService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="241" column="97" lean-forward="false" selection-start-line="241" selection-start-column="97" selection-end-line="241" selection-end-column="97" />
+        <state relative-caret-position="213">
+          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
           <folding>
-            <element signature="e#10480#10488#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#10567#10575#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/hiddentrouble_config.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="537">
+          <caret line="105" column="33" lean-forward="false" selection-start-line="105" selection-start-column="21" selection-end-line="105" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/HiddenTroubleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="53" column="59" lean-forward="false" selection-start-line="53" selection-start-column="59" selection-end-line="53" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/hiddentrouble_list_month.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="101" column="174" lean-forward="false" selection-start-line="101" selection-start-column="174" selection-end-line="101" selection-end-column="174" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#td#16;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#1;n#td#16;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

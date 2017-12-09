@@ -11,16 +11,8 @@ import javax.persistence.Table;
 public class HiddenTroubleConfig extends BaseEntity{
     private static final long serialVersionUID = -5461251976151102979L;
 
-    public HiddenTroubleConfig() {
-    }
-
-    public HiddenTroubleConfig(String name, String type) {
-        this.name = name;
-        this.type = type;
-    }
-
     private String name;
-    private String type;
+    private String classifyName;
 
     public String getName() {
         return name;
@@ -30,11 +22,11 @@ public class HiddenTroubleConfig extends BaseEntity{
         this.name = name;
     }
 
-    public String getType() {
-        return type;
+    public String getClassifyName() {
+        return classifyName;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setClassifyName(String classifyName) {
+        this.classifyName = classifyName;
     }
 }

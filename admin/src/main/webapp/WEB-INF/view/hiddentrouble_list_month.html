@@ -97,12 +97,11 @@
                                     <h3 class="table-title">事故隐患排查治理登记台账</h3>
                                     <div class="table-sub-title">
                                         <form th:action="@{/hiddenTrouble/list/month}" method="get" class="month-query">
-                                            <select class="type" name="type">
+                                            <select class="queryType" name="queryType">
                                                 <option value="">类别</option>
-                                                <option th:each="c:${types}"  th:text="${c?.name}" th:id="${c?.id}" th:value="${c?.name}" th:selected="${query!=null&&query.type==c.name}"></option>
+                                                <option th:each="q:${queryTypes}"  th:text="${q?.name}" th:id="${q?.id}" th:value="${q?.name}" th:selected="${queryDTO!=null&&q.name==queryDTO.queryType}"></option>
                                             </select>
-                                            <input type="text" class="month-input table-date" name="queryDate" placeholder="请选择月份" style="width: 100px" th:value="${#dates.format(query?.queryDate,'yyyy-MM')}">
-                                            <!--<span class="table-date" th:value="${#dates.format(query?.queryDate,'yyyy-MM')}">20&nbsp;&nbsp;&nbsp;&nbsp;年&nbsp;&nbsp;&nbsp;&nbsp;月</span>-->
+                                            <input type="text" class="month-input table-date" name="queryDate" placeholder="请选择月份" style="width: 100px" th:value="${#dates.format(queryDTO?.queryDate,'yyyy-MM')}">
                                         </form>
                                     </div>
                                     <div class="table-responsive">
@@ -151,8 +150,8 @@
                                                 <td th:text="${item.acceptancePeople}"></td>
                                                 <td th:text="${item.result}" class="result"></td>
                                                 <td>
-                                                    <a class="btn-sm btn-success" th:href="@{/hiddenTrouble/month/update/}+${item?.id}" style="padding: 1px 1px">修改</a>
-                                                    <a class="btn-sm btn-danger delete" th:value="${item?.id}" style="padding: 1px 1px">删除</a>
+                                                    <a class="btn-sm btn-success" th:href="@{/hiddenTrouble/month/update/}+${item?.id}" style="padding: 2px 4px;width: 35px;display: inline-block">修改</a>
+                                                    <a class="btn-sm btn-danger delete" th:value="${item?.id}" style="padding: 2px 4px;width: 35px;display: inline-block">删除</a>
                                                 </td>
                                             </tr>
 
@@ -167,15 +166,8 @@
                                     <nav th:replace="common/page::paging"></nav>
                                 </div>
 
-                                <div class="form-group noprint">
-                                    <div class="col-sm-12 text-center" style="margin-top: 10px">
-                                        <!--<button type="button" class="btn btn-success save">保存</button>-->
-                                        <!--<button type="button" class="btn btn-danger" onclick="javascript:history.go(-1);">关闭</button>-->
-                                    </div>
-                                </div>
                             </div>
 
-                            <!--<div class="panel-footer"></div>-->
                         </div>
 
                     </div>
@@ -198,6 +190,7 @@
 
 <script type="text/javascript" th:inline="javascript">
     var ctx = /*[[@{/}]]*/;
+//    var types = /*[[${types}]]*/;
     $(".close-window").click(function (e) {
         window.history.go(-1);
     });
@@ -272,7 +265,7 @@
     });
 
     $('.btn-export').click(function () {
-        window.location.href = ctx+'hiddenTrouble/export/month?queryDate='+$('.table-date').val();
+        window.location.href = ctx+'hiddenTrouble/export/month?queryDate='+$('.table-date').val()+'&queryType='+$('.queryType').find("option:selected").attr("value");
     });
 
     $(".delete").click(function () {
@@ -286,6 +279,7 @@
         });
     });
     $(function () {
+//        console.log(types);
         $("tbody .item-content").each(function (e) {
             if($(this).find(".result").html()=='未整改'){
                 $(this).css('background','#ff4400');

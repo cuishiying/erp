@@ -1,6 +1,7 @@
 package com.shanglan.erp.controller;
 
 import com.shanglan.erp.base.AjaxResponse;
+import com.shanglan.erp.config.Constance;
 import com.shanglan.erp.dto.HiddenTroubleDTO;
 import com.shanglan.erp.dto.HiddenTroubleItemDTO;
 import com.shanglan.erp.dto.HiddenTroubleResultDTO;
@@ -22,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -38,18 +40,18 @@ public class HiddenTroubleController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(path = "/config/addview",method = RequestMethod.GET)
+    @RequestMapping(path = "/config/add",method = RequestMethod.GET)
     public ModelAndView addRiskItemView(){
         ModelAndView model = new ModelAndView("hiddentrouble_config");
-        List<HiddenTroubleConfig> configs = hiddenTroubleService.findAll();
+        List<HiddenTroubleConfig> configs = hiddenTroubleService.findAllConfigs();
         model.addObject("configs",configs);
         return model;
     }
 
 
     @RequestMapping(path = "/config/add",method = RequestMethod.POST)
-    public AjaxResponse saveRiskItem(@RequestParam String name,@RequestParam String type){
-        AjaxResponse response = hiddenTroubleService.saveConfig(name, type);
+    public AjaxResponse saveRiskItem(@RequestParam String name,@RequestParam String classifyName){
+        AjaxResponse response = hiddenTroubleService.saveConfig(name, classifyName);
         return response;
     }
     @RequestMapping(path = "/config/delete/{id}",method = RequestMethod.GET)
@@ -81,20 +83,21 @@ public class HiddenTroubleController {
      * @return
      */
     @RequestMapping(path = "/list/month",method = RequestMethod.GET)
-    public ModelAndView hiddenTroubleList(String username, String truename, HiddenTroubleItemDTO hiddenTroubleItemDTO, @PageableDefault(value = 10,sort = "checkTime",direction = Sort.Direction.ASC) Pageable pageable, HttpServletRequest request){
+    public ModelAndView hiddenTroubleList(String username, String truename, HiddenTroubleItemDTO queryDTO, @PageableDefault(value = 10,sort = "checkTime",direction = Sort.Direction.ASC) Pageable pageable, HttpServletRequest request){
         if (StringUtils.isNotEmpty(username) && StringUtils.isNotEmpty(truename)) {
             User user = userService.findUserByUsernameAndtruename(username, truename);
             request.getSession().invalidate();
             request.getSession().setAttribute("uid", user.getUid());
         }
         ModelAndView model = new ModelAndView("hiddentrouble_list_month");
-        Page<HiddenTroubleItem> page = hiddenTroubleService.findAll(hiddenTroubleItemDTO,pageable);
-        List<HiddenTroubleConfig> types = hiddenTroubleService.findAll();
+        Page<HiddenTroubleItem> page = hiddenTroubleService.findAll(queryDTO,pageable);
+        List<HiddenTroubleConfig> types = hiddenTroubleService.findAllConfigs();
         model.addObject("page",page);
-        model.addObject("query",hiddenTroubleItemDTO);
-        model.addObject("types",types);
+        model.addObject("queryDTO",queryDTO);
+        model.addObject("queryTypes",types);
         return model;
     }
+
 
     @RequestMapping(path = "/month/update/{id}",method = RequestMethod.GET)
     public ModelAndView updateMonthItemView(@PathVariable Integer id){

@@ -103,7 +103,7 @@
 
         var configParams = new Object();
         configParams.name = $(".config_name").val();
-        configParams.type = '';
+        configParams.classifyName = '类别';
 
         ajaxUtils.postParams(ctx+"hiddenTrouble/config/add",configParams,function (e) {
             if(e.success){

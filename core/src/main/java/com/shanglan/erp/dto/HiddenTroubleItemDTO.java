@@ -11,7 +11,7 @@ public class HiddenTroubleItemDTO {
     @DateTimeFormat(pattern = "yyyy-MM")
     private Date queryDate;
 
-    private String type;
+    private String queryType;
 
     public String getKeyword() {
         return keyword;
@@ -32,11 +32,11 @@ public class HiddenTroubleItemDTO {
         this.queryDate = queryDate;
     }
 
-    public String getType() {
-        return type;
+    public String getQueryType() {
+        return queryType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setQueryType(String queryType) {
+        this.queryType = queryType;
     }
 }
