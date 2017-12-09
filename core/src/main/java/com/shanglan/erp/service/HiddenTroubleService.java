@@ -244,7 +244,7 @@ public class HiddenTroubleService {
             }
 
             if (queryVo!=null&&StringUtils.isNotBlank(queryVo.getType())) {
-                predicate.add(cb.equal(root.<String>get("type"), "%" + queryVo.getType().trim() + "%"));
+                predicate.add(cb.like(root.<String>get("type"), "%" + queryVo.getType().trim() + "%"));
             }
 
             return query.where(predicate.toArray(new Predicate[predicate.size()])).getRestriction();
