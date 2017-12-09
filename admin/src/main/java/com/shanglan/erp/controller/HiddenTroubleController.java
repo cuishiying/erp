@@ -91,10 +91,8 @@ public class HiddenTroubleController {
         }
         ModelAndView model = new ModelAndView("hiddentrouble_list_month");
         Page<HiddenTroubleItem> page = hiddenTroubleService.findAll(queryDTO,pageable);
-//        List<HiddenTroubleConfig> types = hiddenTroubleService.findAllConfigs();
         model.addObject("page",page);
         model.addObject("queryDTO",queryDTO);
-//        model.addObject("queryTypes",types);
         return model;
     }
 

@@ -124,7 +124,7 @@ public class VideoService{
             video.setVideoPath(videoConfig.getNginxIp()+"/hls/"+video.getShowName()+"/"+ipcName);
             video.setTranscoding(false);
             File file = new File(videoConfig.getNginxPath() + "/hls/" + video.getShowName());
-            boolean b = judeDirExists(file);
+            boolean b = file.mkdirs();
             if (b){
                 videoRepository.save(video);
                 return AjaxResponse.success();
@@ -151,7 +151,7 @@ public class VideoService{
             }
         } else {
             System.out.println("正在创建目录 ..."+file.getPath());
-            file.mkdir();
+            file.mkdirs();
             return true;
         }
     }
