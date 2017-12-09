@@ -82,6 +82,13 @@ public class VideoService{
 
     }
 
+    public AjaxResponse updateVideoConfig(String nginxPath,String nginxIp){
+        VideoConfig videoConfig = findVideoConfig();
+        videoConfig.setNginxPath(nginxPath);
+        videoConfig.setNginxIp(nginxIp);
+        return AjaxResponse.success();
+    }
+
     /**
      * 查找监控基础配置
      * @return

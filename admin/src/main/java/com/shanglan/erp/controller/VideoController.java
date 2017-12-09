@@ -2,6 +2,7 @@ package com.shanglan.erp.controller;
 
 import com.shanglan.erp.base.AjaxResponse;
 import com.shanglan.erp.entity.Video;
+import com.shanglan.erp.entity.VideoConfig;
 import com.shanglan.erp.enums.StreamType;
 import com.shanglan.erp.service.VideoService;
 import com.shanglan.erp.utils.CmdExecuter;
@@ -65,6 +66,20 @@ public class VideoController {
     @RequestMapping(path = "/transcoding/stop/{id}",method = RequestMethod.GET)
     public AjaxResponse stopTranscoding(@PathVariable Integer id){
         AjaxResponse ajaxResponse = videoService.stopTranscoding(id);
+        return ajaxResponse;
+    }
+
+    @RequestMapping(path = "/conf",method = RequestMethod.GET)
+    public ModelAndView nginxConf(){
+        ModelAndView model = new ModelAndView("video_conf");
+        VideoConfig videoConfig = videoService.findVideoConfig();
+        model.addObject("videoConfig",videoConfig);
+        return model;
+    }
+
+    @RequestMapping(path = "/conf",method = RequestMethod.POST)
+    public AjaxResponse updateVideoConfig(@RequestParam String nginxPath,@RequestParam String nginxIp){
+        AjaxResponse ajaxResponse = videoService.updateVideoConfig(nginxPath, nginxIp);
         return ajaxResponse;
     }
 

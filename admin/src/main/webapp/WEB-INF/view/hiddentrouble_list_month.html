@@ -90,18 +90,19 @@
                                     <a type="button" class="btn btn-primary btn-export noprint">导出</a>
                                     <button type="button" class="btn btn-primary btn-print noprint" onclick="javascript:window.print();">打印</button>
                                     <button type="button" class="btn btn-primary btn-toggle noprint">隐藏</button>
-                                    <button type="button" class="btn btn-primary btn-search noprint">查询</button>
                                 </div>
                                 <!--startprint-->
                                 <div class="print" >
                                     <h3 class="table-title">事故隐患排查治理登记台账</h3>
                                     <div class="table-sub-title">
                                         <form th:action="@{/hiddenTrouble/list/month}" method="get" class="month-query">
-                                            <select class="queryType" name="queryType">
-                                                <option value="">类别</option>
-                                                <option th:each="q:${queryTypes}"  th:text="${q?.name}" th:id="${q?.id}" th:value="${q?.name}" th:selected="${queryDTO!=null&&q.name==queryDTO.queryType}"></option>
-                                            </select>
-                                            <input type="text" class="month-input table-date" name="queryDate" placeholder="请选择月份" style="width: 100px" th:value="${#dates.format(queryDTO?.queryDate,'yyyy-MM')}">
+                                            <input type="text"  class="noprint" name="keyword" th:value="${queryDTO.keyword}" placeholder="类别" style="outline: none"/>
+                                            <button type="button" class="btn-sm btn-primary btn-search noprint">查询</button>
+                                            <!--<select class="queryType noprint" name="queryType">-->
+                                                <!--<option value="">类别</option>-->
+                                                <!--<option th:each="q:${queryTypes}"  th:text="${q?.name}" th:id="${q?.id}" th:value="${q?.name}" th:selected="${queryDTO!=null&&q.name==queryDTO.queryType}"></option>-->
+                                            <!--</select>-->
+                                            <input type="text" class="month-input table-date" name="queryDate" placeholder="请选择月份" style="width: 100px;outline: none" th:value="${#dates.format(queryDTO?.queryDate,'yyyy-MM')}">
                                         </form>
                                     </div>
                                     <div class="table-responsive">

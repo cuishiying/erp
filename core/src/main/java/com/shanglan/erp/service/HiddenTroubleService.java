@@ -231,9 +231,9 @@ public class HiddenTroubleService {
 
             //关键词
             if(queryVo!=null&& StringUtils.isNotBlank(queryVo.getKeyword())){
-                predicate.add(cb.or(cb.like(root.<String>get("name"), "%" + queryVo.getKeyword().trim() + "%"),
-                        cb.like(root.<String>get("entryPerson"), "%" + queryVo.getKeyword().trim() + "%")));
-
+//                predicate.add(cb.or(cb.like(root.<String>get("name"), "%" + queryVo.getKeyword().trim() + "%"),
+//                        cb.like(root.<String>get("entryPerson"), "%" + queryVo.getKeyword().trim() + "%")));
+               predicate.add(cb.like(root.<String>get("type"), "%" + queryVo.getKeyword().trim() + "%"));
             }
 
             if (queryVo!=null&&queryVo.getQueryDate() != null) {
@@ -245,9 +245,9 @@ public class HiddenTroubleService {
                 predicate.add(lastQuery);
             }
 
-            if (queryVo!=null&&StringUtils.isNotBlank(queryVo.getQueryType())) {
-                predicate.add(cb.like(root.<String>get("type"), "%" + queryVo.getQueryType().trim() + "%"));
-            }
+//            if (queryVo!=null&&StringUtils.isNotBlank(queryVo.getQueryType())) {
+//                predicate.add(cb.like(root.<String>get("type"), "%" + queryVo.getQueryType().trim() + "%"));
+//            }
 
             return query.where(predicate.toArray(new Predicate[predicate.size()])).getRestriction();
         };
