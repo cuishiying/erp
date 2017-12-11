@@ -2,12 +2,16 @@ package com.shanglan.erp.controller;
 
 import com.shanglan.erp.base.AjaxResponse;
 import com.shanglan.erp.dto.HiddenTroubleDTO;
+import com.shanglan.erp.dto.HiddenTroubleItemDTO;
 import com.shanglan.erp.dto.HiddenTroubleResultDTO;
 import com.shanglan.erp.entity.HiddenTrouble;
 import com.shanglan.erp.entity.HiddenTroubleItem;
 import com.shanglan.erp.entity.HiddenTroubleResult;
+import com.shanglan.erp.entity.User;
 import com.shanglan.erp.enums.HiddenTroubleLevels;
 import com.shanglan.erp.service.HiddenTroubleService;
+import com.shanglan.erp.service.UserService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -31,6 +35,63 @@ public class HiddenTroubleController {
 
     @Autowired
     private HiddenTroubleService hiddenTroubleService;
+    @Autowired
+    private UserService userService;
+
+
+    /**
+     * 新版
+     * @param username
+     * @param truename
+     * @param pageable
+     * @param request
+     * @return
+     */
+    @RequestMapping(path = "/list/month",method = RequestMethod.GET)
+    public ModelAndView hiddenTroubleList(String username, String truename, HiddenTroubleItemDTO queryDTO, @PageableDefault(value = 10,sort = "checkTime",direction = Sort.Direction.ASC) Pageable pageable, HttpServletRequest request){
+        if (StringUtils.isNotEmpty(username) && StringUtils.isNotEmpty(truename)) {
+            User user = userService.findUserByUsernameAndtruename(username, truename);
+            request.getSession().invalidate();
+            request.getSession().setAttribute("uid", user.getUid());
+        }
+        ModelAndView model = new ModelAndView("hiddentrouble_list_month");
+        Page<HiddenTroubleItem> page = hiddenTroubleService.findAll(queryDTO,pageable);
+        model.addObject("page",page);
+        model.addObject("queryDTO",queryDTO);
+        return model;
+    }
+
+    /**
+     * 上拉加载数据
+     * @param pageable
+     * @return
+     */
+    @RequestMapping(path = "list/month/data",method = RequestMethod.GET)
+    public AjaxResponse hiddenTroubleData(HiddenTroubleItemDTO queryDTO,@PageableDefault(value = 10,sort = "checkTime",direction = Sort.Direction.ASC) Pageable pageable){
+        Page<HiddenTroubleItem> page = hiddenTroubleService.findAll(queryDTO,pageable);
+        return AjaxResponse.success(page);
+    }
+
+
+    @RequestMapping(path = "/month/update/{id}",method = RequestMethod.GET)
+    public ModelAndView updateMonthItemView(@PathVariable Integer id){
+        ModelAndView model = new ModelAndView("hiddentrouble_edit");
+        HiddenTroubleItem item = hiddenTroubleService.findItemById(id);
+        model.addObject("hiddenTrouble",item);
+        return model;
+    }
+
+    @RequestMapping(path = "/month/update/{id}",method = RequestMethod.POST)
+    public AjaxResponse updateMonthItemView(@PathVariable Integer id,@RequestBody HiddenTroubleItem hiddenTroubleItem){
+        AjaxResponse ajaxResponse = hiddenTroubleService.updateHiddenTroubleItem(id, hiddenTroubleItem);
+        return ajaxResponse;
+    }
+
+    @RequestMapping(path = "/month/delete/{id}",method = RequestMethod.POST)
+    public AjaxResponse deleteMonthItem(@PathVariable Integer id){
+        AjaxResponse response = hiddenTroubleService.deleteItem(id);
+        return response;
+    }
 
     @RequestMapping(path = "/list",method = RequestMethod.GET)
     public ModelAndView hiddenTroubleListView(String username, String truename, HiddenTroubleDTO hiddenTroubleDTO, @PageableDefault(value = 10,sort = "createTime",direction = Sort.Direction.DESC) Pageable pageable, HttpServletRequest request){
