@@ -25,6 +25,13 @@
             overflow:hidden;
             white-space:nowrap;
             text-overflow:ellipsis;
+            max-width: 200px;
+        }
+        .td-break{
+            word-wrap: break-word;
+            word-break: break-all;
+            max-width: 200px;
+            white-space: normal !important;
         }
         .header-item{
             float: left;
@@ -32,53 +39,51 @@
             margin-top: 5px;
             margin-right: 50px;
         }
-        .no-padding{
-            padding: 0px;
-        }
     </style>
 </head>
 <body>
 <div id="wrapper">
-    <div class="">
-        <div class="col-md-12 no-padding">
+    <div class="row">
+        <div class="col-md-12">
             <div class="panel">
                 <div class="panel-heading">
                     <h3 class="panel-title">安全风险管控列表</h3>
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class="table table-striped table-bordered" border="1" cellpadding="10" width="100%">
+
+                    <table class="table table-striped table-bordered table-fix">
                         <thead>
-                            <tr>
-                                <th class="text-center" scope="col" style="width: 10%">危险因素</th>
-                                <th class="text-center" scope="col" style="width: 15%">风险描述</th>
-                                <th class="text-center" scope="col" style="width: 10%">风险地点</th>
-                                <th class="text-center" scope="col" style="width: 10%">级别</th>
-                                <th class="text-center" scope="col" style="width: 5%">责任单位</th>
-                                <th class="text-center" scope="col" style="width: 5%">责任人</th>
-                                <th class="text-center" scope="col" style="width: 10%">矿分管领导</th>
-                                <th class="text-center" scope="col" style="width: 5%">组织领导</th>
-                                <th class="text-center" scope="col" style="width: 15%">时限</th>
-                                <th class="text-center" scope="col" style="width: 15%">操作</th>
-                            </tr>
+                        <tr>
+                            <th class="text-center" style="width: 10%">危险因素</th>
+                            <th class="text-center" >风险描述</th>
+                            <th class="text-center" style="width: 10%">风险地点</th>
+                            <th class="text-center" style="width: 10%">级别</th>
+                            <th class="text-center" style="width: 5%">责任单位</th>
+                            <th class="text-center" style="width: 5%">责任人</th>
+                            <th class="text-center" style="width: 10%">矿分管领导</th>
+                            <th class="text-center" style="width: 5%">组织领导</th>
+                            <th class="text-center" style="width: 15%">时限</th>
+                            <th class="text-center" style="width: 15%">操作</th>
+                        </tr>
                         </thead>
                         <tbody>
-                            <tr class="item-content" name="riskItem" th:each="item:${page.content}" th:value="${item.hasWarmingItem}">
-                                <td  class="td-ellipsis text-center" th:text="${item.riskElement.name}">111</td>
-                                <td  class="td-ellipsis text-center" th:text="${item.riskDesc}">111</td>
-                                <td  class="td-ellipsis text-center" th:text="${item.riskAddr}">111</td>
-                                <td  class="td-ellipsis text-center" th:text="${item.riskLevel.name}">111</td>
-                                <td  class="td-ellipsis text-center" th:text="${item.riskDept}">111</td>
-                                <td  class="td-ellipsis text-center" th:text="${item.responsible}">111</td>
-                                <td  class="td-ellipsis text-center" th:text="${item.branchLeader}">111</td>
-                                <td  class="td-ellipsis text-center" th:text="${item.orgLeader}">111</td>
-                                <td  class="td-ellipsis text-center" th:text="${item.handleTimeLimit}">111</td>
-                                <td class="text-center">
-                                    <a class="btn-sm btn-success detail" th:value="${item.id}" th:href="@{/risk/value/detail/}+${item.id}">详情</a>
-                                    <!--<a class="btn-sm btn-primary handle" th:value="${item.id}" th:href="@{/risk/value/edit/}+${item.id}">编辑</a>-->
-                                    <!--<a class="btn-sm btn-primary delete" th:value="${item.id}">删除</a>-->
-                                </td>
-                            </tr>
+                        <tr class="item-content" name="riskItem" th:each="item:${page.content}" th:value="${item.hasWarmingItem}">
+                            <td  class="text-center" th:text="${item.riskElement.name}">111</td>
+                            <td  class="text-center td-ellipsis" th:text="${item.riskDesc}">111</td>
+                            <td  class="text-center" th:text="${item.riskAddr}">111</td>
+                            <td  class="text-center" th:text="${item.riskLevel.name}">111</td>
+                            <td  class="text-center" th:text="${item.riskDept}">111</td>
+                            <td  class="text-center" th:text="${item.responsible}">111</td>
+                            <td  class="text-center" th:text="${item.branchLeader}">111</td>
+                            <td  class="text-center" th:text="${item.orgLeader}">111</td>
+                            <td  class="text-center" th:text="${item.handleTimeLimit}">111</td>
+                            <td class="text-center">
+                                <a class="btn-sm btn-success detail" th:value="${item.id}" th:href="@{/risk/value/detail/}+${item.id}">详情</a>
+                                <!--<a class="btn-sm btn-primary handle" th:value="${item.id}" th:href="@{/risk/value/edit/}+${item.id}">编辑</a>-->
+                                <!--<a class="btn-sm btn-primary delete" th:value="${item.id}">删除</a>-->
+                            </td>
+                        </tr>
 
                         </tbody>
                     </table>
@@ -86,6 +91,7 @@
                     <!--分页-->
                     <nav th:replace="common/page::paging"></nav>
                 </div>
+
             </div>
 
         </div>
@@ -113,6 +119,16 @@
                 alert(e.message);
             }
         });
+    });
+
+    $(".btn-toggle").click(function () {
+        if($(".table-fix td").hasClass("td-ellipsis")){
+            $(".table-fix td").removeClass("td-ellipsis");
+            $(this).html("隐藏");
+        }else{
+            $(".table-fix td").addClass("td-ellipsis");
+            $(this).html("显示");
+        }
     });
 
 

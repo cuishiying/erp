@@ -17,4 +17,7 @@ public interface RiskItemRepository extends JpaRepository<RiskItem,Integer>{
 
     @Query("SELECT c FROM RiskItem AS c WHERE c.riskCondition.name = ?1")
     List<RiskItem> findAll(String riskConditionName);
+
+//    @Query("select count(1) from RiskValue r where r.riskLevel.id=?1")
+//    Integer findCountByRiskItem(Integer id);
 }

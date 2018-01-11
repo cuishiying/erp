@@ -34,7 +34,13 @@
             margin-right: 50px;
         }
         .head-table tr>td{
-            width: 50%;
+            /*width: 50%;*/
+        }
+        .head-table tr>.td-label{
+            width: 6%;
+        }
+        .head-table tr>.td-content{
+            width: 44%;
         }
         .head-table .head-table-body td{
             border-top: 0px;
@@ -46,7 +52,7 @@
             border-bottom-width:1px;
             border-bottom-color:black;
             outline:none;
-            width: 80%;
+            width: 95%;
         }
         .td-input>textarea,input{
             border-color:#fff;
@@ -88,49 +94,67 @@
                     <table class="table head-table">
                         <tbody class="head-table-body">
                             <tr class="item-content " name="riskItem">
-                                <td  class="td-ellipsis">
+                                <td  class="td-label">
                                     <label for="riskElement">危险因素:&nbsp;&nbsp;</label>
+                                </td>
+                                <td class="td-content">
                                     <input type="text" class="riskElement" id="riskElement" th:value="${riskValue.riskElement.name}">
                                 </td>
-                                <td  class="td-ellipsis">
-                                    <label for="riskDesc">风险描述:&nbsp;&nbsp;</label>
-                                    <input type="text" class="riskDesc" id="riskDesc" th:value="${riskValue.riskDesc}">
+                                <td  class="td-label">
+                                    <label for="handleTimeLimit">时限:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                </td>
+                                <td class="td-content">
+                                    <input type="text" class="handleTimeLimit" id="handleTimeLimit" th:value="${riskValue.handleTimeLimit}">
                                 </td>
                             </tr>
                             <tr class="item-content " name="riskItem">
-                                <td  class="td-ellipsis">
+                                <td  class="td-label">
                                     <label for="riskAddr">风险地点:&nbsp;&nbsp;</label>
+                                </td>
+                                <td class="td-content">
                                     <input type="text" class="riskAddr" id="riskAddr" th:value="${riskValue.riskAddr}">
                                 </td>
-                                <td  class="td-ellipsis">
+                                <td  class="td-label">
                                     <label for="riskLevel">级别:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                </td>
+                                <td class="td-content">
                                     <input type="text" class="riskLevel" id="riskLevel" th:value="${riskValue.riskLevel.name}">
                                 </td>
                             </tr>
                             <tr class="item-content " name="riskItem">
-                                <td  class="td-ellipsis">
+                                <td  class="td-label">
                                     <label for="riskDept">责任单位:&nbsp;&nbsp;</label>
+                                </td>
+                                <td class="td-content">
                                     <input type="text" class="riskDept" id="riskDept" th:value="${riskValue.riskDept}">
                                 </td>
-                                <td  class="td-ellipsis">
+                                <td  class="td-label">
                                     <label for="responsible">责任人:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                </td>
+                                <td class="td-content">
                                     <input type="text" class="responsible" id="responsible" th:value="${riskValue.responsible}">
                                 </td>
                             </tr>
                             <tr class="item-content" name="riskItem">
-                                <td  class="td-ellipsis">
+                                <td  class="td-label">
                                     <label for="branchLeader">矿分管领导:</label>
+                                </td>
+                                <td class="td-content">
                                     <input type="text" class="branchLeader" id="branchLeader" th:value="${riskValue.branchLeader}">
                                 </td>
-                                <td  class="td-ellipsis">
+                                <td  class="td-label">
                                     <label for="orgLeader">组织领导:&nbsp;&nbsp;</label>
+                                </td>
+                                <td class="td-content">
                                     <input type="text" class="orgLeader" id="orgLeader" th:value="${riskValue.orgLeader}">
                                 </td>
                             </tr>
                             <tr class="item-content " name="riskItem">
-                                <td  class="td-ellipsis">
-                                    <label for="handleTimeLimit">时限:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                    <input type="text" class="handleTimeLimit" id="handleTimeLimit" th:value="${riskValue.handleTimeLimit}">
+                                <td  class="td-label">
+                                    <label for="riskDesc">风险描述:&nbsp;&nbsp;</label>
+                                </td>
+                                <td class="td-content" colspan="1">
+                                    <p class="riskDesc" id="riskDesc" th:text="${riskValue.riskDesc}" rows="6" style="background-color: transparent;width: 95%;border-bottom: 1px solid black"></p>
                                 </td>
                             </tr>
                         </tbody>
@@ -178,6 +202,7 @@
     $(function () {
         if(readonly){
             $('table input').attr('readonly','readonly');
+            $('table textarea').attr('readonly','readonly');
         }
 
         $('.risk-handle tr').each(function (e) {

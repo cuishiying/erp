@@ -412,7 +412,7 @@ public class GoodsRepository {
      */
     public List<WfChukuItem> findWfItem(Integer uFlowId){
 
-        String remark = env.getProperty("wf.d.remark");
+        String codeNum = env.getProperty("wf.d.code");
         String totleprice = env.getProperty("wf.d.totleprice");
         String price = env.getProperty("wf.d.price");
         String name = env.getProperty("wf.d.name");
@@ -436,7 +436,7 @@ public class GoodsRepository {
                     wfChukuItem.setuFlowId(resultSet.getInt("uFlowId"));
                     wfChukuItem.setRowid(resultSet.getInt("rowid"));
                     wfChukuItem.setBindid(resultSet.getInt("bindid"));
-                    wfChukuItem.setRemark(resultSet.getString(remark));
+                    wfChukuItem.setCodeNum(resultSet.getString(codeNum));
                     wfChukuItem.setTotleprice(resultSet.getFloat(totleprice));
                     wfChukuItem.setPrice(resultSet.getFloat(price));
                     wfChukuItem.setName(resultSet.getString(name));

@@ -16,7 +16,7 @@ public interface RiskValueRepository extends JpaRepository<RiskValue,Integer>,Jp
 
     Page<RiskValue> findAll(Pageable pageable);
 
-    @Query("select count(1) from RiskValue r where r.riskLevel.id=?1")
+    @Query("select count(1) from RiskValue r where r.riskLevel.id=?1 or r.riskElement.id = ?1")
     Integer findCountByRiskItem(Integer id);
 
 //    @Query("select r from RiskValue r where r.deleted=true")

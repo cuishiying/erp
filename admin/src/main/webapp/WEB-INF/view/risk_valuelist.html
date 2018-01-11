@@ -56,11 +56,12 @@
                         <!--<input type="text" class="form-control date" placeholder="开始时间(检查时间)" name="beginDate" th:value="${queryDTO.beginDate?.toString()}">-->
                         <!--<input type="text" class="form-control date" placeholder="结束时间(检查时间)" name="endDate" th:value="${queryDTO.endDate?.toString()}">-->
                         <button type="submit" class="btn btn-primary">搜索</button>
+                        <button type="button" class="btn btn-primary btn-toggle noprint">显示</button>
                         <span th:text="${'共 '+page.totalElements+' 条'}"></span>
                     </div>
                 </form>
                 <div class="panel-body">
-                    <table class="table table-striped table-bordered">
+                    <table class="table table-striped table-bordered table-fix">
                         <thead>
                             <tr>
                                 <th class="text-center" style="width: 10%">危险因素</th>
@@ -126,7 +127,15 @@
             }
         });
     });
-
+    $(".btn-toggle").click(function () {
+        if($(".table-fix td").hasClass("td-ellipsis")){
+            $(".table-fix td").removeClass("td-ellipsis");
+            $(this).html("隐藏");
+        }else{
+            $(".table-fix td").addClass("td-ellipsis");
+            $(this).html("显示");
+        }
+    });
 
 </script>
 </body>

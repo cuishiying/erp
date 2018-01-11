@@ -25,7 +25,7 @@
         .no-padding{
             padding: 0px;
         }
-        .no-padding input{
+        .no-padding input,textarea,p{
             border-bottom: 1px solid #333333;
             width: 100%;
         }
@@ -34,6 +34,12 @@
             white-space:nowrap;
             text-overflow:ellipsis;
         }
+        /*.td-break{*/
+            /*word-wrap: break-word;*/
+            /*word-break: break-all;*/
+            /*!*max-width: 200px;*!*/
+            /*white-space: normal !important;*/
+        /*}*/
         .header-item{
             float: left;
             margin-bottom: 7px;
@@ -94,39 +100,57 @@
                     <ul  class="no-padding">
                         <li>
                             <label for="riskElement">危险因素:&nbsp;&nbsp;</label>
-                            <input type="text" class="riskElement" id="riskElement" th:value="${riskValue.riskElement.name}">
+                            <div>
+                                <p type="text" class="riskElement" id="riskElement" th:text="${riskValue.riskElement.name}"></p>
+                            </div>
                         </li>
                         <li>
                             <label for="riskDesc">风险描述:&nbsp;&nbsp;</label>
-                            <input type="text" class="riskDesc" id="riskDesc" th:value="${riskValue.riskDesc}">
+                            <div>
+                                <p th:text="${riskValue.riskDesc}" class="riskDesc" id="riskDesc"></p>
+                            </div>
                         </li>
                         <li>
                             <label for="riskAddr">风险地点:&nbsp;&nbsp;</label>
-                            <input type="text" class="riskAddr" id="riskAddr" th:value="${riskValue.riskAddr}">
+                            <div>
+                                <p type="text" class="riskAddr" id="riskAddr" th:text="${riskValue.riskAddr}"></p>
+                            </div>
                         </li>
                         <li>
                             <label for="riskLevel">级别:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                            <input type="text" class="riskLevel" id="riskLevel" th:value="${riskValue.riskLevel.name}">
+                            <div>
+                                <p type="text" class="riskLevel" id="riskLevel" th:text="${riskValue.riskLevel.name}"></p>
+                            </div>
                         </li>
                         <li>
                             <label for="riskDept">责任单位:&nbsp;&nbsp;</label>
-                            <input type="text" class="riskDept" id="riskDept" th:value="${riskValue.riskDept}">
+                            <div>
+                                <p type="text" class="riskDept" id="riskDept" th:text="${riskValue.riskDept}"></p>
+                            </div>
                         </li>
                         <li>
                             <label for="responsible">责任人:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                            <input type="text" class="responsible" id="responsible" th:value="${riskValue.responsible}">
+                            <div>
+                                <p type="text" class="responsible" id="responsible" th:text="${riskValue.responsible}"></p>
+                            </div>
                         </li>
                         <li>
                             <label for="branchLeader">矿分管领导:</label>
-                            <input type="text" class="branchLeader" id="branchLeader" th:value="${riskValue.branchLeader}">
+                            <div>
+                                <p type="text" class="branchLeader" id="branchLeader" th:text="${riskValue.branchLeader}"></p>
+                            </div>
                         </li>
                         <li>
                             <label for="orgLeader">组织领导:&nbsp;&nbsp;</label>
-                            <input type="text" class="orgLeader" id="orgLeader" th:value="${riskValue.orgLeader}">
+                            <div>
+                                <p type="text" class="orgLeader" id="orgLeader" th:text="${riskValue.orgLeader}"></p>
+                            </div>
                         </li>
                         <li>
                             <label for="handleTimeLimit">时限:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                            <input type="text" class="handleTimeLimit" id="handleTimeLimit" th:value="${riskValue.handleTimeLimit}">
+                            <div>
+                                <p type="text" class="handleTimeLimit" id="handleTimeLimit" th:text="${riskValue.handleTimeLimit}"></p>
+                            </div>
                         </li>
 
 
