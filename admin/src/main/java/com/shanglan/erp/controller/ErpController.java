@@ -217,6 +217,13 @@ public class ErpController {
     }
 
 
+    /**
+     * 废弃
+     * @param storageId
+     * @param goodsId
+     * @param count
+     * @return
+     */
     @RequestMapping(path = "/collect/chongku",method = RequestMethod.POST)
     public AjaxResponse redbase(@RequestParam Integer storageId,@RequestParam Integer goodsId,@RequestParam Integer count){
         AjaxResponse response = erpService.redbase(storageId, goodsId, count);

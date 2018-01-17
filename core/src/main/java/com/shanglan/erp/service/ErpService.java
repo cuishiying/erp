@@ -301,6 +301,7 @@ public class ErpService {
             goods.setUnit(String.valueOf(lo.get(5)));//单位
             goods.setSubcode(String.valueOf(lo.get(6)));//二级编码
             goods.setOpeningInventoryQuantity(String.valueOf(lo.get(14)));//期初结存数量
+            goods.setOpeningBalance(String.valueOf(lo.get(15)));//期末结存金额
             goods.setStorageId(Constance.getStoragenameConfig(String.valueOf(lo.get(0))));
             goods.setSid(sortRepository.findAll().get(0).getId());//货品分类id
             goods.setUsedate(nowLong);
@@ -326,13 +327,13 @@ public class ErpService {
             c.setGoodsSubCode("0909");
             c.setInventoryClassificationName("其他材料");
             c.setOpeningInventoryQuantity("10");
-            c.setOpeningBalance("");
+            c.setOpeningBalance("0");
             c.setStockInCount("0");
-            c.setStockInBalance("");
+            c.setStockInBalance("0");
             c.setStockOutCount("0");
-            c.setStockOutBalance("");
-            c.setEndingInventoryQuantity("10");
-            c.setEndingBalance("");
+            c.setStockOutBalance("0");
+            c.setEndingInventoryQuantity("0");
+            c.setEndingBalance("0");
             list.add(c);
         }
         LinkedHashMap<String, String> map = new LinkedHashMap<>();

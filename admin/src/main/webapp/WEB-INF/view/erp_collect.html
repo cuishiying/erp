@@ -60,8 +60,6 @@
                     <th>总计出库金额</th>
                     <th>期末结存数量</th>
                     <th>期末结存金额</th>
-                    <!--<th>冲库</th>-->
-                    <!--<th>操作</th>-->
                   </tr>
                   </thead>
                   <tbody>
@@ -76,15 +74,13 @@
                     <td th:text="${g.goodsSubCode}"></td>
                     <td th:text="${g.inventoryClassificationName}"></td>
                     <td th:text="${g.openingInventoryQuantity}"></td>
-                    <td></td>
+                    <td th:text="${g.openingBalance}"></td>
                     <td th:text="${g.stockInCount}"></td>
-                    <td></td>
+                    <td th:text="${g.stockInBalance}"></td>
                     <td th:text="${g.stockOutCount}"></td>
-                    <td></td>
+                    <td th:text="${g.stockOutBalance}"></td>
                     <td th:text="${g.endingInventoryQuantity}"></td>
-                    <td></td>
-                    <!--<td th:text="${g.chongkuCount}"></td>-->
-                    <!--<td><button class="btn btn-primary chongku"  data-toggle="modal" data-target="#myModal">冲库</button></td>-->
+                    <td th:text="${g.endingBalance}"></td>
                   </tr>
 
                   </tbody>

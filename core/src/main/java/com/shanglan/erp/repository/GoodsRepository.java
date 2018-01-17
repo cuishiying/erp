@@ -166,6 +166,7 @@ public class GoodsRepository {
                 goods.setPrice(resultSet.getDouble("price"));
                 goods.setGoodsCode(resultSet.getString("goodsCode"));
                 goods.setOpeningInventoryQuantity(resultSet.getString("openingInventoryQuantity"));
+                goods.setOpeningBalance(resultSet.getString("openingBalance"));
                 goods.setStorageId(resultSet.getInt("storageId"));
 
                 goods.setGoodsdm(resultSet.getString(dm)==null?"":resultSet.getString(dm));
@@ -198,8 +199,8 @@ public class GoodsRepository {
         String unitgroupname = env.getProperty("goods.unitgroupname");
 
         final List<Goods> tempBpplist = list;
-        String sql="insert ignore into cnoa_jxc_goods(goodsCode,goodsname,standard,unit,sid,manager,"+dm+","+usedate+","+subcode+","+abc+","+unitgroupcode+","+unitcode+","+unitgroupname+",openingInventoryQuantity,storageId)" +
-                " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql="insert ignore into cnoa_jxc_goods(goodsCode,goodsname,standard,unit,sid,manager,"+dm+","+usedate+","+subcode+","+abc+","+unitgroupcode+","+unitcode+","+unitgroupname+",openingInventoryQuantity,openingBalance,storageId)" +
+                " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         jdbcTemplate.batchUpdate(sql,new BatchPreparedStatementSetter() {
 
             @Override
@@ -224,7 +225,8 @@ public class GoodsRepository {
                 ps.setString(12, tempBpplist.get(i).getUnitcode());
                 ps.setString(13, tempBpplist.get(i).getUnitgroupname());
                 ps.setString(14, tempBpplist.get(i).getOpeningInventoryQuantity()==null?null:tempBpplist.get(i).getOpeningInventoryQuantity());
-                ps.setInt(15,tempBpplist.get(i).getStorageId()==null?-1:tempBpplist.get(i).getStorageId());
+                ps.setString(15, tempBpplist.get(i).getOpeningBalance()==null?null:tempBpplist.get(i).getOpeningBalance());
+                ps.setInt(16,tempBpplist.get(i).getStorageId()==null?-1:tempBpplist.get(i).getStorageId());
             }
         });
         return AjaxResponse.success();
@@ -288,14 +290,20 @@ public class GoodsRepository {
 
                 int initCount = 0;
                 int chongkuCount = 0;
+                float initBalance = 0;
                 if(resultSet.getString("openingInventoryQuantity")!=null){
                     initCount = Integer.parseInt(resultSet.getString("openingInventoryQuantity"));
                 }
+                if(resultSet.getString("openingBalance")!=null){
+                    initBalance = Float.parseFloat(resultSet.getString("openingBalance"));
+                }
+
                 if(resultSet.getString("ck")!=null){
                     chongkuCount = Integer.parseInt(resultSet.getString("ck"));
                 }
+
                 collect.setStockInCount(String.valueOf(Integer.parseInt(resultSet.getString("sic"))-initCount-chongkuCount));
-                collect.setStockInBalance(resultSet.getString("sib"));
+                collect.setStockInBalance(String.valueOf(Float.parseFloat(resultSet.getString("sib"))-initBalance));
                 collect.setStockOutCount(resultSet.getString("soc")==null?"0":resultSet.getString("soc"));
                 collect.setStockOutBalance(resultSet.getString("sob"));
                 collect.setEndingInventoryQuantity(resultSet.getString("eiq"));
@@ -314,7 +322,7 @@ public class GoodsRepository {
         String qsql="select * from cnoa_jxc_goods as c where c.openingInventoryQuantity is not null";
         List<Goods> all = findGoods(qsql, null, null);
 
-        String sql="insert ignore into cnoa_jxc_stock_goods_detail(posttime,storageId,goodsId,quantity,price,sum,openingInventoryQuantity,initCount) values(?,?,?,?,?,?,?,?)";
+        String sql="insert ignore into cnoa_jxc_stock_goods_detail(posttime,storageId,goodsId,quantity,price,sum,openingInventoryQuantity,openingBalance,initCount) values(?,?,?,?,?,?,?,?,?)";
         jdbcTemplate.batchUpdate(sql,new BatchPreparedStatementSetter() {
 
             @Override
@@ -331,7 +339,8 @@ public class GoodsRepository {
                 ps.setString(5, "");
                 ps.setString(6, "");
                 ps.setString(7, all.get(i).getOpeningInventoryQuantity());
-                ps.setInt(8, 0);
+                ps.setString(8, all.get(i).getOpeningBalance());
+                ps.setInt(9, 0);
             }
         });
 

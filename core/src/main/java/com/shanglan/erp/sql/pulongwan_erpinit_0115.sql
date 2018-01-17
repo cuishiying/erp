@@ -38,6 +38,15 @@ CREATE TRIGGER cnoa_afterdelete_on_cnoa_wf_u_step AFTER DELETE
       DELETE FROM cnoa_jxc_stock_goods_detail WHERE tempId = OLD.uFlowId;
     END IF ;
   END;
+
+# 流程中更新数据
+DROP TRIGGER  IF EXISTS cnoa_afterupdate_on_cnoa_z_wf_d_93_1276;
+CREATE TRIGGER cnoa_afterupdate_on_cnoa_z_wf_d_93_1276 AFTER UPDATE
+  ON cnoa_z_wf_d_93_1276 FOR EACH ROW
+  BEGIN
+    UPDATE cnoa_jxc_stock_goods_detail  SET
+      quantity = -NEW.D_255 WHERE uFlowId = NEW.uFlowId AND tempId = NEW.uFlowId;
+  END;
 //
 SHOW TRIGGERS;
 
@@ -53,8 +62,7 @@ DROP TRIGGER IF EXISTS cnoa_afterinsert_on_cnoa_jxc_goods_detail;
 CREATE TRIGGER cnoa_afterinsert_on_cnoa_jxc_goods_detail AFTER INSERT
   on cnoa_jxc_stock_goods_detail FOR EACH ROW
   BEGIN
-    IF(NEW.tempId IS NULL )
-    THEN
+    IF(NEW.tempId IS NULL ) THEN
       IF (NEW.quantity>0) THEN
         INSERT INTO cnoa_jxc_collect SET
           storagename = (SELECT storagename FROM cnoa_jxc_storage WHERE id = new.storageId),
@@ -100,6 +108,11 @@ CREATE TRIGGER cnoa_afterinsert_on_cnoa_jxc_goods_detail AFTER INSERT
           chongkuCount = (new.chongkuCount),
           uFlowId = (new.uFlowId);
       END IF;
+
+      SELECT SUM(endingBalance) INTO @tempSum FROM cnoa_jxc_collect WHERE goodsId = NEW.goodsId;
+      SELECT SUM(endingInventoryQuantity) INTO @tempCount FROM cnoa_jxc_collect WHERE goodsId = NEW.goodsId;
+      UPDATE cnoa_jxc_goods SET price = CONVERT(@tempSum/@tempCount,decimal(12,2)) WHERE id = NEW.goodsId;
+
     END IF ;
   END;
 

@@ -38,6 +38,7 @@ import static sun.net.www.protocol.http.HttpURLConnection.userAgent;
 public class ExcelUtils {
     private final static String excel2003L =".xls";    //2003- 版本的excel
     private final static String excel2007U =".xlsx";   //2007+ 版本的excel
+
     /*************************************文件上传****************************/
     public static  List<List<Object>> getBankListByExcel(InputStream in, String fileName) throws Exception{
         List<List<Object>> list = null;
@@ -50,6 +51,7 @@ public class ExcelUtils {
         Sheet sheet = null;
         Row row = null;
         Cell cell = null;
+        Integer headCount = 0;
 
         list = new ArrayList<List<Object>>();
         //遍历Excel中所有的sheet
@@ -62,11 +64,16 @@ public class ExcelUtils {
                 row = sheet.getRow(j);
                 int count = row.getFirstCellNum();
 
+                if(j==0){
+                    headCount = row.getPhysicalNumberOfCells();
+                }
+
                 if(row==null||row.getFirstCellNum()==-1||row.getFirstCellNum()==j||isRowEmpty(row)){continue;}
+
 
                 //遍历所有的列
                 List<Object> li = new ArrayList<Object>();
-                for (int y = row.getFirstCellNum(); y < row.getLastCellNum(); y++) {
+                for (int y = row.getFirstCellNum(); y < headCount; y++) {
                     cell = row.getCell(y,Row.CREATE_NULL_AS_BLANK);
                     li.add(getCellValue(cell));
                 }

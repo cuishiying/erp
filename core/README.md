@@ -69,6 +69,7 @@
     监听cnoa_wf_u_step插入，stepType=1代表发起流程，预减；stepType=3代表流程结束，回滚预减；stepType=2,判断是否已经存在预减信息，不存在则预减
     监听cnoa_wf_u_step删除，删除代表拒绝，回滚预减。
     收发存汇总（在cnoa_jxc_stock_goods_detail有正式数据插入时，往cnoa_jxc_collect同步数据，退库后cnoa_jxc_collect中相关数据同步删除，退库只发生在流程完成时）
+    期初导入相当于一次入库，报表应该从第二天开始统计
 
 ### 4. 初始化库存数据
 
