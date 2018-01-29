@@ -66,8 +66,29 @@ public class ErpService {
         categoryRepository.save(category);
         return AjaxResponse.success("创建成功");
     }
+
+    /**
+     * 删除分类
+     * @param id
+     * @return
+     */
     public AjaxResponse deleteCategory(Integer id){
-        categoryRepository.deleteCategories(id);
+        List<Category> subCategorys = categoryRepository.findSubCategory(id);
+        if(subCategorys!=null&&subCategorys.size()>0){
+            return AjaxResponse.fail("存在子分类，请先删除子分类");
+        }else{
+            Category category = categoryRepository.findOne(id);
+            Integer count = goodsRepository.valiCategory(category.getCode());
+            try {
+                if(count==0){
+                    categoryRepository.deleteCategories(id);
+                }else{
+                    return AjaxResponse.fail("该参数项正在使用,无法删除");
+                }
+            }catch (Exception e){
+                return AjaxResponse.fail("删除出现错误");
+            }
+        }
         return AjaxResponse.success();
     }
 

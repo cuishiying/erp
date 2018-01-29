@@ -68,6 +68,23 @@ public class GoodsRepository {
     //*****************************************货品档案**************************************************************************
 
     /**
+     * 判断分类是否可以删除
+     * @param code
+     * @return
+     */
+    public Integer valiCategory(String code){
+        String sql = "SELECT * FROM cnoa_jxc_goods WHERE 1=1 "+"AND field7 = "+code;
+        List<Goods> list = jdbcTemplate.query(sql, new RowMapper<Goods>() {
+
+            @Override
+            public Goods mapRow(ResultSet resultSet, int i) throws SQLException {
+                return null;
+            }
+        });
+        return list==null?0:list.size();
+    }
+
+    /**
      * 保存货品
      * @param goods
      * @return
@@ -90,7 +107,6 @@ public class GoodsRepository {
      * @return
      */
     public AjaxResponse deleteGoods(Integer id){
-
 
         String sql="DELETE FROM cnoa_jxc_goods WHERE id = ?";
         int count= jdbcTemplate.update(sql, new Object[]{id});

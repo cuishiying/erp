@@ -19,80 +19,75 @@
 <body>
 <div id="wrapper">
   <!--<nav th:replace="common/fragment_erp :: sidebar"></nav>-->
-  <div class="main">
-    <div class="main-content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="panel">
-              <div class="panel-heading">
-                <h3 class="panel-title">收发存汇总</h3>
-              </div>
-              <div class="controller">
-                <button class="btn btn-primary importGoods" th:if="${config.showImpBtn}">导入</button>
-                <form id="uploadForm" enctype="multipart/form-data" method="post" style="display: none">
-                  <input id="upfile" type="file" name="upfile" >
-                </form>
-                <a class="btn btn-primary export" th:href="@{/erp/collect/export}">导出</a>
-                <form th:action="@{/erp/collect}" method="get" style="display: inline">
-                  <input type="text" name="keyword" th:value="${keyword}"/>
-                  <button class="btn btn-primary query" type="submit">查询</button>
-                </form>
-              </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel">
+        <div class="panel-heading">
+          <h3 class="panel-title">收发存汇总</h3>
+        </div>
+        <div class="controller">
+          <button class="btn btn-primary importGoods" th:if="${config.showImpBtn}">导入</button>
+          <form id="uploadForm" enctype="multipart/form-data" method="post" style="display: none">
+            <input id="upfile" type="file" name="upfile" >
+          </form>
+          <a class="btn btn-primary export" th:href="@{/erp/collect/export}">导出</a>
+          <form th:action="@{/erp/collect}" method="get" style="display: inline">
+            <input type="text" name="keyword" th:value="${keyword}"/>
+            <button class="btn btn-primary query" type="submit">查询</button>
+          </form>
+        </div>
 
-              <div class="panel-body">
-                <table class="table table-striped">
-                  <thead>
-                  <tr>
-                    <th>仓库名称</th>
-                    <th>存货编码</th>
-                    <th>存货代码</th>
-                    <th>存货名称</th>
-                    <th>规格型号</th>
-                    <th>主计量单位名称</th>
-                    <th>存货大类编码</th>
-                    <th>存货分类名称</th>
-                    <th>期初结存数量</th>
-                    <th>期初结存金额</th>
-                    <th>总计入库数量</th>
-                    <th>总计入库金额</th>
-                    <th>总计出库数量</th>
-                    <th>总计出库金额</th>
-                    <th>期末结存数量</th>
-                    <th>期末结存金额</th>
-                  </tr>
-                  </thead>
-                  <tbody>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table table-striped table-bordered table-fix">
+            <thead>
+            <tr>
+              <th>仓库名称</th>
+              <th>存货编码</th>
+              <th>存货代码</th>
+              <th>存货名称</th>
+              <th>规格型号</th>
+              <th>主计量单位名称</th>
+              <th>存货大类编码</th>
+              <th>存货分类名称</th>
+              <th>期初结存数量</th>
+              <th>期初结存金额</th>
+              <th>总计入库数量</th>
+              <th>总计入库金额</th>
+              <th>总计出库数量</th>
+              <th>总计出库金额</th>
+              <th>期末结存数量</th>
+              <th>期末结存金额</th>
+            </tr>
+            </thead>
+            <tbody>
 
-                  <tr class="" th:each="g:${page.content}">
-                    <td th:text="${g.storageName}" class="storage" th:value="${g.storageId}"></td>
-                    <td th:text="${g.goodsCode}" class="goods" th:value="${g.goodsId}"></td>
-                    <td th:text="${g.storageCode}"></td>
-                    <td th:text="${g.goodsname}"></td>
-                    <td th:text="${g.standard}"></td>
-                    <td th:text="${g.unit}"></td>
-                    <td th:text="${g.goodsSubCode}"></td>
-                    <td th:text="${g.inventoryClassificationName}"></td>
-                    <td th:text="${g.openingInventoryQuantity}"></td>
-                    <td th:text="${g.openingBalance}"></td>
-                    <td th:text="${g.stockInCount}"></td>
-                    <td th:text="${g.stockInBalance}"></td>
-                    <td th:text="${g.stockOutCount}"></td>
-                    <td th:text="${g.stockOutBalance}"></td>
-                    <td th:text="${g.endingInventoryQuantity}"></td>
-                    <td th:text="${g.endingBalance}"></td>
-                  </tr>
+            <tr class="" th:each="g:${page.content}">
+              <td th:text="${g.storageName}" class="storage" th:value="${g.storageId}"></td>
+              <td th:text="${g.goodsCode}" class="goods" th:value="${g.goodsId}"></td>
+              <td th:text="${g.storageCode}"></td>
+              <td th:text="${g.goodsname}"></td>
+              <td th:text="${g.standard}"></td>
+              <td th:text="${g.unit}"></td>
+              <td th:text="${g.goodsSubCode}"></td>
+              <td th:text="${g.inventoryClassificationName}"></td>
+              <td th:text="${g.openingInventoryQuantity}"></td>
+              <td th:text="${g.openingBalance}"></td>
+              <td th:text="${g.stockInCount}"></td>
+              <td th:text="${g.stockInBalance}"></td>
+              <td th:text="${g.stockOutCount}"></td>
+              <td th:text="${g.stockOutBalance}"></td>
+              <td th:text="${g.endingInventoryQuantity}"></td>
+              <td th:text="${g.endingBalance}"></td>
+            </tr>
 
-                  </tbody>
+            </tbody>
 
-                </table>
-
-                <!--分页-->
-                <nav th:replace="common/page::paging"></nav>
-              </div>
-            </div>
-
+          </table>
           </div>
+
+          <!--分页-->
+          <nav th:replace="common/page::paging"></nav>
         </div>
       </div>
 

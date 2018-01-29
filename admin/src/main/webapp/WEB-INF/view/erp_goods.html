@@ -19,72 +19,69 @@
 <body>
 <div id="wrapper">
   <!--<nav th:replace="common/fragment_erp :: sidebar"></nav>-->
-  <div class="main">
-    <div class="main-content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="panel">
-              <div class="panel-heading">
-                <h3 class="panel-title">货品档案</h3>
-              </div>
-              <div class="controller">
-                <button class="btn btn-primary add" data-toggle="modal" data-target="#myModal">添加</button>
-                <button class="btn btn-primary importGoods">导入</button>
-                <form id="uploadForm" enctype="multipart/form-data" method="post" style="display: none">
-                  <input id="upfile" type="file" name="upfile" >
-                </form>
-                <a class="btn btn-primary export" th:href="@{/erp/goods/export}">导出</a>
-                <form th:action="@{/erp/goods/list}" method="get" style="display: inline">
-                  <input type="text" name="keyword" th:value="${keyword}"/>
-                  <button class="btn btn-primary query" type="submit">查询</button>
-                </form>
-              </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel">
+        <div class="panel-heading">
+          <h3 class="panel-title">货品档案</h3>
+        </div>
+        <div class="controller">
+          <button class="btn btn-primary add" data-toggle="modal" data-target="#myModal">添加</button>
+          <button class="btn btn-primary importGoods">导入</button>
+          <form id="uploadForm" enctype="multipart/form-data" method="post" style="display: none">
+            <input id="upfile" type="file" name="upfile" >
+          </form>
+          <a class="btn btn-primary export" th:href="@{/erp/goods/export}">导出</a>
+          <form th:action="@{/erp/goods/list}" method="get" style="display: inline">
+            <input type="text" name="keyword" th:value="${keyword}"/>
+            <button class="btn btn-primary query" type="submit">查询</button>
+          </form>
+        </div>
 
-              <div class="panel-body">
-                <table class="table table-striped">
-                  <thead>
-                  <tr>
-                    <th>存货编码</th>
-                    <th>存货名称</th>
-                    <th>规格型号</th>
-                    <th>存货代码</th>
-                    <th>主计量单位名称</th>
-                    <th>存货大类编码</th>
-                    <th>计量单位组名称</th>
-                    <th>ABC分类</th>
-                    <th>启用日期</th>
-                    <th>计量单位组编码</th>
-                    <th>主计量单位编码</th>
-                    <th>操作</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="" th:each="g:${page.content}">
-                      <td th:text="${g.goods.goodsCode}"></td>
-                      <td th:text="${g.goods.goodsname}"></td>
-                      <td th:text="${g.goods.standard}"></td>
-                      <td th:text="${g.goods.goodsdm}"></td>
-                      <td th:text="${g.goods.unit}"></td>
-                      <td th:text="${g.goods.subcode}"></td>
-                      <td th:text="${g.goods.unitgroupname}"></td>
-                      <td th:text="${g.goods.abc}"></td>
-                      <td th:text="${g.goods.usedate}"></td>
-                      <td th:text="${g.goods.unitgroupcode}"></td>
-                      <td th:text="${g.goods.unitcode}"></td>
-                      <td>
-                        <a class="btn-sm btn-primary delete" th:value="${g.goods.id}">删除</a>
-                      </td>
-                    </tr>
-                  </tbody>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table table-striped table-bordered table-fix">
+              <thead>
+              <tr>
+                <th>存货编码</th>
+                <th>存货名称</th>
+                <th>规格型号</th>
+                <th>存货代码</th>
+                <th>主计量单位名称</th>
+                <th>存货大类编码</th>
+                <th>计量单位组名称</th>
+                <th>ABC分类</th>
+                <th>启用日期</th>
+                <th>计量单位组编码</th>
+                <th>主计量单位编码</th>
+                <th>操作</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr class="" th:each="g:${page.content}">
+                <td th:text="${g.goods.goodsCode}"></td>
+                <td th:text="${g.goods.goodsname}"></td>
+                <td th:text="${g.goods.standard}"></td>
+                <td th:text="${g.goods.goodsdm}"></td>
+                <td th:text="${g.goods.unit}"></td>
+                <td th:text="${g.goods.subcode}"></td>
+                <td th:text="${g.goods.unitgroupname}"></td>
+                <td th:text="${g.goods.abc}"></td>
+                <td th:text="${g.goods.usedate}"></td>
+                <td th:text="${g.goods.unitgroupcode}"></td>
+                <td th:text="${g.goods.unitcode}"></td>
+                <td>
+                  <nobr>
+                  <a class="btn-sm btn-primary delete" th:value="${g.goods.id}">删除</a>
+                  </nobr>
+                </td>
+              </tr>
+              </tbody>
 
-                </table>
-                <!--分页-->
-                <nav th:replace="common/page::paging"></nav>
-              </div>
-            </div>
-
+            </table>
           </div>
+          <!--分页-->
+          <nav th:replace="common/page::paging"></nav>
         </div>
       </div>
 

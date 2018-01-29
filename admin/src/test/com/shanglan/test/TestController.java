@@ -1,5 +1,6 @@
 package com.shanglan.test;
 
+import com.shanglan.erp.repository.GoodsRepository;
 import com.shanglan.erp.service.VideoService;
 import com.shanglan.erp.utils.JavaUtils;
 import org.junit.Test;
@@ -23,6 +24,8 @@ public class TestController {
 
     @Autowired
     private VideoService videoService;
+    @Autowired
+    private GoodsRepository goodsRepository;
 
     /**
      * ok
@@ -30,8 +33,8 @@ public class TestController {
      */
     @Test
     public void test5() throws Exception{
-        String month = JavaUtils.getMonth(2017, 10);
-        System.out.println(month);
+        Integer integer = goodsRepository.valiCategory("0904");
+        System.err.println(integer);
 
     }
 

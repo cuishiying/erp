@@ -44,6 +44,7 @@ com/shanglan/erp/service/VideoService.class
 com/shanglan/erp/repository/GoodsRepository$1.class
 com/shanglan/erp/entity/HiddenTroubleConfig.class
 com/shanglan/erp/base/BaseEntity.class
+com/shanglan/erp/repository/GoodsRepository$12.class
 com/shanglan/erp/repository/CollectRepository.class
 com/shanglan/erp/dto/ExcelBean.class
 com/shanglan/erp/entity/Video.class

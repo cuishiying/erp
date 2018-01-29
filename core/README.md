@@ -8,6 +8,8 @@
     
     4. 收发存汇总包括第一次导入的数据和其他方式录入的数据（期初=null）,未处理同一货品不同库问题，所有数量-期初=入库
     
+    不同仓库同种商品编码唯一（不一样）
+    
     alter table id_name add age int,add address varchar(11);
 
 
@@ -183,6 +185,11 @@
     
     
     VIDEOJS: ERROR: TypeError: Cannot read property 'duration' of undefined
+    
+    
+测试：
+
+    
 
 
 
