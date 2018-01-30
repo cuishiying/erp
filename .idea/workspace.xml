@@ -8,37 +8,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b769e75-03a0-4700-871b-f705f620cfb6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/材料管理需求.docx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_0120.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_0122.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_0124.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_0125.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_0129.sql" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_0112.sql" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_0115.sql" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/classes/com/shanglan/erp/controller/ErpController.class" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/classes/com/shanglan/erp/controller/ErpController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_0128——ok.sql" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_ok.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/lib/core-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/lib/core-1.0-SNAPSHOT.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/lib/taobao-sdk-java-auto_1452788057542-20160201.jar" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/lib/taobao-sdk-java-auto_1452788057542-20160201.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/static/img/glyphicons-halflings.png" afterPath="$PROJECT_DIR$/admin/target/admin/static/img/glyphicons-halflings.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/classes/com/shanglan/erp/controller/ErpController.class" afterPath="$PROJECT_DIR$/admin/target/classes/com/shanglan/erp/controller/ErpController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/target/classes/com/shanglan/erp/base/ExcelUtils.class" afterPath="$PROJECT_DIR$/core/target/classes/com/shanglan/erp/base/ExcelUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/target/classes/com/shanglan/erp/repository/GoodsRepository$2.class" afterPath="$PROJECT_DIR$/core/target/classes/com/shanglan/erp/repository/GoodsRepository$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/target/classes/com/shanglan/erp/repository/GoodsRepository$3.class" afterPath="$PROJECT_DIR$/core/target/classes/com/shanglan/erp/repository/GoodsRepository$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/target/classes/com/shanglan/erp/repository/GoodsRepository$4.class" afterPath="$PROJECT_DIR$/core/target/classes/com/shanglan/erp/repository/GoodsRepository$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/target/classes/com/shanglan/erp/repository/GoodsRepository$5.class" afterPath="$PROJECT_DIR$/core/target/classes/com/shanglan/erp/repository/GoodsRepository$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/target/classes/com/shanglan/erp/repository/GoodsRepository.class" afterPath="$PROJECT_DIR$/core/target/classes/com/shanglan/erp/repository/GoodsRepository.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/target/classes/com/shanglan/erp/service/ErpService$1.class" afterPath="$PROJECT_DIR$/core/target/classes/com/shanglan/erp/service/ErpService$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/target/classes/com/shanglan/erp/service/ErpService.class" afterPath="$PROJECT_DIR$/core/target/classes/com/shanglan/erp/service/ErpService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/target/core.jar" afterPath="$PROJECT_DIR$/core/target/core.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/材料管理需求.docx" afterPath="$PROJECT_DIR$/core/材料管理需求.docx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/erp_category.html" afterPath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/erp_category.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/erp_collect.html" afterPath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/erp_collect.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/erp_goods.html" afterPath="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/erp_goods.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/src/test/com/shanglan/test/TestController.java" afterPath="$PROJECT_DIR$/admin/src/test/com/shanglan/test/TestController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/classes/jdbc.properties" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/classes/jdbc.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/classes/log4j.properties" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/classes/log4j.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/classes/pulongwan-timing-conf.xml" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/classes/pulongwan-timing-conf.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/classes/spring-context.xml" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/classes/spring-context.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/att_classes.html" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/att_classes.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/att_note.html" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/att_note.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/att_record.html" afterPath="$PROJECT_DIR$/admin/target/admin/WEB-INF/view/att_record.html" />
@@ -63,15 +39,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/static/js/jquery-1.7.2.min.js" afterPath="$PROJECT_DIR$/admin/target/admin/static/js/jquery-1.7.2.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/static/js/jquery.datetimepicker.full.js" afterPath="$PROJECT_DIR$/admin/target/admin/static/js/jquery.datetimepicker.full.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/admin/static/js/jquery.min.js" afterPath="$PROJECT_DIR$/admin/target/admin/static/js/jquery.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/classes/jdbc.properties" afterPath="$PROJECT_DIR$/admin/target/classes/jdbc.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/classes/log4j.properties" afterPath="$PROJECT_DIR$/admin/target/classes/log4j.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/classes/pulongwan-timing-conf.xml" afterPath="$PROJECT_DIR$/admin/target/classes/pulongwan-timing-conf.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/target/classes/spring-context.xml" afterPath="$PROJECT_DIR$/admin/target/classes/spring-context.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/README.md" afterPath="$PROJECT_DIR$/core/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/GoodsRepository.java" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/GoodsRepository.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/ErpService.java" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/ErpService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/core/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/core/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_0129.sql" afterPath="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_0129.sql" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -118,28 +86,7 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="pulongwan_erpinit_0129.sql" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_0129.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1787">
-              <caret line="179" column="24" lean-forward="false" selection-start-line="179" selection-start-column="5" selection-end-line="179" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="erp-core.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/main/resources/erp-core.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="664">
-              <caret line="54" column="22" lean-forward="false" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -155,10 +102,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>createMonthStr</find>
-      <find>hiddenTroubleId</find>
-      <find>table-date</find>
-      <find>item-content</find>
       <find>queryTypes</find>
       <find>judeDirExists</find>
       <find>month-query</find>
@@ -181,10 +124,14 @@
       <find>cnoa_jxc_stock_goods_detail</find>
       <find>cnoa_jxc_collect</find>
       <find>@q</find>
-      <find>cnoa_z_wf_d_93_1276</find>
       <find>cnoa_afterupdate_on_cnoa_z_wf_d_c</find>
       <find>cnoa_afterinsert_on_cnoa_jxc_stock_chuku</find>
       <find>cnoa_jxc_goods</find>
+      <find>@sum</find>
+      <find>@quantity</find>
+      <find>cnoa_jxc_goods_de</find>
+      <find>qt</find>
+      <find>cnoa_z_wf_d_93_1276</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/core</dir>
@@ -202,9 +149,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/HiddenTrouble.java" />
-        <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/HiddenTroubleCondition.java" />
-        <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/HiddenTroubleConfig.java" />
         <option value="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/hiddentrouble_config.html" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/utils/BaseUtils.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/RockPressure.java" />
@@ -252,6 +196,9 @@
         <option value="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/erp_category.html" />
         <option value="$PROJECT_DIR$/core/README.md" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_0125.sql" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_0128——ok.sql" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_test.sql" />
+        <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_0130.sql" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_0129.sql" />
       </list>
     </option>
@@ -321,8 +268,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -373,32 +322,12 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="erp" type="462c0819:PsiDirectoryNode" />
-              <item name="repository" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="erp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="erp" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="erp" type="462c0819:PsiDirectoryNode" />
               <item name="sql" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="erp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="erp" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -415,11 +344,12 @@
     <property name="SearchEverywhereHistoryKey" value="**&#9;FILE&#9;file:///Users/cuishiying/2017/07/erp/core/src/main/java/com/shanglan/erp/enums/AttRecordStatus.java" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql" />
-      <recent name="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view" />
+      <recent name="$PROJECT_DIR$/core" />
       <recent name="$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view" />
-      <recent name="$PROJECT_DIR$/admin/src/main/webapp/static/css" />
+      <recent name="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view" />
+      <recent name="$PROJECT_DIR$/weixin/src/main/webapp/static/utils" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.shanglan.erp.service" />
@@ -428,12 +358,11 @@
       <recent name="com.shanglan.erp.entity" />
       <recent name="com.shanglan.erp.dto" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql" />
-      <recent name="$PROJECT_DIR$/core" />
-      <recent name="$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view" />
       <recent name="$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view" />
-      <recent name="$PROJECT_DIR$/weixin/src/main/webapp/static/utils" />
+      <recent name="$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view" />
+      <recent name="$PROJECT_DIR$/admin/src/main/webapp/static/css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -626,6 +555,18 @@
       </option>
       <envs />
       <patterns />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="erp" />
+      <envs />
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
@@ -904,18 +845,6 @@
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="erp" />
-      <envs />
     </configuration>
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -1239,14 +1168,9 @@
       <workItem from="1516931182897" duration="882000" />
       <workItem from="1516932252751" duration="75000" />
       <workItem from="1516933095984" duration="3292000" />
-      <workItem from="1517194162400" duration="3952000" />
-    </task>
-    <task id="LOCAL-00072" summary="pulongwan——ok-隐藏导航栏">
-      <created>1506348392802</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1506348392802</updated>
+      <workItem from="1517194162400" duration="4430000" />
+      <workItem from="1517208540090" duration="660000" />
+      <workItem from="1517212695396" duration="25080000" />
     </task>
     <task id="LOCAL-00073" summary="pulongwan——ok-隐藏导航栏">
       <created>1506349037260</created>
@@ -1584,7 +1508,14 @@
       <option name="project" value="LOCAL" />
       <updated>1516202450092</updated>
     </task>
-    <option name="localTasksCounter" value="121" />
+    <task id="LOCAL-00121" summary="plw0129">
+      <created>1517204053389</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1517204053391</updated>
+    </task>
+    <option name="localTasksCounter" value="122" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1620,7 +1551,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="865123000" />
+    <option name="totallyTimeSpent" value="891341000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1633,7 +1564,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1658,7 +1588,7 @@
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2763562" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24481075" sideWeight="0.48085105" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24481075" sideWeight="0.48085105" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24542125" sideWeight="0.51914895" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1751,7 +1681,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="search" />
     <MESSAGE value="att" />
     <MESSAGE value="okok" />
     <MESSAGE value="V1 ok" />
@@ -1776,7 +1705,8 @@
     <MESSAGE value="海康监控ok" />
     <MESSAGE value="手机端" />
     <MESSAGE value="plw" />
-    <option name="LAST_COMMIT_MESSAGE" value="plw" />
+    <MESSAGE value="plw0129" />
+    <option name="LAST_COMMIT_MESSAGE" value="plw0129" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1789,357 +1719,53 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/ffmpeg/service/TaskHandlerImpl.java">
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_test.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="41" column="53" lean-forward="true" selection-start-line="41" selection-start-column="53" selection-end-line="41" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/ffmpeg/service/DefaultOutHandlerMethod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="41" lean-forward="true" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/VideoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="40" column="24" lean-forward="false" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_1113.sql" />
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/dto/WfChukuItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="975">
-          <caret line="113" column="32" lean-forward="false" selection-start-line="113" selection-start-column="32" selection-end-line="113" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_0111.sql" />
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/config/Constance.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/CollectRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="42" lean-forward="true" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/resources/spring-context.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="50" lean-forward="false" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/resources/sit/jdbc.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/weixin/src/main/resources/jdbc.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/resources/jdbc.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="18" lean-forward="false" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/poi/poi/3.16/poi-3.16.jar!/org/apache/poi/ss/usermodel/Sheet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3173">
-          <caret line="32" column="7" lean-forward="false" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/poi/poi/3.16/poi-3.16.jar!/org/apache/poi/ss/usermodel/Row.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="49" column="9" lean-forward="false" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/base/ExcelUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="61" column="28" lean-forward="true" selection-start-line="61" selection-start-column="28" selection-end-line="61" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://src:table:/5accf973/a508b2a7-1aab-47a1-be7c-dcfea24c0221/cnoa_oa.cnoa_jxc_collect">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/Collect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="22" column="40" lean-forward="false" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_0116.sql" />
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_0115.sql" />
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_0112.sql" />
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_0118.sql" />
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_0117.sql" />
-    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/AttController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-948">
-          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_0122.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="605">
-          <caret line="84" column="6" lean-forward="false" selection-start-line="84" selection-start-column="6" selection-end-line="84" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/weixin/src/main/java/com/shanglan/erp/controller/RiskController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="70" column="56" lean-forward="false" selection-start-line="70" selection-start-column="56" selection-end-line="70" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/weixin/src/main/webapp/WEB-INF/view/risk_valuelist.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="54" column="80" lean-forward="false" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/erp_collect.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="72" lean-forward="false" selection-start-line="41" selection-start-column="72" selection-end-line="41" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/erp_goods.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="760">
-          <caret line="75" column="25" lean-forward="false" selection-start-line="75" selection-start-column="25" selection-end-line="75" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/HiddenTroubleService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="66" column="24" lean-forward="false" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/HiddenTroubleController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="58" column="60" lean-forward="false" selection-start-line="58" selection-start-column="60" selection-end-line="58" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/RiskValue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/RiskValueRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="18" column="37" lean-forward="true" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/Category.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/entity/Goods.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="30" column="26" lean-forward="false" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/RiskService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="114" column="31" lean-forward="false" selection-start-line="114" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/test/com/shanglan/test/TestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="35" column="60" lean-forward="false" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/CategoryRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="27" column="19" lean-forward="false" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/service/ErpService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="84" column="22" lean-forward="true" selection-start-line="84" selection-start-column="22" selection-end-line="84" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/RiskController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="57" column="48" lean-forward="false" selection-start-line="57" selection-start-column="48" selection-end-line="57" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/java/com/shanglan/erp/controller/ErpController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="52" column="52" lean-forward="true" selection-start-line="52" selection-start-column="52" selection-end-line="52" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/webapp/WEB-INF/view/erp_category.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="732">
-          <caret line="234" column="33" lean-forward="false" selection-start-line="234" selection-start-column="33" selection-end-line="234" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/src/main/resources/product/jdbc.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/weixin/src/main/resources/product/jdbc.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_0120.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
-          <caret line="62" column="5" lean-forward="false" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
+        <state relative-caret-position="518">
+          <caret line="63" column="64" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="323">
-            <caret line="157" column="47" lean-forward="false" selection-start-line="157" selection-start-column="47" selection-end-line="157" selection-end-column="47" />
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-1415">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_0124.sql">
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_0128——ok.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1554">
-          <caret line="34" column="19" lean-forward="false" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="19" />
+        <state relative-caret-position="1635">
+          <caret line="109" column="40" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/repository/GoodsRepository.java">
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_ok.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6175">
-          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-          <folding>
-            <marker date="1516936061428" expanded="true" signature="1589:1694" ph="select * fro... cnoa_jxc_storage" />
-            <marker date="1516936061428" expanded="true" signature="2506:2541" ph="SELECT COUNT... cnoa_jxc_goods" />
-            <marker date="1516936061428" expanded="true" signature="2506:2544" ph="SELECT COUNT... cnoa_jxc_goods" />
-            <marker date="1516936061428" expanded="true" signature="2506:2560" ph="SELECT COUNT... cnoa_jxc_goods" />
-            <marker date="1516936061428" expanded="true" signature="2506:2561" ph="SELECT * FRO... cnoa_jxc_goods" />
-            <marker date="1516936061428" expanded="true" signature="3331:3569" ph="INSERT ignor... cnoa_jxc_goods" />
-            <marker date="1516936061428" expanded="true" signature="4042:4081" ph="DELETE FROM " />
-            <marker date="1516936061428" expanded="true" signature="8402:8681" ph="insert ignor... cnoa_jxc_goods" />
-            <marker date="1516936061428" expanded="true" signature="10598:10647" ph="SELECT count... cnoa_jxc_collect" />
-            <marker date="1516936061428" expanded="true" signature="11444:11870" ph="SELECT c.sto... cnoa_jxc_collect" />
-            <marker date="1516936061428" expanded="true" signature="15158:15327" ph="insert ignor... cnoa_jxc_stock_goods_detail" />
-            <marker date="1516936061428" expanded="true" signature="16386:16415" ph="TRUNCATE TAB... " />
-            <marker date="1516936061428" expanded="true" signature="16442:16484" ph="TRUNCATE TAB... " />
-            <marker date="1516936061428" expanded="true" signature="16511:16542" ph="TRUNCATE TAB... " />
-            <marker date="1516936061428" expanded="true" signature="16569:16584" ph="TRUNCATE TAB... " />
-            <marker date="1516936061428" expanded="true" signature="16626:16641" ph="TRUNCATE TAB... " />
-            <marker date="1516936061428" expanded="true" signature="16683:16718" ph="TRUNCATE TAB... " />
-            <marker date="1516936061428" expanded="true" signature="16745:16779" ph="TRUNCATE TAB... " />
-            <marker date="1516936061428" expanded="true" signature="17405:17610" ph="select c.id,... cnoa_jxc_stock_chuku" />
-            <marker date="1516936061428" expanded="true" signature="19642:19696" ph="select * fro... missingValue" />
-            <marker date="1516936061428" expanded="true" signature="21361:21415" ph="select * fro... missingValue" />
-            <marker date="1516936061428" expanded="true" signature="22925:22974" ph="select * fro... cnoa_main_user" />
-            <marker date="1516936061428" expanded="true" signature="23779:23839" ph="DELETE FROM " />
-            <marker date="1516936061428" expanded="true" signature="23869:23942" ph="DELETE FROM " />
-            <marker date="1516936061428" expanded="true" signature="24394:24508" ph="insert ignor... cnoa_jxc_stock_goods_detail" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_0125.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="176" column="36" lean-forward="false" selection-start-line="176" selection-start-column="36" selection-end-line="176" selection-end-column="36" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/resources/erp-core.properties">
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_0130.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="664">
-          <caret line="54" column="22" lean-forward="false" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="22" />
+        <state relative-caret-position="665">
+          <caret line="159" column="6" lean-forward="false" selection-start-line="159" selection-start-column="6" selection-end-line="159" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/main/java/com/shanglan/erp/sql/pulongwan_erpinit_0129.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1787">
-          <caret line="179" column="24" lean-forward="false" selection-start-line="179" selection-start-column="5" selection-end-line="179" selection-end-column="24" />
+        <state relative-caret-position="-431">
+          <caret line="107" column="40" lean-forward="false" selection-start-line="107" selection-start-column="40" selection-end-line="107" selection-end-column="40" />
           <folding />
         </state>
       </provider>
